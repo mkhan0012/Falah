@@ -37,32 +37,13 @@ function ContactForm() {
     phone: "",
     company: "",
     website: "",
-    needs: [] as string[],
+    needs: (prefillNeed && needsOptions.includes(prefillNeed)) ? [prefillNeed] : [] as string[],
     budget: "",
     timeline: "",
-    message: ""
+    message: prefillContext ? `System Context: ${prefillContext}\n\n` : ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-
-  useEffect(() => {
-    const newNeeds = [...formData.needs];
-    if (prefillNeed && needsOptions.includes(prefillNeed) && !newNeeds.includes(prefillNeed)) {
-      newNeeds.push(prefillNeed);
-    }
-    
-    let initialMessage = formData.message;
-    if (prefillContext) {
-      initialMessage = `System Context: ${prefillContext}\n\n`;
-    }
-
-    setFormData(prev => ({
-      ...prev,
-      needs: newNeeds.length > 0 ? newNeeds : prev.needs,
-      message: prev.message === "" ? initialMessage : prev.message
-    }));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [prefillNeed, prefillContext]);
 
   const toggleNeed = (need: string) => {
     setFormData(prev => ({

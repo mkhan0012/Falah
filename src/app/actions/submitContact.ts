@@ -1,9 +1,19 @@
 "use server";
 
 import { promises as fs } from "fs";
-import path from "path";
+interface ContactFormData {
+  name: string;
+  email: string;
+  phone?: string;
+  company?: string;
+  website?: string;
+  needs: string[];
+  budget?: string;
+  timeline?: string;
+  message: string;
+}
 
-export async function submitContact(formData: any) {
+export async function submitContact(formData: ContactFormData) {
   try {
     // Basic validation
     if (!formData.name || !formData.email || !formData.message) {

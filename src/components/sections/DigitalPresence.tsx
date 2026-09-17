@@ -103,10 +103,10 @@ export default function DigitalPresence() {
 
       const tl = gsap.timeline();
       
-      items.forEach((item: any, i) => {
-        tl.to(item, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, i * 0.2);
+      items.forEach((item, i) => {
+        tl.to(item as HTMLElement, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, i * 0.2);
         if (lines[i]) {
-          tl.to(lines[i] as any, { strokeDashoffset: 0, duration: 0.4, ease: "none" }, i * 0.2 + 0.1);
+          tl.to(lines[i] as SVGPathElement, { strokeDashoffset: 0, duration: 0.4, ease: "none" }, i * 0.2 + 0.1);
         }
       });
     }, container);

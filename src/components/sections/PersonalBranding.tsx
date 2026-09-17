@@ -15,6 +15,7 @@ const stages = [
 
 export default function PersonalBranding() {
   const [activeStage, setActiveStage] = useState(0);
+  const [profileType, setProfileType] = useState<"ordinary" | "positioned">("ordinary");
 
   return (
     <section className="py-24 md:py-40 bg-charcoal text-ivory relative border-t border-warm-grey">
@@ -37,6 +38,66 @@ export default function PersonalBranding() {
             <div className="md:col-span-5 pb-2 md:pb-6">
               <p className="text-lg md:text-xl text-ivory/70 font-primary leading-relaxed">
                 We help founders, executives, professionals and creators turn expertise into a digital presence people remember.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* The Profile Toggle Demo */}
+        <div className="mb-32">
+          <div className="flex justify-center mb-12">
+            <div className="flex border border-ivory/20 p-1 bg-ivory/5">
+              <button 
+                onClick={() => setProfileType("ordinary")}
+                className={clsx(
+                  "px-6 py-3 font-mono text-[10px] uppercase tracking-widest font-bold transition-colors",
+                  profileType === "ordinary" ? "bg-ivory text-charcoal" : "text-ivory/50 hover:text-ivory"
+                )}
+              >
+                Ordinary Profile
+              </button>
+              <button 
+                onClick={() => setProfileType("positioned")}
+                className={clsx(
+                  "px-6 py-3 font-mono text-[10px] uppercase tracking-widest font-bold transition-colors",
+                  profileType === "positioned" ? "bg-vermilion text-ivory" : "text-ivory/50 hover:text-ivory"
+                )}
+              >
+                Positioned Profile
+              </button>
+            </div>
+          </div>
+
+          <div className="max-w-2xl mx-auto border border-ivory/10 bg-ivory/5 overflow-hidden relative min-h-[250px]">
+            {/* Ordinary Card */}
+            <div className={clsx(
+              "absolute inset-0 p-8 flex flex-col justify-center transition-all duration-700 ease-in-out",
+              profileType === "ordinary" ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12 pointer-events-none"
+            )}>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-16 h-16 bg-white/20 rounded-full" />
+                <div>
+                  <h4 className="font-sans text-lg font-normal text-white/90">John Doe</h4>
+                  <p className="font-sans text-sm text-white/50">Founder at TechCo</p>
+                </div>
+              </div>
+              <p className="font-sans text-white/60">I help businesses grow and scale their operations.</p>
+            </div>
+
+            {/* Positioned Card */}
+            <div className={clsx(
+              "absolute inset-0 p-8 flex flex-col justify-center transition-all duration-700 ease-in-out bg-graphite/50",
+              profileType === "positioned" ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12 pointer-events-none"
+            )}>
+              <div className="flex items-start gap-6 mb-6">
+                <div className="w-20 h-20 bg-ivory shrink-0" />
+                <div>
+                  <h4 className="font-primary text-3xl font-bold tracking-tight text-ivory mb-2 uppercase">John Doe</h4>
+                  <p className="font-mono text-xs tracking-widest text-vermilion uppercase font-bold">Founder, TechCo</p>
+                </div>
+              </div>
+              <p className="font-primary text-xl text-ivory/80 leading-relaxed font-light">
+                Re-engineering enterprise scale. Building systems that turn friction into momentum.
               </p>
             </div>
           </div>
