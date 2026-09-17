@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import clsx from "clsx";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import BuildSystemOverlay from "@/components/interactive/BuildSystemOverlay";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -12,10 +12,25 @@ gsap.registerPlugin(ScrollTrigger);
 const systemNodes = [
   { id: "brand", label: "BRAND", desc: "The core identity, values, and visual language." },
   { id: "positioning", label: "POSITIONING", desc: "How you are perceived in the market." },
-  { id: "website", label: "WEBSITE", desc: "The central digital hub and conversion engine." },
-  { id: "seo", label: "SEO", desc: "Capturing organic intent and building authority." },
+  { 
+    id: "website", 
+    label: "WEBSITE", 
+    desc: "The central digital hub and conversion engine.",
+    subSystem: ["EXPERIENCE", "TRUST", "ACTION", "CONVERSION"]
+  },
+  { 
+    id: "seo", 
+    label: "SEO", 
+    desc: "Capturing organic intent and building authority.",
+    subSystem: ["SEARCH", "INTENT", "CONTENT", "AUTHORITY", "LEADS"]
+  },
   { id: "content", label: "CONTENT", desc: "Educational and persuasive communication." },
-  { id: "social", label: "SOCIAL", desc: "Distribution and community engagement." },
+  { 
+    id: "social", 
+    label: "SOCIAL", 
+    desc: "Distribution and community engagement.",
+    subSystem: ["CONTENT", "DISTRIBUTION", "COMMUNITY", "AUTHORITY"]
+  },
   { id: "personal", label: "PERSONAL BRAND", desc: "Founder authority and thought leadership." },
   { id: "growth", label: "GROWTH", desc: "Scaling systems and optimizing conversions." },
 ];
@@ -25,6 +40,7 @@ export default function DigitalPresence() {
   const lineRef = useRef<HTMLDivElement>(null);
   const nodesRef = useRef<(HTMLDivElement | null)[]>([]);
   const [activeNode, setActiveNode] = useState<number | null>(null);
+  const [expandedNode, setExpandedNode] = useState<number | null>(null);
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
   useEffect(() => {
@@ -68,73 +84,130 @@ export default function DigitalPresence() {
     return () => ctx.revert();
   }, []);
 
+  const handleNodeClick = (index: number) => {
+    if (expandedNode === index) {
+      setExpandedNode(null);
+    } else {
+      setExpandedNode(index);
+      setActiveNode(index);
+    }
+  };
+
   return (
     <section ref={containerRef} className="py-32 md:py-48 bg-charcoal text-ivory relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-[5vw]">
         <div className="text-center max-w-4xl mx-auto mb-24 md:mb-40">
           <h2 className="text-5xl md:text-[6vw] font-primary font-bold leading-[0.9] tracking-tight mb-8">
-            WE DON&apos;T JUST<br />MAKE WEBSITES.
+            ONE PARTNER.<br />YOUR ENTIRE DIGITAL PRESENCE.
           </h2>
           <p className="text-sm md:text-base font-mono tracking-widest uppercase text-vermilion">
-            WE BUILD DIGITAL PRESENCE.
+            THE FALAH SYSTEM
           </p>
         </div>
 
-        <div className="relative max-w-3xl mx-auto">
+        <div className="relative max-w-4xl mx-auto">
           {/* Central Line */}
           <div className="absolute top-0 bottom-0 left-[23px] md:left-1/2 md:-translate-x-1/2 w-[1px] bg-slate/30" />
           <div ref={lineRef} className="absolute top-0 bottom-0 left-[23px] md:left-1/2 md:-translate-x-1/2 w-[1px] bg-vermilion" />
 
           {/* Nodes */}
-          <div className="flex flex-col gap-12 md:gap-20">
+          <div className="flex flex-col gap-16 md:gap-24">
             {systemNodes.map((node, i) => {
               const isLeft = i % 2 === 0;
+              const isExpanded = expandedNode === i;
+              
               return (
                 <div 
                   key={node.id} 
                   ref={el => { nodesRef.current[i] = el; }}
                   className={clsx(
-                    "flex flex-row items-center gap-8 md:gap-0 relative z-10",
+                    "flex flex-col md:flex-row md:items-start gap-8 md:gap-0 relative z-10 transition-all duration-500",
                     isLeft ? "md:flex-row-reverse" : ""
                   )}
                   onMouseEnter={() => setActiveNode(i)}
-                  onMouseLeave={() => setActiveNode(null)}
+                  onMouseLeave={() => { if (expandedNode !== i) setActiveNode(null); }}
                 >
                   {/* Desc (Desktop) */}
                   <div className={clsx(
-                    "hidden md:block flex-1",
+                    "hidden md:block flex-1 mt-2",
                     isLeft ? "text-left pl-12" : "text-right pr-12"
                   )}>
                     <p className={clsx(
                       "text-sm font-mono transition-all duration-300",
-                      activeNode === i ? "opacity-100 translate-y-0 text-ivory" : "opacity-0 translate-y-4 text-ivory/60"
+                      activeNode === i || isExpanded ? "opacity-100 translate-y-0 text-ivory" : "opacity-0 translate-y-4 text-ivory/60"
                     )}>
                       {node.desc}
                     </p>
+                    
+                    {/* Interactive Click Prompt (Desktop) */}
+                    {node.subSystem && !isExpanded && (
+                      <p className={clsx(
+                        "text-[10px] font-mono text-vermilion uppercase tracking-widest mt-4 transition-all duration-300 cursor-pointer",
+                        activeNode === i ? "opacity-100" : "opacity-0"
+                      )} onClick={() => handleNodeClick(i)}>
+                        Click to explore system +
+                      </p>
+                    )}
                   </div>
 
                   {/* Indicator */}
-                  <div className="node-indicator w-12 h-12 rounded-full border border-ivory/20 bg-charcoal flex items-center justify-center shrink-0 transition-colors group cursor-pointer hover:border-vermilion z-10 relative">
+                  <div 
+                    className="node-indicator w-12 h-12 rounded-full border border-ivory/20 bg-charcoal flex items-center justify-center shrink-0 transition-colors group cursor-pointer hover:border-vermilion z-10 relative"
+                    onClick={() => handleNodeClick(i)}
+                  >
                     <div className={clsx(
                       "w-3 h-3 rounded-full transition-colors",
-                      activeNode === i ? "bg-vermilion shadow-[0_0_15px_#E6532F]" : "bg-ivory/40 group-hover:bg-vermilion"
+                      activeNode === i || isExpanded ? "bg-vermilion shadow-[0_0_15px_#E6532F]" : "bg-ivory/40 group-hover:bg-vermilion"
                     )} />
                   </div>
 
                   {/* Label (Desktop) / Label + Desc (Mobile) */}
                   <div className={clsx(
-                    "node-text flex-1",
+                    "node-text flex-1 mt-1",
                     isLeft ? "md:text-right md:pr-12" : "md:text-left md:pl-12"
                   )}>
-                    <h3 className={clsx(
-                      "text-2xl md:text-4xl font-primary font-bold tracking-tight transition-colors",
-                      activeNode === i ? "text-vermilion" : "text-ivory"
-                    )}>
+                    <h3 
+                      className={clsx(
+                        "text-2xl md:text-4xl font-primary font-bold tracking-tight transition-colors cursor-pointer inline-block",
+                        activeNode === i || isExpanded ? "text-vermilion" : "text-ivory hover:text-vermilion/70"
+                      )}
+                      onClick={() => handleNodeClick(i)}
+                    >
                       {node.label}
                     </h3>
+                    
                     <p className="md:hidden text-xs font-mono text-ivory/60 mt-2">
                       {node.desc}
                     </p>
+
+                    {/* Interactive Click Prompt (Mobile) */}
+                    {node.subSystem && !isExpanded && (
+                      <p className="md:hidden text-[10px] font-mono text-vermilion uppercase tracking-widest mt-4 cursor-pointer" onClick={() => handleNodeClick(i)}>
+                        Click to explore system +
+                      </p>
+                    )}
+
+                    {/* Subsystem Expansion */}
+                    <div className={clsx(
+                      "grid transition-all duration-500 ease-in-out origin-top",
+                      isExpanded ? "grid-rows-[1fr] opacity-100 mt-8" : "grid-rows-[0fr] opacity-0 mt-0"
+                    )}>
+                      <div className={clsx(
+                        "overflow-hidden flex flex-wrap items-center gap-3 md:gap-4",
+                        isLeft ? "md:justify-end" : "md:justify-start"
+                      )}>
+                        {node.subSystem?.map((sub, idx) => (
+                          <div key={sub} className="flex items-center gap-3 md:gap-4 animate-in fade-in slide-in-from-left-4" style={{ animationDelay: `${idx * 100}ms`, animationFillMode: 'both' }}>
+                            <span className="text-xs md:text-sm font-mono font-bold text-ivory/80 uppercase tracking-wider bg-ivory/5 px-4 py-2 border border-ivory/10">
+                              {sub}
+                            </span>
+                            {idx !== (node.subSystem?.length || 0) - 1 && (
+                              <ArrowRight size={14} className="text-vermilion hidden md:block" />
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               );
