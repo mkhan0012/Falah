@@ -9,6 +9,7 @@ import VeyraMethod from "@/components/sections/VeyraMethod";
 import HealthCheck from "@/components/sections/HealthCheck";
 import InsightsSection from "@/components/sections/InsightsSection";
 import FinalCta from "@/components/sections/FinalCta";
+import AboutSection from "@/components/sections/AboutSection";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <FalahGrid />
       <SelectedWork />
       <IndustryScroll />
+      <AboutSection />
       <ServicesSection />
       <DigitalPresence />
       <PersonalBranding />
