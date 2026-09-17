@@ -172,7 +172,7 @@ export default function BuildSystemOverlay({ isOpen, onClose }: { isOpen: boolea
             
             <div className="mt-16 flex justify-center">
               <Link 
-                href="/contact"
+                href={`/contact?need=${encodeURIComponent(answers[2] || '')}&context=${encodeURIComponent(`${answers[1] || ''} | ${answers[3] || ''} | ${answers[4] || ''}`)}`}
                 onClick={onClose}
                 className="inline-flex items-center gap-2 bg-ivory text-graphite px-8 py-5 text-sm font-mono font-bold uppercase hover:bg-vermilion hover:text-ivory transition-colors group tracking-wider"
               >

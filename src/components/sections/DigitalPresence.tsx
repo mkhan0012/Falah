@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import clsx from "clsx";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import BuildSystemOverlay from "@/components/interactive/BuildSystemOverlay";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -39,10 +39,13 @@ export default function DigitalPresence() {
   const containerRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
   const nodesRef = useRef<(HTMLDivElement | null)[]>([]);
+  const subSystemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  
   const [activeNode, setActiveNode] = useState<number | null>(null);
   const [expandedNode, setExpandedNode] = useState<number | null>(null);
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
+  // Initial Scroll Animation
   useEffect(() => {
     if (!containerRef.current || !lineRef.current) return;
 
@@ -60,7 +63,6 @@ export default function DigitalPresence() {
 
       nodesRef.current.forEach((node) => {
         if (!node) return;
-        
         const indicator = node.querySelector('.node-indicator');
         const text = node.querySelector('.node-text');
 
@@ -84,6 +86,34 @@ export default function DigitalPresence() {
     return () => ctx.revert();
   }, []);
 
+  // Handle Expansion Animation with SVG Lines
+  useEffect(() => {
+    if (expandedNode === null) return;
+    
+    const container = subSystemRefs.current[expandedNode];
+    if (!container) return;
+
+    const ctx = gsap.context(() => {
+      const items = gsap.utils.toArray('.sub-item');
+      const lines = gsap.utils.toArray('.svg-line path');
+
+      // Reset
+      gsap.set(items, { opacity: 0, x: -20 });
+      gsap.set(lines, { strokeDasharray: 100, strokeDashoffset: 100 });
+
+      const tl = gsap.timeline();
+      
+      items.forEach((item: any, i) => {
+        tl.to(item, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, i * 0.2);
+        if (lines[i]) {
+          tl.to(lines[i] as any, { strokeDashoffset: 0, duration: 0.4, ease: "none" }, i * 0.2 + 0.1);
+        }
+      });
+    }, container);
+
+    return () => ctx.revert();
+  }, [expandedNode]);
+
   const handleNodeClick = (index: number) => {
     if (expandedNode === index) {
       setExpandedNode(null);
@@ -105,7 +135,7 @@ export default function DigitalPresence() {
           </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-5xl mx-auto">
           {/* Central Line */}
           <div className="absolute top-0 bottom-0 left-[23px] md:left-1/2 md:-translate-x-1/2 w-[1px] bg-slate/30" />
           <div ref={lineRef} className="absolute top-0 bottom-0 left-[23px] md:left-1/2 md:-translate-x-1/2 w-[1px] bg-vermilion" />
@@ -115,6 +145,7 @@ export default function DigitalPresence() {
             {systemNodes.map((node, i) => {
               const isLeft = i % 2 === 0;
               const isExpanded = expandedNode === i;
+              const isFocused = expandedNode !== null && expandedNode !== i;
               
               return (
                 <div 
@@ -122,10 +153,11 @@ export default function DigitalPresence() {
                   ref={el => { nodesRef.current[i] = el; }}
                   className={clsx(
                     "flex flex-col md:flex-row md:items-start gap-8 md:gap-0 relative z-10 transition-all duration-500",
-                    isLeft ? "md:flex-row-reverse" : ""
+                    isLeft ? "md:flex-row-reverse" : "",
+                    isFocused ? "opacity-30 blur-[2px]" : "opacity-100"
                   )}
-                  onMouseEnter={() => setActiveNode(i)}
-                  onMouseLeave={() => { if (expandedNode !== i) setActiveNode(null); }}
+                  onMouseEnter={() => { if (expandedNode === null) setActiveNode(i); }}
+                  onMouseLeave={() => { if (expandedNode === null) setActiveNode(null); }}
                 >
                   {/* Desc (Desktop) */}
                   <div className={clsx(
@@ -142,22 +174,25 @@ export default function DigitalPresence() {
                     {/* Interactive Click Prompt (Desktop) */}
                     {node.subSystem && !isExpanded && (
                       <p className={clsx(
-                        "text-[10px] font-mono text-vermilion uppercase tracking-widest mt-4 transition-all duration-300 cursor-pointer",
+                        "text-[10px] font-mono text-vermilion uppercase tracking-widest mt-4 transition-all duration-300 cursor-pointer hover:text-ivory",
                         activeNode === i ? "opacity-100" : "opacity-0"
                       )} onClick={() => handleNodeClick(i)}>
-                        Click to explore system +
+                        [ Click to explore system ]
                       </p>
                     )}
                   </div>
 
                   {/* Indicator */}
                   <div 
-                    className="node-indicator w-12 h-12 rounded-full border border-ivory/20 bg-charcoal flex items-center justify-center shrink-0 transition-colors group cursor-pointer hover:border-vermilion z-10 relative"
+                    className={clsx(
+                      "node-indicator w-12 h-12 rounded-full border bg-charcoal flex items-center justify-center shrink-0 transition-colors duration-500 group cursor-pointer z-10 relative",
+                      isExpanded ? "border-vermilion shadow-[0_0_30px_rgba(230,83,47,0.3)]" : "border-ivory/20 hover:border-vermilion"
+                    )}
                     onClick={() => handleNodeClick(i)}
                   >
                     <div className={clsx(
-                      "w-3 h-3 rounded-full transition-colors",
-                      activeNode === i || isExpanded ? "bg-vermilion shadow-[0_0_15px_#E6532F]" : "bg-ivory/40 group-hover:bg-vermilion"
+                      "w-3 h-3 rounded-full transition-all duration-500",
+                      activeNode === i || isExpanded ? "bg-vermilion scale-125" : "bg-ivory/40 group-hover:bg-vermilion"
                     )} />
                   </div>
 
@@ -168,8 +203,8 @@ export default function DigitalPresence() {
                   )}>
                     <h3 
                       className={clsx(
-                        "text-2xl md:text-4xl font-primary font-bold tracking-tight transition-colors cursor-pointer inline-block",
-                        activeNode === i || isExpanded ? "text-vermilion" : "text-ivory hover:text-vermilion/70"
+                        "text-3xl md:text-5xl font-primary font-bold tracking-tight transition-all duration-500 cursor-pointer inline-block",
+                        activeNode === i || isExpanded ? "text-vermilion translate-x-2" : "text-ivory hover:text-vermilion/70"
                       )}
                       onClick={() => handleNodeClick(i)}
                     >
@@ -183,29 +218,48 @@ export default function DigitalPresence() {
                     {/* Interactive Click Prompt (Mobile) */}
                     {node.subSystem && !isExpanded && (
                       <p className="md:hidden text-[10px] font-mono text-vermilion uppercase tracking-widest mt-4 cursor-pointer" onClick={() => handleNodeClick(i)}>
-                        Click to explore system +
+                        [ Click to explore system ]
                       </p>
                     )}
 
-                    {/* Subsystem Expansion */}
-                    <div className={clsx(
-                      "grid transition-all duration-500 ease-in-out origin-top",
-                      isExpanded ? "grid-rows-[1fr] opacity-100 mt-8" : "grid-rows-[0fr] opacity-0 mt-0"
-                    )}>
+                    {/* Subsystem Expansion (GSAP Animated with SVGs) */}
+                    <div 
+                      ref={el => { subSystemRefs.current[i] = el; }}
+                      className={clsx(
+                        "grid transition-all duration-500 ease-in-out origin-top",
+                        isExpanded ? "grid-rows-[1fr] opacity-100 mt-8" : "grid-rows-[0fr] opacity-0 mt-0"
+                      )}
+                    >
                       <div className={clsx(
-                        "overflow-hidden flex flex-wrap items-center gap-3 md:gap-4",
-                        isLeft ? "md:justify-end" : "md:justify-start"
+                        "overflow-hidden flex flex-col gap-2",
+                        isLeft ? "md:items-end" : "md:items-start"
                       )}>
+                        
+                        {/* We use a vertical interconnected path approach */}
                         {node.subSystem?.map((sub, idx) => (
-                          <div key={sub} className="flex items-center gap-3 md:gap-4 animate-in fade-in slide-in-from-left-4" style={{ animationDelay: `${idx * 100}ms`, animationFillMode: 'both' }}>
-                            <span className="text-xs md:text-sm font-mono font-bold text-ivory/80 uppercase tracking-wider bg-ivory/5 px-4 py-2 border border-ivory/10">
+                          <div key={sub} className={clsx(
+                            "sub-item flex items-center gap-4 relative",
+                            isLeft ? "md:flex-row-reverse" : "md:flex-row"
+                          )}>
+                            
+                            {/* SVG Connection Node */}
+                            <div className="relative flex items-center justify-center w-6 h-12 shrink-0">
+                              <div className="w-1.5 h-1.5 rounded-full bg-vermilion z-10" />
+                              {idx !== (node.subSystem?.length || 0) - 1 && (
+                                <svg className="svg-line absolute top-6 left-1/2 -translate-x-1/2 w-[2px] h-8 text-vermilion opacity-50" viewBox="0 0 2 32" preserveAspectRatio="none">
+                                  <path d="M1,0 L1,32" stroke="currentColor" strokeWidth="2" fill="none" />
+                                </svg>
+                              )}
+                            </div>
+                            
+                            {/* System Text */}
+                            <span className="text-sm md:text-base font-mono font-bold text-ivory tracking-widest uppercase py-2">
                               {sub}
                             </span>
-                            {idx !== (node.subSystem?.length || 0) - 1 && (
-                              <ArrowRight size={14} className="text-vermilion hidden md:block" />
-                            )}
+                            
                           </div>
                         ))}
+
                       </div>
                     </div>
                   </div>
