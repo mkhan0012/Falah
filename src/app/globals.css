@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #F4F1EA;
+  --color-graphite: #171717;
+  --color-slate: #5E5E5A;
+  --color-charcoal: #1B1B1A;
+  --color-vermilion: #E6532F;
+  --color-warm-grey: #D7D2C8;
+  
+  --font-primary: var(--font-primary), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-ivory);
+    color: var(--color-graphite);
+    cursor: none;
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-graphite);
+  }
+
+  ::selection {
+    background-color: var(--color-vermilion);
+    color: var(--color-ivory);
+  }
+
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-scroll-container] {
+    will-change: transform;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
