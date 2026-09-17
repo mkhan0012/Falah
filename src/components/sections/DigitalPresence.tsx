@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import clsx from "clsx";
+import { ArrowUpRight } from "lucide-react";
+import BuildSystemOverlay from "@/components/interactive/BuildSystemOverlay";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,6 +25,7 @@ export default function DigitalPresence() {
   const lineRef = useRef<HTMLDivElement>(null);
   const nodesRef = useRef<(HTMLDivElement | null)[]>([]);
   const [activeNode, setActiveNode] = useState<number | null>(null);
+  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
   useEffect(() => {
     if (!containerRef.current || !lineRef.current) return;
@@ -137,8 +140,19 @@ export default function DigitalPresence() {
               );
             })}
           </div>
+
+          <div className="mt-32 flex justify-center relative z-20">
+            <button 
+              onClick={() => setIsOverlayOpen(true)}
+              className="inline-flex items-center gap-2 border border-ivory px-8 py-5 text-sm font-mono font-bold uppercase text-ivory hover:bg-ivory hover:text-charcoal transition-colors group tracking-wide"
+            >
+              BUILD YOUR DIGITAL PRESENCE <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </button>
+          </div>
         </div>
       </div>
+      
+      <BuildSystemOverlay isOpen={isOverlayOpen} onClose={() => setIsOverlayOpen(false)} />
     </section>
   );
 }

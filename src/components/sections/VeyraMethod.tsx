@@ -17,17 +17,18 @@ const methodSteps = [
 
 export default function VeyraMethod() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const pinRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState<number>(0);
 
   useEffect(() => {
-    if (!containerRef.current || !scrollRef.current) return;
+    if (!containerRef.current || !scrollRef.current || !pinRef.current) return;
 
     const ctx = gsap.context(() => {
       const sections = gsap.utils.toArray(".method-step");
       
       ScrollTrigger.create({
-        trigger: containerRef.current,
+        trigger: pinRef.current,
         start: "top top",
         end: "+=200%",
         pin: true,
@@ -42,8 +43,9 @@ export default function VeyraMethod() {
   }, []);
 
   return (
-    <section ref={containerRef} className="h-screen bg-charcoal text-ivory flex flex-col justify-center overflow-hidden">
-      <div className="container mx-auto px-6 md:px-[5vw]">
+    <section ref={containerRef}>
+      <div ref={pinRef} className="h-screen bg-charcoal text-ivory flex flex-col justify-center overflow-hidden">
+        <div className="container mx-auto px-6 md:px-[5vw]">
         
         <div className="mb-20">
           <p className="text-xs font-mono tracking-[0.2em] uppercase text-ivory/60 mb-4">THE METHOD</p>
@@ -80,6 +82,7 @@ export default function VeyraMethod() {
             ))}
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
