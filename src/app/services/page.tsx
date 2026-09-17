@@ -16,7 +16,7 @@ export default function ServicesPage() {
             OUR <span className="text-foreground/40 italic">SERVICES</span>
           </h1>
           <p className="text-xl md:text-2xl text-foreground/60 max-w-3xl font-light">
-            We build complete digital systems. Strategy, design, technology, and growthÃ¢â‚¬â€integrated into a single offering.
+            We build complete digital systems. Strategy, design, technology, and growth — integrated into a single offering.
           </p>
         </div>
 
