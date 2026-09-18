@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
+import MagneticButton from "@/components/ui/MagneticButton";
 
 const cycleWords = ["BRAND", "DIGITAL", "VISIBILITY", "GROWTH"];
 
@@ -107,13 +108,15 @@ export default function HeroSection() {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 shrink-0">
-              <Link 
-                href="/contact"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 border border-graphite bg-transparent text-graphite px-6 py-4 font-mono text-sm font-bold hover:bg-graphite hover:text-ivory transition-colors group"
-              >
-                START A PROJECT 
-                <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </Link>
+              <MagneticButton>
+                <Link 
+                  href="/contact"
+                  className="w-full sm:w-auto flex items-center justify-center gap-2 border border-graphite bg-transparent text-graphite px-6 py-4 font-mono text-sm font-bold hover:bg-graphite hover:text-ivory transition-colors group"
+                >
+                  START A PROJECT 
+                  <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </Link>
+              </MagneticButton>
               <Link 
                 href="/work"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-4 text-slate hover:text-vermilion font-mono text-sm font-bold transition-colors group"

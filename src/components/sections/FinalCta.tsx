@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import MagneticButton from "@/components/ui/MagneticButton";
 
 export default function FinalCta() {
   return (
@@ -15,12 +16,14 @@ export default function FinalCta() {
           Tell us what you&apos;re building.
         </p>
         
-        <Link 
-          href="/contact"
-          className="inline-flex items-center gap-2 bg-graphite text-ivory px-8 py-5 text-sm font-mono font-bold uppercase hover:bg-white hover:text-graphite transition-colors group"
-        >
-          START A PROJECT <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-        </Link>
+        <MagneticButton>
+          <Link 
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-graphite text-ivory px-8 py-5 text-sm font-mono font-bold uppercase hover:bg-white hover:text-graphite transition-colors group"
+          >
+            START A PROJECT <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </Link>
+        </MagneticButton>
       </div>
     </section>
   );

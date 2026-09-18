@@ -39,7 +39,7 @@ export const projects: Project[] = [
     heroImage: "/images/mockups/bharat.jpg",
     gallery: [
       "/images/mockups/bharat.jpg",
-      "/images/mockups/bharat.jpg"
+      "/images/mockups/bharat-mobile.jpg"
     ]
   },
   {
@@ -63,7 +63,7 @@ export const projects: Project[] = [
     heroImage: "/images/mockups/novazen.jpg",
     gallery: [
       "/images/mockups/novazen.jpg",
-      "/images/mockups/novazen.jpg"
+      "/images/mockups/novazen-mobile.jpg"
     ]
   },
   {
@@ -87,7 +87,7 @@ export const projects: Project[] = [
     heroImage: "/images/mockups/velora.jpg",
     gallery: [
       "/images/mockups/velora.jpg",
-      "/images/mockups/velora.jpg"
+      "/images/mockups/velora-mobile.jpg"
     ]
   }
 ];

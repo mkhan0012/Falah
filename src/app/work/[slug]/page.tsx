@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import { projects } from "@/data/projects";
 import FinalCta from "@/components/sections/FinalCta";
+import ImageLightbox from "@/components/ui/ImageLightbox";
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
@@ -93,12 +94,11 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       {/* Main Image */}
       <section className="border-b border-warm-grey bg-charcoal p-6 md:p-[5vw]">
         <div className="relative aspect-[16/9] w-full overflow-hidden bg-charcoal border border-ivory/10">
-          <Image 
+          <ImageLightbox 
             src={project.heroImage}
             alt={`${project.client} Hero`}
             fill
             className="object-cover opacity-90 hover:opacity-100 transition-opacity duration-700"
-            priority
           />
         </div>
         <div className="mt-8 flex justify-between items-center text-ivory/50 text-xs font-mono uppercase tracking-widest">
@@ -178,7 +178,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                 <span className="text-xs font-mono text-ivory/40">DESKTOP</span>
               </div>
               <div className="relative aspect-video w-full overflow-hidden bg-charcoal">
-                <Image src={project.gallery[0] || project.heroImage} alt="Website Experience" fill className="object-cover opacity-80" />
+                <ImageLightbox src={project.gallery[0] || project.heroImage} alt="Website Experience" fill className="object-cover object-top opacity-80" />
               </div>
             </div>
 
@@ -189,7 +189,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                 <span className="text-xs font-mono text-ivory/40">RESPONSIVE</span>
               </div>
               <div className="relative aspect-[9/16] w-full max-w-[300px] mx-auto overflow-hidden bg-charcoal border-[8px] border-black rounded-[2rem]">
-                <Image src={project.gallery[1] || project.heroImage} alt="Mobile Experience" fill className="object-cover opacity-80" />
+                <ImageLightbox src={project.gallery[1] || project.heroImage} alt="Mobile Experience" fill className="object-cover object-top opacity-80" />
               </div>
             </div>
 
