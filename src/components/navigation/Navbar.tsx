@@ -228,7 +228,7 @@ export default function Navbar() {
                       className="text-lg text-vermilion font-mono pl-4 pt-2 block border-l border-warm-grey"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      VIEW ALL SERVICES ?
+                      VIEW ALL SERVICES →
                     </Link>
                   </div>
                 </>

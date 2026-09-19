@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, Suspense } from "react";
 import { submitContact } from "../actions/submitContact";
@@ -21,7 +21,8 @@ function RfpForm() {
     goals: "",
     budget: "",
     timeline: "",
-    message: ""
+    message: "",
+    honeypot: ""
   });
 
   const needsOptions = ["Branding", "Website", "SEO", "Social Media", "Digital Marketing", "Personal Branding", "Complete Digital Presence", "Other"];
@@ -73,6 +74,20 @@ function RfpForm() {
           {error}
         </div>
       )}
+
+      {/* Honeypot field (hidden from real users, but bots might fill it) */}
+      <div aria-hidden="true" className="hidden opacity-0 absolute pointer-events-none -left-[9999px]">
+        <label htmlFor="bot-check">Do not fill this out</label>
+        <input
+          type="text"
+          id="bot-check"
+          name="honeypot"
+          tabIndex={-1}
+          autoComplete="off"
+          value={formData.honeypot}
+          onChange={e => setFormData({...formData, honeypot: e.target.value})}
+        />
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="space-y-2">

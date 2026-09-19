@@ -5,6 +5,7 @@ import SmoothScroll from "@/components/ui/SmoothScroll";
 import CustomCursor from "@/components/ui/CustomCursor";
 import Navbar from "@/components/navigation/Navbar";
 import Footer from "@/components/navigation/Footer";
+import CookieConsent from "@/components/ui/CookieConsent";
 
 const instrumentSans = Instrument_Sans({
   variable: "--font-primary",
@@ -69,6 +70,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <CookieConsent />
         </SmoothScroll>
       </body>
     </html>

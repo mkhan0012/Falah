@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -50,12 +50,14 @@ export default function Footer() {
             <h4 className="text-xs font-mono font-bold tracking-widest text-ivory/40 mb-8 uppercase">CONTACT</h4>
             <ul className="flex flex-col gap-6 text-xl font-primary">
               <li>
-                <a href="#" className="hover:text-vermilion transition-colors inline-block">hello@falahbrandhouse.com</a>
+                <a href="mailto:hello@falahbrandhouse.com" className="hover:text-vermilion transition-colors inline-block">hello@falahbrandhouse.com</a>
               </li>
               <li>
-                <a href="#" className="hover:text-vermilion transition-colors inline-block">+91 99999 99999</a>
+                {/* TODO: Replace with actual phone number or remove */}
+                <a href="tel:+910000000000" className="hover:text-vermilion transition-colors inline-block">[YOUR_PHONE_NUMBER]</a>
               </li>
               <li>
+                {/* TODO: Replace with actual WhatsApp link or remove */}
                 <a href="#" className="hover:text-vermilion transition-colors inline-block">WhatsApp Enquiry</a>
               </li>
             </ul>
@@ -81,6 +83,7 @@ export default function Footer() {
             <div>
               <h4 className="text-xs font-mono font-bold tracking-widest text-ivory/40 mb-8 uppercase">FOLLOW</h4>
               <ul className="flex flex-col gap-4 text-lg font-primary">
+                {/* TODO: Replace with actual social URLs or remove */}
                 <li><a href="#" className="hover:text-vermilion transition-colors inline-flex items-center gap-2">LinkedIn <ArrowUpRight size={14} className="text-ivory/30" /></a></li>
                 <li><a href="#" className="hover:text-vermilion transition-colors inline-flex items-center gap-2">Instagram <ArrowUpRight size={14} className="text-ivory/30" /></a></li>
                 <li><a href="#" className="hover:text-vermilion transition-colors inline-flex items-center gap-2">YouTube <ArrowUpRight size={14} className="text-ivory/30" /></a></li>
@@ -90,8 +93,8 @@ export default function Footer() {
             <div className="mt-12 lg:mt-auto">
               <h4 className="text-xs font-mono font-bold tracking-widest text-ivory/40 mb-6 uppercase">LEGAL</h4>
               <ul className="flex flex-col gap-3 text-sm font-primary text-ivory/60">
-                <li><Link href="#" className="hover:text-ivory transition-colors">Privacy Policy</Link></li>
-                <li><Link href="#" className="hover:text-ivory transition-colors">Terms of Service</Link></li>
+                <li><Link href="/privacy-policy" className="hover:text-ivory transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/terms" className="hover:text-ivory transition-colors">Terms of Service</Link></li>
               </ul>
             </div>
           </div>

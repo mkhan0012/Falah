@@ -1,24 +1,35 @@
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <main className="min-h-[80vh] flex flex-col items-center justify-center text-center px-6">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30vw] h-[30vw] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
-      
-      <div className="relative z-10">
-        <h1 className="text-[8rem] md:text-[12rem] font-serif leading-none mb-4 opacity-10">404</h1>
-        <h2 className="text-3xl md:text-5xl font-serif mb-6">Page Not Found</h2>
-        <p className="text-foreground/60 text-lg max-w-md mx-auto mb-12">
-          The page you are looking for doesn&apos;t exist or has been moved.
+    <main className="min-h-screen flex flex-col items-center justify-center text-center px-6 md:px-[5vw] bg-ivory text-graphite selection:bg-vermilion selection:text-ivory pt-24 pb-32">
+      <div className="max-w-3xl w-full">
+        <p className="text-[10px] font-mono font-bold tracking-[0.2em] text-slate mb-8 uppercase">
+          ERROR 404
+        </p>
+        <h1 className="text-5xl md:text-7xl lg:text-[8rem] font-primary font-bold tracking-tighter leading-[0.85] mb-8 uppercase">
+          THIS PAGE <br className="hidden md:block" />
+          MOVED SOMEWHERE ELSE.
+        </h1>
+        <p className="text-xl md:text-2xl font-primary text-slate mb-16 leading-relaxed max-w-xl mx-auto">
+          The requested page could not be found. It might have been removed, renamed, or did not exist in the first place.
         </p>
         
-        <Link 
-          href="/"
-          className="inline-flex items-center gap-2 border border-white/20 px-8 py-4 rounded-full hover:bg-white hover:text-black transition-all"
-        >
-          <ArrowLeft size={18} /> BACK TO HOME
-        </Link>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link 
+            href="/"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-graphite bg-graphite text-ivory px-8 py-5 text-sm font-mono font-bold uppercase tracking-wider hover:bg-transparent hover:text-graphite transition-colors group"
+          >
+            BACK HOME <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
+          <Link 
+            href="/work"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-graphite bg-transparent text-graphite px-8 py-5 text-sm font-mono font-bold uppercase tracking-wider hover:bg-graphite hover:text-ivory transition-colors group"
+          >
+            EXPLORE OUR WORK <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
       </div>
     </main>
   );

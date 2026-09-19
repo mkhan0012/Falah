@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -60,8 +60,9 @@ function CaseStudyDisplay({ project, index }: { project: ProjectType; index: num
         <Link href={`/work/${project.slug}`} className="block relative aspect-[4/3] overflow-hidden bg-warm-grey group">
           <Image 
             src={project.heroImage}
-            alt={project.client}
+            alt={`${project.client} case study designed by FALAH Brandhouse`}
             fill
+            sizes="(max-width: 1024px) 100vw, 60vw"
             className="object-cover transition-all duration-[1.2s] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-[1.03]"
           />
           <div className={`absolute inset-0 ${overlayColor} mix-blend-multiply transition-opacity duration-500 group-hover:opacity-0`} />
