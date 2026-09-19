@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { services } from "@/data/services";
@@ -42,7 +42,7 @@ export default function ServicesSection() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start pl-4 md:pl-8">
                   {/* Number & Title */}
-                  <div className="md:col-span-4 flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+                  <div className="md:col-span-5 lg:col-span-5 flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
                     <span className={clsx(
                       "text-sm font-mono transition-colors",
                       isActive ? "text-vermilion font-bold" : "text-slate"
@@ -55,7 +55,7 @@ export default function ServicesSection() {
                   </div>
 
                   {/* Capabilities List */}
-                  <div className="md:col-span-4">
+                  <div className="md:col-span-3 lg:col-span-3 mt-4 md:mt-0">
                     <ul className="flex flex-col gap-2 text-sm font-mono text-slate">
                       {service.items.map((item) => (
                         <li key={item}>{item}</li>
@@ -64,7 +64,7 @@ export default function ServicesSection() {
                   </div>
 
                   {/* Description Reveal */}
-                  <div className="md:col-span-4 overflow-hidden">
+                  <div className="md:col-span-4 lg:col-span-4 overflow-hidden mt-4 md:mt-0">
                     <div 
                       className={clsx(
                         "transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] flex flex-col items-start gap-6",
@@ -92,3 +92,4 @@ export default function ServicesSection() {
     </section>
   );
 }
+
