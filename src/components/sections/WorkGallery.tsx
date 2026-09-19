@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import Image from "next/image";
@@ -73,16 +73,15 @@ export default function WorkGallery() {
                   {project.client}
                 </h3>
 
-                <div className="flex flex-col gap-6 mt-4">
+                <div className="flex flex-col gap-8 mt-4">
                   
                   <div className="border-b border-warm-grey pb-6">
-                    <h4 className="text-[10px] font-mono tracking-widest uppercase text-slate mb-2">THE CHALLENGE</h4>
-                    <p className="text-lg text-graphite font-primary leading-relaxed">
-                      {project.description || "The client needed a digital presence that accurately reflected their market leadership."}
+                    <p className="text-2xl text-vermilion font-primary font-medium tracking-tight">
+                      {project.thesis}
                     </p>
                   </div>
 
-                  <div className="border-b border-warm-grey pb-6">
+                  <div className="pb-6">
                     <h4 className="text-[10px] font-mono tracking-widest uppercase text-slate mb-3">FALAH HANDLED</h4>
                     <ul className="flex flex-wrap gap-2 text-xs font-mono text-graphite">
                       {project.services.map((service: string) => (
@@ -93,20 +92,14 @@ export default function WorkGallery() {
                     </ul>
                   </div>
 
-                  <div className="pb-6">
-                    <h4 className="text-[10px] font-mono tracking-widest uppercase text-slate mb-2">OUTCOME</h4>
-                    <p className="text-lg text-graphite font-primary leading-relaxed">
-                      {project.strategy || "Delivered a scalable digital system that correctly positioned the business to attract high-intent leads and clearly communicate their value."}
-                    </p>
-                  </div>
-
                 </div>
 
                 <Link 
                   href={`/work/${project.slug}`}
-                  className="inline-flex items-center gap-2 font-mono text-xs font-bold text-vermilion hover:text-graphite transition-colors mt-4 uppercase"
+                  className="inline-flex items-center gap-2 font-mono text-xs font-bold text-graphite hover:text-vermilion transition-colors mt-2 uppercase group"
                 >
-                  EXPLORE FULL CASE STUDY <ArrowUpRight size={16} />
+                  EXPLORE FULL CASE STUDY 
+                  <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </Link>
               </div>
 
