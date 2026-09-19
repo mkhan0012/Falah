@@ -10,6 +10,7 @@ export interface Project {
   services: string[];
   heroImage: string;
   gallery: string[];
+  strategy?: string;
 }
 
 export const projects: Project[] = [
