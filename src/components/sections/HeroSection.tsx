@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -102,9 +102,9 @@ export default function HeroSection() {
             THAT MOVE<span className="text-vermilion">.</span>
           </h1>
           
-          <div className="flex flex-col md:flex-row md:items-start justify-between gap-12 mt-16 md:mt-24 border-t border-warm-grey pt-8">
-            <p className="text-lg md:text-xl text-slate max-w-md leading-relaxed font-primary">
-              Strategy, design, digital experiences and growth systems for ambitious businesses and people.
+          <div className="flex flex-col md:flex-row md:items-start justify-between gap-12 mt-16 md:mt-24 border-t border-warm-grey pt-8 mb-16">
+            <p className="text-lg md:text-2xl text-slate max-w-lg leading-relaxed font-primary">
+              Brand strategy, websites, SEO, content and digital marketing — built around what your business actually needs.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 shrink-0">
@@ -126,6 +126,19 @@ export default function HeroSection() {
               </Link>
             </div>
           </div>
+          
+          {/* Client-Oriented Selector */}
+          <div className="pt-8 md:pt-16 border-t border-warm-grey">
+            <h2 className="text-sm font-mono tracking-widest text-slate mb-6 uppercase font-bold">I NEED A...</h2>
+            <div className="flex flex-wrap gap-4 md:gap-6">
+              <Link href="/services/branding" className="text-lg md:text-xl font-primary text-graphite hover:text-vermilion border-b border-graphite hover:border-vermilion transition-colors pb-1">NEW BRAND</Link>
+              <Link href="/services/web-development" className="text-lg md:text-xl font-primary text-graphite hover:text-vermilion border-b border-graphite hover:border-vermilion transition-colors pb-1">WEBSITE</Link>
+              <Link href="/services/seo" className="text-lg md:text-xl font-primary text-graphite hover:text-vermilion border-b border-graphite hover:border-vermilion transition-colors pb-1">MORE VISIBILITY</Link>
+              <Link href="/services/digital-marketing" className="text-lg md:text-xl font-primary text-graphite hover:text-vermilion border-b border-graphite hover:border-vermilion transition-colors pb-1">MORE LEADS</Link>
+              <Link href="/services" className="text-lg md:text-xl font-primary text-vermilion hover:text-graphite border-b border-vermilion hover:border-graphite transition-colors pb-1">COMPLETE DIGITAL PRESENCE</Link>
+            </div>
+          </div>
+          
         </div>
       </div>
     </section>

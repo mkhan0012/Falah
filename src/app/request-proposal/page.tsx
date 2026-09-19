@@ -1,53 +1,37 @@
-"use client";
+﻿"use client";
 
-import { useState, useEffect } from "react";
+import { useState, Suspense } from "react";
+import { submitContact } from "../actions/submitContact";
 import { ArrowRight, ArrowDown } from "lucide-react";
 import clsx from "clsx";
-import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
-import { submitContact } from "@/app/actions/submitContact";
-
-const needsOptions = [
-  "Branding",
-  "Website",
-  "SEO",
-  "Social Media",
-  "Digital Marketing",
-  "Personal Branding",
-  "Complete Digital Presence",
-  "Other"
-];
-
-const budgetOptions = [
-  "Under ₹50K",
-  "₹50K–₹1L",
-  "₹1L–₹3L",
-  "₹3L+",
-  "Not Sure"
-];
 
 function RfpForm() {
-  const searchParams = useSearchParams();
-  const prefillNeed = searchParams.get("need");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
     company: "",
     website: "",
-    needs: (prefillNeed && needsOptions.includes(prefillNeed)) ? [prefillNeed] : [] as string[],
+    phone: "",
+    businessType: "",
+    needs: [] as string[],
+    goals: "",
     budget: "",
     timeline: "",
     message: ""
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
+
+  const needsOptions = ["Branding", "Website", "SEO", "Social Media", "Digital Marketing", "Personal Branding", "Complete Digital Presence", "Other"];
+  const budgetOptions = ["Under ₹1L", "₹1L - ₹3L", "₹3L - ₹5L", "₹5L+"];
+  const typeOptions = ["New Business", "Existing Business", "Rebrand", "Website Redesign", "Marketing / Growth", "Other"];
 
   const toggleNeed = (need: string) => {
     setFormData(prev => ({
       ...prev,
-      needs: prev.needs.includes(need)
+      needs: prev.needs.includes(need) 
         ? prev.needs.filter(n => n !== need)
         : [...prev.needs, need]
     }));
@@ -56,42 +40,40 @@ function RfpForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    try {
-      const response = await submitContact(formData);
-      
-      if (response.success) {
-        setIsSuccess(true);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else {
-        alert("Failed to submit: " + response.error);
-      }
-    } catch (error) {
-      alert("An unexpected error occurred.");
-    } finally {
+    setError(null);
+
+    const result = await submitContact(formData as any);
+
+    if (result.error) {
+      setError(result.error);
+      setIsSubmitting(false);
+    } else {
+      setIsSuccess(true);
       setIsSubmitting(false);
     }
   };
 
   if (isSuccess) {
     return (
-      <div className="border border-warm-grey p-12 bg-white text-center animate-in fade-in zoom-in duration-500">
-        <h3 className="text-4xl font-primary font-bold tracking-tight mb-4 text-graphite">THANK YOU.</h3>
-        <p className="font-mono text-sm uppercase tracking-widest text-slate mb-8">
-          Your proposal request has been received. We'll be in touch.
-        </p>
-        <button 
-          onClick={() => setIsSuccess(false)}
-          className="text-xs font-mono font-bold tracking-widest uppercase border-b border-graphite pb-1 hover:text-vermilion hover:border-vermilion transition-colors"
-        >
-          SUBMIT ANOTHER REQUEST
-        </button>
+      <div className="h-full min-h-[400px] flex flex-col items-center justify-center text-center p-8 animate-in fade-in zoom-in duration-500">
+        <div className="w-16 h-16 bg-vermilion text-ivory rounded-full flex items-center justify-center mb-6">
+          <ArrowRight size={32} />
+        </div>
+        <h3 className="text-3xl font-primary font-bold mb-4 uppercase">PROPOSAL REQUESTED.</h3>
+        <p className="text-slate font-primary text-lg">WE'LL REVIEW AND BE IN TOUCH.</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-12">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-8 animate-in fade-in duration-500">
+      
+      {error && (
+        <div className="bg-red-50 text-red-600 p-4 font-mono text-sm border border-red-200">
+          {error}
+        </div>
+      )}
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="space-y-2">
           <label htmlFor="name" className="text-[10px] font-mono font-bold tracking-[0.2em] text-slate uppercase">Name *</label>
@@ -116,7 +98,7 @@ function RfpForm() {
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor="phone" className="text-[10px] font-mono font-bold tracking-[0.2em] text-slate uppercase">Phone</label>
+          <label htmlFor="phone" className="text-[10px] font-mono font-bold tracking-[0.2em] text-slate uppercase">Phone / WhatsApp</label>
           <input 
             type="tel" 
             id="phone" 
@@ -148,7 +130,28 @@ function RfpForm() {
       </div>
 
       <div className="space-y-4 pt-8">
-        <label className="text-[10px] font-mono font-bold tracking-[0.2em] text-slate uppercase">What do you need? *</label>
+        <label className="text-[10px] font-mono font-bold tracking-[0.2em] text-slate uppercase">Project Type *</label>
+        <div className="flex flex-wrap gap-2 md:gap-3">
+          {typeOptions.map(type => (
+            <button
+              key={type}
+              type="button"
+              onClick={() => setFormData({...formData, businessType: type})}
+              className={clsx(
+                "px-4 py-2 font-mono text-xs uppercase tracking-wider border transition-colors",
+                formData.businessType === type
+                  ? "border-graphite bg-graphite text-ivory"
+                  : "border-warm-grey text-graphite hover:border-graphite"
+              )}
+            >
+              {type}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="space-y-4 pt-8">
+        <label className="text-[10px] font-mono font-bold tracking-[0.2em] text-slate uppercase">Services Required *</label>
         <div className="flex flex-wrap gap-2 md:gap-3">
           {needsOptions.map(need => (
             <button
@@ -166,6 +169,18 @@ function RfpForm() {
             </button>
           ))}
         </div>
+      </div>
+
+      <div className="space-y-2 pt-8">
+        <label htmlFor="goals" className="text-[10px] font-mono font-bold tracking-[0.2em] text-slate uppercase">What are the primary goals?</label>
+        <input 
+          type="text" 
+          id="goals" 
+          placeholder="e.g. Increase leads, rebrand, launch new product"
+          className="w-full bg-transparent border-b border-warm-grey py-3 font-primary text-xl focus:outline-none focus:border-graphite transition-colors placeholder:text-slate/40 rounded-none"
+          value={formData.goals}
+          onChange={e => setFormData({...formData, goals: e.target.value})}
+        />
       </div>
 
       <div className="space-y-4 pt-8">
@@ -190,7 +205,7 @@ function RfpForm() {
       </div>
 
       <div className="space-y-2 pt-8">
-        <label htmlFor="timeline" className="text-[10px] font-mono font-bold tracking-[0.2em] text-slate uppercase">Timeline expectations</label>
+        <label htmlFor="timeline" className="text-[10px] font-mono font-bold tracking-[0.2em] text-slate uppercase">Timeline</label>
         <input 
           type="text" 
           id="timeline" 
@@ -202,13 +217,11 @@ function RfpForm() {
       </div>
 
       <div className="space-y-2 pt-8">
-        <label htmlFor="message" className="text-[10px] font-mono font-bold tracking-[0.2em] text-slate uppercase">Project Details *</label>
+        <label htmlFor="message" className="text-[10px] font-mono font-bold tracking-[0.2em] text-slate uppercase">Additional Project Details</label>
         <textarea 
           id="message" 
-          required
-          rows={6}
-          placeholder="Tell us what you're building, where you are today, and what you want to achieve."
-          className="w-full bg-transparent border-b border-warm-grey py-3 font-primary text-xl focus:outline-none focus:border-graphite transition-colors resize-none rounded-none placeholder:text-slate/40"
+          rows={4}
+          className="w-full bg-transparent border-b border-warm-grey py-3 font-primary text-xl focus:outline-none focus:border-graphite transition-colors resize-none rounded-none"
           value={formData.message}
           onChange={e => setFormData({...formData, message: e.target.value})}
         />
@@ -228,13 +241,13 @@ function RfpForm() {
   );
 }
 
-export default function RequestProposalPage() {
+export default function RfpPage() {
   const steps = [
-    { num: "01", title: "YOU TALK", desc: "Initial discovery conversation." },
-    { num: "02", title: "WE DIAGNOSE", desc: "We understand the business and digital presence." },
-    { num: "03", title: "WE PROPOSE", desc: "Clear scope, direction and timeline." },
-    { num: "04", title: "WE BUILD", desc: "Brand / Website / SEO / Content / Social." },
-    { num: "05", title: "WE GROW", desc: "Optimisation and ongoing support." },
+    { num: "01", title: "YOU TELL US WHAT YOU'RE BUILDING", desc: "Short project enquiry." },
+    { num: "02", title: "WE REVIEW", desc: "We understand your business, goals and current digital presence." },
+    { num: "03", title: "WE TALK", desc: "A short discovery conversation." },
+    { num: "04", title: "WE PROPOSE", desc: "You receive a recommended scope and approach." },
+    { num: "05", title: "WE BUILD", desc: "Strategy → Design → Development → Growth." },
   ];
 
   return (
@@ -248,14 +261,9 @@ export default function RequestProposalPage() {
               <h1 className="text-5xl md:text-7xl font-primary font-bold tracking-tighter leading-[0.9] mb-8">
                 REQUEST A<br />PROPOSAL
               </h1>
-              <p className="text-xl font-primary text-slate mb-12 max-w-sm">
-                Tell us what you're building, where you are today and what you want to achieve.
+              <p className="text-xl font-primary text-slate mb-12 max-w-sm leading-relaxed">
+                Tell us what you're building, where you are today, and what you want to achieve.
               </p>
-              
-              <div className="flex flex-col gap-2">
-                <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-slate uppercase">Location</span>
-                <span className="text-sm font-mono tracking-widest text-graphite uppercase">HYDERABAD · INDIA</span>
-              </div>
             </div>
 
             <div className="mt-auto hidden lg:block">
@@ -276,10 +284,24 @@ export default function RequestProposalPage() {
           </div>
 
           <div className="lg:col-span-7">
-            <div className="border border-warm-grey p-6 md:p-12 bg-white shadow-xl shadow-warm-grey/20">
-              <Suspense fallback={<div className="h-96 flex items-center justify-center font-mono text-xs tracking-widest text-slate">LOADING FORM...</div>}>
+            <div className="border border-warm-grey p-6 md:p-12 bg-white">
+              <Suspense fallback={null}>
                 <RfpForm />
               </Suspense>
+            </div>
+
+            <div className="mt-24 lg:hidden">
+              <h3 className="text-[10px] font-mono font-bold tracking-[0.2em] text-slate uppercase mb-8">WHAT HAPPENS NEXT?</h3>
+              <div className="space-y-6">
+                {steps.map((step) => (
+                  <div key={step.num} className="border-l border-warm-grey pl-6">
+                    <h4 className="font-mono text-xs font-bold tracking-widest uppercase mb-1">
+                      <span className="text-slate mr-2">{step.num}</span> {step.title}
+                    </h4>
+                    <p className="text-sm font-primary text-slate">{step.desc}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
           

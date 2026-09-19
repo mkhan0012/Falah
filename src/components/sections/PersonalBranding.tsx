@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -77,8 +77,8 @@ export default function PersonalBranding() {
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-16 h-16 bg-white/20 rounded-full" />
                 <div>
-                  <h4 className="font-sans text-lg font-normal text-white/90">John Doe</h4>
-                  <p className="font-sans text-sm text-white/50">Founder at TechCo</p>
+                  <h4 className="font-sans text-lg font-normal text-white/90">EXAMPLE PROFILE</h4>
+                  <p className="font-sans text-sm text-white/50">Founder / Expert</p>
                 </div>
               </div>
               <p className="font-sans text-white/60">I help businesses grow and scale their operations.</p>
@@ -92,8 +92,8 @@ export default function PersonalBranding() {
               <div className="flex items-start gap-6 mb-6">
                 <div className="w-20 h-20 bg-ivory shrink-0" />
                 <div>
-                  <h4 className="font-primary text-3xl font-bold tracking-tight text-ivory mb-2 uppercase">John Doe</h4>
-                  <p className="font-mono text-xs tracking-widest text-vermilion uppercase font-bold">Founder, TechCo</p>
+                  <h4 className="font-primary text-3xl font-bold tracking-tight text-ivory mb-2 uppercase">EXAMPLE PROFILE</h4>
+                  <p className="font-mono text-xs tracking-widest text-vermilion uppercase font-bold">Founder / Expert</p>
                 </div>
               </div>
               <p className="font-primary text-xl text-ivory/80 leading-relaxed font-light">

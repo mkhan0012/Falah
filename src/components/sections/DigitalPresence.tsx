@@ -1,38 +1,24 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import clsx from "clsx";
 import { ArrowUpRight } from "lucide-react";
-import BuildSystemOverlay from "@/components/interactive/BuildSystemOverlay";
+import BuildSystemOverlay from "../interactive/BuildSystemOverlay";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const systemNodes = [
-  { id: "brand", label: "BRAND", desc: "The core identity, values, and visual language." },
-  { id: "positioning", label: "POSITIONING", desc: "How you are perceived in the market." },
-  { 
-    id: "website", 
-    label: "WEBSITE", 
-    desc: "The central digital hub and conversion engine.",
-    subSystem: ["EXPERIENCE", "TRUST", "ACTION", "CONVERSION"]
-  },
-  { 
-    id: "seo", 
-    label: "SEO", 
-    desc: "Capturing organic intent and building authority.",
-    subSystem: ["SEARCH", "INTENT", "CONTENT", "AUTHORITY", "LEADS"]
-  },
-  { id: "content", label: "CONTENT", desc: "Educational and persuasive communication." },
-  { 
-    id: "social", 
-    label: "SOCIAL", 
-    desc: "Distribution and community engagement.",
-    subSystem: ["CONTENT", "DISTRIBUTION", "COMMUNITY", "AUTHORITY"]
-  },
-  { id: "personal", label: "PERSONAL BRAND", desc: "Founder authority and thought leadership." },
-  { id: "growth", label: "GROWTH", desc: "Scaling systems and optimizing conversions." },
+  { id: "01", label: "BRAND", desc: "The foundation of how you are perceived.", subSystem: ["STRATEGY", "IDENTITY", "MESSAGING", "GUIDELINES"] },
+  { id: "02", label: "POSITIONING", desc: "Defining exactly where you sit in the market." },
+  { id: "03", label: "WEBSITE", desc: "The digital experience your customers interact with.", subSystem: ["EXPERIENCE", "TRUST", "ACTION", "CONVERSION"] },
+  { id: "04", label: "SEO", desc: "Capturing high-intent organic traffic.", subSystem: ["SEARCH", "INTENT", "CONTENT", "AUTHORITY", "LEADS"] },
+  { id: "05", label: "CONTENT", desc: "Educational and persuasive digital assets." },
+  { id: "06", label: "SOCIAL", desc: "Distribution and community engagement.", subSystem: ["CONTENT", "DISTRIBUTION", "COMMUNITY", "AUTHORITY"] },
+  { id: "07", label: "LEADS", desc: "Conversion optimization and funnel architecture." },
+  { id: "08", label: "GROWTH", desc: "Measurable business outcomes and scaling." },
+  { id: "09", label: "PERSONAL BRANDING", desc: "Building founder authority.", subSystem: ["POSITION", "PROFILE", "CONTENT", "AUTHORITY"] }
 ];
 
 export default function DigitalPresence() {
@@ -40,42 +26,56 @@ export default function DigitalPresence() {
   const lineRef = useRef<HTMLDivElement>(null);
   const nodesRef = useRef<(HTMLDivElement | null)[]>([]);
   const subSystemRefs = useRef<(HTMLDivElement | null)[]>([]);
-  
   const [activeNode, setActiveNode] = useState<number | null>(null);
   const [expandedNode, setExpandedNode] = useState<number | null>(null);
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
-  // Initial Scroll Animation
   useEffect(() => {
     if (!containerRef.current || !lineRef.current) return;
 
     const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: "top center",
-        end: "bottom center",
-        animation: gsap.fromTo(lineRef.current, 
-          { scaleY: 0 },
-          { scaleY: 1, ease: "none", transformOrigin: "top" }
-        ),
-        scrub: true,
-      });
+      gsap.fromTo(
+        lineRef.current,
+        { scaleY: 0, transformOrigin: "top" },
+        {
+          scaleY: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top center",
+            end: "bottom bottom",
+            scrub: true,
+          }
+        }
+      );
 
-      nodesRef.current.forEach((node) => {
+      nodesRef.current.forEach((node, i) => {
         if (!node) return;
-        const indicator = node.querySelector('.node-indicator');
-        const text = node.querySelector('.node-text');
-
-        gsap.fromTo([indicator, text], 
-          { opacity: 0, y: 20 },
-          { 
-            opacity: 1, 
-            y: 0,
-            duration: 0.6,
+        gsap.fromTo(
+          node.querySelector(".node-indicator"),
+          { scale: 0.5, opacity: 0.2 },
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 0.5,
+            scrollTrigger: {
+              trigger: node,
+              start: "top 70%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        );
+        gsap.fromTo(
+          node.querySelector(".node-text"),
+          { x: i % 2 === 0 ? 50 : -50, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.8,
             ease: "power2.out",
             scrollTrigger: {
               trigger: node,
-              start: "top 75%",
+              start: "top 70%",
               toggleActions: "play none none reverse"
             }
           }
@@ -86,53 +86,50 @@ export default function DigitalPresence() {
     return () => ctx.revert();
   }, []);
 
-  // Handle Expansion Animation with SVG Lines
-  useEffect(() => {
-    if (expandedNode === null) return;
-    
-    const container = subSystemRefs.current[expandedNode];
-    if (!container) return;
-
-    const ctx = gsap.context(() => {
-      const items = gsap.utils.toArray('.sub-item');
-      const lines = gsap.utils.toArray('.svg-line path');
-
-      // Reset
-      gsap.set(items, { opacity: 0, x: -20 });
-      gsap.set(lines, { strokeDasharray: 100, strokeDashoffset: 100 });
-
-      const tl = gsap.timeline();
-      
-      items.forEach((item, i) => {
-        tl.to(item as HTMLElement, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, i * 0.2);
-        if (lines[i]) {
-          tl.to(lines[i] as SVGPathElement, { strokeDashoffset: 0, duration: 0.4, ease: "none" }, i * 0.2 + 0.1);
-        }
-      });
-    }, container);
-
-    return () => ctx.revert();
-  }, [expandedNode]);
-
   const handleNodeClick = (index: number) => {
     if (expandedNode === index) {
       setExpandedNode(null);
     } else {
       setExpandedNode(index);
-      setActiveNode(index);
+      const ctx = gsap.context(() => {
+        const target = subSystemRefs.current[index];
+        if (target) {
+          gsap.fromTo(
+            target.querySelectorAll(".sub-item"),
+            { x: index % 2 === 0 ? 20 : -20, opacity: 0 },
+            { x: 0, opacity: 1, stagger: 0.1, duration: 0.4, ease: "back.out(1.5)" }
+          );
+          gsap.fromTo(
+            target.querySelectorAll(".svg-line path"),
+            { strokeDashoffset: 32, strokeDasharray: 32 },
+            { strokeDashoffset: 0, duration: 0.3, stagger: 0.1, delay: 0.1, ease: "power1.inOut" }
+          );
+        }
+      });
+      return () => ctx.revert();
     }
   };
 
   return (
-    <section ref={containerRef} className="py-32 md:py-48 bg-charcoal text-ivory relative overflow-hidden">
+    <section ref={containerRef} className="py-24 md:py-40 bg-charcoal text-ivory relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-[5vw]">
-        <div className="text-center max-w-4xl mx-auto mb-24 md:mb-40">
-          <h2 className="text-5xl md:text-[6vw] font-primary font-bold leading-[0.9] tracking-tight mb-8">
-            ONE PARTNER.<br />YOUR ENTIRE DIGITAL PRESENCE.
-          </h2>
-          <p className="text-sm md:text-base font-mono tracking-widest uppercase text-vermilion">
+        
+        <div className="text-center max-w-4xl mx-auto mb-16 md:mb-32">
+          <p className="text-sm md:text-base font-mono tracking-widest uppercase text-vermilion mb-4">
             THE FALAH SYSTEM
           </p>
+          <h2 className="text-4xl md:text-[5vw] font-primary font-bold leading-[0.9] tracking-tight mb-12">
+            ONE PARTNER.<br />YOUR ENTIRE DIGITAL PRESENCE.
+          </h2>
+          
+          {/* CRUCIAL DISCLAIMER */}
+          <div className="inline-block border border-vermilion bg-vermilion/5 px-6 py-4 md:px-8 md:py-6 rounded-lg backdrop-blur-sm max-w-2xl mx-auto">
+            <p className="text-sm md:text-base font-mono font-bold tracking-wide leading-relaxed text-ivory/90 uppercase text-center">
+              YOU DON'T ALWAYS NEED EVERYTHING.
+              <br className="hidden md:block" />
+              WE IDENTIFY WHICH PARTS OF THE SYSTEM YOUR BUSINESS ACTUALLY NEEDS.
+            </p>
+          </div>
         </div>
 
         <div className="relative max-w-5xl mx-auto">
@@ -222,7 +219,7 @@ export default function DigitalPresence() {
                       </p>
                     )}
 
-                    {/* Subsystem Expansion (GSAP Animated with SVGs) */}
+                    {/* Subsystem Expansion */}
                     <div 
                       ref={el => { subSystemRefs.current[i] = el; }}
                       className={clsx(
@@ -235,14 +232,12 @@ export default function DigitalPresence() {
                         isLeft ? "md:items-end" : "md:items-start"
                       )}>
                         
-                        {/* We use a vertical interconnected path approach */}
                         {node.subSystem?.map((sub, idx) => (
                           <div key={sub} className={clsx(
                             "sub-item flex items-center gap-4 relative",
                             isLeft ? "md:flex-row-reverse" : "md:flex-row"
                           )}>
                             
-                            {/* SVG Connection Node */}
                             <div className="relative flex items-center justify-center w-6 h-12 shrink-0">
                               <div className="w-1.5 h-1.5 rounded-full bg-vermilion z-10" />
                               {idx !== (node.subSystem?.length || 0) - 1 && (
@@ -252,7 +247,6 @@ export default function DigitalPresence() {
                               )}
                             </div>
                             
-                            {/* System Text */}
                             <span className="text-sm md:text-base font-mono font-bold text-ivory tracking-widest uppercase py-2">
                               {sub}
                             </span>

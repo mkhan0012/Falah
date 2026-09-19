@@ -1,4 +1,4 @@
-export const services = [
+﻿export const services = [
   {
     id: "01",
     title: "BRAND",
@@ -6,10 +6,10 @@ export const services = [
       "Brand Strategy",
       "Positioning",
       "Visual Identity",
-      "Brand Messaging",
+      "Messaging",
       "Personal Branding"
     ],
-    description: "We build distinct identities that help businesses stand out, communicate clearly, and command premium positioning in their market."
+    description: "Make your business look, sound and position itself like the business you want to become."
   },
   {
     id: "02",
@@ -19,9 +19,9 @@ export const services = [
       "Landing Pages",
       "UI/UX",
       "Digital Experiences",
-      "Conversion Optimisation"
+      "Conversion Optimization"
     ],
-    description: "We design and develop high-performance digital experiences that look exceptional and are engineered to convert."
+    description: "Build the digital experience your customers actually interact with."
   },
   {
     id: "03",
@@ -29,11 +29,11 @@ export const services = [
     items: [
       "SEO",
       "Local SEO",
+      "Content",
       "Social Media",
-      "Content Strategy",
-      "Google Business Presence"
+      "Google Business"
     ],
-    description: "We build systems that ensure your brand is discovered by the right people at the right time, across search and social."
+    description: "Help the right people discover your business."
   },
   {
     id: "04",
@@ -42,10 +42,8 @@ export const services = [
       "Digital Marketing",
       "Lead Generation",
       "Analytics",
-      "Optimisation",
-      "Growth Strategy"
+      "Optimization"
     ],
-    description: "We implement data-driven marketing strategies to scale your digital presence and generate measurable business outcomes."
+    description: "Turn attention into enquiries and measurable business activity."
   }
 ];
-
