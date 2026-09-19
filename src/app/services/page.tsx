@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import { services } from "@/data/services";
-import FinalCta from "@/components/sections/FinalCta";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
@@ -18,7 +17,7 @@ export default function ServicesPage() {
             SERVICES.
           </h1>
           <p className="text-xl md:text-2xl text-slate max-w-3xl font-primary">
-            We build complete digital systems. Strategy, design, technology, and growth — integrated into a single offering.
+            We build complete digital systems. Strategy, design, technology, and growth â€” integrated into a single offering.
           </p>
         </div>
 
@@ -67,8 +66,7 @@ export default function ServicesPage() {
           })}
         </div>
       </main>
-      <FinalCta />
-    </>
+          </>
   );
 }
 

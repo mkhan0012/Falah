@@ -1,8 +1,9 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import clsx from "clsx";
 import { projects } from "@/data/projects";
 
@@ -18,7 +19,7 @@ export default function WorkGallery() {
   return (
     <div className="container mx-auto px-6 md:px-[5vw]">
       {/* Filters */}
-      <div className="flex flex-wrap gap-4 mb-20 md:mb-32">
+      <div className="flex flex-wrap gap-4 mb-16 md:mb-24">
         {categories.map(category => (
           <button
             key={category}
@@ -35,56 +36,81 @@ export default function WorkGallery() {
         ))}
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 gap-24 md:gap-32">
+      {/* Grid - Re-using the premium layout from SelectedWork */}
+      <div className="flex flex-col gap-32 md:gap-48">
         {filteredProjects.map((project, idx) => {
           const formattedIndex = (idx + 1).toString().padStart(2, "0");
+          
+          let overlayColor = "bg-charcoal/10";
+          if (project.category.includes("HEALTHCARE")) overlayColor = "bg-blue-900/10";
+          if (project.category.includes("REAL ESTATE")) overlayColor = "bg-emerald-900/10";
+
           return (
-            <Link 
-              href={`/work/${project.slug}`} 
-              key={project.slug}
-              className="group block"
-              data-cursor="project"
-            >
-              <div className="flex flex-col md:flex-row gap-8 md:gap-16">
-                
-                {/* Meta */}
-                <div className="w-full md:w-1/4 flex flex-col pt-4 border-t border-warm-grey">
-                  <div className="flex items-center gap-4 text-xs font-mono text-slate mb-8">
-                    <span className="text-graphite font-bold group-hover:text-vermilion transition-colors">{formattedIndex}</span>
-                    <span>/</span>
-                    <span className="uppercase">{project.category}</span>
-                  </div>
-                  <h3 className="text-3xl md:text-4xl font-primary font-bold text-graphite mb-4">
-                    {project.client}
-                  </h3>
-                  <p className="text-slate font-primary text-sm max-w-sm mb-8">
-                    {project.description}
-                  </p>
-                  <ul className="flex flex-col gap-2 text-xs font-mono text-slate mb-8">
-                    {project.services.slice(0, 3).map((s) => (
-                      <li key={s} className="flex items-center gap-2">
-                        <span className="w-1 h-1 bg-warm-grey rounded-full group-hover:bg-vermilion transition-colors" />
-                        {s}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Image */}
-                <div className="w-full md:w-3/4">
-                  <div className="relative aspect-[16/10] overflow-hidden bg-warm-grey">
-                    <Image
-                      src={project.heroImage}
-                      alt={project.name}
-                      fill
-                      className="object-cover transition-transform duration-[1s] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-105 grayscale hover:grayscale-0"
-                    />
-                  </div>
-                </div>
-
+            <div key={project.slug} className="flex flex-col lg:flex-row gap-16 items-start border-t border-warm-grey pt-16">
+              
+              {/* Visual Side */}
+              <div className="lg:w-7/12 w-full order-2 lg:order-1">
+                <Link href={`/work/${project.slug}`} className="block relative aspect-[4/3] overflow-hidden bg-warm-grey group">
+                  <Image 
+                    src={project.heroImage}
+                    alt={project.client}
+                    fill
+                    className="object-cover transition-all duration-[1.2s] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-[1.03]"
+                  />
+                  <div className={`absolute inset-0 ${overlayColor} mix-blend-multiply transition-opacity duration-500 group-hover:opacity-0`} />
+                </Link>
               </div>
-            </Link>
+
+              {/* Info Side */}
+              <div className="lg:w-5/12 flex flex-col gap-8 w-full order-1 lg:order-2">
+                <div className="flex items-center gap-4 text-xs font-mono text-slate">
+                  <span className="text-graphite font-bold">{formattedIndex}</span>
+                  <span>/</span>
+                  <span className="uppercase tracking-widest">{project.category}</span>
+                </div>
+                
+                <h3 className="text-5xl md:text-6xl font-primary font-bold tracking-tight text-graphite leading-[0.9] uppercase">
+                  {project.client}
+                </h3>
+
+                <div className="flex flex-col gap-6 mt-4">
+                  
+                  <div className="border-b border-warm-grey pb-6">
+                    <h4 className="text-[10px] font-mono tracking-widest uppercase text-slate mb-2">THE CHALLENGE</h4>
+                    <p className="text-lg text-graphite font-primary leading-relaxed">
+                      {project.description || "The client needed a digital presence that accurately reflected their market leadership."}
+                    </p>
+                  </div>
+
+                  <div className="border-b border-warm-grey pb-6">
+                    <h4 className="text-[10px] font-mono tracking-widest uppercase text-slate mb-3">FALAH HANDLED</h4>
+                    <ul className="flex flex-wrap gap-2 text-xs font-mono text-graphite">
+                      {project.services.map((service: string) => (
+                        <li key={service} className="px-3 py-1 border border-warm-grey rounded-full uppercase">
+                          {service}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="pb-6">
+                    <h4 className="text-[10px] font-mono tracking-widest uppercase text-slate mb-2">OUTCOME</h4>
+                    <p className="text-lg text-graphite font-primary leading-relaxed">
+                      {project.strategy || "Delivered a scalable digital system that correctly positioned the business to attract high-intent leads and clearly communicate their value."}
+                    </p>
+                  </div>
+
+                </div>
+
+                <Link 
+                  href={`/work/${project.slug}`}
+                  className="inline-flex items-center gap-2 font-mono text-xs font-bold text-vermilion hover:text-graphite transition-colors mt-4 uppercase"
+                >
+                  EXPLORE FULL CASE STUDY <ArrowUpRight size={16} />
+                </Link>
+              </div>
+
+            </div>
           );
         })}
       </div>

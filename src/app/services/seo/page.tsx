@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
 import ServiceSelector from "@/components/sections/ServiceSelector";
-import FinalCta from "@/components/sections/FinalCta";
 
 export const metadata: Metadata = {
   title: "SEO & Search Visibility | FALAH BRANDHOUSE",
@@ -208,7 +207,6 @@ export default function ServicePage() {
       </main>
       
       <ServiceSelector />
-      <FinalCta />
-    </>
+          </>
   );
 }

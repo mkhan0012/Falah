@@ -6,7 +6,6 @@ import PersonalBranding from "@/components/sections/PersonalBranding";
 import FalahMethod from "@/components/sections/FalahMethod";
 import HealthCheck from "@/components/sections/HealthCheck";
 import InsightsSection from "@/components/sections/InsightsSection";
-import FinalCta from "@/components/sections/FinalCta";
 
 export default function Home() {
   return (
@@ -19,8 +18,7 @@ export default function Home() {
       <FalahMethod />
       <HealthCheck />
       <InsightsSection />
-      <FinalCta />
-    </>
+          </>
   );
 }
 

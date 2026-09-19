@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 
 const options = [
@@ -13,6 +14,11 @@ const options = [
 ];
 
 export default function ServiceSelector() {
+  const pathname = usePathname();
+
+  // Filter out the option that points to the exact page we are currently on
+  const filteredOptions = options.filter(opt => opt.route !== pathname);
+
   return (
     <section className="py-24 md:py-32 bg-ivory border-t border-warm-grey">
       <div className="container mx-auto px-6 md:px-[5vw]">
@@ -22,7 +28,7 @@ export default function ServiceSelector() {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-          {options.map((opt) => (
+          {filteredOptions.map((opt) => (
             <Link 
               key={opt.problem}
               href={opt.route}
@@ -34,7 +40,7 @@ export default function ServiceSelector() {
               
               <div className="flex items-center gap-3 shrink-0 mt-4 sm:mt-0">
                 <span className="text-xs font-mono font-bold tracking-widest text-slate uppercase">
-                  → {opt.service}
+                    {opt.service}
                 </span>
                 <div className="w-8 h-8 rounded-full bg-warm-grey group-hover:bg-vermilion flex items-center justify-center transition-colors">
                   <ArrowRight size={14} className="text-graphite group-hover:text-ivory" />
@@ -48,4 +54,3 @@ export default function ServiceSelector() {
     </section>
   );
 }
-

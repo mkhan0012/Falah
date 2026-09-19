@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import FinalCta from "@/components/sections/FinalCta";
 
 export const metadata: Metadata = {
   title: "Manufacturing | FALAH BRANDHOUSE",
@@ -50,8 +49,7 @@ export default function IndustryPage() {
 
         </div>
       </main>
-      <FinalCta />
-    </>
+          </>
   );
 }
 

@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import WorkGallery from "@/components/sections/WorkGallery";
-import FinalCta from "@/components/sections/FinalCta";
 
 export const metadata: Metadata = {
   title: "Work | FALAH BRANDHOUSE",
@@ -22,8 +21,7 @@ export default function WorkPage() {
         
         <WorkGallery />
       </main>
-      <FinalCta />
-    </>
+          </>
   );
 }
 

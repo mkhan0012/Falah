@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { insights } from "@/data/insights";
-import FinalCta from "@/components/sections/FinalCta";
 
 export async function generateStaticParams() {
   return insights.map((insight) => ({
@@ -80,8 +79,7 @@ export default async function InsightArticlePage({ params }: { params: Promise<{
         </div>
       </article>
       
-      <FinalCta />
-    </main>
+          </main>
   );
 }
 

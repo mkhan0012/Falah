@@ -70,7 +70,7 @@ export default function Footer() {
               <Link href="/services/personal-branding" className="hover:text-vermilion transition-colors">Personal Branding</Link>
               <Link href="/about" className="hover:text-vermilion transition-colors">About</Link>
               <Link href="/insights" className="hover:text-vermilion transition-colors">Insights</Link>
-              <Link href="/careers" className="hover:text-vermilion transition-colors">Careers</Link>
+              
               <Link href="/contact" className="hover:text-vermilion transition-colors">Contact</Link>
               <Link href="/request-proposal" className="hover:text-vermilion transition-colors">Request a Proposal</Link>
             </div>
@@ -101,3 +101,4 @@ export default function Footer() {
     </footer>
   );
 }
+

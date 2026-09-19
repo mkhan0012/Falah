@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import { insights } from "@/data/insights";
-import FinalCta from "@/components/sections/FinalCta";
 import InsightsList from "./InsightsList";
 
 export const metadata: Metadata = {
@@ -26,8 +25,7 @@ export default function InsightsPage() {
 
         <InsightsList insights={insights} />
       </main>
-      <FinalCta />
-    </>
+          </>
   );
 }
 

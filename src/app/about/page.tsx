@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import FinalCta from "@/components/sections/FinalCta";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -16,7 +15,7 @@ export default function AboutPage() {
         <section className="container mx-auto px-6 md:px-[5vw] mb-32">
           <div className="border-b border-warm-grey pb-16">
             <p className="text-[10px] font-mono font-bold tracking-[0.2em] text-slate mb-8 uppercase">
-              HYDERABAD · INDIA
+              HYDERABAD Â· INDIA
             </p>
             <h1 className="text-6xl md:text-8xl lg:text-[9rem] font-primary font-bold tracking-tighter leading-[0.85] mb-12 uppercase">
               ABOUT <br className="hidden md:block" />
@@ -126,8 +125,8 @@ export default function AboutPage() {
         </section>
         
       </main>
-      <FinalCta />
-    </>
+          </>
   );
 }
+
 

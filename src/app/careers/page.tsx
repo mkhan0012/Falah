@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import FinalCta from "@/components/sections/FinalCta";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
@@ -76,8 +75,7 @@ export default function CareersPage() {
 
         </div>
       </main>
-      <FinalCta />
-    </>
+          </>
   );
 }
 
