@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
-import clsx from "clsx";
 
 export default function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false);
@@ -18,6 +17,7 @@ export default function CookieConsent() {
     // Check if consent has already been given
     const consent = localStorage.getItem("falah_cookie_consent");
     if (!consent) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsVisible(true);
     }
   }, []);

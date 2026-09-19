@@ -33,7 +33,7 @@ export default function NovazenCaseStudy({ project }: { project: Project }) {
         }
       );
 
-      gsap.utils.toArray(".fade-up").forEach((el: any) => {
+      gsap.utils.toArray(".fade-up").forEach((el: any) => /* eslint-disable-line @typescript-eslint/no-explicit-any */ {
         gsap.fromTo(el, 
           { y: 30, opacity: 0 },
           { 
@@ -275,7 +275,7 @@ export default function NovazenCaseStudy({ project }: { project: Project }) {
         <div className="container mx-auto fade-up flex flex-col items-center">
           <h2 className="text-xs font-mono tracking-widest text-slate-400 uppercase mb-8">11 / THE TAKEAWAY</h2>
           <p className="text-3xl md:text-5xl lg:text-[4rem] font-primary font-medium leading-[1.1] tracking-tight max-w-5xl mb-16 text-slate-900">
-            "We didn't make pharma look like a startup. We made it feel current without losing trust."
+            &quot;We didn&apos;t make pharma look like a startup. We made it feel current without losing trust.&quot;
           </p>
           
           <div className="flex flex-col gap-4 mt-8">

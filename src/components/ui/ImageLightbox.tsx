@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { X } from 'lucide-react';
-import gsap from 'gsap';
 
 export default function ImageLightbox({ 
   src, 

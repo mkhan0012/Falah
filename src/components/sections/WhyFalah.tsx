@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const principles = [
   {
     title: "STRATEGY",
-    desc: "We don't guess. Everything we build is rooted in clear positioning and market understanding."
+    desc: "We don&apos;t guess. Everything we build is rooted in clear positioning and market understanding."
   },
   {
     title: "DESIGN",

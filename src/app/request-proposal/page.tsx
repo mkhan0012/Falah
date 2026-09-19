@@ -43,7 +43,7 @@ function RfpForm() {
     setIsSubmitting(true);
     setError(null);
 
-    const result = await submitContact(formData as any);
+    const result = await submitContact(formData);
 
     if (result.error) {
       setError(result.error);
@@ -61,7 +61,7 @@ function RfpForm() {
           <ArrowRight size={32} />
         </div>
         <h3 className="text-3xl font-primary font-bold mb-4 uppercase">PROPOSAL REQUESTED.</h3>
-        <p className="text-slate font-primary text-lg">WE'LL REVIEW AND BE IN TOUCH.</p>
+        <p className="text-slate font-primary text-lg">WE&apos;LL REVIEW AND BE IN TOUCH.</p>
       </div>
     );
   }
@@ -277,7 +277,7 @@ export default function RfpPage() {
                 REQUEST A<br />PROPOSAL
               </h1>
               <p className="text-xl font-primary text-slate mb-12 max-w-sm leading-relaxed">
-                Tell us what you're building, where you are today, and what you want to achieve.
+                Tell us what you&apos;re building, where you are today, and what you want to achieve.
               </p>
             </div>
 

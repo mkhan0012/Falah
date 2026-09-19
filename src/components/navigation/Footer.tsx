@@ -12,7 +12,7 @@ export default function Footer() {
       {/* Massive CTA Section */}
       <div className="container mx-auto px-6 md:px-[5vw] py-32 border-b border-ivory/10">
         <h2 className="text-5xl md:text-7xl lg:text-8xl font-primary font-bold tracking-tight mb-12 uppercase leading-none text-ivory/90 hover:text-ivory transition-colors">
-          LET'S BUILD <br className="hidden md:block" />
+          LET&apos;S BUILD <br className="hidden md:block" />
           SOMETHING <span className="text-vermilion">DISTINCTIVE.</span>
         </h2>
         <Link 

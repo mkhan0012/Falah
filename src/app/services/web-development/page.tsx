@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const situations = [
         "Need a professional business website",
-      "Have a website that doesn't generate leads or convert",
+      "Have a website that doesn&apos;t generate leads or convert",
       "Are launching a new product or service",
       "Need a high-performance corporate platform",
       "Require custom digital experiences or web applications"

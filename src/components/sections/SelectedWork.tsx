@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { projects } from "@/data/projects";
+import { projects, Project } from "@/data/projects";
 
 export default function SelectedWork() {
   return (
@@ -42,9 +42,7 @@ export default function SelectedWork() {
   );
 }
 
-type ProjectType = any;
-
-function CaseStudyDisplay({ project, index }: { project: ProjectType; index: number }) {
+function CaseStudyDisplay({ project, index }: { project: Project; index: number }) {
   const formattedIndex = (index + 1).toString().padStart(2, "0");
   
   // Differentiate visual overlay based on industry

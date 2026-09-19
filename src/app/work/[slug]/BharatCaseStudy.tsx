@@ -31,7 +31,7 @@ export default function BharatCaseStudy({ project }: { project: Project }) {
       });
 
       // Simple Fade Ups
-      gsap.utils.toArray(".fade-up").forEach((el: any) => {
+      gsap.utils.toArray(".fade-up").forEach((el: any) => /* eslint-disable-line @typescript-eslint/no-explicit-any */ {
         gsap.fromTo(el, 
           { y: 30, opacity: 0 },
           { 
@@ -137,7 +137,7 @@ export default function BharatCaseStudy({ project }: { project: Project }) {
               Great engineering, poor digital organization.
             </h3>
             <p className="text-xl text-slate font-primary leading-relaxed">
-              Their legacy website didn't reflect their authority. Products were hard to find, services were vaguely described, and the customer journey for a procurement manager was broken.
+              Their legacy website didn&apos;t reflect their authority. Products were hard to find, services were vaguely described, and the customer journey for a procurement manager was broken.
             </p>
           </div>
         </div>
@@ -149,10 +149,10 @@ export default function BharatCaseStudy({ project }: { project: Project }) {
           </div>
           <div className="md:col-span-8">
             <h3 className="text-3xl md:text-5xl font-primary font-bold tracking-tight leading-tight text-vermilion mb-8">
-              Don't simplify the business. Organize it.
+              Don&apos;t simplify the business. Organize it.
             </h3>
             <p className="text-xl text-slate font-primary leading-relaxed">
-              Industrial buyers don't want marketing fluff; they want specifications, capabilities, and trust. We decided to build a brutalist, structured digital system that routes users exactly to what they need.
+              Industrial buyers don&apos;t want marketing fluff; they want specifications, capabilities, and trust. We decided to build a brutalist, structured digital system that routes users exactly to what they need.
             </p>
           </div>
         </div>
@@ -310,7 +310,7 @@ export default function BharatCaseStudy({ project }: { project: Project }) {
         <div className="container mx-auto fade-up flex flex-col items-center">
           <h2 className="text-sm font-mono font-bold tracking-widest text-ivory/50 uppercase mb-8">11 / THE TAKEAWAY</h2>
           <p className="text-3xl md:text-5xl lg:text-[4rem] font-primary font-bold leading-[1.1] tracking-tight max-w-5xl mb-16">
-            "A digital presence that actually matches the scale and quality of their physical engineering."
+            &quot;A digital presence that actually matches the scale and quality of their physical engineering.&quot;
           </p>
           
           <div className="flex flex-col gap-4 mt-8">

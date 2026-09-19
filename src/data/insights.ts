@@ -23,7 +23,7 @@ export const insights: Insight[] = [
       <h3>The Problem with "Just a Website"</h3>
       <p>If your website looks exactly like your competitors', says the same things, and offers the same generic promises, you are competing purely on price. A premium brand cannot afford to look like a commodity.</p>
       <h3>Building a System</h3>
-      <p>We approach digital presence differently at FALAH BRANDHOUSE. We don't just build pages; we build conversion pathways. Every decision, from the typography to the technical SEO architecture, is made to elevate your authority.</p>
+      <p>We approach digital presence differently at FALAH BRANDHOUSE. We don&apos;t just build pages; we build conversion pathways. Every decision, from the typography to the technical SEO architecture, is made to elevate your authority.</p>
     `
   },
   {
@@ -40,7 +40,7 @@ export const insights: Insight[] = [
       <ul>
         <li><strong>Whitespace:</strong> Luxury brands aren't afraid of empty space. Clutter communicates desperation; space communicates confidence.</li>
         <li><strong>Typography:</strong> The right typeface does the heavy lifting. Custom or high-end typography instantly separates you from template-based competitors.</li>
-        <li><strong>Restraint:</strong> You don't need twelve animations on a page. Subtle, purposeful motion is elegant. Excessive motion is distracting.</li>
+        <li><strong>Restraint:</strong> You don&apos;t need twelve animations on a page. Subtle, purposeful motion is elegant. Excessive motion is distracting.</li>
       </ul>
       <p>At FALAH BRANDHOUSE, we design with restraint. We build brands that look expensive because they are built on solid strategic foundations.</p>
     `
@@ -56,7 +56,7 @@ export const insights: Insight[] = [
       <p>The biggest misconception about SEO is that the goal is simply to be number one. The actual goal of SEO is to capture high-intent demand and convert it into revenue.</p>
       <p>Traffic without trust is useless.</p>
       <h3>Semantic Search and Brand Authority</h3>
-      <p>Modern search engines don't just look for keywords; they look for entities, authority, and user experience. If your website ranks high but looks terrible, users will bounce, and your rankings will inevitably drop.</p>
+      <p>Modern search engines don&apos;t just look for keywords; they look for entities, authority, and user experience. If your website ranks high but looks terrible, users will bounce, and your rankings will inevitably drop.</p>
       <p>This is why SEO must be integrated with Brand and Design. An authoritative brand naturally earns links, generates branded searches, and keeps users engagedâ€”all critical signals for sustained search visibility.</p>
     `
   },
@@ -71,7 +71,7 @@ export const insights: Insight[] = [
       <p>People buy from people. In B2B and high-value services, the reputation of the founder is often the strongest asset the company has.</p>
       <p>A strong personal brand reduces friction in the sales process, attracts top talent, and creates opportunities that a corporate brand alone cannot generate.</p>
       <h3>The FALAH BRANDHOUSE Approach to Personal Branding</h3>
-      <p>We don't believe in generic thought-leadership posts. We believe in turning your actual expertise into a structured digital presence. This means defining your positioning, establishing your digital home, and creating a content system that builds genuine authority in your specific niche.</p>
+      <p>We don&apos;t believe in generic thought-leadership posts. We believe in turning your actual expertise into a structured digital presence. This means defining your positioning, establishing your digital home, and creating a content system that builds genuine authority in your specific niche.</p>
     `
   }
 ];

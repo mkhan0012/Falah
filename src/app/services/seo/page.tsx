@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const situations = [
         "Are not ranking for your core business services",
       "Are losing traffic to competitors",
-      "Have a new website that isn't being found",
+      "Have a new website that isn&apos;t being found",
       "Need to dominate local search in Hyderabad or your region",
       "Want to reduce reliance on paid advertising"
 ];

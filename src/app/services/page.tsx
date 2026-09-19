@@ -22,7 +22,7 @@ export default function ServicesPage() {
         </div>
 
         <div className="container mx-auto px-6 md:px-[5vw]">
-          {services.map((service, index) => {
+          {services.map((service) => {
             let link = "/services";
             if (service.title === "BRAND") link = "/services/branding";
             if (service.title === "DIGITAL") link = "/services/web-development";

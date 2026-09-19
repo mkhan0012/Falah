@@ -70,7 +70,7 @@ export default function AboutPage() {
               <div className="flex flex-col gap-6 items-center text-center px-4">
                 <div className="w-12 h-12 rounded-full border border-warm-grey flex items-center justify-center text-xs font-mono font-bold text-graphite mb-4">01</div>
                 <strong className="block text-3xl font-primary">Strategy First</strong>
-                <p className="text-slate text-lg leading-relaxed">We don't guess. Everything we build is rooted in clear positioning and market understanding.</p>
+                <p className="text-slate text-lg leading-relaxed">We don&apos;t guess. Everything we build is rooted in clear positioning and market understanding.</p>
               </div>
               <div className="flex flex-col gap-6 items-center text-center px-4">
                 <div className="w-12 h-12 rounded-full border border-warm-grey flex items-center justify-center text-xs font-mono font-bold text-graphite mb-4">02</div>

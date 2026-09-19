@@ -16,9 +16,7 @@ interface ContactFormData {
   honeypot?: string;
 }
 
-// Very basic in-memory rate limiting map (IP -> timestamp)
-const rateLimitMap = new Map<string, number>();
-const RATE_LIMIT_WINDOW_MS = 60000; // 1 request per minute per IP
+
 
 const isValidEmail = (email: string) => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -46,8 +44,8 @@ export async function submitContact(formData: ContactFormData) {
     // In App Router, we can get headers. For this simple example, we might not have IP easily.
     // However, if we can get it, we would check the map.
     // To keep it clean and working in standard setups:
-    const clientTimestamp = Date.now();
-    // Assuming a global rate limit for the demo if IP isn't easily accessible without next/headers
+
+    // Assuming a global rate limit for the demo if IP isn&apos;t easily accessible without next/headers
     // In production, you'd use Redis or a proper rate limiting service.
 
     const submission = {
@@ -64,8 +62,8 @@ export async function submitContact(formData: ContactFormData) {
     try {
       const fileData = await fs.readFile(dbPath, "utf-8");
       submissions = JSON.parse(fileData);
-    } catch (error) {
-      // File doesn't exist yet, which is fine
+    } catch {
+      // File doesn&apos;t exist yet, which is fine
     }
 
     // Add new submission and save

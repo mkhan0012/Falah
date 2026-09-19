@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, Search } from "lucide-react";
 
-type Insight = any;
+type Insight = { slug: string; title: string; category: string; date: string; heroImage?: string };
 
 export default function InsightsList({ insights }: { insights: Insight[] }) {
   const [search, setSearch] = useState("");

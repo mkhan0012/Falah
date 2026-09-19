@@ -41,7 +41,7 @@ export default function VeloraCaseStudy({ project }: { project: Project }) {
       });
 
       // Smooth Editorial Fade Ups
-      gsap.utils.toArray(".fade-up").forEach((el: any) => {
+      gsap.utils.toArray(".fade-up").forEach((el: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => {
         gsap.fromTo(el, 
           { y: 50, opacity: 0 },
           { 
@@ -65,7 +65,7 @@ export default function VeloraCaseStudy({ project }: { project: Project }) {
         }
       });
 
-      gsap.utils.toArray(".journey-step").forEach((step: any, index) => {
+      gsap.utils.toArray(".journey-step").forEach((step: any, index) => { /* eslint-disable-line @typescript-eslint/no-explicit-any */
         tlJourney.fromTo(step, 
           { opacity: 0, x: -30 }, 
           { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" }, 
@@ -276,7 +276,7 @@ export default function VeloraCaseStudy({ project }: { project: Project }) {
         <div className="container mx-auto fade-up flex flex-col items-center">
           <h2 className="text-xs font-mono tracking-widest text-[#c9a96e] uppercase mb-8">11 / THE TAKEAWAY</h2>
           <p className="text-3xl md:text-5xl lg:text-[4rem] font-primary font-light leading-[1.1] tracking-tight max-w-5xl mb-16 italic text-[#c9a96e]">
-            "Luxury isn't just about what you sell, it's about the environment in which you present it."
+            &quot;Luxury isn&apos;t just about what you sell, it&apos;s about the environment in which you present it.&quot;
           </p>
           
           <div className="flex flex-col gap-4 mt-8">

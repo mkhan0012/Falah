@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
@@ -125,7 +125,7 @@ export default function DigitalPresence() {
           {/* CRUCIAL DISCLAIMER */}
           <div className="inline-block border border-vermilion bg-vermilion/5 px-6 py-4 md:px-8 md:py-6 rounded-lg backdrop-blur-sm max-w-2xl mx-auto">
             <p className="text-sm md:text-base font-mono font-bold tracking-wide leading-relaxed text-ivory/90 uppercase text-center">
-              YOU DON'T ALWAYS NEED EVERYTHING.
+              YOU DON&apos;T ALWAYS NEED EVERYTHING.
               <br className="hidden md:block" />
               WE IDENTIFY WHICH PARTS OF THE SYSTEM YOUR BUSINESS ACTUALLY NEEDS.
             </p>

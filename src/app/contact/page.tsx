@@ -40,7 +40,7 @@ function ContactForm() {
     setIsSubmitting(true);
     setError(null);
 
-    const result = await submitContact(formData as any);
+    const result = await submitContact(formData);
 
     if (result.error) {
       setError(result.error);
@@ -58,7 +58,7 @@ function ContactForm() {
           <ArrowRight size={32} />
         </div>
         <h3 className="text-3xl font-primary font-bold mb-4 uppercase">THANK YOU.</h3>
-        <p className="text-slate font-primary text-lg">WE'LL BE IN TOUCH.</p>
+        <p className="text-slate font-primary text-lg">WE&apos;LL BE IN TOUCH SHORTLY.</p>
       </div>
     );
   }
@@ -240,7 +240,7 @@ export default function ContactPage() {
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
               <h1 className="text-5xl md:text-7xl font-primary font-bold tracking-tighter leading-[0.9] mb-8">
-                LET'S BUILD<br />SOMETHING<br />DISTINCTIVE.
+                LET&apos;S BUILD<br />SOMETHING<br />DISTINCTIVE.
               </h1>
               <p className="text-xl font-primary text-slate mb-12 max-w-sm">
                 Based in Hyderabad, working with businesses and founders across India.

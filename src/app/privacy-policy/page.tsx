@@ -17,7 +17,7 @@ export default function PrivacyPolicyPage() {
           <section className="space-y-4">
             <h2 className="text-2xl font-bold uppercase font-primary mt-12 mb-4">1. Introduction</h2>
             <p>
-              At FALAH BRANDHOUSE ("we", "our", or "us"), we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <strong>falahbrandhouse.com</strong> and use our services.
+              At FALAH BRANDHOUSE (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;), we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <strong>falahbrandhouse.com</strong> and use our services.
             </p>
             <p className="text-sm bg-warm-grey/20 p-4 border-l-4 border-vermilion">
               <em>Note: This policy should be reviewed by a legal advisor before finalizing.</em>
@@ -28,7 +28,7 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-2xl font-bold uppercase font-primary mt-12 mb-4">2. Information We Collect</h2>
             <p>We may collect information about you in a variety of ways. The information we may collect on the Site includes:</p>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Personal Data:</strong> Personally identifiable information, such as your name, email address, telephone number, and company details that you voluntarily give to us when choosing to submit forms (e.g., Contact Form, Request a Proposal).</li>
+              <li><strong>Personal Data:</strong> We collect information that you provide directly to us, such as when you fill out a form, request a proposal, or communicate with us. This may include your name, email address, phone number, and any other information you choose to provide.</li>
               <li><strong>Derivative Data:</strong> Information our servers automatically collect when you access the Site, such as your IP address, your browser type, your operating system, your access times, and the pages you have viewed directly before and after accessing the Site.</li>
             </ul>
           </section>

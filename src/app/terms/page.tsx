@@ -37,7 +37,7 @@ export default function TermsPage() {
           <section className="space-y-4">
             <h2 className="text-2xl font-bold uppercase font-primary mt-12 mb-4">3. Use License</h2>
             <p>
-              Permission is granted to temporarily download one copy of the materials (information or software) on FALAH BRANDHOUSE's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title.
+              Permission is granted to temporarily download one copy of the materials (information or software) on FALAH BRANDHOUSE&apos;s website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title.
             </p>
           </section>
 
@@ -51,7 +51,7 @@ export default function TermsPage() {
           <section className="space-y-4">
             <h2 className="text-2xl font-bold uppercase font-primary mt-12 mb-4">5. Disclaimer and Limitation of Liability</h2>
             <p>
-              The materials on FALAH BRANDHOUSE's website are provided on an 'as is' basis. We make no warranties, expressed or implied, and hereby disclaim and negate all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property.
+              The materials on FALAH BRANDHOUSE&apos;s website are provided on an &apos;as is&apos; basis. We make no warranties, expressed or implied, and hereby disclaim and negate all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property.
             </p>
             <p>
               In no event shall FALAH BRANDHOUSE or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on our website.
@@ -61,7 +61,7 @@ export default function TermsPage() {
           <section className="space-y-4">
             <h2 className="text-2xl font-bold uppercase font-primary mt-12 mb-4">6. External Links</h2>
             <p>
-              FALAH BRANDHOUSE has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by us of the site. Use of any such linked website is at the user's own risk.
+              FALAH BRANDHOUSE has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by us of the site. Use of any such linked website is at the user&apos;s own risk.
             </p>
           </section>
 

@@ -21,10 +21,10 @@ export default function CareersPage() {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-12 border-t border-warm-grey pt-12">
               <div className="md:col-span-8 lg:col-span-6">
                 <p className="text-2xl md:text-3xl text-slate font-primary leading-relaxed font-medium mb-8">
-                  FALAH operates across Brand, Design, Technology, and Growth. We're building premium digital presence systems for ambitious businesses.
+                  FALAH operates across Brand, Design, Technology, and Growth. We&apos;re building premium digital presence systems for ambitious businesses.
                 </p>
                 <p className="text-xl font-primary text-graphite">
-                  We're always interested in meeting exceptional people who care deeply about craft and systems.
+                  We&apos;re always interested in meeting exceptional people who care deeply about craft and systems.
                 </p>
               </div>
             </div>

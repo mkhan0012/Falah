@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
@@ -90,7 +90,7 @@ export default function FalahMethod() {
 
           {/* Mobile Version: Vertical Stack */}
           <div className="md:hidden flex flex-col gap-12 border-l border-ivory/20 ml-2">
-            {methodSteps.map((step, index) => (
+            {methodSteps.map((step) => (
               <div key={step.id} className="relative pl-8">
                 <div className="absolute left-[-5px] top-1 w-2.5 h-2.5 rounded-full bg-charcoal border-2 border-vermilion" />
                 <span className="text-[10px] font-mono text-vermilion mb-2 block">{step.id}</span>
