@@ -3,16 +3,28 @@ import { projects } from '@/data/projects'
 import { insights } from '@/data/insights'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://falahbrandhouse.com' // Replace with actual domain
+  const baseUrl = 'https://falahbrandhouse.com' 
 
   const staticRoutes = [
     '',
     '/work',
     '/services',
-    '/personal-branding',
+    '/services/branding',
+    '/services/web-development',
+    '/services/seo',
+    '/services/social-media',
+    '/services/digital-marketing',
+    '/services/personal-branding',
+    '/industries',
+    '/industries/real-estate',
+    '/industries/healthcare',
+    '/industries/education',
+    '/industries/manufacturing',
     '/about',
+    '/careers',
     '/insights',
     '/contact',
+    '/request-proposal',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString(),
@@ -36,3 +48,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...staticRoutes, ...projectRoutes, ...insightRoutes]
 }
+

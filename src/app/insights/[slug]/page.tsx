@@ -35,30 +35,30 @@ export default async function InsightArticlePage({ params }: { params: Promise<{
   }
 
   return (
-    <main>
-      <article className="pt-40 pb-24 container mx-auto px-6 md:px-12 max-w-4xl">
+    <main className="bg-ivory text-graphite min-h-screen">
+      <article className="pt-40 pb-24 container mx-auto px-6 md:px-[5vw] max-w-5xl">
         <Link 
           href="/insights" 
-          className="inline-flex items-center gap-2 text-sm font-bold tracking-widest text-foreground/50 hover:text-accent transition-colors mb-16 uppercase"
+          className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-slate hover:text-vermilion transition-colors mb-16 uppercase"
         >
           <ArrowLeft size={16} /> Back to Insights
         </Link>
         
-        <div className="flex gap-4 items-center text-sm font-bold tracking-wider text-accent mb-6 uppercase">
-          <span>{insight.category}</span>
-          <span className="w-1 h-1 bg-accent rounded-full" />
+        <div className="flex flex-wrap gap-4 items-center text-xs font-mono font-bold tracking-wider text-slate mb-8 uppercase">
+          <span className="text-graphite">{insight.category}</span>
+          <span className="w-1 h-1 bg-warm-grey rounded-full" />
           <span>{insight.readingTime}</span>
-          <span className="w-1 h-1 bg-accent rounded-full" />
-          <span className="text-foreground/50">{insight.date}</span>
+          <span className="w-1 h-1 bg-warm-grey rounded-full" />
+          <span>{insight.date}</span>
         </div>
 
-        <h1 className="text-4xl md:text-6xl font-serif mb-12 leading-tight">
+        <h1 className="text-4xl md:text-6xl lg:text-[5rem] leading-[0.9] font-primary font-bold tracking-tight mb-12 uppercase text-graphite">
           {insight.title}
         </h1>
 
-        <div className="relative aspect-[21/9] w-full overflow-hidden bg-charcoal rounded-sm mb-16">
+        <div className="relative aspect-[21/9] w-full overflow-hidden bg-warm-grey mb-16">
           <Image 
-            src={insight.heroImage}
+            src={insight.heroImage || '/images/mockups/placeholder.jpg'}
             alt={insight.title}
             fill
             className="object-cover"
@@ -68,15 +68,15 @@ export default async function InsightArticlePage({ params }: { params: Promise<{
 
         {/* Prose content */}
         <div 
-          className="prose prose-invert prose-lg max-w-none prose-headings:font-serif prose-headings:font-normal prose-a:text-accent hover:prose-a:text-white"
+          className="prose prose-lg max-w-3xl mx-auto prose-headings:font-primary prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-graphite prose-p:font-primary prose-p:text-slate prose-a:text-vermilion hover:prose-a:text-graphite prose-strong:text-graphite prose-li:text-slate"
           dangerouslySetInnerHTML={{ __html: insight.content }}
         />
         
         {/* Share Section placeholder */}
-        <div className="mt-16 pt-8 border-t border-white/10 flex items-center gap-4">
-          <span className="text-sm font-bold tracking-widest uppercase text-foreground/50">Share:</span>
-          <button className="text-foreground hover:text-accent transition-colors text-sm font-bold">LinkedIn</button>
-          <button className="text-foreground hover:text-accent transition-colors text-sm font-bold">Twitter/X</button>
+        <div className="mt-24 pt-8 border-t border-warm-grey flex items-center gap-4 max-w-3xl mx-auto">
+          <span className="text-xs font-mono font-bold tracking-widest uppercase text-slate">Share:</span>
+          <button className="text-graphite hover:text-vermilion transition-colors text-xs font-mono uppercase tracking-widest border border-warm-grey px-4 py-2 hover:border-vermilion">LinkedIn</button>
+          <button className="text-graphite hover:text-vermilion transition-colors text-xs font-mono uppercase tracking-widest border border-warm-grey px-4 py-2 hover:border-vermilion">Twitter/X</button>
         </div>
       </article>
       
@@ -84,3 +84,4 @@ export default async function InsightArticlePage({ params }: { params: Promise<{
     </main>
   );
 }
+

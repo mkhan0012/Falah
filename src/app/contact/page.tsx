@@ -19,10 +19,10 @@ const needsOptions = [
 ];
 
 const budgetOptions = [
-  "Under ₹50K",
-  "₹50K–₹1L",
-  "₹1L–₹3L",
-  "₹3L+",
+  "Under â‚¹50K",
+  "â‚¹50Kâ€“â‚¹1L",
+  "â‚¹1Lâ€“â‚¹3L",
+  "â‚¹3L+",
   "Not Sure"
 ];
 
@@ -255,7 +255,7 @@ export default function ContactPage() {
               
               <div className="flex flex-col gap-2">
                 <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-slate uppercase">Location</span>
-                <span className="text-sm font-mono tracking-widest text-graphite uppercase">HYDERABAD · INDIA</span>
+                <span className="text-sm font-mono tracking-widest text-graphite uppercase">HYDERABAD Â· INDIA</span>
               </div>
             </div>
 

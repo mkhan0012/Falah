@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   return (
     <>
-      <main className="pt-32 pb-24 min-h-screen">
-        <div className="container mx-auto px-6 md:px-12 mb-16">
-          <h1 className="text-5xl md:text-7xl lg:text-[7rem] font-serif tracking-tight mb-8">
-            OUR <span className="text-foreground/40 italic">WORK</span>
+      <main className="pt-40 pb-24 min-h-screen bg-ivory text-graphite">
+        <div className="container mx-auto px-6 md:px-[5vw] mb-24">
+          <h1 className="text-5xl md:text-8xl font-primary font-bold tracking-tight mb-8">
+            SELECTED WORK.
           </h1>
-          <p className="text-xl md:text-2xl text-foreground/60 max-w-2xl font-light">
+          <p className="text-xl md:text-2xl text-slate max-w-2xl font-primary">
             We build digital presence systems for ambitious brands.
           </p>
         </div>
@@ -26,3 +26,4 @@ export default function WorkPage() {
     </>
   );
 }
+

@@ -66,7 +66,7 @@ export default function IndustryScroll() {
                 {industry}
               </h3>
               {i !== industries.length - 1 && (
-                <div className="text-4xl md:text-6xl text-slate font-mono">→</div>
+                <div className="text-4xl md:text-6xl text-slate font-mono">â†’</div>
               )}
             </div>
           ))}
@@ -76,3 +76,4 @@ export default function IndustryScroll() {
     </section>
   );
 }
+

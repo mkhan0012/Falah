@@ -25,7 +25,7 @@ const principles = [
   }
 ];
 
-export default function WhyVeyra() {
+export default function WhyFalah() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -89,3 +89,4 @@ export default function WhyVeyra() {
     </section>
   );
 }
+

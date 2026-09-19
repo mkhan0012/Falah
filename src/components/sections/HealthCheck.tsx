@@ -83,7 +83,7 @@ export default function HealthCheck() {
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
               <span className="font-mono text-xs uppercase tracking-widest">Live Audit Preview</span>
             </div>
-            <span className="font-mono text-xs text-ivory/50">DEMO DATA — ILLUSTRATIVE</span>
+            <span className="font-mono text-xs text-ivory/50">DEMO DATA â€” ILLUSTRATIVE</span>
           </div>
           
           <div className="p-8 md:p-12">
@@ -143,3 +143,4 @@ export default function HealthCheck() {
     </section>
   );
 }
+

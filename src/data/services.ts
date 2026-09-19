@@ -1,4 +1,4 @@
-﻿export const services = [
+export const services = [
   {
     id: "01",
     title: "BRAND",
@@ -48,3 +48,4 @@
     description: "We implement data-driven marketing strategies to scale your digital presence and generate measurable business outcomes."
   }
 ];
+

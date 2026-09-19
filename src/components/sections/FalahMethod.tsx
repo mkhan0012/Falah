@@ -15,7 +15,7 @@ const methodSteps = [
   { id: "05", title: "GROW", desc: "Executing SEO, content, and conversion optimization systems." },
 ];
 
-export default function VeyraMethod() {
+export default function FalahMethod() {
   const containerRef = useRef<HTMLDivElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -87,3 +87,4 @@ export default function VeyraMethod() {
     </section>
   );
 }
+

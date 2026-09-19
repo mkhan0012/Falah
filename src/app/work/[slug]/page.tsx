@@ -198,13 +198,13 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               <div className="flex-1 border border-ivory/10 p-6 md:p-12 bg-ivory/5 flex flex-col justify-center text-center">
                 <h3 className="text-3xl font-primary font-bold tracking-wide mb-4">SEO & Visibility</h3>
                 <p className="font-mono text-xs text-ivory/60 leading-relaxed uppercase tracking-widest">
-                  Technical Architecture • Search Intent • Content Strategy
+                  Technical Architecture â€¢ Search Intent â€¢ Content Strategy
                 </p>
               </div>
               <div className="flex-1 border border-ivory/10 p-6 md:p-12 bg-ivory/5 flex flex-col justify-center text-center">
                 <h3 className="text-3xl font-primary font-bold tracking-wide mb-4 text-vermilion">Brand Assets</h3>
                 <p className="font-mono text-xs text-ivory/60 leading-relaxed uppercase tracking-widest">
-                  Typography • Color System • Visual Direction
+                  Typography â€¢ Color System â€¢ Visual Direction
                 </p>
               </div>
             </div>

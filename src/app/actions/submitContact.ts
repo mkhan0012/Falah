@@ -53,3 +53,4 @@ export async function submitContact(formData: ContactFormData) {
     return { success: false, error: "Internal server error." };
   }
 }
+

@@ -57,7 +57,7 @@ export const insights: Insight[] = [
       <p>Traffic without trust is useless.</p>
       <h3>Semantic Search and Brand Authority</h3>
       <p>Modern search engines don't just look for keywords; they look for entities, authority, and user experience. If your website ranks high but looks terrible, users will bounce, and your rankings will inevitably drop.</p>
-      <p>This is why SEO must be integrated with Brand and Design. An authoritative brand naturally earns links, generates branded searches, and keeps users engaged—all critical signals for sustained search visibility.</p>
+      <p>This is why SEO must be integrated with Brand and Design. An authoritative brand naturally earns links, generates branded searches, and keeps users engagedâ€”all critical signals for sustained search visibility.</p>
     `
   },
   {

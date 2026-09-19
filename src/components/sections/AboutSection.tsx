@@ -12,7 +12,7 @@ export default function AboutSection() {
         
         <div className="mb-16">
           <p className="text-[10px] font-mono font-bold tracking-[0.2em] text-slate uppercase">
-            HYDERABAD · INDIA
+            HYDERABAD Â· INDIA
           </p>
         </div>
 
@@ -28,11 +28,11 @@ export default function AboutSection() {
         
         <div className="inline-flex flex-wrap justify-center items-center gap-4 md:gap-8 text-xs md:text-sm font-mono font-bold tracking-widest text-vermilion border border-warm-grey px-8 py-6 bg-white uppercase">
           <span>STRATEGY</span>
-          <span className="text-slate/40">×</span>
+          <span className="text-slate/40">Ã—</span>
           <span>DESIGN</span>
-          <span className="text-slate/40">×</span>
+          <span className="text-slate/40">Ã—</span>
           <span>TECHNOLOGY</span>
-          <span className="text-slate/40">×</span>
+          <span className="text-slate/40">Ã—</span>
           <span>GROWTH</span>
         </div>
 
