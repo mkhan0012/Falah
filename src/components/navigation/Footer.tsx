@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import LogoMark from "@/components/ui/LogoMark";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -31,9 +32,12 @@ export default function Footer() {
           {/* Brand Info */}
           <div className="lg:col-span-4 flex flex-col justify-between">
             <div>
-              <h3 className="text-3xl font-primary font-bold tracking-tighter mb-4 text-ivory">
-                FALAH BRANDHOUSE
-              </h3>
+              <div className="flex items-center gap-4 mb-4">
+                <LogoMark className="w-12 h-12 text-ivory/90" />
+                <h3 className="text-3xl font-primary font-bold tracking-tighter text-ivory">
+                  FALAH BRANDHOUSE
+                </h3>
+              </div>
               <p className="text-lg font-primary text-ivory/60 mb-1">Brand & Digital Growth Studio</p>
               <p className="text-lg font-primary text-ivory/60">Hyderabad · India</p>
             </div>

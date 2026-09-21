@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu, X, ChevronDown } from "lucide-react";
 import clsx from "clsx";
+import LogoMark from "@/components/ui/LogoMark";
 
 const services = {
   "EARNED MEDIA": [
@@ -77,12 +78,17 @@ export default function Navbar() {
       >
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
           <div className="flex flex-col z-50">
-            <Link href="/" className="text-xl md:text-2xl font-primary font-bold tracking-tight text-graphite">
-              FALAH BRANDHOUSE
+            <Link href="/" className="flex items-center gap-3 group">
+              <LogoMark className="w-8 h-8 text-graphite group-hover:-translate-y-1 transition-transform" />
+              <div>
+                <span className="block text-xl md:text-2xl font-primary font-bold tracking-tight text-graphite leading-none">
+                  FALAH BRANDHOUSE
+                </span>
+                <span className="text-[9px] font-mono tracking-widest text-slate hidden lg:block uppercase mt-1">
+                  Brand & Digital Growth Studio
+                </span>
+              </div>
             </Link>
-            <span className="text-[9px] font-mono tracking-widest text-slate hidden lg:block uppercase mt-1">
-              Brand & Digital Growth Studio
-            </span>
           </div>
 
           <nav className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2 h-full">
