@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
 import TransitionLink from "@/components/ui/TransitionLink";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
@@ -27,27 +26,34 @@ export default function HeroSection() {
   }, []);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Parallax on mouse move
-      const handleMouseMove = (e: MouseEvent) => {
-        if (!textRef.current || isMobile) return;
-        const { clientX, clientY } = e;
-        const { innerWidth, innerHeight } = window;
-        
-        const xPos = (clientX / innerWidth - 0.5) * 15; 
-        const yPos = (clientY / innerHeight - 0.5) * 15;
+    let ctx: any;
+    
+    // Dynamically import GSAP to prevent it from blocking the main thread on initial load
+    import("gsap").then(({ default: gsap }) => {
+      ctx = gsap.context(() => {
+        // Parallax on mouse move
+        const handleMouseMove = (e: MouseEvent) => {
+          if (!textRef.current || isMobile) return;
+          const { clientX, clientY } = e;
+          const { innerWidth, innerHeight } = window;
+          
+          const xPos = (clientX / innerWidth - 0.5) * 15; 
+          const yPos = (clientY / innerHeight - 0.5) * 15;
 
-        gsap.to(textRef.current, { x: xPos, y: yPos, duration: 1, ease: "power2.out" });
-      };
+          gsap.to(textRef.current, { x: xPos, y: yPos, duration: 1, ease: "power2.out" });
+        };
 
-      window.addEventListener("mousemove", handleMouseMove);
+        window.addEventListener("mousemove", handleMouseMove);
 
-      return () => {
-        window.removeEventListener("mousemove", handleMouseMove);
-      };
-    }, containerRef);
+        return () => {
+          window.removeEventListener("mousemove", handleMouseMove);
+        };
+      }, containerRef);
+    });
 
-    return () => ctx.revert();
+    return () => {
+      if (ctx) ctx.revert();
+    };
   }, [isMobile]);
 
   return (

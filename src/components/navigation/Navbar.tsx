@@ -186,9 +186,11 @@ export default function Navbar() {
             <button
               className="lg:hidden flex items-center gap-2 ml-2 text-graphite"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileMenuOpen}
             >
               <span className="hidden sm:block text-xs font-mono font-bold uppercase tracking-wider">Menu</span>
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {mobileMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
             </button>
           </div>
         </div>

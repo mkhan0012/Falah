@@ -58,8 +58,29 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Falah Brandhouse",
+    "image": "https://falahbrandhouse.com/og-image.jpg",
+    "description": "Strategy, design, digital experiences and growth systems for ambitious businesses and people in Hyderabad, India.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hyderabad",
+      "addressCountry": "IN"
+    },
+    "url": "https://falahbrandhouse.com"
+  };
+
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="preload" as="video" href="/showreel.mp4" type="video/mp4" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${instrumentSans.variable} ${ibmPlexMono.variable} font-primary bg-ivory text-graphite antialiased selection:bg-vermilion selection:text-ivory`}
       >
