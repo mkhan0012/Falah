@@ -44,13 +44,16 @@ export default function HeroSection() {
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video 
-          src="/showreel.mp4" 
           autoPlay 
           muted 
           loop 
           playsInline 
           className="w-full h-full object-cover scale-[1.05]"
-        />
+        >
+          {/* Serve mobile video for phones, landscape video for tablets/desktop */}
+          <source media="(max-width: 767px)" src="/showreel-mobile.mp4" type="video/mp4" />
+          <source media="(min-width: 768px)" src="/showreel.mp4" type="video/mp4" />
+        </video>
         {/* Subtle gradient overlay just at the bottom for text readability, leaving the center 100% clear */}
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent pointer-events-none" />
       </div>
