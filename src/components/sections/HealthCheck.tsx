@@ -13,10 +13,11 @@ export default function HealthCheck() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    const el = containerRef.current;
+    if (!el) return;
     
     const ctx = gsap.context(() => {
-      gsap.fromTo(containerRef.current.children, 
+      gsap.fromTo(el.children, 
         { y: 50, opacity: 0 },
         { 
           y: 0, opacity: 1, 
@@ -24,7 +25,7 @@ export default function HealthCheck() {
           stagger: 0.2,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: containerRef.current,
+            trigger: el,
             start: "top 80%",
           }
         }

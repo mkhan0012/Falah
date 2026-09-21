@@ -17,17 +17,19 @@ export default function SelectedWork({ limit }: { limit?: number }) {
   const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current || !headerRef.current) return;
+    const container = containerRef.current;
+    const header = headerRef.current;
+    if (!container || !header) return;
     
     const ctx = gsap.context(() => {
-      gsap.fromTo(headerRef.current, 
+      gsap.fromTo(header, 
         { y: 50, opacity: 0 },
         { 
           y: 0, opacity: 1, 
           duration: 1, 
           ease: "power3.out",
           scrollTrigger: {
-            trigger: headerRef.current,
+            trigger: header,
             start: "top 85%",
           }
         }
