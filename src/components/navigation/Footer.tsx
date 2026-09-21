@@ -68,7 +68,8 @@ export default function Footer() {
             <h4 className="text-xs font-mono font-bold tracking-widest text-ivory/40 mb-8 uppercase">EXPLORE</h4>
             <div className="grid grid-cols-2 gap-x-8 gap-y-4 text-lg font-primary">
               <Link href="/work" className="hover:text-vermilion transition-colors">Work</Link>
-              <Link href="/services" className="hover:text-vermilion transition-colors">Services</Link>
+              <Link href="/services" className="hover:text-vermilion transition-colors">Solutions</Link>
+              <Link href="/keyword-tool" className="hover:text-vermilion transition-colors text-vermilion font-bold">Free SEO Tool</Link>
               <Link href="/services/personal-branding" className="hover:text-vermilion transition-colors">Personal Branding</Link>
               <Link href="/about" className="hover:text-vermilion transition-colors">About</Link>
               <Link href="/insights" className="hover:text-vermilion transition-colors">Insights</Link>

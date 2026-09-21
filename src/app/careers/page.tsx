@@ -1,13 +1,19 @@
-import { Metadata } from "next";
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Careers | FALAH BRANDHOUSE",
-  description: "Build with Falah. We operate across Brand, Design, Technology, and Growth.",
-};
+import JobApplicationModal from "@/components/forms/JobApplicationModal";
 
 export default function CareersPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedRole, setSelectedRole] = useState("");
+
+  const openModal = (role: string) => {
+    setSelectedRole(role);
+    setIsModalOpen(true);
+  };
+
   return (
     <>
       <main className="min-h-screen bg-ivory pt-40 pb-24 text-graphite">
@@ -30,52 +36,100 @@ export default function CareersPage() {
             </div>
           </div>
           
-          <div className="border-t border-warm-grey pt-24 mb-32 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
-            <div>
-              <h2 className="text-3xl md:text-5xl font-primary font-bold mb-8 tracking-tight uppercase text-slate">Open Roles</h2>
-              <div className="border border-warm-grey p-12 bg-white text-center">
-                <p className="text-lg font-mono text-slate uppercase tracking-widest mb-6">No active openings right now</p>
-                <p className="font-primary text-xl text-graphite mb-12">But we review every profile sent to us.</p>
-                <Link 
-                  href="mailto:careers@falahbrandhouse.com"
-                  className="inline-flex items-center gap-2 border border-graphite bg-transparent text-graphite px-8 py-4 text-sm font-mono font-bold uppercase tracking-wider hover:bg-graphite hover:text-ivory transition-colors group"
+          <div className="border-t border-warm-grey pt-24 mb-32">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+              
+              <div className="lg:col-span-4">
+                <h2 className="text-3xl md:text-5xl font-primary font-bold mb-8 tracking-tight uppercase text-graphite">Open Roles</h2>
+                <p className="text-lg font-primary text-slate mb-8">
+                  Don't see your exact role? We are always looking for exceptional talent. Drop us your resume anyway.
+                </p>
+                <button 
+                  onClick={() => openModal("General Application")}
+                  className="inline-flex items-center gap-2 border border-graphite text-graphite px-8 py-4 text-sm font-mono font-bold uppercase tracking-wider hover:bg-graphite hover:text-ivory transition-colors group"
                 >
-                  SEND YOUR PROFILE <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </Link>
+                  PITCH YOURSELF <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </button>
               </div>
-            </div>
 
-            <div>
-              <h2 className="text-3xl md:text-5xl font-primary font-bold mb-8 tracking-tight uppercase">Who We Look For</h2>
-              <ul className="flex flex-col gap-8 text-lg font-primary text-graphite font-bold">
-                <li className="flex gap-6 border-b border-warm-grey pb-6">
-                  <div className="w-2 h-2 bg-vermilion rounded-full mt-2 shrink-0" />
+              <div className="lg:col-span-8 flex flex-col gap-6">
+                
+                {/* Job Card 1 */}
+                <div className="bg-white border border-warm-grey p-8 md:p-10 hover:border-vermilion transition-colors group flex flex-col md:flex-row md:items-center justify-between gap-8">
                   <div>
-                    <h3 className="text-xl mb-2">Designers</h3>
-                    <p className="text-base text-slate font-normal">Obsessed with typography, grids, and premium aesthetics.</p>
+                    <div className="flex gap-4 items-center mb-4 text-xs font-mono font-bold tracking-widest text-slate uppercase">
+                      <span>REMOTE</span>
+                      <span className="text-vermilion">/</span>
+                      <span>FULL-TIME</span>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-primary font-bold text-graphite mb-2 group-hover:text-vermilion transition-colors">
+                      Senior SEO Strategist
+                    </h3>
+                    <p className="text-slate font-primary text-lg">Lead enterprise organic growth campaigns.</p>
                   </div>
-                </li>
-                <li className="flex gap-6 border-b border-warm-grey pb-6">
-                  <div className="w-2 h-2 bg-vermilion rounded-full mt-2 shrink-0" />
+                  <button 
+                    onClick={() => openModal("Senior SEO Strategist")}
+                    className="shrink-0 bg-graphite text-ivory px-6 py-4 font-mono text-xs font-bold uppercase tracking-widest hover:bg-vermilion transition-colors"
+                  >
+                    APPLY NOW
+                  </button>
+                </div>
+
+                {/* Job Card 2 */}
+                <div className="bg-white border border-warm-grey p-8 md:p-10 hover:border-vermilion transition-colors group flex flex-col md:flex-row md:items-center justify-between gap-8">
                   <div>
-                    <h3 className="text-xl mb-2">Engineers</h3>
-                    <p className="text-base text-slate font-normal">Focused on performance, animations (GSAP), and scalable React systems.</p>
+                    <div className="flex gap-4 items-center mb-4 text-xs font-mono font-bold tracking-widest text-slate uppercase">
+                      <span>HYDERABAD</span>
+                      <span className="text-vermilion">/</span>
+                      <span>FULL-TIME</span>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-primary font-bold text-graphite mb-2 group-hover:text-vermilion transition-colors">
+                      React / GSAP Engineer
+                    </h3>
+                    <p className="text-slate font-primary text-lg">Build premium, high-performance web experiences.</p>
                   </div>
-                </li>
-                <li className="flex gap-6 border-b border-warm-grey pb-6">
-                  <div className="w-2 h-2 bg-vermilion rounded-full mt-2 shrink-0" />
+                  <button 
+                    onClick={() => openModal("React / GSAP Engineer")}
+                    className="shrink-0 bg-graphite text-ivory px-6 py-4 font-mono text-xs font-bold uppercase tracking-widest hover:bg-vermilion transition-colors"
+                  >
+                    APPLY NOW
+                  </button>
+                </div>
+
+                {/* Job Card 3 */}
+                <div className="bg-white border border-warm-grey p-8 md:p-10 hover:border-vermilion transition-colors group flex flex-col md:flex-row md:items-center justify-between gap-8">
                   <div>
-                    <h3 className="text-xl mb-2">Growth Specialists</h3>
-                    <p className="text-base text-slate font-normal">Data-driven thinkers specializing in SEO and digital visibility.</p>
+                    <div className="flex gap-4 items-center mb-4 text-xs font-mono font-bold tracking-widest text-slate uppercase">
+                      <span>REMOTE</span>
+                      <span className="text-vermilion">/</span>
+                      <span>CONTRACT</span>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-primary font-bold text-graphite mb-2 group-hover:text-vermilion transition-colors">
+                      Copywriter (Conversion)
+                    </h3>
+                    <p className="text-slate font-primary text-lg">Write direct-response copy that prints money.</p>
                   </div>
-                </li>
-              </ul>
+                  <button 
+                    onClick={() => openModal("Copywriter (Conversion)")}
+                    className="shrink-0 bg-graphite text-ivory px-6 py-4 font-mono text-xs font-bold uppercase tracking-widest hover:bg-vermilion transition-colors"
+                  >
+                    APPLY NOW
+                  </button>
+                </div>
+
+              </div>
             </div>
           </div>
 
         </div>
       </main>
-          </>
+      
+      <JobApplicationModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        roleTitle={selectedRole}
+      />
+    </>
   );
 }
 

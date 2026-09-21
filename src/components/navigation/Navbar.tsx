@@ -6,32 +6,31 @@ import { ArrowUpRight, Menu, X, ChevronDown } from "lucide-react";
 import clsx from "clsx";
 
 const services = {
-  BRAND: [
-    { name: "Brand Strategy", href: "/services/branding" },
-    { name: "Positioning", href: "/services/branding" },
-    { name: "Visual Identity", href: "/services/branding" },
-    { name: "Brand Messaging", href: "/services/branding" },
-    { name: "Personal Branding", href: "/services/personal-branding" },
+  "EARNED MEDIA": [
+    { name: "Answer / Generative Engine Optimization", href: "/services" },
+    { name: "Search Engine Optimization", href: "/services" },
+    { name: "App Store Optimization", href: "/services" },
+    { name: "Content Marketing", href: "/services" },
+    { name: "Digital PR", href: "/services" },
+    { name: "Influencer Marketing", href: "/services" },
+    { name: "Organic Social Media", href: "/services" },
+    { name: "Email Marketing", href: "/services" }
   ],
-  DIGITAL: [
-    { name: "Website Development", href: "/services/web-development" },
-    { name: "Landing Pages", href: "/services/web-development" },
-    { name: "UI/UX", href: "/services/web-development" },
-    { name: "Digital Experiences", href: "/services/web-development" },
-    { name: "Conversion Optimization", href: "/services/web-development" },
+  "PAID MEDIA": [
+    { name: "Media Strategy & Planning", href: "/services" },
+    { name: "Paid Search", href: "/services" },
+    { name: "Paid Social", href: "/services" },
+    { name: "Programmatic & Display", href: "/services" },
+    { name: "Marketplaces", href: "/services" },
+    { name: "Streaming", href: "/services" }
   ],
-  VISIBILITY: [
-    { name: "SEO", href: "/services/seo" },
-    { name: "Local SEO", href: "/services/seo" },
-    { name: "Content Strategy", href: "/services/seo" },
-    { name: "Social Media", href: "/services/social-media" },
-    { name: "Google Business", href: "/services/seo" },
-  ],
-  GROWTH: [
-    { name: "Digital Marketing", href: "/services/digital-marketing" },
-    { name: "Lead Generation", href: "/services/digital-marketing" },
-    { name: "Analytics", href: "/services/digital-marketing" },
-    { name: "Growth Strategy", href: "/services/digital-marketing" },
+  "CREATIVE": [
+    { name: "Performance Creative", href: "/services" },
+    { name: "Branding", href: "/services" },
+    { name: "Content Production", href: "/services" },
+    { name: "Website Design", href: "/services" },
+    { name: "Graphic & Motion Design", href: "/services" },
+    { name: "Audio Production", href: "/services" }
   ]
 };
 
@@ -58,11 +57,13 @@ export default function Navbar() {
   }
 
   const navLinks = [
-    { name: "WORK", href: "/work" },
-    { name: "SERVICES", href: "/services", hasMegaMenu: true },
-    { name: "PERSONAL BRANDING", href: "/services/personal-branding" },
     { name: "ABOUT", href: "/about" },
-    { name: "INSIGHTS", href: "/insights" },
+    { name: "SOLUTIONS", href: "/services", hasMegaMenu: true },
+    { name: "SEO TOOL", href: "/keyword-tool" },
+    { name: "WORK", href: "/work" },
+    { name: "NEWS & INSIGHTS", href: "/insights" },
+    { name: "CAREERS", href: "/careers" },
+    { name: "CONTACT", href: "/contact" },
   ];
 
   return (
@@ -121,13 +122,21 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-4 z-50">
-            <Link
-              href="/contact"
-              className="hidden md:flex items-center gap-2 text-xs font-mono font-bold border border-graphite text-graphite px-6 py-3 hover:bg-graphite hover:text-ivory transition-colors group"
-            >
-              START A PROJECT
-              <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </Link>
+            <div className="hidden md:flex items-center gap-6">
+              <Link
+                href="/request-proposal"
+                className="text-xs font-mono font-bold text-graphite hover:text-vermilion transition-colors"
+              >
+                RFP
+              </Link>
+              <Link
+                href="/contact"
+                className="flex items-center gap-2 text-xs font-mono font-bold border border-graphite text-graphite px-6 py-3 hover:bg-graphite hover:text-ivory transition-colors group"
+              >
+                LET'S TALK!
+                <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </Link>
+            </div>
             
             <button
               className="lg:hidden text-graphite flex items-center gap-2"
@@ -147,7 +156,7 @@ export default function Navbar() {
           )}
         >
           <div className="container mx-auto px-6 md:px-12 py-12">
-            <div className="grid grid-cols-4 gap-8">
+            <div className="grid grid-cols-3 gap-8">
               {Object.entries(services).map(([category, items]) => (
                 <div key={category}>
                   <h3 className="text-sm font-mono font-bold text-graphite mb-6 tracking-widest">{category}</h3>
@@ -167,7 +176,7 @@ export default function Navbar() {
             <div className="mt-12 pt-8 border-t border-warm-grey flex items-center justify-between">
               <p className="text-sm font-primary text-slate">ONE PARTNER. YOUR ENTIRE DIGITAL PRESENCE.</p>
               <Link href="/contact" className="text-sm font-mono font-bold text-vermilion flex items-center gap-2 hover:opacity-80 transition-opacity">
-                START A PROJECT <ArrowUpRight size={16} />
+                LET'S TALK! <ArrowUpRight size={16} />
               </Link>
             </div>
           </div>
@@ -230,7 +239,7 @@ export default function Navbar() {
                       className="text-lg text-vermilion font-mono pl-4 pt-2 block border-l border-warm-grey"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      VIEW ALL SERVICES →
+                      VIEW ALL SOLUTIONS →
                     </Link>
                   </div>
                 </>
@@ -250,18 +259,29 @@ export default function Navbar() {
               )}
             </div>
           ))}
-          <Link
-            href="/contact"
-            className="mt-8 text-xl font-mono font-bold flex items-center gap-2 text-vermilion border border-vermilion w-fit px-6 py-3"
+          <div 
+            className="flex flex-col gap-4 mt-8"
             style={{
               transform: mobileMenuOpen ? 'translateY(0)' : 'translateY(20px)',
               opacity: mobileMenuOpen ? 1 : 0,
               transition: `all 0.5s ease 0.4s`
             }}
-            onClick={() => setMobileMenuOpen(false)}
           >
-            START A PROJECT <ArrowUpRight size={20} />
-          </Link>
+            <Link
+              href="/request-proposal"
+              className="text-xl font-mono font-bold text-graphite hover:text-vermilion transition-colors w-fit"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              RFP
+            </Link>
+            <Link
+              href="/contact"
+              className="text-xl font-mono font-bold flex items-center gap-2 text-vermilion border border-vermilion w-fit px-6 py-3"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              LET'S TALK! <ArrowUpRight size={20} />
+            </Link>
+          </div>
         </nav>
       </div>
     </>

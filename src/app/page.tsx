@@ -1,11 +1,8 @@
 import HeroSection from "@/components/sections/HeroSection";
+import CapabilitiesTicker from "@/components/sections/CapabilitiesTicker";
+import SolutionsSection from "@/components/sections/SolutionsSection";
 import SelectedWork from "@/components/sections/SelectedWork";
-import DigitalPresence from "@/components/sections/DigitalPresence";
-import ServicesSection from "@/components/sections/ServicesSection";
-import PersonalBranding from "@/components/sections/PersonalBranding";
-import FalahMethod from "@/components/sections/FalahMethod";
 import HealthCheck from "@/components/sections/HealthCheck";
-import InsightsSection from "@/components/sections/InsightsSection";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -20,14 +17,11 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <SelectedWork />
-      <DigitalPresence />
-      <ServicesSection />
-      <PersonalBranding />
-      <FalahMethod />
+      <CapabilitiesTicker />
+      <SolutionsSection />
+      <SelectedWork limit={2} />
       <HealthCheck />
-      <InsightsSection />
-          </>
+    </>
   );
 }
 

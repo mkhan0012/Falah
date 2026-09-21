@@ -5,7 +5,9 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { projects, Project } from "@/data/projects";
 
-export default function SelectedWork() {
+export default function SelectedWork({ limit }: { limit?: number }) {
+  const displayProjects = limit ? projects.slice(0, limit) : projects;
+
   return (
     <section className="py-24 md:py-40 bg-ivory relative z-20 border-t border-warm-grey">
       <div className="container mx-auto px-6 md:px-[5vw]">
@@ -24,7 +26,7 @@ export default function SelectedWork() {
         </div>
 
         <div className="flex flex-col gap-32 md:gap-48">
-          {projects.map((project, index) => (
+          {displayProjects.map((project, index) => (
             <CaseStudyDisplay key={project.slug} project={project} index={index} />
           ))}
         </div>
