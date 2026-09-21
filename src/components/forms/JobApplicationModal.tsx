@@ -58,10 +58,10 @@ export default function JobApplicationModal({ isOpen, onClose, roleTitle }: JobA
       if (res.ok) {
         setIsSuccess(true);
       } else {
-        alert("Something went wrong. Please try again.");
+        alert("Server error: Check if your SMTP email credentials are correct.");
       }
     } catch (error) {
-      alert("Failed to submit application.");
+      alert("Failed to submit application. Please check your connection.");
     } finally {
       setIsSubmitting(false);
     }

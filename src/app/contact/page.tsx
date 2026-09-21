@@ -45,6 +45,7 @@ function ContactForm() {
     if (result.error) {
       setError(result.error);
       setIsSubmitting(false);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       setIsSuccess(true);
       setIsSubmitting(false);
@@ -67,8 +68,8 @@ function ContactForm() {
     <form onSubmit={handleSubmit} className="flex flex-col gap-8 animate-in fade-in duration-500">
       
       {error && (
-        <div className="bg-red-50 text-red-600 p-4 font-mono text-sm border border-red-200">
-          {error}
+        <div className="bg-vermilion/10 text-vermilion p-6 font-primary text-lg border border-vermilion/30 font-bold flex items-center justify-center text-center rounded-xl">
+          Error: {error}
         </div>
       )}
 
