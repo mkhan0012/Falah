@@ -1,6 +1,6 @@
 const sharp = require('sharp');
 
-sharp('public/falah-lion-logo.jpg')
+sharp('public/falah-cat-logo.jpg')
   .ensureAlpha()
   .raw()
   .toBuffer({ resolveWithObject: true })
@@ -30,8 +30,8 @@ sharp('public/falah-lion-logo.jpg')
     }
 
     return Promise.all([
-      sharp(data, { raw: { width: info.width, height: info.height, channels: 4 } }).toFile('public/lion-transparent.png'),
-      sharp(lightData, { raw: { width: info.width, height: info.height, channels: 4 } }).toFile('public/lion-transparent-light.png')
+      sharp(data, { raw: { width: info.width, height: info.height, channels: 4 } }).toFile('public/cat-transparent.png'),
+      sharp(lightData, { raw: { width: info.width, height: info.height, channels: 4 } }).toFile('public/cat-transparent-light.png')
     ]);
   })
   .then(() => console.log('Successfully created both dark and light transparent PNGs!'))

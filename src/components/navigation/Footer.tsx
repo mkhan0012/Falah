@@ -34,7 +34,7 @@ export default function Footer() {
             <div>
               <div className="mb-8">
                 <Image 
-                  src="/lion-transparent-light.png" 
+                  src="/cat-transparent-light.png" 
                   alt="Falah Brandhouse" 
                   width={300} 
                   height={300} 

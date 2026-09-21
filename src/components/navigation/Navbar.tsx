@@ -89,7 +89,7 @@ export default function Navbar() {
               {isDarkTheme ? (
                 <>
                   <Image 
-                    src="/lion-transparent-light.png" 
+                    src="/cat-transparent-light.png" 
                     alt="Falah Brandhouse" 
                     width={200} 
                     height={200} 
@@ -97,7 +97,7 @@ export default function Navbar() {
                     priority
                   />
                   <Image 
-                    src="/lion-transparent.png" 
+                    src="/cat-transparent.png" 
                     alt="Falah Brandhouse" 
                     width={200} 
                     height={200} 
@@ -107,7 +107,7 @@ export default function Navbar() {
                 </>
               ) : (
                 <Image 
-                  src="/lion-transparent.png" 
+                  src="/cat-transparent.png" 
                   alt="Falah Brandhouse" 
                   width={200} 
                   height={200} 
