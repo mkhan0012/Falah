@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu, X, ChevronDown } from "lucide-react";
 import clsx from "clsx";
@@ -79,15 +80,13 @@ export default function Navbar() {
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
           <div className="flex flex-col z-50">
             <Link href="/" className="flex items-center gap-3 group">
-              <LogoMark className="w-8 h-8 text-graphite group-hover:-translate-y-1 transition-transform" />
-              <div>
-                <span className="block text-xl md:text-2xl font-primary font-bold tracking-tight text-graphite leading-none">
-                  FALAH BRANDHOUSE
-                </span>
-                <span className="text-[9px] font-mono tracking-widest text-slate hidden lg:block uppercase mt-1">
-                  Brand & Digital Growth Studio
-                </span>
-              </div>
+              <Image 
+                src="/falah-lion-logo.jpg" 
+                alt="Falah Brandhouse" 
+                width={200} 
+                height={200} 
+                className="w-auto h-12 md:h-16 mix-blend-multiply group-hover:scale-105 transition-transform" 
+              />
             </Link>
           </div>
 
