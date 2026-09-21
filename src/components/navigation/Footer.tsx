@@ -32,13 +32,13 @@ export default function Footer() {
           {/* Brand Info */}
           <div className="lg:col-span-4 flex flex-col justify-between">
             <div>
-              <div className="mb-6">
+              <div className="mb-8">
                 <Image 
-                  src="/falah-lion-logo.jpg" 
+                  src="/lion-transparent-light.png" 
                   alt="Falah Brandhouse" 
                   width={240} 
                   height={240} 
-                  className="w-auto h-20 md:h-24 mix-blend-screen"
+                  className="w-auto h-16 md:h-20"
                 />
               </div>
               <p className="text-lg font-primary text-ivory/60 mb-1">Brand & Digital Growth Studio</p>

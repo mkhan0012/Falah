@@ -1,11 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu, X, ChevronDown } from "lucide-react";
 import clsx from "clsx";
-import LogoMark from "@/components/ui/LogoMark";
+import Image from "next/image";
 
 const services = {
   "EARNED MEDIA": [
@@ -79,13 +78,14 @@ export default function Navbar() {
       >
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
           <div className="flex flex-col z-50">
-            <Link href="/" className="flex items-center gap-3 group">
+            <Link href="/" className="flex items-center group">
               <Image 
-                src="/falah-lion-logo.jpg" 
+                src="/lion-transparent.png" 
                 alt="Falah Brandhouse" 
-                width={200} 
-                height={200} 
-                className="w-auto h-12 md:h-16 mix-blend-multiply group-hover:scale-105 transition-transform" 
+                width={160} 
+                height={160} 
+                className="w-auto h-12 md:h-14 group-hover:scale-105 transition-transform origin-left" 
+                priority
               />
             </Link>
           </div>
