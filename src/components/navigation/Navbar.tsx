@@ -75,21 +75,46 @@ export default function Navbar() {
       <header
         className={clsx(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          isScrolled || servicesOpen || mobileMenuOpen ? "py-2 md:py-4 bg-ivory/95 backdrop-blur-md border-b border-warm-grey" : "py-4 md:py-6 bg-transparent"
+          "bg-ivory/95 backdrop-blur-md border-b border-warm-grey",
+          !isScrolled && !servicesOpen && !mobileMenuOpen && "lg:bg-transparent lg:border-transparent",
+          isScrolled || servicesOpen || mobileMenuOpen ? "py-2 md:py-4" : "py-4 md:py-6"
         )}
         onMouseLeave={() => setServicesOpen(false)}
       >
-        <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
-          <div className="flex flex-col z-50">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 flex items-center justify-between">
+          
+          {/* Logo Area */}
+          <div className="flex flex-col z-50 shrink-0">
             <TransitionLink href="/" className="flex items-center group">
-              <Image 
-                src={isDarkTheme ? "/lion-transparent-light.png" : "/lion-transparent.png"} 
-                alt="Falah Brandhouse" 
-                width={200} 
-                height={200} 
-                className="w-20 md:w-24 h-auto group-hover:scale-105 transition-transform origin-left" 
-                priority
-              />
+              {isDarkTheme ? (
+                <>
+                  <Image 
+                    src="/lion-transparent-light.png" 
+                    alt="Falah Brandhouse" 
+                    width={200} 
+                    height={200} 
+                    className="w-16 sm:w-20 md:w-24 h-auto group-hover:scale-105 transition-transform origin-left hidden lg:block" 
+                    priority
+                  />
+                  <Image 
+                    src="/lion-transparent.png" 
+                    alt="Falah Brandhouse" 
+                    width={200} 
+                    height={200} 
+                    className="w-16 sm:w-20 md:w-24 h-auto group-hover:scale-105 transition-transform origin-left block lg:hidden" 
+                    priority
+                  />
+                </>
+              ) : (
+                <Image 
+                  src="/lion-transparent.png" 
+                  alt="Falah Brandhouse" 
+                  width={200} 
+                  height={200} 
+                  className="w-16 sm:w-20 md:w-24 h-auto group-hover:scale-105 transition-transform origin-left" 
+                  priority
+                />
+              )}
             </TransitionLink>
           </div>
 
@@ -132,13 +157,14 @@ export default function Navbar() {
             </ul>
           </nav>
 
-          <div className="flex items-center gap-4 z-50">
+          {/* CTA & Mobile Toggle */}
+          <div className="flex items-center gap-4 z-50 shrink-0">
             <div className="hidden md:flex items-center gap-6">
               <TransitionLink
                 href="/request-proposal"
                 className={clsx(
                   "text-xs font-mono font-bold hover:text-vermilion transition-colors",
-                  isDarkTheme ? "text-ivory" : "text-graphite"
+                  isDarkTheme ? "text-graphite lg:text-ivory" : "text-graphite"
                 )}
               >
                 RFP
@@ -146,9 +172,9 @@ export default function Navbar() {
               <TransitionLink
                 href="/contact"
                 className={clsx(
-                  "flex items-center gap-2 text-xs font-mono font-bold border px-6 py-3 transition-colors group",
+                  "flex items-center gap-2 text-[10px] sm:text-xs font-mono font-bold border px-4 sm:px-6 py-2 sm:py-3 transition-colors group",
                   isDarkTheme 
-                    ? "border-ivory text-ivory hover:bg-ivory hover:text-graphite" 
+                    ? "border-graphite text-graphite hover:bg-graphite hover:text-ivory lg:border-ivory lg:text-ivory lg:hover:bg-ivory lg:hover:text-graphite" 
                     : "border-graphite text-graphite hover:bg-graphite hover:text-ivory"
                 )}
               >
@@ -158,14 +184,11 @@ export default function Navbar() {
             </div>
             
             <button
-              className={clsx(
-                "lg:hidden flex items-center gap-2",
-                isDarkTheme ? "text-ivory" : "text-graphite"
-              )}
+              className="lg:hidden flex items-center gap-2 ml-2 text-graphite"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              <span className="text-xs font-mono font-bold uppercase tracking-wider">Menu</span>
-              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              <span className="hidden sm:block text-xs font-mono font-bold uppercase tracking-wider">Menu</span>
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
