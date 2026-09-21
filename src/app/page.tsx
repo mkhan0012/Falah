@@ -1,4 +1,5 @@
 import HeroSection from "@/components/sections/HeroSection";
+import ShowreelSection from "@/components/sections/ShowreelSection";
 import CapabilitiesTicker from "@/components/sections/CapabilitiesTicker";
 import SolutionsSection from "@/components/sections/SolutionsSection";
 import SelectedWork from "@/components/sections/SelectedWork";
@@ -17,6 +18,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <ShowreelSection />
       <CapabilitiesTicker />
       <SolutionsSection />
       <SelectedWork limit={2} />

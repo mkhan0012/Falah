@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu, X, ChevronDown } from "lucide-react";
 import clsx from "clsx";
 import Image from "next/image";
+import TransitionLink from "@/components/ui/TransitionLink";
 
 const services = {
   "EARNED MEDIA": [
@@ -78,7 +79,7 @@ export default function Navbar() {
       >
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
           <div className="flex flex-col z-50">
-            <Link href="/" className="flex items-center group">
+            <TransitionLink href="/" className="flex items-center group">
               <Image 
                 src="/lion-transparent.png" 
                 alt="Falah Brandhouse" 
@@ -87,7 +88,7 @@ export default function Navbar() {
                 className="w-20 md:w-24 h-auto group-hover:scale-105 transition-transform origin-left" 
                 priority
               />
-            </Link>
+            </TransitionLink>
           </div>
 
           <nav className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2 h-full">
@@ -107,7 +108,7 @@ export default function Navbar() {
                       <ChevronDown size={12} className={clsx("transition-transform duration-300", servicesOpen && "rotate-180")} />
                     </button>
                   ) : (
-                    <Link
+                    <TransitionLink
                       href={link.href}
                       onMouseEnter={() => setServicesOpen(false)}
                       className={clsx(
@@ -119,7 +120,7 @@ export default function Navbar() {
                       {pathname === link.href && (
                         <span className="absolute bottom-0 left-0 right-0 h-[1px] bg-vermilion" />
                       )}
-                    </Link>
+                    </TransitionLink>
                   )}
                 </li>
               ))}
@@ -128,19 +129,19 @@ export default function Navbar() {
 
           <div className="flex items-center gap-4 z-50">
             <div className="hidden md:flex items-center gap-6">
-              <Link
+              <TransitionLink
                 href="/request-proposal"
                 className="text-xs font-mono font-bold text-graphite hover:text-vermilion transition-colors"
               >
                 RFP
-              </Link>
-              <Link
+              </TransitionLink>
+              <TransitionLink
                 href="/contact"
                 className="flex items-center gap-2 text-xs font-mono font-bold border border-graphite text-graphite px-6 py-3 hover:bg-graphite hover:text-ivory transition-colors group"
               >
                 LET'S TALK!
                 <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </Link>
+              </TransitionLink>
             </div>
             
             <button
@@ -168,9 +169,9 @@ export default function Navbar() {
                   <ul className="flex flex-col gap-4">
                     {items.map((item) => (
                       <li key={item.name}>
-                        <Link href={item.href} className="text-slate hover:text-vermilion text-sm font-primary transition-colors">
+                        <TransitionLink href={item.href} className="text-slate hover:text-vermilion text-sm font-primary transition-colors">
                           {item.name}
-                        </Link>
+                        </TransitionLink>
                       </li>
                     ))}
                   </ul>
@@ -180,9 +181,9 @@ export default function Navbar() {
             
             <div className="mt-12 pt-8 border-t border-warm-grey flex items-center justify-between">
               <p className="text-sm font-primary text-slate">ONE PARTNER. YOUR ENTIRE DIGITAL PRESENCE.</p>
-              <Link href="/contact" className="text-sm font-mono font-bold text-vermilion flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <TransitionLink href="/contact" className="text-sm font-mono font-bold text-vermilion flex items-center gap-2 hover:opacity-80 transition-opacity">
                 LET'S TALK! <ArrowUpRight size={16} />
-              </Link>
+              </TransitionLink>
             </div>
           </div>
         </div>
@@ -227,29 +228,29 @@ export default function Navbar() {
                         <ul className="flex flex-col gap-3">
                           {items.map((item) => (
                             <li key={item.name}>
-                              <Link
+                              <TransitionLink
                                 href={item.href}
                                 className="text-xl font-primary text-graphite hover:text-vermilion"
                                 onClick={() => setMobileMenuOpen(false)}
                               >
                                 {item.name}
-                              </Link>
+                              </TransitionLink>
                             </li>
                           ))}
                         </ul>
                       </div>
                     ))}
-                    <Link
+                    <TransitionLink
                       href="/services"
                       className="text-lg text-vermilion font-mono pl-4 pt-2 block border-l border-warm-grey"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       VIEW ALL SOLUTIONS →
-                    </Link>
+                    </TransitionLink>
                   </div>
                 </>
               ) : (
-                <Link
+                <TransitionLink
                   href={link.href}
                   className="hover:text-vermilion transition-colors w-fit text-graphite"
                   style={{
@@ -260,7 +261,7 @@ export default function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.name}
-                </Link>
+                </TransitionLink>
               )}
             </div>
           ))}
@@ -272,20 +273,20 @@ export default function Navbar() {
               transition: `all 0.5s ease 0.4s`
             }}
           >
-            <Link
+            <TransitionLink
               href="/request-proposal"
               className="text-xl font-mono font-bold text-graphite hover:text-vermilion transition-colors w-fit"
               onClick={() => setMobileMenuOpen(false)}
             >
               RFP
-            </Link>
-            <Link
+            </TransitionLink>
+            <TransitionLink
               href="/contact"
               className="text-xl font-mono font-bold flex items-center gap-2 text-vermilion border border-vermilion w-fit px-6 py-3"
               onClick={() => setMobileMenuOpen(false)}
             >
               LET'S TALK! <ArrowUpRight size={20} />
-            </Link>
+            </TransitionLink>
           </div>
         </nav>
       </div>

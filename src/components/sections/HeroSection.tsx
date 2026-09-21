@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import Link from "next/link";
+import TransitionLink from "@/components/ui/TransitionLink";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
 
@@ -109,21 +109,21 @@ export default function HeroSection() {
             
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 shrink-0">
               <MagneticButton>
-                <Link 
+                <TransitionLink 
                   href="/contact"
                   className="w-full sm:w-auto flex items-center justify-center gap-2 border border-graphite bg-transparent text-graphite px-6 py-4 font-mono text-sm font-bold hover:bg-graphite hover:text-ivory transition-colors group"
                 >
                   START A PROJECT 
                   <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </Link>
+                </TransitionLink>
               </MagneticButton>
-              <Link 
+              <TransitionLink 
                 href="/work"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-4 text-slate hover:text-vermilion font-mono text-sm font-bold transition-colors group"
               >
                 EXPLORE OUR WORK
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </TransitionLink>
             </div>
           </div>
           
@@ -131,11 +131,11 @@ export default function HeroSection() {
           <div className="pt-8 md:pt-16 border-t border-warm-grey">
             <h2 className="text-sm font-mono tracking-widest text-slate mb-6 uppercase font-bold">I NEED A...</h2>
             <div className="flex flex-wrap gap-4 md:gap-6">
-              <Link href="/services/branding" className="text-lg md:text-xl font-primary text-graphite hover:text-vermilion border-b border-graphite hover:border-vermilion transition-colors pb-1">NEW BRAND</Link>
-              <Link href="/services/web-development" className="text-lg md:text-xl font-primary text-graphite hover:text-vermilion border-b border-graphite hover:border-vermilion transition-colors pb-1">WEBSITE</Link>
-              <Link href="/services/seo" className="text-lg md:text-xl font-primary text-graphite hover:text-vermilion border-b border-graphite hover:border-vermilion transition-colors pb-1">MORE VISIBILITY</Link>
-              <Link href="/services/digital-marketing" className="text-lg md:text-xl font-primary text-graphite hover:text-vermilion border-b border-graphite hover:border-vermilion transition-colors pb-1">MORE LEADS</Link>
-              <Link href="/services" className="text-lg md:text-xl font-primary text-vermilion hover:text-graphite border-b border-vermilion hover:border-graphite transition-colors pb-1">COMPLETE DIGITAL PRESENCE</Link>
+              <TransitionLink href="/services/branding" className="text-lg md:text-xl font-primary text-graphite hover:text-vermilion border-b border-graphite hover:border-vermilion transition-colors pb-1">NEW BRAND</TransitionLink>
+              <TransitionLink href="/services/web-development" className="text-lg md:text-xl font-primary text-graphite hover:text-vermilion border-b border-graphite hover:border-vermilion transition-colors pb-1">WEBSITE</TransitionLink>
+              <TransitionLink href="/services/seo" className="text-lg md:text-xl font-primary text-graphite hover:text-vermilion border-b border-graphite hover:border-vermilion transition-colors pb-1">MORE VISIBILITY</TransitionLink>
+              <TransitionLink href="/services/digital-marketing" className="text-lg md:text-xl font-primary text-graphite hover:text-vermilion border-b border-graphite hover:border-vermilion transition-colors pb-1">MORE LEADS</TransitionLink>
+              <TransitionLink href="/services" className="text-lg md:text-xl font-primary text-vermilion hover:text-graphite border-b border-vermilion hover:border-graphite transition-colors pb-1">COMPLETE DIGITAL PRESENCE</TransitionLink>
             </div>
           </div>
           
