@@ -39,7 +39,7 @@ export default function HeroSection() {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-screen flex flex-col justify-center pt-48 md:pt-64 pb-12 overflow-hidden bg-charcoal"
+      className="relative min-h-[100svh] w-full flex flex-col justify-end pt-32 pb-8 md:pb-16 overflow-hidden bg-charcoal"
     >
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
@@ -67,11 +67,11 @@ export default function HeroSection() {
               Brand strategy, websites, SEO, content and digital marketing — built around what your business actually needs.
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 shrink-0">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full lg:w-auto shrink-0">
               <MagneticButton>
                 <TransitionLink 
                   href="/contact"
-                  className="w-full sm:w-auto flex items-center justify-center gap-2 border border-ivory/30 bg-charcoal/40 backdrop-blur-md text-ivory px-6 py-4 font-mono text-sm font-bold hover:bg-ivory hover:text-graphite transition-colors group"
+                  className="w-full flex items-center justify-center gap-2 border border-ivory/30 bg-charcoal/40 backdrop-blur-md text-ivory px-5 sm:px-6 py-3 sm:py-4 font-mono text-xs sm:text-sm font-bold hover:bg-ivory hover:text-graphite transition-colors group"
                 >
                   START A PROJECT 
                   <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -79,7 +79,7 @@ export default function HeroSection() {
               </MagneticButton>
               <TransitionLink 
                 href="/work"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-4 text-ivory/80 hover:text-vermilion font-mono text-sm font-bold transition-colors group bg-charcoal/20 backdrop-blur-sm rounded-full"
+                className="w-full flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-4 text-ivory/90 hover:text-vermilion font-mono text-xs sm:text-sm font-bold transition-colors group bg-charcoal/30 backdrop-blur-sm rounded-full border border-transparent hover:border-vermilion/30"
               >
                 EXPLORE OUR WORK
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />

@@ -43,7 +43,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const isHomepage = pathname === "/";
-  const isDarkTheme = isHomepage && !isScrolled && !servicesOpen;
+  const isDarkTheme = isHomepage && !isScrolled && !servicesOpen && !mobileMenuOpen;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -75,7 +75,7 @@ export default function Navbar() {
       <header
         className={clsx(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          isScrolled || servicesOpen ? "py-2 md:py-4 bg-ivory/95 backdrop-blur-md border-b border-warm-grey" : "py-4 md:py-6 bg-transparent"
+          isScrolled || servicesOpen || mobileMenuOpen ? "py-2 md:py-4 bg-ivory/95 backdrop-blur-md border-b border-warm-grey" : "py-4 md:py-6 bg-transparent"
         )}
         onMouseLeave={() => setServicesOpen(false)}
       >
