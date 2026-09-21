@@ -1,6 +1,16 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
+const escapeHtml = (unsafe: string) => {
+  if (!unsafe) return "";
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+};
+
 export async function POST(request: Request) {
   try {
     const formData = await request.formData();
@@ -22,7 +32,7 @@ export async function POST(request: Request) {
       from: SMTP_USER ? `"Falah Careers" <${SMTP_USER}>` : '"Falah Careers" <careers@falahbrandhouse.com>',
       to: 'careers@falahbrandhouse.com',
       replyTo: email,
-      subject: `New Application: ${role} - ${name}`,
+      subject: `New Application: ${escapeHtml(role)} - ${escapeHtml(name)}`,
       text: `
         New Job Application
         
@@ -36,14 +46,14 @@ export async function POST(request: Request) {
         ${coverLetter}
       `,
       html: `
-        <h3>New Job Application: ${role}</h3>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Portfolio:</strong> ${portfolioUrl ? `<a href="${portfolioUrl}">${portfolioUrl}</a>` : 'N/A'}</p>
-        <p><strong>LinkedIn:</strong> ${linkedinUrl ? `<a href="${linkedinUrl}">${linkedinUrl}</a>` : 'N/A'}</p>
+        <h3>New Job Application: ${escapeHtml(role)}</h3>
+        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Portfolio:</strong> ${portfolioUrl ? `<a href="${escapeHtml(portfolioUrl)}">${escapeHtml(portfolioUrl)}</a>` : 'N/A'}</p>
+        <p><strong>LinkedIn:</strong> ${linkedinUrl ? `<a href="${escapeHtml(linkedinUrl)}">${escapeHtml(linkedinUrl)}</a>` : 'N/A'}</p>
         <br/>
         <p><strong>Cover Letter:</strong></p>
-        <p>${coverLetter.replace(/\n/g, '<br/>')}</p>
+        <p>${escapeHtml(coverLetter).replace(/\n/g, '<br/>')}</p>
       `,
     };
 

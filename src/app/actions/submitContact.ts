@@ -22,6 +22,16 @@ const isValidEmail = (email: string) => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 };
 
+const escapeHtml = (unsafe: string) => {
+  if (!unsafe) return "";
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+};
+
 export async function submitContact(formData: ContactFormData) {
   try {
     // 1. Honeypot check (Spam Protection)
@@ -66,45 +76,26 @@ export async function submitContact(formData: ContactFormData) {
         from: `"Falah Website" <${SMTP_USER}>`,
         to: 'hello@falahbrandhouse.com',
         replyTo: formData.email,
-        subject: `New Lead from ${formData.name}`,
+        subject: `New Lead from ${escapeHtml(formData.name)}`,
         text: `Name: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`,
         html: `
           <h3>New Project Inquiry</h3>
-          <p><strong>Name:</strong> ${formData.name}</p>
-          <p><strong>Email:</strong> ${formData.email}</p>
-          <p><strong>Phone:</strong> ${formData.phone || 'N/A'}</p>
-          <p><strong>Company:</strong> ${formData.company || 'N/A'}</p>
-          <p><strong>Website:</strong> ${formData.website || 'N/A'}</p>
-          <p><strong>Needs:</strong> ${formData.needs.join(', ') || 'N/A'}</p>
-          <p><strong>Budget:</strong> ${formData.budget || 'N/A'}</p>
-          <p><strong>Timeline:</strong> ${formData.timeline || 'N/A'}</p>
+          <p><strong>Name:</strong> ${escapeHtml(formData.name)}</p>
+          <p><strong>Email:</strong> ${escapeHtml(formData.email)}</p>
+          <p><strong>Phone:</strong> ${escapeHtml(formData.phone || 'N/A')}</p>
+          <p><strong>Company:</strong> ${escapeHtml(formData.company || 'N/A')}</p>
+          <p><strong>Website:</strong> ${escapeHtml(formData.website || 'N/A')}</p>
+          <p><strong>Needs:</strong> ${escapeHtml(formData.needs.join(', ') || 'N/A')}</p>
+          <p><strong>Budget:</strong> ${escapeHtml(formData.budget || 'N/A')}</p>
+          <p><strong>Timeline:</strong> ${escapeHtml(formData.timeline || 'N/A')}</p>
           <br/>
           <p><strong>Message:</strong></p>
-          <p>${formData.message.replace(/\n/g, '<br/>')}</p>
+          <p>${escapeHtml(formData.message).replace(/\n/g, '<br/>')}</p>
         `,
       };
 
       await transporter.sendMail(mailOptions);
     }
-
-    // Still save to local DB as a backup
-    const submission = {
-      id: Date.now().toString(),
-      timestamp: new Date().toISOString(),
-      ...formData,
-    };
-    
-    const dbPath = path.join(process.cwd(), "submissions.json");
-    let submissions = [];
-    try {
-      const fileData = await fs.readFile(dbPath, "utf-8");
-      submissions = JSON.parse(fileData);
-    } catch {}
-
-    submissions.push(submission);
-    await fs.writeFile(dbPath, JSON.stringify(submissions, null, 2));
-
-    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     return { success: true };
   } catch (error) {
