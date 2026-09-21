@@ -26,11 +26,26 @@ export default function HeroSection() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
+  const desktopVideoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Force play videos to bypass strict mobile browser autoplay restrictions
+    if (mobileVideoRef.current) {
+      mobileVideoRef.current.muted = true;
+      mobileVideoRef.current.play().catch(e => console.log("Mobile video autoplay prevented:", e));
+    }
+    if (desktopVideoRef.current) {
+      desktopVideoRef.current.muted = true;
+      desktopVideoRef.current.play().catch(e => console.log("Desktop video autoplay prevented:", e));
+    }
+  }, []);
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Parallax on mouse move
       const handleMouseMove = (e: MouseEvent) => {
-        if (!textRef.current || isMobile) return;
+        if (!textRef.current) return;
         const { clientX, clientY } = e;
         const { innerWidth, innerHeight } = window;
         
@@ -48,7 +63,7 @@ export default function HeroSection() {
     }, containerRef);
 
     return () => ctx.revert();
-  }, [isMobile]);
+  }, []);
 
   return (
     <section 
@@ -58,6 +73,7 @@ export default function HeroSection() {
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video 
+          ref={mobileVideoRef}
           src="/showreel-mobile.mp4"
           autoPlay 
           muted 
@@ -66,6 +82,7 @@ export default function HeroSection() {
           className="w-full h-full object-cover scale-[1.05] block md:hidden"
         />
         <video 
+          ref={desktopVideoRef}
           src="/showreel.mp4"
           autoPlay 
           muted 
