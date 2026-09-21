@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import clsx from "clsx";
+import TransitionLink from "@/components/ui/TransitionLink";
 
 const solutionsData = [
   {
@@ -9,13 +10,13 @@ const solutionsData = [
     title: "EARNED MEDIA",
     description: "Strategies to organically grow your visibility, authority, and audience engagement.",
     items: [
-      "Answer / Generative Engine Optimization",
-      "Search Engine Optimization",
-      "App Store Optimization",
-      "Content Marketing",
-      "Influencer Marketing",
-      "Organic Social Media",
-      "Email Marketing"
+      { name: "Answer / Generative Engine Optimization", href: "/services/solutions/geo" },
+      { name: "Search Engine Optimization", href: "/services/solutions/search-engine-optimization" },
+      { name: "App Store Optimization", href: "/services/solutions/app-store-optimization" },
+      { name: "Content Marketing", href: "/services/solutions/content-marketing" },
+      { name: "Influencer Marketing", href: "/services/solutions/influencer-marketing" },
+      { name: "Organic Social Media", href: "/services/solutions/organic-social-media" },
+      { name: "Email Marketing", href: "/services/solutions/email-marketing" }
     ]
   },
   {
@@ -23,12 +24,12 @@ const solutionsData = [
     title: "PAID MEDIA",
     description: "Targeted campaigns that maximize your reach and drive measurable return on investment.",
     items: [
-      "Media Strategy & Planning",
-      "Paid Search",
-      "Paid Social",
-      "Programmatic & Display",
-      "Marketplaces",
-      "Streaming"
+      { name: "Media Strategy & Planning", href: "/services/solutions/media-strategy" },
+      { name: "Paid Search", href: "/services/solutions/paid-search" },
+      { name: "Paid Social", href: "/services/solutions/paid-social" },
+      { name: "Programmatic & Display", href: "/services/solutions/programmatic-display" },
+      { name: "Marketplaces", href: "/services/solutions/marketplaces" },
+      { name: "Streaming", href: "/services/solutions/streaming" }
     ]
   },
   {
@@ -36,12 +37,12 @@ const solutionsData = [
     title: "CREATIVE",
     description: "Compelling design and production services that tell your brand story and captivate audiences.",
     items: [
-      "Performance Creative",
-      "Branding",
-      "Content Production",
-      "Website Design",
-      "Graphic & Motion Design",
-      "Audio Production"
+      { name: "Performance Creative", href: "/services/solutions/performance-creative" },
+      { name: "Branding", href: "/services/solutions/branding-creative" },
+      { name: "Content Production", href: "/services/solutions/content-production" },
+      { name: "Website Design", href: "/services/solutions/website-design" },
+      { name: "Graphic & Motion Design", href: "/services/solutions/graphic-motion-design" },
+      { name: "Audio Production", href: "/services/solutions/audio-production" }
     ]
   }
 ];
@@ -99,11 +100,18 @@ export default function SolutionsSection() {
                     </h3>
                   </div>
 
-                  {/* Capabilities List */}
+                  {/* Capabilities List — now clickable links */}
                   <div className="md:col-span-3 lg:col-span-3 mt-4 md:mt-0">
                     <ul className="flex flex-col gap-2 text-sm font-mono text-slate">
                       {service.items.map((item) => (
-                        <li key={item}>{item}</li>
+                        <li key={item.name}>
+                          <TransitionLink
+                            href={item.href}
+                            className="hover:text-vermilion transition-colors inline-flex items-center gap-1"
+                          >
+                            {item.name}
+                          </TransitionLink>
+                        </li>
                       ))}
                     </ul>
                   </div>

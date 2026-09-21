@@ -4,8 +4,8 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Services | FALAH BRANDHOUSE",
-  description: "Brand, Digital, Visibility, and Growth services.",
+  title: "Solutions | FALAH BRANDHOUSE",
+  description: "Brand, Digital, Visibility, and Growth solutions — integrated into a single offering.",
 };
 
 export default function ServicesPage() {
@@ -14,10 +14,10 @@ export default function ServicesPage() {
       <main className="pt-40 pb-24 min-h-screen bg-ivory text-graphite">
         <div className="container mx-auto px-6 md:px-[5vw] mb-32">
           <h1 className="text-5xl md:text-8xl font-primary font-bold tracking-tight mb-8">
-            SERVICES.
+            SOLUTIONS.
           </h1>
           <p className="text-xl md:text-2xl text-slate max-w-3xl font-primary">
-            We build complete digital systems. Strategy, design, technology, and growth â€” integrated into a single offering.
+            We build complete digital systems. Strategy, design, technology, and growth — integrated into a single offering.
           </p>
         </div>
 

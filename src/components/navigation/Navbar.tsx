@@ -9,29 +9,29 @@ import TransitionLink from "@/components/ui/TransitionLink";
 
 const services = {
   "EARNED MEDIA": [
-    { name: "Answer / Generative Engine Optimization", href: "/services" },
-    { name: "Search Engine Optimization", href: "/services" },
-    { name: "App Store Optimization", href: "/services" },
-    { name: "Content Marketing", href: "/services" },
-    { name: "Influencer Marketing", href: "/services" },
-    { name: "Organic Social Media", href: "/services" },
-    { name: "Email Marketing", href: "/services" }
+    { name: "Answer / Generative Engine Optimization", href: "/services/solutions/geo" },
+    { name: "Search Engine Optimization", href: "/services/solutions/search-engine-optimization" },
+    { name: "App Store Optimization", href: "/services/solutions/app-store-optimization" },
+    { name: "Content Marketing", href: "/services/solutions/content-marketing" },
+    { name: "Influencer Marketing", href: "/services/solutions/influencer-marketing" },
+    { name: "Organic Social Media", href: "/services/solutions/organic-social-media" },
+    { name: "Email Marketing", href: "/services/solutions/email-marketing" }
   ],
   "PAID MEDIA": [
-    { name: "Media Strategy & Planning", href: "/services" },
-    { name: "Paid Search", href: "/services" },
-    { name: "Paid Social", href: "/services" },
-    { name: "Programmatic & Display", href: "/services" },
-    { name: "Marketplaces", href: "/services" },
-    { name: "Streaming", href: "/services" }
+    { name: "Media Strategy & Planning", href: "/services/solutions/media-strategy" },
+    { name: "Paid Search", href: "/services/solutions/paid-search" },
+    { name: "Paid Social", href: "/services/solutions/paid-social" },
+    { name: "Programmatic & Display", href: "/services/solutions/programmatic-display" },
+    { name: "Marketplaces", href: "/services/solutions/marketplaces" },
+    { name: "Streaming", href: "/services/solutions/streaming" }
   ],
   "CREATIVE": [
-    { name: "Performance Creative", href: "/services" },
-    { name: "Branding", href: "/services" },
-    { name: "Content Production", href: "/services" },
-    { name: "Website Design", href: "/services" },
-    { name: "Graphic & Motion Design", href: "/services" },
-    { name: "Audio Production", href: "/services" }
+    { name: "Performance Creative", href: "/services/solutions/performance-creative" },
+    { name: "Branding", href: "/services/solutions/branding-creative" },
+    { name: "Content Production", href: "/services/solutions/content-production" },
+    { name: "Website Design", href: "/services/solutions/website-design" },
+    { name: "Graphic & Motion Design", href: "/services/solutions/graphic-motion-design" },
+    { name: "Audio Production", href: "/services/solutions/audio-production" }
   ]
 };
 
