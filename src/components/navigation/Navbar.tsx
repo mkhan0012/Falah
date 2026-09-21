@@ -13,7 +13,6 @@ const services = {
     { name: "Search Engine Optimization", href: "/services" },
     { name: "App Store Optimization", href: "/services" },
     { name: "Content Marketing", href: "/services" },
-    { name: "Digital PR", href: "/services" },
     { name: "Influencer Marketing", href: "/services" },
     { name: "Organic Social Media", href: "/services" },
     { name: "Email Marketing", href: "/services" }

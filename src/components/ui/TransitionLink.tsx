@@ -4,10 +4,8 @@ import Link, { LinkProps } from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { ReactNode, MouseEvent } from "react";
 
-interface TransitionLinkProps extends LinkProps {
+interface TransitionLinkProps extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps>, LinkProps {
   children: ReactNode;
-  className?: string;
-  onClick?: () => void;
 }
 
 export default function TransitionLink({ href, children, className, onClick, ...props }: TransitionLinkProps) {

@@ -13,7 +13,6 @@ const solutionsData = [
       "Search Engine Optimization",
       "App Store Optimization",
       "Content Marketing",
-      "Digital PR",
       "Influencer Marketing",
       "Organic Social Media",
       "Email Marketing"
