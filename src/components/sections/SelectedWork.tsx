@@ -4,22 +4,66 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { projects, Project } from "@/data/projects";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import MagneticButton from "@/components/ui/MagneticButton";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function SelectedWork({ limit }: { limit?: number }) {
   const displayProjects = limit ? projects.slice(0, limit) : projects;
+  const containerRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current || !headerRef.current) return;
+    
+    const ctx = gsap.context(() => {
+      gsap.fromTo(headerRef.current, 
+        { y: 50, opacity: 0 },
+        { 
+          y: 0, opacity: 1, 
+          duration: 1, 
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: headerRef.current,
+            start: "top 85%",
+          }
+        }
+      );
+      
+      gsap.utils.toArray(".project-card").forEach((card: any) => {
+        gsap.fromTo(card,
+          { y: 100, opacity: 0 },
+          {
+            y: 0, opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+            }
+          }
+        );
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section className="py-24 md:py-40 bg-ivory relative z-20 border-t border-warm-grey">
+    <section ref={containerRef} className="py-24 md:py-40 bg-ivory relative z-20 border-t border-warm-grey overflow-hidden">
       <div className="container mx-auto px-6 md:px-[5vw]">
         
-        <div className="mb-20 md:mb-32 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+        <div ref={headerRef} className="mb-20 md:mb-32 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
           <div className="md:col-span-8">
             <h2 className="text-5xl md:text-[5rem] font-primary font-bold tracking-tight text-graphite mb-6 uppercase">
               SELECTED WORK
             </h2>
           </div>
           <div className="md:col-span-4 pb-2">
-            <p className="text-lg md:text-xl text-slate font-primary">
+            <p className="text-lg md:text-xl text-graphite/60 font-primary">
               Different industries. One approach — building digital presence that works.
             </p>
           </div>
@@ -32,12 +76,14 @@ export default function SelectedWork({ limit }: { limit?: number }) {
         </div>
         
         <div className="mt-32 md:mt-48 flex justify-center border-t border-warm-grey pt-16">
-          <Link 
-            href="/work"
-            className="inline-flex items-center gap-2 border border-graphite px-8 py-4 text-sm font-mono font-bold text-graphite hover:bg-graphite hover:text-ivory transition-all group"
-          >
-            VIEW ALL WORK <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </Link>
+          <MagneticButton>
+            <Link 
+              href="/work"
+              className="inline-flex items-center gap-2 border border-graphite px-8 py-4 text-sm font-mono font-bold text-graphite hover:bg-graphite hover:text-ivory transition-all group"
+            >
+              VIEW ALL WORK <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </Link>
+          </MagneticButton>
         </div>
       </div>
     </section>
@@ -48,16 +94,16 @@ function CaseStudyDisplay({ project, index }: { project: Project; index: number 
   const formattedIndex = (index + 1).toString().padStart(2, "0");
   
   // Differentiate visual overlay based on industry
-  let overlayColor = "bg-charcoal/10";
+  let overlayColor = "bg-white/10";
   if (project.category.includes("HEALTHCARE")) overlayColor = "bg-blue-900/10";
   if (project.category.includes("REAL ESTATE")) overlayColor = "bg-emerald-900/10";
 
   return (
-    <div className="flex flex-col lg:flex-row gap-16 items-start border-t border-warm-grey pt-16">
+    <div className="project-card flex flex-col lg:flex-row gap-16 items-start border-t border-warm-grey pt-16">
       
       {/* Visual Side */}
       <div className="lg:w-7/12 w-full order-2 lg:order-1">
-        <Link href={`/work/${project.slug}`} className="block relative aspect-[4/3] overflow-hidden bg-warm-grey group">
+        <Link href={`/work/${project.slug}`} data-cursor="project" className="block relative aspect-[4/3] overflow-hidden bg-warm-grey group">
           <Image 
             src={project.heroImage}
             alt={`${project.client} case study designed by FALAH Brandhouse`}
@@ -71,7 +117,7 @@ function CaseStudyDisplay({ project, index }: { project: Project; index: number 
 
       {/* Info Side */}
       <div className="lg:w-5/12 flex flex-col gap-8 w-full order-1 lg:order-2">
-        <div className="flex items-center gap-4 text-xs font-mono text-slate">
+        <div className="flex items-center gap-4 text-xs font-mono text-graphite/60">
           <span className="text-graphite font-bold">{formattedIndex}</span>
           <span>/</span>
           <span className="uppercase tracking-widest">{project.category}</span>
@@ -84,14 +130,14 @@ function CaseStudyDisplay({ project, index }: { project: Project; index: number 
         <div className="flex flex-col gap-6 mt-4">
           
           <div className="border-b border-warm-grey pb-6">
-            <h4 className="text-[10px] font-mono tracking-widest uppercase text-slate mb-2">THE CHALLENGE</h4>
+            <h4 className="text-[10px] font-mono tracking-widest uppercase text-graphite/60 mb-2">THE CHALLENGE</h4>
             <p className="text-lg text-graphite font-primary leading-relaxed">
               {project.description || "The client needed a digital presence that accurately reflected their market leadership."}
             </p>
           </div>
 
           <div className="border-b border-warm-grey pb-6">
-            <h4 className="text-[10px] font-mono tracking-widest uppercase text-slate mb-3">FALAH HANDLED</h4>
+            <h4 className="text-[10px] font-mono tracking-widest uppercase text-graphite/60 mb-3">FALAH HANDLED</h4>
             <ul className="flex flex-wrap gap-2 text-xs font-mono text-graphite">
               {project.services.map((service: string) => (
                 <li key={service} className="px-3 py-1 border border-warm-grey rounded-full uppercase">
@@ -102,7 +148,7 @@ function CaseStudyDisplay({ project, index }: { project: Project; index: number 
           </div>
 
           <div className="pb-6">
-            <h4 className="text-[10px] font-mono tracking-widest uppercase text-slate mb-2">OUTCOME</h4>
+            <h4 className="text-[10px] font-mono tracking-widest uppercase text-graphite/60 mb-2">OUTCOME</h4>
             <p className="text-lg text-graphite font-primary leading-relaxed">
               {project.strategy || "Delivered a scalable digital system that correctly positioned the business to attract high-intent leads and clearly communicate their value."}
             </p>

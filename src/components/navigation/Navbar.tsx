@@ -76,7 +76,7 @@ export default function Navbar() {
         className={clsx(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           "bg-ivory/95 backdrop-blur-md border-b border-warm-grey",
-          !isScrolled && !servicesOpen && !mobileMenuOpen && "lg:bg-transparent lg:border-transparent",
+          !isScrolled && !servicesOpen && !mobileMenuOpen && "lg:bg-transparent lg:border-transparent lg:backdrop-blur-none",
           isScrolled || servicesOpen || mobileMenuOpen ? "py-2 md:py-4" : "py-4 md:py-6"
         )}
         onMouseLeave={() => setServicesOpen(false)}

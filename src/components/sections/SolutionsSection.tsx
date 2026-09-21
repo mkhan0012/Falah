@@ -1,8 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 import TransitionLink from "@/components/ui/TransitionLink";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const solutionsData = [
   {
@@ -49,12 +53,50 @@ const solutionsData = [
 
 export default function SolutionsSection() {
   const [activeService, setActiveService] = useState<string | null>(null);
+  const containerRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current || !headerRef.current) return;
+    
+    const ctx = gsap.context(() => {
+      gsap.fromTo(headerRef.current, 
+        { y: 50, opacity: 0 },
+        { 
+          y: 0, opacity: 1, 
+          duration: 1, 
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: headerRef.current,
+            start: "top 85%",
+          }
+        }
+      );
+
+      gsap.utils.toArray(".solution-row").forEach((row: any, i) => {
+        gsap.fromTo(row,
+          { y: 50, opacity: 0 },
+          {
+            y: 0, opacity: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: row,
+              start: "top 90%",
+            }
+          }
+        );
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section className="py-24 md:py-40 bg-ivory text-graphite relative z-20 border-t border-warm-grey">
+    <section ref={containerRef} className="py-24 md:py-40 bg-ivory text-graphite relative z-20 border-t border-warm-grey overflow-hidden">
       <div className="container mx-auto px-6 md:px-[5vw]">
         
-        <div className="mb-20 md:mb-32 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+        <div ref={headerRef} className="mb-20 md:mb-32 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
           <div className="md:col-span-8">
             <h2 className="text-5xl md:text-[5rem] font-primary font-bold tracking-tight text-graphite mb-6 uppercase">
               SOLUTIONS
@@ -74,7 +116,7 @@ export default function SolutionsSection() {
             return (
               <div 
                 key={service.id}
-                className="group relative border-b border-graphite/20 py-8 md:py-12 cursor-pointer transition-colors hover:bg-white/50"
+                className="solution-row group relative border-b border-warm-grey py-8 md:py-12 cursor-pointer transition-colors hover:bg-warm-grey/20"
                 onMouseEnter={() => setActiveService(service.id)}
                 onMouseLeave={() => setActiveService(null)}
               >
