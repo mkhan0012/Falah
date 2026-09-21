@@ -64,7 +64,7 @@ export default function HeroSection() {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-screen flex flex-col justify-center pt-32 pb-12 overflow-hidden bg-ivory"
+      className="relative min-h-screen flex flex-col justify-center pt-48 md:pt-64 pb-12 overflow-hidden bg-ivory"
     >
       {/* Editorial Grid Background */}
       <div ref={gridRef} className="absolute inset-0 z-0 pointer-events-none opacity-40">
@@ -90,7 +90,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="container mx-auto px-6 md:px-[5vw] relative z-10" ref={textRef}>
+      <div className="container mx-auto px-6 md:px-[5vw] relative z-10 mt-12 md:mt-24" ref={textRef}>
         <div className="max-w-6xl">
           <p className="text-[10px] md:text-xs font-mono tracking-[0.2em] font-medium text-slate mb-8 uppercase">
             HYDERABAD / INDIA

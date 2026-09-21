@@ -109,12 +109,12 @@ export default function SolutionsSection() {
                     </ul>
                   </div>
 
-                  {/* Description Reveal */}
-                  <div className="md:col-span-4 lg:col-span-4 overflow-hidden mt-4 md:mt-0">
+                  {/* Description Reveal (Always visible on mobile, hover on desktop) */}
+                  <div className="md:col-span-4 lg:col-span-4 mt-6 md:mt-0">
                     <div 
                       className={clsx(
                         "transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] flex flex-col items-start gap-6",
-                        isActive ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0 hidden md:flex"
+                        isActive ? "md:translate-y-0 md:opacity-100" : "md:translate-y-8 md:opacity-0"
                       )}
                     >
                       <p className="text-lg font-primary text-graphite leading-relaxed">

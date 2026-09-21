@@ -72,7 +72,7 @@ export default function Navbar() {
       <header
         className={clsx(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          isScrolled || servicesOpen ? "py-4 bg-ivory/95 backdrop-blur-md border-b border-warm-grey" : "py-8 bg-transparent"
+          isScrolled || servicesOpen ? "py-2 md:py-4 bg-ivory/95 backdrop-blur-md border-b border-warm-grey" : "py-4 md:py-6 bg-transparent"
         )}
         onMouseLeave={() => setServicesOpen(false)}
       >
@@ -82,9 +82,9 @@ export default function Navbar() {
               <Image 
                 src="/lion-transparent.png" 
                 alt="Falah Brandhouse" 
-                width={160} 
-                height={160} 
-                className="w-auto h-12 md:h-14 group-hover:scale-105 transition-transform origin-left" 
+                width={200} 
+                height={200} 
+                className="w-20 md:w-24 h-auto group-hover:scale-105 transition-transform origin-left" 
                 priority
               />
             </Link>

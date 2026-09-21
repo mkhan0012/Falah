@@ -36,19 +36,13 @@ export default function Footer() {
                 <Image 
                   src="/lion-transparent-light.png" 
                   alt="Falah Brandhouse" 
-                  width={240} 
-                  height={240} 
-                  className="w-auto h-16 md:h-20"
+                  width={300} 
+                  height={300} 
+                  className="w-32 md:w-40 h-auto"
                 />
               </div>
               <p className="text-lg font-primary text-ivory/60 mb-1">Brand & Digital Growth Studio</p>
               <p className="text-lg font-primary text-ivory/60">Hyderabad · India</p>
-            </div>
-            
-            <div className="mt-12 lg:mt-24">
-              <p className="text-sm font-mono text-ivory/40 uppercase tracking-widest">
-                © {currentYear} FALAH BRANDHOUSE. ALL RIGHTS RESERVED.
-              </p>
             </div>
           </div>
 
@@ -107,6 +101,16 @@ export default function Footer() {
             </div>
           </div>
 
+        </div>
+
+        {/* Bottom Bar: Copyright */}
+        <div className="mt-20 pt-8 border-t border-ivory/10 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-[10px] md:text-xs font-mono text-ivory/40 uppercase tracking-widest text-center md:text-left">
+            © {currentYear} FALAH BRANDHOUSE. ALL RIGHTS RESERVED.
+          </p>
+          <p className="text-[10px] md:text-xs font-mono text-ivory/40 uppercase tracking-widest text-center md:text-right">
+            MADE IN INDIA
+          </p>
         </div>
       </div>
     </footer>
