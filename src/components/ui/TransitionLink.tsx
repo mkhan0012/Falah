@@ -14,7 +14,7 @@ export default function TransitionLink({ href, children, className, onClick, ...
 
   const handleTransition = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    if (onClick) onClick();
+    if (onClick) onClick(e);
     
     const targetUrl = href.toString();
     
