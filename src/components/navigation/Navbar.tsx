@@ -43,6 +43,9 @@ export default function Navbar() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const pathname = usePathname();
 
+  const isHomepage = pathname === "/";
+  const isDarkTheme = isHomepage && !isScrolled && !servicesOpen;
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -81,7 +84,7 @@ export default function Navbar() {
           <div className="flex flex-col z-50">
             <TransitionLink href="/" className="flex items-center group">
               <Image 
-                src="/lion-transparent.png" 
+                src={isDarkTheme ? "/lion-transparent-light.png" : "/lion-transparent.png"} 
                 alt="Falah Brandhouse" 
                 width={200} 
                 height={200} 
@@ -92,16 +95,18 @@ export default function Navbar() {
           </div>
 
           <nav className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2 h-full">
-            <ul className="flex items-center gap-8 text-xs font-mono font-medium text-slate h-full">
+            <ul className={clsx(
+              "flex items-center gap-8 text-xs font-mono font-medium h-full transition-colors duration-500",
+              isDarkTheme ? "text-ivory" : "text-slate"
+            )}>
               {navLinks.map((link) => (
                 <li key={link.name} className="h-full flex items-center">
                   {link.hasMegaMenu ? (
                     <button
                       onMouseEnter={() => setServicesOpen(true)}
-                      onClick={() => setServicesOpen(!servicesOpen)}
                       className={clsx(
-                        "hover:text-vermilion transition-colors relative flex items-center gap-1",
-                        (pathname.includes(link.href) || servicesOpen) && "text-vermilion"
+                        "flex items-center gap-1 hover:text-vermilion transition-colors h-full py-4 relative",
+                        pathname.startsWith(link.href) && (isDarkTheme ? "text-ivory font-bold" : "text-graphite font-bold")
                       )}
                     >
                       {link.name}
@@ -112,11 +117,12 @@ export default function Navbar() {
                       href={link.href}
                       onMouseEnter={() => setServicesOpen(false)}
                       className={clsx(
-                        "hover:text-vermilion transition-colors relative group py-2",
-                        pathname === link.href && "text-vermilion"
+                        "flex items-center gap-1 hover:text-vermilion transition-colors h-full py-4 relative group",
+                        pathname === link.href && (isDarkTheme ? "text-ivory font-bold" : "text-graphite font-bold")
                       )}
                     >
                       {link.name}
+                      {/* Active indicator line */}
                       {pathname === link.href && (
                         <span className="absolute bottom-0 left-0 right-0 h-[1px] bg-vermilion" />
                       )}
@@ -131,13 +137,21 @@ export default function Navbar() {
             <div className="hidden md:flex items-center gap-6">
               <TransitionLink
                 href="/request-proposal"
-                className="text-xs font-mono font-bold text-graphite hover:text-vermilion transition-colors"
+                className={clsx(
+                  "text-xs font-mono font-bold hover:text-vermilion transition-colors",
+                  isDarkTheme ? "text-ivory" : "text-graphite"
+                )}
               >
                 RFP
               </TransitionLink>
               <TransitionLink
                 href="/contact"
-                className="flex items-center gap-2 text-xs font-mono font-bold border border-graphite text-graphite px-6 py-3 hover:bg-graphite hover:text-ivory transition-colors group"
+                className={clsx(
+                  "flex items-center gap-2 text-xs font-mono font-bold border px-6 py-3 transition-colors group",
+                  isDarkTheme 
+                    ? "border-ivory text-ivory hover:bg-ivory hover:text-graphite" 
+                    : "border-graphite text-graphite hover:bg-graphite hover:text-ivory"
+                )}
               >
                 LET'S TALK!
                 <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -145,7 +159,10 @@ export default function Navbar() {
             </div>
             
             <button
-              className="lg:hidden text-graphite flex items-center gap-2"
+              className={clsx(
+                "lg:hidden flex items-center gap-2",
+                isDarkTheme ? "text-ivory" : "text-graphite"
+              )}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <span className="text-xs font-mono font-bold uppercase tracking-wider">Menu</span>

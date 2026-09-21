@@ -1,28 +1,31 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import Link, { LinkProps } from "next/link";
-import { animatePageOut } from "@/utils/animations";
-import { ReactNode } from "react";
+import { useRouter, usePathname } from "next/navigation";
+import { ReactNode, MouseEvent } from "react";
 
 interface TransitionLinkProps extends LinkProps {
   children: ReactNode;
   className?: string;
+  onClick?: () => void;
 }
 
-export default function TransitionLink({ href, children, className, ...props }: TransitionLinkProps) {
+export default function TransitionLink({ href, children, className, onClick, ...props }: TransitionLinkProps) {
   const router = useRouter();
+  const pathname = usePathname();
 
-  const handleTransition = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleTransition = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
+    if (onClick) onClick();
+    
     const targetUrl = href.toString();
     
     // If we're already on that page, just do nothing
-    if (window.location.pathname === targetUrl) {
+    if (pathname === targetUrl) {
       return;
     }
     
-    animatePageOut(targetUrl, router);
+    router.push(targetUrl);
   };
 
   return (

@@ -63,12 +63,6 @@ export default function RootLayout({
       <body
         className={`${instrumentSans.variable} ${ibmPlexMono.variable} font-primary bg-ivory text-graphite antialiased selection:bg-vermilion selection:text-ivory`}
       >
-        {/* Global Transition Banner */}
-        <div 
-          id="transition-banner" 
-          className="fixed inset-0 bg-charcoal z-[9999] translate-y-full flex items-center justify-center pointer-events-none"
-        />
-
         <SmoothScroll>
           <CustomCursor />
           <Navbar />

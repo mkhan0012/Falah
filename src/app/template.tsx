@@ -1,12 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
-import { animatePageIn } from "@/utils/animations";
+import { ReactNode } from "react";
 
-export default function Template({ children }: { children: React.ReactNode }) {
-  useEffect(() => {
-    animatePageIn();
-  }, []);
-
-  return <>{children}</>;
+export default function Template({ children }: { children: ReactNode }) {
+  return <div>{children}</div>;
 }
