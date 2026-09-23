@@ -18,6 +18,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact",
     "/request-proposal",
     "/careers",
+    "/web-design-company-hyderabad",
+    "/seo-agency-hyderabad",
+    "/branding-studio-hyderabad",
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString(),

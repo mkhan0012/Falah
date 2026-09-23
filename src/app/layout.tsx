@@ -24,14 +24,14 @@ export const metadata: Metadata = {
     default: "FALAH BRANDHOUSE | Brand & Digital Growth Studio",
     template: "%s | FALAH BRANDHOUSE",
   },
-  description: "Strategy, design, digital experiences and growth systems for ambitious businesses and people in Hyderabad, India.",
+  description: "AI-optimized brand strategy, website design, and SEO to generate high-quality organic leads for ambitious businesses in Hyderabad, India, and globally.",
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://falahbrandhouse.com",
     siteName: "FALAH BRANDHOUSE",
     title: "FALAH BRANDHOUSE | Brand & Digital Growth Studio",
-    description: "Strategy, design, digital experiences and growth systems for ambitious businesses.",
+    description: "Generate high-quality organic leads through AI-optimized branding, web design, and digital strategies.",
     images: [
       {
         url: "/og-image.jpg",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "FALAH BRANDHOUSE | Brand & Digital Growth Studio",
-    description: "Strategy, design, digital experiences and growth systems for ambitious businesses.",
+    description: "Generate high-quality organic leads through AI-optimized branding, web design, and digital strategies.",
     images: ["/og-image.jpg"],
   },
   robots: {

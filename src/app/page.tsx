@@ -3,6 +3,7 @@ import CapabilitiesTicker from "@/components/sections/CapabilitiesTicker";
 import SolutionsSection from "@/components/sections/SolutionsSection";
 import SelectedWork from "@/components/sections/SelectedWork";
 import HealthCheck from "@/components/sections/HealthCheck";
+import FaqSection from "@/components/sections/FaqSection";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ export default function Home() {
       <CapabilitiesTicker />
       <SolutionsSection />
       <SelectedWork limit={2} />
+      <FaqSection />
       <HealthCheck />
     </>
   );

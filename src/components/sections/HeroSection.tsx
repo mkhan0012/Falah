@@ -80,12 +80,12 @@ export default function HeroSection() {
         <div className="w-full mt-auto">
           {/* SEO H1 (Visually Hidden so it doesn't block the video) */}
           <h1 className="sr-only">
-            Falah Brandhouse. We build brands that move. Brand strategy, websites, SEO, and digital marketing in Hyderabad, India.
+            Falah Brandhouse. We build brands that move. Brand strategy, websites, SEO, and digital marketing to generate high-quality organic leads.
           </h1>
           
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-8 mb-8 md:mb-12">
             <p className="text-lg md:text-xl lg:text-2xl text-ivory max-w-md lg:max-w-lg leading-relaxed font-primary drop-shadow-md">
-              Brand strategy, websites, SEO, content and digital marketing — built around what your business actually needs.
+              Brand strategy, websites, SEO, and digital marketing — built to generate high-quality organic leads and grow your business.
             </p>
             
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full lg:w-auto shrink-0">
