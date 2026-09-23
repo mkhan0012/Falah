@@ -57,10 +57,17 @@ export default function JobApplicationModal({ isOpen, onClose, roleTitle }: JobA
       
       if (res.ok) {
         setIsSuccess(true);
+      } else if (res.status === 413) {
+        alert("Your resume file is too large. Please upload a file smaller than 5MB.");
+      } else if (res.status === 429) {
+        alert("Too many applications submitted. Please try again later.");
+      } else if (res.status === 400) {
+        const errorData = await res.json();
+        alert(`Validation error: ${errorData.error || "Please fill all required fields."}`);
       } else {
-        alert("Server error: Check if your SMTP email credentials are correct.");
+        alert("Server error: Unable to process application. Please try again later.");
       }
-    } catch (error) {
+    } catch {
       alert("Failed to submit application. Please check your connection.");
     } finally {
       setIsSubmitting(false);

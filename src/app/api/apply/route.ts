@@ -1,5 +1,9 @@
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import nodemailer, { SendMailOptions } from 'nodemailer';
+import { rateLimit } from '@/lib/rateLimit';
+import { saveFailedSubmission } from '@/lib/storage';
+
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
 const escapeHtml = (unsafe: string) => {
   if (!unsafe) return "";
@@ -13,6 +17,9 @@ const escapeHtml = (unsafe: string) => {
 
 export async function POST(request: Request) {
   try {
+    // 1. IP/Email Rate Limiting (using IP if available, fallback to a hardcoded string or email later)
+    // Next.js app router doesn't always expose IP cleanly without headers, so we'll rate limit after getting the email.
+    
     const formData = await request.formData();
     
     const name = formData.get('name') as string;
@@ -23,12 +30,34 @@ export async function POST(request: Request) {
     const coverLetter = formData.get('coverLetter') as string;
     const resume = formData.get('resume') as File | null;
 
+    // 2. Strict Validation
+    if (!name || !email || !role || !coverLetter || !linkedinUrl) {
+      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+    }
+
+    // Rate limit by email
+    const rl = rateLimit(email, 3, 60000); // Max 3 per minute
+    if (!rl.success) {
+      return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 });
+    }
+
+    // 3. File Size Validation (Memory Safety)
+    let buffer: Buffer | undefined = undefined;
+    if (resume) {
+      if (resume.size > MAX_FILE_SIZE) {
+        return NextResponse.json({ error: 'Resume file size exceeds the 5MB limit.' }, { status: 413 });
+      }
+      buffer = Buffer.from(await resume.arrayBuffer());
+    }
+
+    const payloadData = { name, email, role, portfolioUrl, linkedinUrl, coverLetter, hasResume: !!resume };
+
     const SMTP_HOST = process.env.SMTP_HOST || 'smtp.gmail.com';
     const SMTP_PORT = process.env.SMTP_PORT || 587;
     const SMTP_USER = process.env.SMTP_USER;
     const SMTP_PASS = process.env.SMTP_PASS;
 
-    const mailOptions: any = {
+    const mailOptions: SendMailOptions = {
       from: SMTP_USER ? `"Falah Careers" <${SMTP_USER}>` : '"Falah Careers" <careers@falahbrandhouse.com>',
       to: 'careers@falahbrandhouse.com',
       replyTo: email,
@@ -57,8 +86,7 @@ export async function POST(request: Request) {
       `,
     };
 
-    if (resume) {
-      const buffer = Buffer.from(await resume.arrayBuffer());
+    if (resume && buffer) {
       mailOptions.attachments = [
         {
           filename: resume.name,
@@ -87,13 +115,23 @@ export async function POST(request: Request) {
       },
     });
 
-    await transporter.sendMail(mailOptions);
+    try {
+      await transporter.sendMail(mailOptions);
+    } catch (emailError) {
+      console.error('SMTP Error:', emailError);
+      
+      // 4. Fallback Storage on Failure
+      await saveFailedSubmission('job_application', payloadData, buffer, resume?.name);
+      
+      // We still return 200 OK so the user flow isn't interrupted, but we've safely saved the data
+      return NextResponse.json({ success: true, message: 'Application received (fallback)' });
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Error sending application email:', error);
+    console.error('Error processing application:', error);
     return NextResponse.json(
-      { error: 'Failed to submit application' },
+      { error: 'Failed to process application' },
       { status: 500 }
     );
   }

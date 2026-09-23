@@ -1,7 +1,8 @@
 "use server";
 
-import { promises as fs } from "fs";
-import path from "path";
+import nodemailer from "nodemailer";
+import { rateLimit } from "@/lib/rateLimit";
+import { saveFailedSubmission } from "@/lib/storage";
 
 interface ContactFormData {
   name: string;
@@ -15,8 +16,6 @@ interface ContactFormData {
   message: string;
   honeypot?: string;
 }
-
-
 
 const isValidEmail = (email: string) => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -50,6 +49,12 @@ export async function submitContact(formData: ContactFormData) {
       return { success: false, error: "Please enter a valid email address." };
     }
 
+    // 4. Rate Limiting
+    const rl = rateLimit(formData.email, 3, 60000);
+    if (!rl.success) {
+      return { success: false, error: "Too many requests. Please try again later.", rateLimited: true };
+    }
+
     const SMTP_HOST = process.env.SMTP_HOST || 'smtp.gmail.com';
     const SMTP_PORT = process.env.SMTP_PORT || 587;
     const SMTP_USER = process.env.SMTP_USER;
@@ -61,7 +66,6 @@ export async function submitContact(formData: ContactFormData) {
       console.log('------------------------------');
       console.log('Note: To actually send emails, add SMTP_USER and SMTP_PASS to your .env.local file.');
     } else {
-      const nodemailer = require('nodemailer');
       const transporter = nodemailer.createTransport({
         host: SMTP_HOST,
         port: Number(SMTP_PORT),
@@ -94,7 +98,17 @@ export async function submitContact(formData: ContactFormData) {
         `,
       };
 
-      await transporter.sendMail(mailOptions);
+      try {
+        await transporter.sendMail(mailOptions);
+      } catch (emailError) {
+        console.error("SMTP Error:", emailError);
+        
+        // 5. Fallback Storage
+        await saveFailedSubmission('contact', formData);
+        
+        // Still return success to user so they aren't blocked
+        return { success: true, fallback: true };
+      }
     }
 
     return { success: true };
@@ -103,4 +117,3 @@ export async function submitContact(formData: ContactFormData) {
     return { success: false, error: "Internal server error." };
   }
 }
-
