@@ -53,6 +53,8 @@ export const metadata: Metadata = {
   }
 };
 
+import { ThemeProvider } from "@/components/ThemeProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -73,26 +75,30 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <head>
         <link rel="preload" as="video" href="/showreel.mp4" type="video/mp4" />
+        <link rel="alternate" type="application/rss+xml" title="Falah Brandhouse Insights" href="/feed.xml" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body
-        className={`${instrumentSans.variable} ${ibmPlexMono.variable} font-primary bg-ivory text-graphite antialiased selection:bg-vermilion selection:text-ivory`}
+        suppressHydrationWarning
+        className={`${instrumentSans.variable} ${ibmPlexMono.variable} font-primary antialiased bg-background text-foreground`}
       >
-        <SmoothScroll>
-          <CustomCursor />
-          <Navbar />
-          <main className="min-h-screen pt-24 lg:pt-0">
-            {children}
-          </main>
-          <Footer />
-          <CookieConsent />
-        </SmoothScroll>
+        <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
+          <SmoothScroll>
+            <CustomCursor />
+            <Navbar />
+            <main className="min-h-screen pt-24 lg:pt-0">
+              {children}
+            </main>
+            <Footer />
+            <CookieConsent />
+          </SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   );

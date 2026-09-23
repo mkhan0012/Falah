@@ -73,7 +73,7 @@ export default function KeywordTool() {
   };
 
   return (
-    <section className="relative py-24 md:py-32 bg-ivory text-graphite min-h-screen overflow-hidden">
+    <section className="relative py-24 md:py-32 bg-[#F4F1EA] text-[#171717] min-h-screen overflow-hidden">
       
       {/* Editorial Grid Background */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
@@ -91,7 +91,7 @@ export default function KeywordTool() {
             PROPRIETARY SEO TOOL
           </p>
           
-          <h1 className="text-[10vw] md:text-[7vw] leading-[0.9] font-primary font-bold tracking-[-0.03em] text-graphite mb-12">
+          <h1 className="text-[10vw] md:text-[7vw] leading-[0.9] font-primary font-bold tracking-[-0.03em] text-[#171717] mb-12">
             DISCOVER<br />
             KEYWORDS THAT<br />
             DRIVE <span className="text-vermilion">REVENUE.</span>
@@ -102,7 +102,7 @@ export default function KeywordTool() {
               Stop guessing what your customers are searching for. Use our free keyword intelligence tool to uncover high-intent search terms, analyze ranking difficulty, and build a profitable SEO strategy.
             </p>
             
-            <div className="flex items-center gap-2 text-xs font-mono font-bold text-graphite bg-warm-grey/30 px-4 py-2 rounded-full shrink-0">
+            <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#171717] bg-warm-grey/30 px-4 py-2 rounded-full shrink-0">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
               LIVE DATA
             </div>
@@ -121,14 +121,14 @@ export default function KeywordTool() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Enter a seed keyword (e.g., enterprise software)"
-                className="w-full bg-white border-2 border-graphite/10 hover:border-graphite/30 focus:border-vermilion focus:ring-4 focus:ring-vermilion/10 rounded-full py-6 md:py-8 pl-16 md:pl-20 pr-6 text-xl md:text-3xl font-primary text-graphite outline-none transition-all shadow-xl shadow-graphite/5"
+                className="w-full bg-white border-2 border-[#171717]/10 hover:border-[#171717]/30 focus:border-vermilion focus:ring-4 focus:ring-vermilion/10 rounded-full py-6 md:py-8 pl-16 md:pl-20 pr-6 text-xl md:text-3xl font-primary text-[#171717] outline-none transition-all shadow-xl shadow-graphite/5"
                 required
               />
             </div>
             <button 
               type="submit"
               disabled={isSearching}
-              className="w-full md:w-auto shrink-0 bg-graphite hover:bg-vermilion text-ivory rounded-full px-12 py-6 md:py-8 font-mono text-sm md:text-base font-bold uppercase tracking-widest transition-colors flex items-center justify-center min-w-[200px]"
+              className="w-full md:w-auto shrink-0 bg-[#171717] hover:bg-vermilion text-[#F4F1EA] rounded-full px-12 py-6 md:py-8 font-mono text-sm md:text-base font-bold uppercase tracking-widest transition-colors flex items-center justify-center min-w-[200px]"
             >
               {isSearching ? <Loader2 size={24} className="animate-spin" /> : "ANALYZE KEYWORD"}
             </button>
@@ -153,9 +153,9 @@ export default function KeywordTool() {
               <div className="flex flex-col gap-12">
                 
                 {/* Main Keyword Overview */}
-                <div className="bg-white rounded-3xl p-8 md:p-12 border border-graphite/10 shadow-lg shadow-graphite/5">
-                  <h2 className="text-sm font-mono tracking-widest text-slate mb-8 uppercase border-b border-graphite/10 pb-4">
-                    Keyword Overview: <span className="text-graphite font-bold">{results.main.keyword}</span>
+                <div className="bg-white rounded-3xl p-8 md:p-12 border border-[#171717]/10 shadow-lg shadow-graphite/5">
+                  <h2 className="text-sm font-mono tracking-widest text-slate mb-8 uppercase border-b border-[#171717]/10 pb-4">
+                    Keyword Overview: <span className="text-[#171717] font-bold">{results.main.keyword}</span>
                   </h2>
                   
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -163,7 +163,7 @@ export default function KeywordTool() {
                       <div className="flex items-center gap-2 text-slate font-mono text-xs uppercase tracking-wider">
                         <BarChart3 size={14} /> Volume
                       </div>
-                      <span className="text-4xl md:text-5xl font-primary font-bold text-graphite">
+                      <span className="text-4xl md:text-5xl font-primary font-bold text-[#171717]">
                         {results.main.volume}
                       </span>
                     </div>
@@ -181,7 +181,7 @@ export default function KeywordTool() {
                       <div className="flex items-center gap-2 text-slate font-mono text-xs uppercase tracking-wider">
                         <TrendingUp size={14} /> CPC
                       </div>
-                      <span className="text-4xl md:text-5xl font-primary font-bold text-graphite">
+                      <span className="text-4xl md:text-5xl font-primary font-bold text-[#171717]">
                         {results.main.cpc}
                       </span>
                     </div>
@@ -190,7 +190,7 @@ export default function KeywordTool() {
                       <div className="flex items-center gap-2 text-slate font-mono text-xs uppercase tracking-wider">
                         Intent
                       </div>
-                      <span className="inline-block mt-2 px-4 py-2 bg-slate/10 text-graphite text-sm font-mono font-bold rounded-full w-fit">
+                      <span className="inline-block mt-2 px-4 py-2 bg-slate/10 text-[#171717] text-sm font-mono font-bold rounded-full w-fit">
                         {results.main.intent}
                       </span>
                     </div>
@@ -198,15 +198,15 @@ export default function KeywordTool() {
                 </div>
 
                 {/* Related Keywords Table */}
-                <div className="bg-white rounded-3xl border border-graphite/10 shadow-lg shadow-graphite/5 overflow-hidden">
-                  <div className="p-8 border-b border-graphite/10">
-                    <h3 className="text-xl font-primary font-bold text-graphite">Keyword Variations & Opportunities</h3>
+                <div className="bg-white rounded-3xl border border-[#171717]/10 shadow-lg shadow-graphite/5 overflow-hidden">
+                  <div className="p-8 border-b border-[#171717]/10">
+                    <h3 className="text-xl font-primary font-bold text-[#171717]">Keyword Variations & Opportunities</h3>
                   </div>
                   
                   <div className="overflow-x-auto">
                     <table className="w-full text-left border-collapse">
                       <thead>
-                        <tr className="bg-slate/5 border-b border-graphite/10">
+                        <tr className="bg-slate/5 border-b border-[#171717]/10">
                           <th className="p-6 font-mono text-xs tracking-widest text-slate uppercase">Keyword</th>
                           <th className="p-6 font-mono text-xs tracking-widest text-slate uppercase">Volume</th>
                           <th className="p-6 font-mono text-xs tracking-widest text-slate uppercase">KD</th>
@@ -215,8 +215,8 @@ export default function KeywordTool() {
                       </thead>
                       <tbody>
                         {results.related.map((item, i) => (
-                          <tr key={i} className="border-b border-graphite/5 hover:bg-slate/5 transition-colors">
-                            <td className="p-6 font-primary font-bold text-graphite text-lg">{item.keyword}</td>
+                          <tr key={i} className="border-b border-[#171717]/5 hover:bg-slate/5 transition-colors">
+                            <td className="p-6 font-primary font-bold text-[#171717] text-lg">{item.keyword}</td>
                             <td className="p-6 font-primary text-slate">{item.volume}</td>
                             <td className="p-6">
                               <span className={`px-3 py-1 text-xs font-mono font-bold rounded-full border ${getDifficultyColor(item.difficulty)}`}>
@@ -232,18 +232,18 @@ export default function KeywordTool() {
                 </div>
 
                 {/* Upsell / Lead Gen CTA */}
-                <div className="bg-charcoal text-ivory rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+                <div className="bg-charcoal text-[#F4F1EA] rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
                   <div>
                     <h3 className="text-2xl md:text-3xl font-primary font-bold mb-4">
                       Want to rank for these keywords?
                     </h3>
-                    <p className="text-ivory/70 font-primary text-lg max-w-xl">
+                    <p className="text-[#F4F1EA]/70 font-primary text-lg max-w-xl">
                       Get a free, comprehensive SEO audit and action plan. We'll show you exactly how to steal traffic from your competitors.
                     </p>
                   </div>
                   <Link 
                     href="/request-proposal"
-                    className="shrink-0 bg-vermilion hover:bg-ivory hover:text-charcoal text-ivory px-8 py-5 font-mono text-sm font-bold uppercase tracking-wider transition-colors rounded-full"
+                    className="shrink-0 bg-vermilion hover:bg-[#F4F1EA] hover:text-charcoal text-[#F4F1EA] px-8 py-5 font-mono text-sm font-bold uppercase tracking-wider transition-colors rounded-full"
                   >
                     GET FREE AUDIT
                   </Link>

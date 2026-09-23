@@ -8,17 +8,17 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-charcoal text-ivory border-t border-ivory/10 selection:bg-vermilion selection:text-ivory">
+    <footer className="bg-charcoal text-[#F4F1EA] border-t border-[#F4F1EA]/10 selection:bg-vermilion selection:text-[#F4F1EA]">
       
       {/* Massive CTA Section */}
-      <div className="container mx-auto px-6 md:px-[5vw] py-32 border-b border-ivory/10">
-        <h2 className="text-5xl md:text-7xl lg:text-8xl font-primary font-bold tracking-tight mb-12 uppercase leading-none text-ivory/90 hover:text-ivory transition-colors">
+      <div className="container mx-auto px-6 md:px-[5vw] py-32 border-b border-[#F4F1EA]/10">
+        <h2 className="text-5xl md:text-7xl lg:text-8xl font-primary font-bold tracking-tight mb-12 uppercase leading-none text-[#F4F1EA]/90 hover:text-[#F4F1EA] transition-colors">
           LET&apos;S BUILD <br className="hidden md:block" />
           SOMETHING <span className="text-vermilion">DISTINCTIVE.</span>
         </h2>
         <Link 
           href="/contact"
-          className="inline-flex items-center gap-2 text-xl font-mono font-bold tracking-widest text-charcoal bg-vermilion hover:bg-ivory px-8 py-5 transition-colors uppercase group"
+          className="inline-flex items-center gap-2 text-xl font-mono font-bold tracking-widest text-charcoal bg-vermilion hover:bg-[#F4F1EA] px-8 py-5 transition-colors uppercase group"
         >
           START A PROJECT 
           <ArrowUpRight size={24} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
@@ -41,14 +41,14 @@ export default function Footer() {
                   className="w-32 md:w-40 h-auto"
                 />
               </div>
-              <p className="text-lg font-primary text-ivory/60 mb-1">Brand & Digital Growth Studio</p>
-              <p className="text-lg font-primary text-ivory/60">Hyderabad · India</p>
+              <p className="text-lg font-primary text-[#F4F1EA]/60 mb-1">Brand & Digital Growth Studio</p>
+              <p className="text-lg font-primary text-[#F4F1EA]/60">Hyderabad · India</p>
             </div>
           </div>
 
           {/* Contact */}
           <div className="lg:col-span-3">
-            <h4 className="text-xs font-mono font-bold tracking-widest text-ivory/40 mb-8 uppercase">CONTACT</h4>
+            <h4 className="text-xs font-mono font-bold tracking-widest text-[#F4F1EA]/40 mb-8 uppercase">CONTACT</h4>
             <ul className="flex flex-col gap-6 text-xl font-primary">
               <li>
                 <a href="mailto:hello@falahbrandhouse.com" className="hover:text-vermilion transition-colors inline-block">hello@falahbrandhouse.com</a>
@@ -66,7 +66,7 @@ export default function Footer() {
 
           {/* Explore */}
           <div className="lg:col-span-3">
-            <h4 className="text-xs font-mono font-bold tracking-widest text-ivory/40 mb-8 uppercase">EXPLORE</h4>
+            <h4 className="text-xs font-mono font-bold tracking-widest text-[#F4F1EA]/40 mb-8 uppercase">EXPLORE</h4>
             <div className="grid grid-cols-2 gap-x-8 gap-y-4 text-lg font-primary">
               <Link href="/work" className="hover:text-vermilion transition-colors">Work</Link>
               <Link href="/services" className="hover:text-vermilion transition-colors">Solutions</Link>
@@ -83,20 +83,20 @@ export default function Footer() {
           {/* Follow & Legal */}
           <div className="lg:col-span-2 flex flex-col justify-between">
             <div>
-              <h4 className="text-xs font-mono font-bold tracking-widest text-ivory/40 mb-8 uppercase">FOLLOW</h4>
+              <h4 className="text-xs font-mono font-bold tracking-widest text-[#F4F1EA]/40 mb-8 uppercase">FOLLOW</h4>
               <ul className="flex flex-col gap-4 text-lg font-primary">
                 {/* TODO: Replace with actual social URLs or remove */}
-                <li><a href="#" className="hover:text-vermilion transition-colors inline-flex items-center gap-2">LinkedIn <ArrowUpRight size={14} className="text-ivory/30" /></a></li>
-                <li><a href="#" className="hover:text-vermilion transition-colors inline-flex items-center gap-2">Instagram <ArrowUpRight size={14} className="text-ivory/30" /></a></li>
-                <li><a href="#" className="hover:text-vermilion transition-colors inline-flex items-center gap-2">YouTube <ArrowUpRight size={14} className="text-ivory/30" /></a></li>
+                <li><a href="#" className="hover:text-vermilion transition-colors inline-flex items-center gap-2">LinkedIn <ArrowUpRight size={14} className="text-[#F4F1EA]/30" /></a></li>
+                <li><a href="#" className="hover:text-vermilion transition-colors inline-flex items-center gap-2">Instagram <ArrowUpRight size={14} className="text-[#F4F1EA]/30" /></a></li>
+                <li><a href="#" className="hover:text-vermilion transition-colors inline-flex items-center gap-2">YouTube <ArrowUpRight size={14} className="text-[#F4F1EA]/30" /></a></li>
               </ul>
             </div>
             
             <div className="mt-12 lg:mt-auto">
-              <h4 className="text-xs font-mono font-bold tracking-widest text-ivory/40 mb-6 uppercase">LEGAL</h4>
-              <ul className="flex flex-col gap-3 text-sm font-primary text-ivory/60">
-                <li><Link href="/privacy-policy" className="hover:text-ivory transition-colors">Privacy Policy</Link></li>
-                <li><Link href="/terms" className="hover:text-ivory transition-colors">Terms of Service</Link></li>
+              <h4 className="text-xs font-mono font-bold tracking-widest text-[#F4F1EA]/40 mb-6 uppercase">LEGAL</h4>
+              <ul className="flex flex-col gap-3 text-sm font-primary text-[#F4F1EA]/60">
+                <li><Link href="/privacy-policy" className="hover:text-[#F4F1EA] transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/terms" className="hover:text-[#F4F1EA] transition-colors">Terms of Service</Link></li>
               </ul>
             </div>
           </div>
@@ -104,11 +104,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar: Copyright */}
-        <div className="mt-20 pt-8 border-t border-ivory/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-[10px] md:text-xs font-mono text-ivory/40 uppercase tracking-widest text-center md:text-left">
+        <div className="mt-20 pt-8 border-t border-[#F4F1EA]/10 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-[10px] md:text-xs font-mono text-[#F4F1EA]/40 uppercase tracking-widest text-center md:text-left">
             © {currentYear} FALAH BRANDHOUSE. ALL RIGHTS RESERVED.
           </p>
-          <p className="text-[10px] md:text-xs font-mono text-ivory/40 uppercase tracking-widest text-center md:text-right">
+          <p className="text-[10px] md:text-xs font-mono text-[#F4F1EA]/40 uppercase tracking-widest text-center md:text-right">
             MADE IN INDIA
           </p>
         </div>

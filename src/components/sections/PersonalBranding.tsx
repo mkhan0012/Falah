@@ -18,25 +18,25 @@ export default function PersonalBranding() {
   const [profileType, setProfileType] = useState<"ordinary" | "positioned">("ordinary");
 
   return (
-    <section className="py-24 md:py-40 bg-charcoal text-ivory relative border-t border-warm-grey">
+    <section className="py-24 md:py-40 bg-charcoal text-[#F4F1EA] relative border-t border-warm-grey">
       
       <div className="container mx-auto px-6 md:px-[5vw] relative z-10">
         
         {/* Section Header */}
-        <div className="mb-24 border-b border-ivory/20 pb-12">
-          <p className="text-[10px] md:text-xs font-mono tracking-widest text-ivory/60 mb-8 uppercase">
+        <div className="mb-24 border-b border-[#F4F1EA]/20 pb-12">
+          <p className="text-[10px] md:text-xs font-mono tracking-widest text-[#F4F1EA]/60 mb-8 uppercase">
             04 / PERSONAL BRANDING
           </p>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
             <div className="md:col-span-7">
-              <h2 className="text-[12vw] md:text-[8vw] font-primary font-bold leading-[0.9] tracking-tight text-ivory">
+              <h2 className="text-[12vw] md:text-[8vw] font-primary font-bold leading-[0.9] tracking-tight text-[#F4F1EA]">
                 YOUR NAME<br />
-                <span className="text-ivory/60">IS YOUR</span><br />
+                <span className="text-[#F4F1EA]/60">IS YOUR</span><br />
                 BRAND.
               </h2>
             </div>
             <div className="md:col-span-5 pb-2 md:pb-6">
-              <p className="text-lg md:text-xl text-ivory/70 font-primary leading-relaxed">
+              <p className="text-lg md:text-xl text-[#F4F1EA]/70 font-primary leading-relaxed">
                 We help founders, executives, professionals and creators turn expertise into a digital presence people remember.
               </p>
             </div>
@@ -46,12 +46,12 @@ export default function PersonalBranding() {
         {/* The Profile Toggle Demo */}
         <div className="mb-32">
           <div className="flex justify-center mb-12">
-            <div className="flex border border-ivory/20 p-1 bg-ivory/5">
+            <div className="flex border border-[#F4F1EA]/20 p-1 bg-[#F4F1EA]/5">
               <button 
                 onClick={() => setProfileType("ordinary")}
                 className={clsx(
                   "px-6 py-3 font-mono text-[10px] uppercase tracking-widest font-bold transition-colors",
-                  profileType === "ordinary" ? "bg-ivory text-charcoal" : "text-ivory/50 hover:text-ivory"
+                  profileType === "ordinary" ? "bg-[#F4F1EA] text-charcoal" : "text-[#F4F1EA]/50 hover:text-[#F4F1EA]"
                 )}
               >
                 Ordinary Profile
@@ -60,7 +60,7 @@ export default function PersonalBranding() {
                 onClick={() => setProfileType("positioned")}
                 className={clsx(
                   "px-6 py-3 font-mono text-[10px] uppercase tracking-widest font-bold transition-colors",
-                  profileType === "positioned" ? "bg-vermilion text-ivory" : "text-ivory/50 hover:text-ivory"
+                  profileType === "positioned" ? "bg-vermilion text-[#F4F1EA]" : "text-[#F4F1EA]/50 hover:text-[#F4F1EA]"
                 )}
               >
                 Positioned Profile
@@ -68,7 +68,7 @@ export default function PersonalBranding() {
             </div>
           </div>
 
-          <div className="max-w-2xl mx-auto border border-ivory/10 bg-ivory/5 overflow-hidden relative min-h-[250px]">
+          <div className="max-w-2xl mx-auto border border-[#F4F1EA]/10 bg-[#F4F1EA]/5 overflow-hidden relative min-h-[250px]">
             {/* Ordinary Card */}
             <div className={clsx(
               "absolute inset-0 p-8 flex flex-col justify-center transition-all duration-700 ease-in-out",
@@ -86,17 +86,17 @@ export default function PersonalBranding() {
 
             {/* Positioned Card */}
             <div className={clsx(
-              "absolute inset-0 p-8 flex flex-col justify-center transition-all duration-700 ease-in-out bg-graphite/50",
+              "absolute inset-0 p-8 flex flex-col justify-center transition-all duration-700 ease-in-out bg-[#171717]/50",
               profileType === "positioned" ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12 pointer-events-none"
             )}>
               <div className="flex items-start gap-6 mb-6">
-                <div className="w-20 h-20 bg-ivory shrink-0" />
+                <div className="w-20 h-20 bg-[#F4F1EA] shrink-0" />
                 <div>
-                  <h4 className="font-primary text-3xl font-bold tracking-tight text-ivory mb-2 uppercase">EXAMPLE PROFILE</h4>
+                  <h4 className="font-primary text-3xl font-bold tracking-tight text-[#F4F1EA] mb-2 uppercase">EXAMPLE PROFILE</h4>
                   <p className="font-mono text-xs tracking-widest text-vermilion uppercase font-bold">Founder / Expert</p>
                 </div>
               </div>
-              <p className="font-primary text-xl text-ivory/80 leading-relaxed font-light">
+              <p className="font-primary text-xl text-[#F4F1EA]/80 leading-relaxed font-light">
                 Re-engineering enterprise scale. Building systems that turn friction into momentum.
               </p>
             </div>
@@ -107,11 +107,11 @@ export default function PersonalBranding() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-start">
           
           {/* Steps */}
-          <div className="lg:col-span-5 flex flex-col border-t border-ivory/20">
+          <div className="lg:col-span-5 flex flex-col border-t border-[#F4F1EA]/20">
             {stages.map((stage, i) => (
               <div 
                 key={stage.id}
-                className="group relative border-b border-ivory/20 py-6 md:py-8 cursor-pointer transition-colors"
+                className="group relative border-b border-[#F4F1EA]/20 py-6 md:py-8 cursor-pointer transition-colors"
                 onMouseEnter={() => setActiveStage(i)}
                 onClick={() => setActiveStage(i)}
               >
@@ -126,13 +126,13 @@ export default function PersonalBranding() {
                 <div className="flex items-center gap-6 pl-6">
                   <span className={clsx(
                     "text-xs font-mono font-bold transition-colors duration-300",
-                    activeStage === i ? "text-vermilion" : "text-ivory/50"
+                    activeStage === i ? "text-vermilion" : "text-[#F4F1EA]/50"
                   )}>
                     {stage.id}
                   </span>
                   <h3 className={clsx(
                     "text-2xl md:text-4xl font-primary font-bold transition-colors duration-300",
-                    activeStage === i ? "text-ivory" : "text-ivory/50 group-hover:text-ivory/80"
+                    activeStage === i ? "text-[#F4F1EA]" : "text-[#F4F1EA]/50 group-hover:text-[#F4F1EA]/80"
                   )}>
                     {stage.title}
                   </h3>
@@ -142,7 +142,7 @@ export default function PersonalBranding() {
           </div>
 
           {/* Visual Description Panel */}
-          <div className="lg:col-span-7 relative h-[300px] md:h-[400px] bg-ivory/5 flex items-center justify-center p-8 md:p-16 border border-ivory/10">
+          <div className="lg:col-span-7 relative h-[300px] md:h-[400px] bg-[#F4F1EA]/5 flex items-center justify-center p-8 md:p-16 border border-[#F4F1EA]/10">
             {/* Background Grid Pattern */}
             <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: 'radial-gradient(var(--color-warm-grey) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
             
@@ -155,8 +155,8 @@ export default function PersonalBranding() {
                 )}
               >
                 <div className="text-[10px] font-mono tracking-widest text-vermilion mb-6">STAGE {stage.id}</div>
-                <h4 className="text-3xl md:text-5xl font-primary font-bold text-ivory mb-6">{stage.title}</h4>
-                <p className="text-lg md:text-xl text-ivory/70 font-primary max-w-md mx-auto leading-relaxed">
+                <h4 className="text-3xl md:text-5xl font-primary font-bold text-[#F4F1EA] mb-6">{stage.title}</h4>
+                <p className="text-lg md:text-xl text-[#F4F1EA]/70 font-primary max-w-md mx-auto leading-relaxed">
                   {stage.desc}
                 </p>
               </div>
@@ -164,10 +164,10 @@ export default function PersonalBranding() {
           </div>
         </div>
 
-        <div className="mt-24 md:mt-32 flex justify-center border-t border-ivory/20 pt-16">
+        <div className="mt-24 md:mt-32 flex justify-center border-t border-[#F4F1EA]/20 pt-16">
           <Link 
             href="/contact"
-            className="inline-flex items-center gap-2 border border-ivory px-8 py-5 text-sm font-mono font-bold text-ivory hover:bg-ivory hover:text-graphite transition-all group uppercase tracking-wide"
+            className="inline-flex items-center gap-2 border border-[#F4F1EA] px-8 py-5 text-sm font-mono font-bold text-[#F4F1EA] hover:bg-[#F4F1EA] hover:text-[#171717] transition-all group uppercase tracking-wide"
           >
             BUILD MY PERSONAL BRAND <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>

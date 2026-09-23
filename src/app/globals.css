@@ -1,32 +1,68 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ivory: #F4F1EA;
-  --color-graphite: #171717;
-  --color-slate: #5E5E5A;
-  --color-charcoal: #1B1B1A;
-  --color-vermilion: #E6532F;
-  --color-warm-grey: #D7D2C8;
+  --color-ivory: var(--ivory);
+  --color-graphite: var(--graphite);
+  --color-slate: var(--slate);
+  --color-charcoal: var(--charcoal);
+  --color-vermilion: var(--vermilion);
+  --color-warm-grey: var(--warm-grey);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
   
   --font-primary: var(--font-primary), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 @layer base {
+  :root {
+    --ivory: #F4F1EA;
+    --graphite: #171717;
+    --slate: #5E5E5A;
+    --charcoal: #1B1B1A;
+    --vermilion: #E6532F;
+    --warm-grey: #D7D2C8;
+
+    --background: var(--ivory);
+    --foreground: var(--graphite);
+    --accent: var(--vermilion);
+  }
+
+  .dark {
+    --ivory: #171717;
+    --graphite: #F4F1EA;
+    --slate: #A1A1A5;
+    --charcoal: #1E1E1E;
+    --warm-grey: #2A2A2A;
+
+    --background: var(--ivory);
+    --foreground: var(--graphite);
+  }
+
+  /* Protect explicit dark sections to retain their light-on-dark look */
+  .bg-charcoal, .bg-graphite {
+    --ivory: #F4F1EA !important;
+    --graphite: #171717 !important;
+    --slate: #5E5E5A !important;
+    --warm-grey: #D7D2C8 !important;
+  }
+
   html {
-    background-color: var(--color-ivory);
-    color: var(--color-graphite);
+    background-color: var(--background);
+    color: var(--foreground);
     cursor: none;
   }
 
   body {
-    background-color: var(--color-ivory);
-    color: var(--color-graphite);
+    background-color: var(--background);
+    color: var(--foreground);
   }
 
   ::selection {
-    background-color: var(--color-vermilion);
-    color: var(--color-ivory);
+    background-color: var(--accent);
+    color: var(--background);
   }
 
   html.lenis, html.lenis body {

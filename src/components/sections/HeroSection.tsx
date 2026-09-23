@@ -84,7 +84,7 @@ export default function HeroSection() {
           </h1>
           
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-8 mb-8 md:mb-12">
-            <p className="text-lg md:text-xl lg:text-2xl text-ivory max-w-md lg:max-w-lg leading-relaxed font-primary drop-shadow-md">
+            <p className="text-lg md:text-xl lg:text-2xl text-[#F4F1EA] max-w-md lg:max-w-lg leading-relaxed font-primary drop-shadow-md">
               Brand strategy, websites, SEO, and digital marketing — built to generate high-quality organic leads and grow your business.
             </p>
             
@@ -92,7 +92,7 @@ export default function HeroSection() {
               <MagneticButton>
                 <TransitionLink 
                   href="/contact"
-                  className="w-full flex items-center justify-center gap-2 border border-ivory/30 bg-charcoal/40 backdrop-blur-md text-ivory px-5 sm:px-6 md:px-8 py-3 sm:py-4 font-mono text-xs sm:text-sm font-bold hover:bg-ivory hover:text-graphite transition-colors group"
+                  className="w-full flex items-center justify-center gap-2 border border-[#F4F1EA]/30 bg-charcoal/40 backdrop-blur-md text-[#F4F1EA] px-5 sm:px-6 md:px-8 py-3 sm:py-4 font-mono text-xs sm:text-sm font-bold hover:bg-[#F4F1EA] hover:text-[#171717] transition-colors group"
                 >
                   START A PROJECT 
                   <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -100,7 +100,7 @@ export default function HeroSection() {
               </MagneticButton>
               <TransitionLink 
                 href="/work"
-                className="w-full flex items-center justify-center gap-2 px-5 sm:px-6 md:px-8 py-3 sm:py-4 text-ivory/90 hover:text-vermilion font-mono text-xs sm:text-sm font-bold transition-colors group bg-charcoal/30 backdrop-blur-sm rounded-full border border-transparent hover:border-vermilion/30"
+                className="w-full flex items-center justify-center gap-2 px-5 sm:px-6 md:px-8 py-3 sm:py-4 text-[#F4F1EA]/90 hover:text-vermilion font-mono text-xs sm:text-sm font-bold transition-colors group bg-charcoal/30 backdrop-blur-sm rounded-full border border-transparent hover:border-vermilion/30"
               >
                 EXPLORE OUR WORK
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -109,14 +109,14 @@ export default function HeroSection() {
           </div>
           
           {/* Client-Oriented Selector */}
-          <div className="pt-6 md:pt-8 border-t border-ivory/20 pb-2 md:pb-4">
-            <h2 className="text-xs font-mono tracking-widest text-ivory/60 mb-4 uppercase font-bold">I NEED A...</h2>
+          <div className="pt-6 md:pt-8 border-t border-[#F4F1EA]/20 pb-2 md:pb-4">
+            <h2 className="text-xs font-mono tracking-widest text-[#F4F1EA]/60 mb-4 uppercase font-bold">I NEED A...</h2>
             <div className="flex flex-wrap gap-4 md:gap-6">
-              <TransitionLink href="/services/branding" className="text-base md:text-lg font-primary text-ivory hover:text-vermilion border-b border-ivory/40 hover:border-vermilion transition-colors pb-1">NEW BRAND</TransitionLink>
-              <TransitionLink href="/services/web-development" className="text-base md:text-lg font-primary text-ivory hover:text-vermilion border-b border-ivory/40 hover:border-vermilion transition-colors pb-1">WEBSITE</TransitionLink>
-              <TransitionLink href="/services/seo" className="text-base md:text-lg font-primary text-ivory hover:text-vermilion border-b border-ivory/40 hover:border-vermilion transition-colors pb-1">MORE VISIBILITY</TransitionLink>
-              <TransitionLink href="/services/digital-marketing" className="text-base md:text-lg font-primary text-ivory hover:text-vermilion border-b border-ivory/40 hover:border-vermilion transition-colors pb-1">MORE LEADS</TransitionLink>
-              <TransitionLink href="/services" className="text-base md:text-lg font-primary text-vermilion hover:text-ivory border-b border-vermilion hover:border-ivory transition-colors pb-1">COMPLETE DIGITAL PRESENCE</TransitionLink>
+              <TransitionLink href="/services/branding" className="text-base md:text-lg font-primary text-[#F4F1EA] hover:text-vermilion border-b border-[#F4F1EA]/40 hover:border-vermilion transition-colors pb-1">NEW BRAND</TransitionLink>
+              <TransitionLink href="/services/web-development" className="text-base md:text-lg font-primary text-[#F4F1EA] hover:text-vermilion border-b border-[#F4F1EA]/40 hover:border-vermilion transition-colors pb-1">WEBSITE</TransitionLink>
+              <TransitionLink href="/services/seo" className="text-base md:text-lg font-primary text-[#F4F1EA] hover:text-vermilion border-b border-[#F4F1EA]/40 hover:border-vermilion transition-colors pb-1">MORE VISIBILITY</TransitionLink>
+              <TransitionLink href="/services/digital-marketing" className="text-base md:text-lg font-primary text-[#F4F1EA] hover:text-vermilion border-b border-[#F4F1EA]/40 hover:border-vermilion transition-colors pb-1">MORE LEADS</TransitionLink>
+              <TransitionLink href="/services" className="text-base md:text-lg font-primary text-vermilion hover:text-[#F4F1EA] border-b border-vermilion hover:border-[#F4F1EA] transition-colors pb-1">COMPLETE DIGITAL PRESENCE</TransitionLink>
             </div>
           </div>
           

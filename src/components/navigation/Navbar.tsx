@@ -6,6 +6,8 @@ import { ArrowUpRight, Menu, X, ChevronDown } from "lucide-react";
 import clsx from "clsx";
 import Image from "next/image";
 import TransitionLink from "@/components/ui/TransitionLink";
+import { useTheme } from "next-themes";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 const services = {
   "EARNED MEDIA": [
@@ -40,12 +42,15 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+  const { resolvedTheme } = useTheme();
 
-  const isHomepage = pathname === "/";
-  const isDarkTheme = isHomepage && !isScrolled && !servicesOpen && !mobileMenuOpen;
+  const isHomepageHero = pathname === "/" && !isScrolled && !servicesOpen && !mobileMenuOpen;
+  const useLightLogo = isHomepageHero || (mounted && resolvedTheme === "dark");
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
@@ -75,18 +80,18 @@ export default function Navbar() {
       <header
         className={clsx(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          "bg-ivory/95 backdrop-blur-md border-b border-warm-grey",
-          !isScrolled && !servicesOpen && !mobileMenuOpen && "lg:bg-transparent lg:border-transparent lg:backdrop-blur-none",
-          isScrolled || servicesOpen || mobileMenuOpen ? "py-2 md:py-4" : "py-4 md:py-6"
+          "bg-background/95 backdrop-blur-md border-b border-warm-grey",
+          isHomepageHero && "lg:bg-transparent lg:border-transparent lg:backdrop-blur-none",
+          !isHomepageHero ? "py-2 md:py-4" : "py-4 md:py-6"
         )}
         onMouseLeave={() => setServicesOpen(false)}
       >
-        <div className="container mx-auto px-4 sm:px-6 md:px-12 flex items-center justify-between">
+        <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 flex items-center justify-between">
           
           {/* Logo Area */}
           <div className="flex flex-col z-50 shrink-0">
             <TransitionLink href="/" className="flex items-center group">
-              {isDarkTheme ? (
+              {useLightLogo ? (
                 <>
                   <Image 
                     src="/cat-transparent-light.png" 
@@ -118,10 +123,10 @@ export default function Navbar() {
             </TransitionLink>
           </div>
 
-          <nav className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2 h-full">
+          <nav className="hidden lg:flex items-center justify-center flex-1 mx-4 xl:mx-8">
             <ul className={clsx(
-              "flex items-center gap-8 text-xs font-mono font-medium h-full transition-colors duration-500",
-              isDarkTheme ? "text-ivory" : "text-slate"
+              "flex items-center gap-4 xl:gap-8 text-xs font-mono font-medium h-full transition-colors duration-500 whitespace-nowrap",
+              isHomepageHero ? "text-[#F4F1EA]" : "text-slate"
             )}>
               {navLinks.map((link) => (
                 <li key={link.name} className="h-full flex items-center">
@@ -130,7 +135,7 @@ export default function Navbar() {
                       onMouseEnter={() => setServicesOpen(true)}
                       className={clsx(
                         "flex items-center gap-1 hover:text-vermilion transition-colors h-full py-4 relative",
-                        pathname.startsWith(link.href) && (isDarkTheme ? "text-ivory font-bold" : "text-graphite font-bold")
+                        pathname.startsWith(link.href) && (isHomepageHero ? "text-[#F4F1EA] font-bold" : "text-foreground font-bold")
                       )}
                     >
                       {link.name}
@@ -142,7 +147,7 @@ export default function Navbar() {
                       onMouseEnter={() => setServicesOpen(false)}
                       className={clsx(
                         "flex items-center gap-1 hover:text-vermilion transition-colors h-full py-4 relative group",
-                        pathname === link.href && (isDarkTheme ? "text-ivory font-bold" : "text-graphite font-bold")
+                        pathname === link.href && (isHomepageHero ? "text-[#F4F1EA] font-bold" : "text-foreground font-bold")
                       )}
                     >
                       {link.name}
@@ -163,8 +168,8 @@ export default function Navbar() {
               <TransitionLink
                 href="/request-proposal"
                 className={clsx(
-                  "text-xs font-mono font-bold hover:text-vermilion transition-colors",
-                  isDarkTheme ? "text-graphite lg:text-ivory" : "text-graphite"
+                  "text-xs font-mono font-bold hover:text-accent transition-colors",
+                  isHomepageHero ? "text-[#F4F1EA]" : "text-foreground"
                 )}
               >
                 RFP
@@ -173,9 +178,7 @@ export default function Navbar() {
                 href="/contact"
                 className={clsx(
                   "flex items-center gap-2 text-[10px] sm:text-xs font-mono font-bold border px-4 sm:px-6 py-2 sm:py-3 transition-colors group",
-                  isDarkTheme 
-                    ? "border-graphite text-graphite hover:bg-graphite hover:text-ivory lg:border-ivory lg:text-ivory lg:hover:bg-ivory lg:hover:text-graphite" 
-                    : "border-graphite text-graphite hover:bg-graphite hover:text-ivory"
+                  isHomepageHero ? "border-[#F4F1EA] text-[#F4F1EA] hover:bg-[#F4F1EA] hover:text-charcoal" : "border-foreground text-foreground hover:bg-foreground hover:text-background"
                 )}
               >
                 LET'S TALK!
@@ -183,15 +186,21 @@ export default function Navbar() {
               </TransitionLink>
             </div>
             
-            <button
-              className="lg:hidden flex items-center gap-2 ml-2 text-graphite"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-              aria-expanded={mobileMenuOpen}
-            >
-              <span className="hidden sm:block text-xs font-mono font-bold uppercase tracking-wider">Menu</span>
-              {mobileMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
-            </button>
+            <div className="flex items-center gap-3">
+              <ThemeToggle className={isHomepageHero ? "text-[#F4F1EA] border-white/20" : "text-foreground"} />
+              <button
+                className={clsx(
+                  "lg:hidden flex items-center gap-2",
+                  isHomepageHero ? "text-[#F4F1EA]" : "text-foreground"
+                )}
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={mobileMenuOpen}
+              >
+                <span className="hidden sm:block text-xs font-mono font-bold uppercase tracking-wider">Menu</span>
+                {mobileMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
+              </button>
+            </div>
           </div>
         </div>
 
