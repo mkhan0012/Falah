@@ -169,7 +169,7 @@ export default function Navbar() {
                 href="/request-proposal"
                 className={clsx(
                   "text-xs font-mono font-bold hover:text-accent transition-colors",
-                  isHomepageHero ? "text-[#F4F1EA]" : "text-foreground"
+                  isHomepageHero ? "text-foreground lg:text-[#F4F1EA]" : "text-foreground"
                 )}
               >
                 RFP
@@ -178,7 +178,9 @@ export default function Navbar() {
                 href="/contact"
                 className={clsx(
                   "flex items-center gap-2 text-[10px] sm:text-xs font-mono font-bold border px-4 sm:px-6 py-2 sm:py-3 transition-colors group",
-                  isHomepageHero ? "border-[#F4F1EA] text-[#F4F1EA] hover:bg-[#F4F1EA] hover:text-charcoal" : "border-foreground text-foreground hover:bg-foreground hover:text-background"
+                  isHomepageHero 
+                    ? "border-foreground text-foreground hover:bg-foreground hover:text-background lg:border-[#F4F1EA] lg:text-[#F4F1EA] lg:hover:bg-[#F4F1EA] lg:hover:text-charcoal" 
+                    : "border-foreground text-foreground hover:bg-foreground hover:text-background"
                 )}
               >
                 LET'S TALK!
@@ -187,11 +189,10 @@ export default function Navbar() {
             </div>
             
             <div className="flex items-center gap-3">
-              <ThemeToggle className={isHomepageHero ? "text-[#F4F1EA] border-white/20" : "text-foreground"} />
+              <ThemeToggle className={isHomepageHero ? "text-foreground lg:text-[#F4F1EA] lg:border-white/20" : "text-foreground"} />
               <button
                 className={clsx(
-                  "lg:hidden flex items-center gap-2",
-                  isHomepageHero ? "text-[#F4F1EA]" : "text-foreground"
+                  "lg:hidden flex items-center gap-2 text-foreground"
                 )}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}

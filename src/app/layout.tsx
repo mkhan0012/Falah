@@ -6,6 +6,8 @@ import CustomCursor from "@/components/ui/CustomCursor";
 import Navbar from "@/components/navigation/Navbar";
 import Footer from "@/components/navigation/Footer";
 import CookieConsent from "@/components/ui/CookieConsent";
+import ExitIntentPopup from "@/components/ui/ExitIntentPopup";
+import MobileStickyCTA from "@/components/ui/MobileStickyCTA";
 
 const instrumentSans = Instrument_Sans({
   variable: "--font-primary",
@@ -96,6 +98,8 @@ export default function RootLayout({
               {children}
             </main>
             <Footer />
+            <ExitIntentPopup />
+            <MobileStickyCTA />
             <CookieConsent />
           </SmoothScroll>
         </ThemeProvider>
