@@ -69,6 +69,7 @@ export default function WorkGallery() {
                       src={project.heroImage}
                       alt={project.client}
                       fill
+                      sizes="(max-width: 1024px) 100vw, 60vw"
                       className="object-cover transition-all duration-700 ease-out group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-deep-atmosphere/10 opacity-30 group-hover:opacity-0 transition-opacity" />
