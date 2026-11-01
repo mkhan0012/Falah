@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { Project } from "@/data/projects";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink, ArrowRight, Eye, Sparkles, Building2, Compass, Key } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CaseStudyNav from "@/components/sections/CaseStudyNav";
@@ -18,19 +18,9 @@ export default function VeloraCaseStudy({ project }: { project: Project }) {
     if (!containerRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Cinematic Hero Fade
-      gsap.fromTo(".hero-image", 
-        { scale: 1.05, filter: "brightness(0.5)" }, 
-        { 
-          scale: 1, 
-          filter: "brightness(1)",
-          duration: 2.5, 
-          ease: "power3.out"
-        }
-      );
-
+      // Cinematic Hero Parallax
       gsap.to(".hero-image", {
-        yPercent: 20,
+        yPercent: 12,
         ease: "none",
         scrollTrigger: {
           trigger: ".hero-container",
@@ -40,18 +30,18 @@ export default function VeloraCaseStudy({ project }: { project: Project }) {
         },
       });
 
-      // Smooth Editorial Fade Ups
-      gsap.utils.toArray(".fade-up").forEach((el: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => {
+      // Simple Fade Ups
+      gsap.utils.toArray(".fade-up").forEach((el: any) => /* eslint-disable-line @typescript-eslint/no-explicit-any */ {
         gsap.fromTo(el, 
-          { y: 50, opacity: 0 },
+          { y: 30, opacity: 0 },
           { 
             y: 0, 
             opacity: 1, 
-            duration: 1.5, 
+            duration: 1, 
             ease: "power2.out",
             scrollTrigger: {
               trigger: el,
-              start: "top 80%",
+              start: "top 85%",
             }
           }
         );
@@ -61,17 +51,14 @@ export default function VeloraCaseStudy({ project }: { project: Project }) {
       const tlJourney = gsap.timeline({
         scrollTrigger: {
           trigger: ".journey-container",
-          start: "top 60%",
+          start: "top 65%",
         }
       });
 
-      gsap.utils.toArray(".journey-step").forEach((step: any, index) => { /* eslint-disable-line @typescript-eslint/no-explicit-any */
-        tlJourney.fromTo(step, 
-          { opacity: 0, x: -30 }, 
-          { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" }, 
-          index * 0.3
-        );
-      });
+      tlJourney.fromTo(".journey-step", 
+        { opacity: 0, y: 20 }, 
+        { opacity: 1, y: 0, duration: 0.5, stagger: 0.15, ease: "power2.out" }
+      );
 
     }, containerRef);
 
@@ -82,219 +69,358 @@ export default function VeloraCaseStudy({ project }: { project: Project }) {
   const mobileImg = project.gallery[1];
 
   return (
-    <main ref={containerRef} className="min-h-screen bg-[#0a0a0a] text-[#f5f5f0] selection:bg-[#c9a96e] selection:text-[#0a0a0a] font-serif">
+    <main ref={containerRef} className="min-h-screen bg-cloud-white text-deep-atmosphere selection:bg-sky-slate selection:text-white relative overflow-hidden font-sans">
       
-      {/* 01 HERO */}
-      <div className="pt-40 pb-20 container mx-auto px-6 md:px-[5vw]">
+      {/* Subtle atmospheric horizon glows */}
+      <div className="pointer-events-none absolute left-1/4 top-24 w-[600px] h-[350px] bg-sky-slate/10 blur-[150px] rounded-full" />
+      <div className="pointer-events-none absolute right-10 bottom-1/3 w-[450px] h-[450px] bg-mist-blue/40 blur-[140px] rounded-full" />
+
+      {/* 01 HERO SECTION */}
+      <div className="pt-36 md:pt-44 pb-16 container mx-auto px-5 sm:px-6 md:px-12 max-w-[1360px] relative z-10">
         <Link 
           href="/work" 
-          className="inline-flex items-center gap-2 text-[10px] md:text-xs font-mono font-medium tracking-widest text-[#f5f5f0]/50 hover:text-[#c9a96e] transition-colors mb-20 uppercase"
+          className="inline-flex items-center gap-2 text-xs font-mono font-medium tracking-widest text-graphite/70 hover:text-deep-atmosphere transition-colors mb-12 uppercase"
         >
-          <ArrowLeft size={16} /> All Projects
+          <ArrowLeft size={16} /> All Case Studies
         </Link>
 
-        <div className="fade-up max-w-7xl">
-          <h1 className="text-[14vw] md:text-[10vw] leading-[0.8] font-primary font-normal tracking-tighter text-[#f5f5f0] mb-8 uppercase">
+        <div className="fade-up max-w-5xl">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-sky-slate/30 text-[11px] font-mono text-sky-slate mb-6 uppercase tracking-widest font-semibold shadow-xs">
+            <Sparkles size={12} />
+            <span>CASE STUDY // 03 ✦ ULTRA-LUXURY REAL ESTATE & HOSPITALITY</span>
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight text-deep-atmosphere mb-6 uppercase">
             {project.client}
           </h1>
-          <p className="text-2xl md:text-4xl text-[#c9a96e] font-primary tracking-wide mb-12 font-light italic">
+          <p className="text-xl sm:text-3xl text-deep-atmosphere font-display font-medium tracking-tight mb-12">
             {project.thesis}
           </p>
         </div>
+
+        {/* Project DNA / Quick Specs Bar */}
+        <div className="fade-up grid grid-cols-2 lg:grid-cols-4 gap-4 p-5 sm:p-6 rounded-2xl bg-white border border-mist-blue shadow-xs mb-12">
+          <div className="flex flex-col gap-1 border-r border-mist-blue pr-4">
+            <span className="text-[10px] font-mono text-graphite/60 uppercase tracking-wider">Sector</span>
+            <span className="text-sm font-semibold text-deep-atmosphere font-sans">Ultra-Luxury Real Estate</span>
+          </div>
+          <div className="flex flex-col gap-1 lg:border-r border-mist-blue pr-4">
+            <span className="text-[10px] font-mono text-graphite/60 uppercase tracking-wider">Scope</span>
+            <span className="text-sm font-semibold text-deep-atmosphere font-sans">Brand Experience · Editorial Web · HNW Funnel</span>
+          </div>
+          <div className="flex flex-col gap-1 border-r border-mist-blue pr-4">
+            <span className="text-[10px] font-mono text-graphite/60 uppercase tracking-wider">Timeline</span>
+            <span className="text-sm font-semibold text-deep-atmosphere font-sans">10 Weeks to Launch</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className="text-[10px] font-mono text-sky-slate uppercase tracking-wider font-bold">Concept</span>
+            <span className="text-sm font-semibold text-deep-atmosphere font-mono flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-sky-slate animate-pulse"></span>
+              From Property → Desire
+            </span>
+          </div>
+        </div>
       </div>
       
-      <div className="hero-container h-[70vh] md:h-[100vh] w-full relative overflow-hidden bg-black">
+      {/* HERO IMAGE CONTAINER */}
+      <div className="hero-container h-[55vh] md:h-[75vh] w-full relative overflow-hidden bg-white border-y border-mist-blue">
         <Image 
           src={project.heroImage} 
           alt={project.client}
           fill
           sizes="100vw"
           quality={100}
-          className="object-cover hero-image opacity-90"
+          className="object-cover hero-image"
           priority
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-cloud-white via-transparent to-transparent pointer-events-none" />
       </div>
 
-      {/* Narrative Flow */}
-      <div className="container mx-auto px-6 md:px-[5vw] py-32 md:py-48 flex flex-col gap-32 max-w-5xl mx-auto">
-        
-        {/* 02 THE BUSINESS */}
-        <div className="fade-up text-center flex flex-col items-center">
-          <h2 className="text-xs font-mono tracking-widest text-[#c9a96e] uppercase mb-8">02 / THE BUSINESS</h2>
-          <h3 className="text-4xl md:text-6xl font-primary font-light tracking-tight leading-tight mb-8">
-            Ultra-luxury living.
-          </h3>
-          <p className="text-xl md:text-2xl text-[#f5f5f0]/70 font-primary leading-relaxed font-light max-w-3xl">
-            Velora develops some of the most exclusive properties in the region. Their physical spaces are masterpieces of architecture and interior design, targeting high-net-worth individuals who buy into a lifestyle, not just a location.
-          </p>
-        </div>
+      {/* NARRATIVE FLOW (02 THE BUSINESS, 03 THE TENSION, 04 THE ARCHITECTURE) */}
+      <div className="container mx-auto px-5 sm:px-6 md:px-12 py-24 md:py-36 max-w-[1360px] relative z-10">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          
+          {/* 02 THE BUSINESS */}
+          <div className="fade-up rounded-3xl bg-white border border-mist-blue shadow-xs p-8 sm:p-10 flex flex-col justify-between hover:border-sky-slate/40 transition-all">
+            <div>
+              <span className="text-xs font-mono font-bold tracking-widest text-sky-slate uppercase block mb-6">
+                02 / THE BUSINESS
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-display font-bold tracking-tight mb-4 text-deep-atmosphere">
+                Masterpieces of luxury living and private residences.
+              </h3>
+            </div>
+            <p className="text-sm sm:text-base text-graphite/80 font-sans leading-relaxed mt-6 pt-6 border-t border-mist-blue">
+              Velora develops ultra-exclusive private residential penthouses and architectural properties. Their clientele comprises high-net-worth individuals who buy into an aspirational lifestyle, not merely square footage.
+            </p>
+          </div>
 
-        {/* 03 THE TENSION */}
-        <div className="fade-up text-center flex flex-col items-center">
-          <h2 className="text-xs font-mono tracking-widest text-[#c9a96e] uppercase mb-8">03 / THE TENSION</h2>
-          <h3 className="text-4xl md:text-6xl font-primary font-light tracking-tight leading-tight mb-8">
-            The digital disconnect.
-          </h3>
-          <p className="text-xl md:text-2xl text-[#f5f5f0]/70 font-primary leading-relaxed font-light max-w-3xl">
-            Their previous digital presence felt like a standard real-estate listing template. It reduced multi-million dollar architectural achievements into bullet points of square footage and bedroom counts, stripping away all emotional resonance.
-          </p>
-        </div>
+          {/* 03 THE TENSION */}
+          <div className="fade-up rounded-3xl bg-white border border-mist-blue shadow-xs p-8 sm:p-10 flex flex-col justify-between hover:border-sky-slate/40 transition-all">
+            <div>
+              <span className="text-xs font-mono font-bold tracking-widest text-sky-slate uppercase block mb-6">
+                03 / THE TENSION
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-display font-bold tracking-tight mb-4 text-deep-atmosphere">
+                Commoditized real-estate templates.
+              </h3>
+            </div>
+            <p className="text-sm sm:text-base text-graphite/80 font-sans leading-relaxed mt-6 pt-6 border-t border-mist-blue">
+              Their previous digital presence resembled a generic property listing portal. It reduced multi-million dollar architectural achievements to cold bullet points, stripping away emotional resonance and prestige.
+            </p>
+          </div>
 
-        {/* 04 THE FALAH IDEA */}
-        <div className="fade-up text-center flex flex-col items-center">
-          <h2 className="text-xs font-mono tracking-widest text-[#c9a96e] uppercase mb-8">04 / THE FALAH IDEA</h2>
-          <h3 className="text-4xl md:text-6xl font-primary font-normal tracking-tight leading-tight text-[#c9a96e] mb-8 italic">
-            Sell the feeling before the floor plan.
-          </h3>
-          <p className="text-xl md:text-2xl text-[#f5f5f0]/70 font-primary leading-relaxed font-light max-w-3xl">
-            We stopped treating the website as a brochure and started treating it as an editorial magazine. We created an immersive, image-led experience where atmosphere and lifestyle precede technical details.
-          </p>
+          {/* 04 THE VYOMA ARCHITECTURE */}
+          <div className="fade-up rounded-3xl bg-white border-2 border-sky-slate/40 shadow-xs p-8 sm:p-10 flex flex-col justify-between">
+            <div>
+              <span className="text-xs font-mono font-bold tracking-widest text-sky-slate uppercase block mb-6">
+                04 / THE VYOMA ARCHITECTURE
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-display font-bold tracking-tight mb-4 text-deep-atmosphere">
+                Sell the feeling before the floor plan.
+              </h3>
+            </div>
+            <p className="text-sm sm:text-base text-graphite/80 font-sans leading-relaxed mt-6 pt-6 border-t border-mist-blue">
+              We transformed the digital experience into an editorial art publication. Immersive full-screen imagery, atmospheric typography, and discreet VIP appointment scheduling replace transactional listing pressure.
+            </p>
+          </div>
+
         </div>
       </div>
 
-      {/* 05 THE SYSTEM (Property Journey) */}
-      <div className="py-32 md:py-48 overflow-hidden bg-[#111]">
-        <div className="container mx-auto px-6 md:px-[5vw]">
-          <div className="max-w-4xl mx-auto text-center mb-32 fade-up">
-            <h2 className="text-xs font-mono tracking-widest text-[#f5f5f0]/50 uppercase mb-6">05 / THE SYSTEM</h2>
-            <h3 className="text-4xl md:text-6xl font-primary font-light tracking-tight leading-tight">
+      {/* 05 THE SYSTEM (The Immersive Property Journey) */}
+      <section className="bg-white py-24 md:py-36 border-y border-mist-blue relative z-10">
+        <div className="container mx-auto px-5 sm:px-6 md:px-12 max-w-[1360px]">
+          <div className="max-w-3xl mx-auto text-center mb-16 fade-up">
+            <span className="text-xs font-mono font-bold tracking-widest text-sky-slate uppercase mb-3 block">
+              05 / THE ACQUISITION SYSTEM
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-display font-bold tracking-tight text-deep-atmosphere">
               The Immersive Property Journey.
-            </h3>
+            </h2>
+            <p className="text-sm sm:text-base text-graphite/80 mt-4 font-sans">
+              A 5-stage sequential experience architected to move qualified buyers from emotional curiosity to private acquisition.
+            </p>
           </div>
 
-          <div className="journey-container flex flex-col md:flex-row justify-between items-start max-w-5xl mx-auto relative px-8 py-16 border-y border-[#333]">
+          <div className="journey-container grid grid-cols-1 md:grid-cols-5 gap-4 lg:gap-6 max-w-5xl mx-auto">
             
-            <div className="journey-step flex flex-col gap-4 relative z-10 md:w-1/5 mb-8 md:mb-0">
-              <span className="text-[#c9a96e] text-2xl font-light">01</span>
-              <h4 className="font-mono text-xs tracking-widest uppercase">THE ARRIVAL</h4>
-              <p className="text-[#f5f5f0]/50 text-sm font-primary">Setting the atmospheric tone.</p>
+            <div className="journey-step rounded-2xl bg-cloud-white border border-mist-blue shadow-xs p-6 flex flex-col justify-between hover:border-sky-slate/40 transition-all">
+              <span className="text-2xl font-mono font-bold text-sky-slate mb-4">01</span>
+              <div>
+                <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-deep-atmosphere mb-2">THE ARRIVAL</h4>
+                <p className="text-xs text-graphite/70 leading-relaxed">Atmospheric cinematic reveals setting emotional prestige.</p>
+              </div>
             </div>
 
-            <div className="journey-step flex flex-col gap-4 relative z-10 md:w-1/5 mb-8 md:mb-0">
-              <span className="text-[#c9a96e] text-2xl font-light">02</span>
-              <h4 className="font-mono text-xs tracking-widest uppercase">THE SPACE</h4>
-              <p className="text-[#f5f5f0]/50 text-sm font-primary">Cinematic reveals of architecture.</p>
+            <div className="journey-step rounded-2xl bg-cloud-white border border-mist-blue shadow-xs p-6 flex flex-col justify-between hover:border-sky-slate/40 transition-all">
+              <span className="text-2xl font-mono font-bold text-sky-slate mb-4">02</span>
+              <div>
+                <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-deep-atmosphere mb-2">THE SPACE</h4>
+                <p className="text-xs text-graphite/70 leading-relaxed">Architectural volume, natural light and structural craft.</p>
+              </div>
             </div>
 
-            <div className="journey-step flex flex-col gap-4 relative z-10 md:w-1/5 mb-8 md:mb-0">
-              <span className="text-[#c9a96e] text-2xl font-light">03</span>
-              <h4 className="font-mono text-xs tracking-widest uppercase">THE LIFESTYLE</h4>
-              <p className="text-[#f5f5f0]/50 text-sm font-primary">Emotional connection & desire.</p>
+            <div className="journey-step rounded-2xl bg-cloud-white border border-mist-blue shadow-xs p-6 flex flex-col justify-between hover:border-sky-slate/40 transition-all">
+              <span className="text-2xl font-mono font-bold text-sky-slate mb-4">03</span>
+              <div>
+                <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-deep-atmosphere mb-2">THE LIFESTYLE</h4>
+                <p className="text-xs text-graphite/70 leading-relaxed">Curated amenities and experiential living narratives.</p>
+              </div>
             </div>
 
-            <div className="journey-step flex flex-col gap-4 relative z-10 md:w-1/5 mb-8 md:mb-0">
-              <span className="text-[#c9a96e] text-2xl font-light">04</span>
-              <h4 className="font-mono text-xs tracking-widest uppercase">THE PROPERTY</h4>
-              <p className="text-[#f5f5f0]/50 text-sm font-primary">Floor plans & tangible details.</p>
+            <div className="journey-step rounded-2xl bg-cloud-white border border-mist-blue shadow-xs p-6 flex flex-col justify-between hover:border-sky-slate/40 transition-all">
+              <span className="text-2xl font-mono font-bold text-sky-slate mb-4">04</span>
+              <div>
+                <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-deep-atmosphere mb-2">THE RESIDENCE</h4>
+                <p className="text-xs text-graphite/70 leading-relaxed">Exact architectural floor plans & finishing specifications.</p>
+              </div>
             </div>
 
-            <div className="journey-step flex flex-col gap-4 relative z-10 md:w-1/5">
-              <span className="text-[#c9a96e] text-2xl font-light">05</span>
-              <h4 className="font-mono text-xs tracking-widest uppercase">THE ENQUIRY</h4>
-              <p className="text-[#f5f5f0]/50 text-sm font-primary">Discreet, high-intent contact.</p>
+            <div className="journey-step rounded-2xl bg-deep-atmosphere text-white p-6 flex flex-col justify-between shadow-md">
+              <span className="text-2xl font-mono font-bold text-sky-slate mb-4">05</span>
+              <div>
+                <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-white mb-2">PRIVATE VIEWING</h4>
+                <p className="text-xs text-white/80 font-medium leading-relaxed">Discreet, high-touch consultation with the developer.</p>
+              </div>
             </div>
 
-            {/* Connecting Line (Desktop only) */}
-            <div className="hidden md:block absolute top-[5.5rem] left-[10%] right-[10%] h-[1px] bg-gradient-to-r from-transparent via-[#c9a96e]/30 to-transparent z-0"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* 06 EXPLORE THE BUILD */}
+      <div className="container mx-auto px-5 sm:px-6 md:px-12 py-24 md:py-36 max-w-[1360px] relative z-10">
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 mb-20 fade-up items-center">
+          <div>
+            <span className="text-xs font-mono font-bold tracking-widest text-sky-slate uppercase mb-4 block">
+              06 / EXPLORE THE BUILD
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-display font-bold tracking-tight text-deep-atmosphere">
+              A Masterclass in Editorial Restraint.
+            </h2>
+          </div>
+          <div>
+            <p className="text-base sm:text-lg text-graphite/80 font-sans leading-relaxed">
+              We stripped away real-estate cliches—mortgage calculators, aggressive popups, and cluttered specs—in favor of generous whitespace, architectural photography, and cinematic video loops that invite quiet contemplation.
+            </p>
+          </div>
+        </div>
+
+        {/* 07 EXPERIENCE PIPELINE */}
+        <div className="rounded-3xl bg-white border border-mist-blue shadow-xs p-6 sm:p-10 lg:p-12 fade-up">
+          <span className="text-xs font-mono font-bold tracking-widest text-sky-slate uppercase mb-8 block text-center">
+            07 / LUXURY ENGAGEMENT PIPELINE
+          </span>
+          <div className="grid grid-cols-1 sm:grid-cols-5 gap-4 items-center">
+            <div className="p-4 rounded-xl bg-cloud-white border border-mist-blue text-center">
+              <span className="text-[10px] font-mono text-sky-slate block mb-1 font-bold">01 INITIATION</span>
+              <span className="text-xs font-mono font-semibold text-deep-atmosphere uppercase">Atmosphere</span>
+            </div>
+            <div className="hidden sm:flex justify-center text-graphite/40">
+              <ArrowRight size={16} />
+            </div>
+            <div className="p-4 rounded-xl bg-cloud-white border border-mist-blue text-center">
+              <span className="text-[10px] font-mono text-sky-slate block mb-1 font-bold">02 EXPLORATION</span>
+              <span className="text-xs font-mono font-semibold text-deep-atmosphere uppercase">Architecture</span>
+            </div>
+            <div className="hidden sm:flex justify-center text-graphite/40">
+              <ArrowRight size={16} />
+            </div>
+            <div className="p-4 rounded-xl bg-deep-atmosphere text-white text-center font-bold shadow-md">
+              <span className="text-[10px] font-mono text-sky-slate block mb-1 font-semibold">03 ACQUISITION</span>
+              <span className="text-xs font-mono uppercase">Private Tour</span>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* 06 EXPLORE THE BUILD & 07 CUSTOMER JOURNEY */}
-      <div className="container mx-auto px-6 md:px-[5vw] py-32 md:py-48">
-        <div className="text-center mb-32 fade-up">
-          <h2 className="text-xs font-mono tracking-widest text-[#c9a96e] uppercase mb-8">06 / EXPLORE THE BUILD</h2>
-          <h3 className="text-4xl md:text-6xl font-primary font-light tracking-tight leading-tight max-w-4xl mx-auto">
-            A masterclass in restraint.
-          </h3>
-          <p className="text-xl md:text-2xl text-[#f5f5f0]/70 font-primary font-light leading-relaxed mt-8 max-w-3xl mx-auto">
-            Ample whitespace, elegant serif typography, and fluid, unhurried animations create a digital environment that feels as premium as walking into a Velora penthouse. No aggressive sales tactics; just pure, refined storytelling.
-          </p>
-        </div>
-      </div>
-
-      {/* 08 THE WORK */}
-      <div className="py-32 md:py-48 relative border-y border-[#333] bg-[#050505]">
-        <div className="container mx-auto px-6 md:px-[5vw]">
-          <div className="mb-16 md:mb-24 fade-up max-w-4xl mx-auto text-center">
-            <h2 className="text-xs font-mono tracking-widest text-[#c9a96e] uppercase">08 / THE WORK</h2>
+      {/* 08 THE WORK DEPLOYED */}
+      <section className="bg-white py-24 md:py-36 relative border-y border-mist-blue z-10">
+        <div className="container mx-auto px-5 sm:px-6 md:px-12 max-w-[1360px]">
+          <div className="mb-14 fade-up max-w-3xl mx-auto text-center">
+            <span className="text-xs font-mono font-bold tracking-widest text-sky-slate uppercase mb-3 block">
+              08 / THE WORK DEPLOYED
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-display font-bold tracking-tight text-deep-atmosphere">
+              Cinematic Responsive Experience.
+            </h2>
           </div>
 
-          <div className="relative max-w-6xl mx-auto fade-up pt-4 md:pt-12 pb-16 md:pb-24">
-            {/* Desktop */}
-            <div className="relative w-[90%] md:w-[85%] aspect-[16/9] shadow-[0_20px_50px_rgba(0,0,0,0.8)] mx-auto overflow-hidden bg-[#111] border border-[#222]">
+          <div className="relative max-w-5xl mx-auto fade-up pt-4 pb-12">
+            {/* Desktop Frame */}
+            <div className="relative w-full aspect-[16/10] overflow-hidden rounded-2xl md:rounded-3xl border border-mist-blue bg-deep-atmosphere shadow-xl">
               <Image 
                 src={desktopImg}
-                alt={`${project.client} Desktop`}
+                alt={`${project.client} Desktop Application`}
                 fill
-                sizes="(max-width: 768px) 90vw, 85vw"
+                sizes="(max-width: 768px) 100vw, 85vw"
                 quality={100}
-                className="object-cover object-center opacity-80 hover:opacity-100 transition-opacity duration-1000"
+                className="object-cover object-top"
               />
             </div>
 
-            {/* Mobile overlapping */}
+            {/* Mobile Viewport Overlap */}
             {mobileImg && (
-              <div className="absolute -bottom-8 md:-bottom-16 right-[2%] md:right-[5%] w-[32%] md:w-[22%] aspect-[9/19] shadow-[0_20px_40px_rgba(0,0,0,0.9)] overflow-hidden rounded-[1.5rem] md:rounded-[2rem] border-4 md:border-[6px] border-[#1a1a1a] bg-[#111] z-20">
+              <div className="absolute -bottom-8 md:-bottom-12 right-[4%] w-[34%] md:w-[24%] aspect-[9/19] shadow-2xl overflow-hidden rounded-2xl md:rounded-3xl border-4 border-white bg-deep-atmosphere z-20">
                 <Image 
                   src={mobileImg}
-                  alt={`${project.client} Mobile`}
+                  alt={`${project.client} Mobile View`}
                   fill
-                  sizes="(max-width: 768px) 32vw, 22vw"
+                  sizes="(max-width: 768px) 34vw, 24vw"
                   quality={100}
-                  className="object-cover object-top opacity-90 hover:opacity-100 transition-opacity duration-1000"
+                  className="object-cover object-top"
                 />
               </div>
             )}
           </div>
-          
-          <p className="text-center text-xs font-mono tracking-widest text-[#f5f5f0]/40 uppercase mt-8 fade-up">Editorial Property Journey</p>
         </div>
-      </div>
+      </section>
 
-      {/* 09 WHAT CHANGED */}
-      <div className="container mx-auto px-6 md:px-[5vw] py-32 border-t border-[#333] fade-up">
-        <h2 className="text-xs font-mono tracking-widest text-[#c9a96e] uppercase mb-16 text-center">09 / WHAT CHANGED</h2>
-        <div className="grid md:grid-cols-3 gap-12 text-center max-w-5xl mx-auto">
-          <div className="flex flex-col items-center gap-4">
-            <h4 className="font-mono text-sm tracking-widest text-[#f5f5f0]">MORE IMMERSIVE</h4>
-            <p className="text-[#f5f5f0]/60 font-light font-primary">Cinematic visual storytelling draws users into the lifestyle before the details.</p>
+      {/* 09 ARCHITECTURAL DELIVERABLES */}
+      <div className="container mx-auto px-5 sm:px-6 md:px-12 py-24 md:py-36 max-w-[1360px] relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-16 fade-up">
+          <span className="text-xs font-mono font-bold tracking-widest text-sky-slate uppercase mb-3 block">
+            09 / SYSTEM DELIVERABLES
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-display font-bold tracking-tight text-deep-atmosphere">
+            Delivered Brand Assets & Digital Framework.
+          </h2>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 fade-up">
+          <div className="rounded-3xl bg-white border border-mist-blue shadow-xs p-8 sm:p-10 flex flex-col justify-between hover:border-sky-slate/40 transition-all">
+            <div className="flex items-center justify-between mb-8">
+              <div className="w-12 h-12 rounded-xl bg-mist-blue/40 flex items-center justify-center text-deep-atmosphere">
+                <Building2 size={24} />
+              </div>
+              <span className="text-xs font-mono text-sky-slate uppercase font-semibold">STORYTELLING</span>
+            </div>
+            <div>
+              <h4 className="font-display text-xl font-bold text-deep-atmosphere mb-3">Editorial Property Presentation</h4>
+              <p className="text-sm text-graphite/80 leading-relaxed font-sans">
+                Full-screen architectural photography, atmospheric typography pacing, and video sequences communicating emotional prestige and spatial volume.
+              </p>
+            </div>
           </div>
-          <div className="flex flex-col items-center gap-4">
-            <h4 className="font-mono text-sm tracking-widest text-[#f5f5f0]">HIGHER PERCEIVED VALUE</h4>
-            <p className="text-[#f5f5f0]/60 font-light font-primary">The digital experience now matches the multi-million dollar price tags.</p>
+
+          <div className="rounded-3xl bg-white border border-mist-blue shadow-xs p-8 sm:p-10 flex flex-col justify-between hover:border-sky-slate/40 transition-all">
+            <div className="flex items-center justify-between mb-8">
+              <div className="w-12 h-12 rounded-xl bg-mist-blue/40 flex items-center justify-center text-deep-atmosphere">
+                <Compass size={24} />
+              </div>
+              <span className="text-xs font-mono text-sky-slate uppercase font-semibold">NAVIGATION</span>
+            </div>
+            <div>
+              <h4 className="font-display text-xl font-bold text-deep-atmosphere mb-3">Spatial Interactive Layouts</h4>
+              <p className="text-sm text-graphite/80 leading-relaxed font-sans">
+                Intuitive residential exploration enabling potential buyers to navigate residence collections, floor plans, and amenities without friction.
+              </p>
+            </div>
           </div>
-          <div className="flex flex-col items-center gap-4">
-            <h4 className="font-mono text-sm tracking-widest text-[#f5f5f0]">EMOTIONAL CONNECTION</h4>
-            <p className="text-[#f5f5f0]/60 font-light font-primary">Moving from a transactional layout to an aspirational narrative.</p>
+
+          <div className="rounded-3xl bg-white border border-mist-blue shadow-xs p-8 sm:p-10 flex flex-col justify-between hover:border-sky-slate/40 transition-all">
+            <div className="flex items-center justify-between mb-8">
+              <div className="w-12 h-12 rounded-xl bg-mist-blue/40 flex items-center justify-center text-deep-atmosphere">
+                <Key size={24} />
+              </div>
+              <span className="text-xs font-mono text-sky-slate uppercase font-semibold">CONVERSION</span>
+            </div>
+            <div>
+              <h4 className="font-display text-xl font-bold text-deep-atmosphere mb-3">VIP Viewing Funnel</h4>
+              <p className="text-sm text-graphite/80 leading-relaxed font-sans">
+                Discreet, high-touch consultation appointment workflows specifically architected for family offices, verified investors, and private buyers.
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
       {/* 10 LIVE PROJECT & 11 THE TAKEAWAY */}
-      <div className="bg-[#050505] border-t border-[#222] py-32 md:py-48 flex flex-col items-center text-center px-6">
-        <div className="container mx-auto fade-up flex flex-col items-center">
-          <h2 className="text-xs font-mono tracking-widest text-[#c9a96e] uppercase mb-8">11 / THE TAKEAWAY</h2>
-          <p className="text-3xl md:text-5xl lg:text-[4rem] font-primary font-light leading-[1.1] tracking-tight max-w-5xl mb-16 italic text-[#c9a96e]">
-            &quot;Luxury isn&apos;t just about what you sell, it&apos;s about the environment in which you present it.&quot;
-          </p>
+      <section className="bg-white border-t border-mist-blue py-24 md:py-36 px-6 relative z-10">
+        <div className="container mx-auto max-w-4xl text-center fade-up flex flex-col items-center">
+          <span className="text-xs font-mono font-bold tracking-widest text-sky-slate uppercase mb-6 block">
+            10 / THE TAKEAWAY
+          </span>
+          <blockquote className="text-2xl sm:text-4xl lg:text-5xl font-display font-medium leading-[1.2] tracking-tight text-deep-atmosphere mb-12">
+            &quot;Luxury isn&apos;t just about what you sell. It&apos;s about the environment and reverence with which you present it.&quot;
+          </blockquote>
           
-          <div className="flex flex-col gap-4 mt-8">
-            <h4 className="text-[10px] font-mono tracking-widest text-[#f5f5f0]/40 uppercase">10 / LIVE PROJECT</h4>
+          <div className="flex flex-col sm:flex-row items-center gap-4 mt-2">
             <a 
               href={project.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-mono text-sm font-normal tracking-widest text-[#f5f5f0] hover:text-[#c9a96e] transition-colors uppercase group"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-deep-atmosphere text-white font-semibold font-mono text-xs hover:bg-sky-slate transition-all uppercase shadow-md tracking-wider group"
             >
-              EXPLORE LIVE PROJECT 
-              <ExternalLink size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              <span>Explore Live Project</span>
+              <ExternalLink size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* 12 START A PROJECT (Next Project) */}
+      {/* 12 NEXT PROJECT NAVIGATION */}
       <CaseStudyNav nextProjectSlug="bharat-hydraulics" nextProjectName="BHARAT HYDRAULICS" />
 
     </main>

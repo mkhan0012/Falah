@@ -1,49 +1,64 @@
-﻿export const services = [
+export interface ServiceCategory {
+  id: string;
+  category: string;
+  title: string;
+  description: string;
+  link: string;
+  items: string[];
+}
+
+export const services: ServiceCategory[] = [
   {
     id: "01",
-    title: "BRAND",
+    category: "STRATEGY",
+    title: "Strategy",
+    description: "Uncover where commercial demand exists and define the singular idea that sets you apart from competitors.",
+    link: "/services/branding",
     items: [
-      "Brand Strategy",
-      "Positioning",
-      "Visual Identity",
-      "Messaging",
-      "Personal Branding"
-    ],
-    description: "Make your business look, sound and position itself like the business you want to become."
+      "Brand Positioning",
+      "Tone of Voice",
+      "Digital Strategy",
+      "Market Research"
+    ]
   },
   {
     id: "02",
-    title: "DIGITAL",
+    category: "DESIGN",
+    title: "Design",
+    description: "Craft timeless visual identity, art direction, and Swiss-grid UI/UX that signal instant capability.",
+    link: "/services/branding",
     items: [
-      "Websites",
-      "Landing Pages",
-      "UI/UX",
-      "Digital Experiences",
-      "Conversion Optimization"
-    ],
-    description: "Build the digital experience your customers actually interact with."
+      "Visual Identity",
+      "Art Direction",
+      "UI/UX Design",
+      "Web Design"
+    ]
   },
   {
     id: "03",
-    title: "VISIBILITY",
+    category: "TECHNOLOGY",
+    title: "Technology",
+    description: "Engineer sub-second Next.js web systems and technical indexing foundations that convert visitors into revenue.",
+    link: "/services/web-development",
     items: [
-      "SEO",
-      "Local SEO",
-      "Content",
-      "Social Media",
-      "Google Business"
-    ],
-    description: "Help the right people discover your business."
+      "Frontend Development",
+      "Headless CMS",
+      "Web Performance",
+      "Technical SEO"
+    ]
   },
   {
     id: "04",
-    title: "GROWTH",
+    category: "GROWTH",
+    title: "Growth",
+    description: "Build compounding search discoverability and topical authority that generate high-value inbound leads.",
+    link: "/services/seo",
     items: [
-      "Digital Marketing",
-      "Lead Generation",
-      "Analytics",
-      "Optimization"
-    ],
-    description: "Turn attention into enquiries and measurable business activity."
+      "Content Strategy",
+      "Organic Search",
+      "Local SEO",
+      "Personal Branding",
+      "Developer Marketing"
+    ]
   }
 ];

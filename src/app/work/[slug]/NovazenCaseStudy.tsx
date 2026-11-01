@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { Project } from "@/data/projects";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink, ArrowRight, ShieldCheck, Cpu, FileText, Sparkles } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CaseStudyNav from "@/components/sections/CaseStudyNav";
@@ -18,9 +18,9 @@ export default function NovazenCaseStudy({ project }: { project: Project }) {
     if (!containerRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Hero Image Scale (Clean and clinical feel)
+      // Hero Parallax
       gsap.fromTo(".hero-image",
-        { scale: 1.1 },
+        { scale: 1.08 },
         { 
           scale: 1, 
           ease: "none",
@@ -33,13 +33,14 @@ export default function NovazenCaseStudy({ project }: { project: Project }) {
         }
       );
 
+      // Simple Fade Ups
       gsap.utils.toArray(".fade-up").forEach((el: any) => /* eslint-disable-line @typescript-eslint/no-explicit-any */ {
         gsap.fromTo(el, 
           { y: 30, opacity: 0 },
           { 
             y: 0, 
             opacity: 1, 
-            duration: 1.2, 
+            duration: 1, 
             ease: "power2.out",
             scrollTrigger: {
               trigger: el,
@@ -53,14 +54,13 @@ export default function NovazenCaseStudy({ project }: { project: Project }) {
       const tlTrust = gsap.timeline({
         scrollTrigger: {
           trigger: ".trust-layer",
-          start: "top 60%",
+          start: "top 65%",
         }
       });
 
-      tlTrust.fromTo(".layer-base", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 })
-             .fromTo(".layer-mid", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, "-=0.3")
-             .fromTo(".layer-top", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, "-=0.3")
-             .fromTo(".layer-connector", { scaleY: 0 }, { scaleY: 1, duration: 0.4, transformOrigin: "bottom center", stagger: 0.1 }, "-=0.4");
+      tlTrust.fromTo(".layer-base", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 })
+             .fromTo(".layer-mid", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 }, "-=0.2")
+             .fromTo(".layer-top", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 }, "-=0.2");
 
     }, containerRef);
 
@@ -71,28 +71,61 @@ export default function NovazenCaseStudy({ project }: { project: Project }) {
   const mobileImg = project.gallery[1];
 
   return (
-    <main ref={containerRef} className="min-h-screen bg-white text-[#0f172a] selection:bg-blue-600 selection:text-white">
+    <main ref={containerRef} className="min-h-screen bg-cloud-white text-deep-atmosphere selection:bg-sky-slate selection:text-white relative overflow-hidden font-sans">
       
-      {/* 01 HERO */}
-      <div className="pt-40 pb-20 container mx-auto px-6 md:px-[5vw]">
+      {/* Subtle atmospheric horizon glows */}
+      <div className="pointer-events-none absolute left-1/4 top-24 w-[600px] h-[350px] bg-sky-slate/10 blur-[150px] rounded-full" />
+      <div className="pointer-events-none absolute right-10 bottom-1/3 w-[450px] h-[450px] bg-mist-blue/40 blur-[140px] rounded-full" />
+
+      {/* 01 HERO SECTION */}
+      <div className="pt-36 md:pt-44 pb-16 container mx-auto px-5 sm:px-6 md:px-12 max-w-[1360px] relative z-10">
         <Link 
           href="/work" 
-          className="inline-flex items-center gap-2 text-[10px] md:text-xs font-mono font-medium tracking-widest text-slate-500 hover:text-blue-600 transition-colors mb-20 uppercase"
+          className="inline-flex items-center gap-2 text-xs font-mono font-medium tracking-widest text-graphite/70 hover:text-deep-atmosphere transition-colors mb-12 uppercase"
         >
-          <ArrowLeft size={16} /> All Projects
+          <ArrowLeft size={16} /> All Case Studies
         </Link>
 
-        <div className="fade-up max-w-7xl">
-          <h1 className="text-[12vw] md:text-[8vw] leading-[0.85] font-primary font-light tracking-tight text-slate-900 mb-8">
+        <div className="fade-up max-w-5xl">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-sky-slate/30 text-[11px] font-mono text-sky-slate mb-6 uppercase tracking-widest font-semibold shadow-xs">
+            <Sparkles size={12} />
+            <span>CASE STUDY // 02 ✦ PHARMACEUTICAL & CLINICAL BIOTECH</span>
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight text-deep-atmosphere mb-6 uppercase">
             {project.client}
           </h1>
-          <p className="text-2xl md:text-4xl text-blue-600 font-primary tracking-tight mb-12 font-medium">
+          <p className="text-xl sm:text-3xl text-deep-atmosphere font-display font-medium tracking-tight mb-12">
             {project.thesis}
           </p>
         </div>
+
+        {/* Project DNA / Quick Specs Bar */}
+        <div className="fade-up grid grid-cols-2 lg:grid-cols-4 gap-4 p-5 sm:p-6 rounded-2xl bg-white border border-mist-blue shadow-xs mb-12">
+          <div className="flex flex-col gap-1 border-r border-mist-blue pr-4">
+            <span className="text-[10px] font-mono text-graphite/60 uppercase tracking-wider">Sector</span>
+            <span className="text-sm font-semibold text-deep-atmosphere font-sans">Pharmaceutical & Healthcare</span>
+          </div>
+          <div className="flex flex-col gap-1 lg:border-r border-mist-blue pr-4">
+            <span className="text-[10px] font-mono text-graphite/60 uppercase tracking-wider">Scope</span>
+            <span className="text-sm font-semibold text-deep-atmosphere font-sans">Brand System · Regulatory UI · Web</span>
+          </div>
+          <div className="flex flex-col gap-1 border-r border-mist-blue pr-4">
+            <span className="text-[10px] font-mono text-graphite/60 uppercase tracking-wider">Timeline</span>
+            <span className="text-sm font-semibold text-deep-atmosphere font-sans">6 Weeks to Production</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className="text-[10px] font-mono text-sky-slate uppercase tracking-wider font-bold">Concept</span>
+            <span className="text-sm font-semibold text-deep-atmosphere font-mono flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-sky-slate animate-pulse"></span>
+              From Product → Trust
+            </span>
+          </div>
+        </div>
       </div>
       
-      <div className="hero-container h-[60vh] md:h-[80vh] w-full relative overflow-hidden bg-slate-100">
+      {/* HERO IMAGE CONTAINER */}
+      <div className="hero-container h-[55vh] md:h-[75vh] w-full relative overflow-hidden bg-white border-y border-mist-blue">
         <Image 
           src={project.heroImage} 
           alt={project.client}
@@ -102,198 +135,279 @@ export default function NovazenCaseStudy({ project }: { project: Project }) {
           className="object-cover hero-image"
           priority
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-cloud-white via-transparent to-transparent pointer-events-none" />
       </div>
 
-      {/* Narrative Flow */}
-      <div className="container mx-auto px-6 md:px-[5vw] py-32 md:py-48 flex flex-col gap-32 max-w-4xl mx-auto">
-        
-        {/* 02 THE BUSINESS */}
-        <div className="fade-up text-center flex flex-col items-center">
-          <h2 className="text-xs font-mono font-medium tracking-widest text-blue-600 uppercase mb-8 border-b border-blue-100 pb-4 w-full">02 / THE BUSINESS</h2>
-          <h3 className="text-3xl md:text-5xl font-primary font-medium tracking-tight leading-tight mb-8 text-slate-900">
-            A pharmaceutical innovator.
-          </h3>
-          <p className="text-xl text-slate-600 font-primary leading-relaxed font-light">
-            NovaZen develops advanced pharmaceutical products, but their digital presence looked like a generic corporate template. They had credible science, but lacked a credible aesthetic to match.
-          </p>
-        </div>
-
-        {/* 03 THE TENSION */}
-        <div className="fade-up text-center flex flex-col items-center">
-          <h2 className="text-xs font-mono font-medium tracking-widest text-blue-600 uppercase mb-8 border-b border-blue-100 pb-4 w-full">03 / THE TENSION</h2>
-          <h3 className="text-3xl md:text-5xl font-primary font-medium tracking-tight leading-tight mb-8 text-slate-900">
-            Complexity vs. Clarity.
-          </h3>
-          <p className="text-xl text-slate-600 font-primary leading-relaxed font-light">
-            Medical information is dense. Regulatory requirements mandate extensive text. The challenge was displaying this technical information without overwhelming the user or making the brand feel archaic.
-          </p>
-        </div>
-
-        {/* 04 THE FALAH IDEA */}
-        <div className="fade-up text-center flex flex-col items-center">
-          <h2 className="text-xs font-mono font-medium tracking-widest text-blue-600 uppercase mb-8 border-b border-blue-100 pb-4 w-full">04 / THE FALAH IDEA</h2>
-          <h3 className="text-3xl md:text-5xl font-primary font-medium tracking-tight leading-tight text-blue-600 mb-8">
-            Make complexity feel clear.
-          </h3>
-          <p className="text-xl text-slate-600 font-primary leading-relaxed font-light">
-            We introduced an editorial, information-design approach. By building a strict visual hierarchy and a clean, clinical aesthetic, we transformed dense data into a modern, trustworthy experience.
-          </p>
-        </div>
-      </div>
-
-      {/* 05 THE SYSTEM (Trust Layer) */}
-      <div className="bg-slate-50 py-32 md:py-48 overflow-hidden border-y border-slate-200">
-        <div className="container mx-auto px-6 md:px-[5vw]">
-          <div className="max-w-4xl mx-auto text-center mb-32 fade-up">
-            <h2 className="text-xs font-mono tracking-widest text-slate-500 uppercase mb-6">05 / THE SYSTEM</h2>
-            <h3 className="text-4xl md:text-5xl font-primary font-medium tracking-tight leading-tight text-slate-900">
-              The Interactive Trust Layer.
-            </h3>
-            <p className="text-lg text-slate-500 font-light mt-6">How technical data transforms into user confidence.</p>
+      {/* NARRATIVE FLOW (02 THE BUSINESS, 03 THE TENSION, 04 THE ARCHITECTURE) */}
+      <div className="container mx-auto px-5 sm:px-6 md:px-12 py-24 md:py-36 max-w-[1360px] relative z-10">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          
+          {/* 02 THE BUSINESS */}
+          <div className="fade-up rounded-3xl bg-white border border-mist-blue shadow-xs p-8 sm:p-10 flex flex-col justify-between hover:border-sky-slate/40 transition-all">
+            <div>
+              <span className="text-xs font-mono font-bold tracking-widest text-sky-slate uppercase block mb-6">
+                02 / THE BUSINESS
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-display font-bold tracking-tight mb-4 text-deep-atmosphere">
+                Advanced clinical formulations for modern healthcare.
+              </h3>
+            </div>
+            <p className="text-sm sm:text-base text-graphite/80 font-sans leading-relaxed mt-6 pt-6 border-t border-mist-blue">
+              NovaZen develops precision pharmaceutical therapies and medical formulations. They possess verified clinical science, but required a digital identity that commands immediate credibility in enterprise partner negotiations.
+            </p>
           </div>
 
-          <div className="trust-layer flex flex-col items-center justify-center max-w-3xl mx-auto py-16 relative">
+          {/* 03 THE TENSION */}
+          <div className="fade-up rounded-3xl bg-white border border-mist-blue shadow-xs p-8 sm:p-10 flex flex-col justify-between hover:border-sky-slate/40 transition-all">
+            <div>
+              <span className="text-xs font-mono font-bold tracking-widest text-sky-slate uppercase block mb-6">
+                03 / THE TENSION
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-display font-bold tracking-tight mb-4 text-deep-atmosphere">
+                Clinical density versus decision clarity.
+              </h3>
+            </div>
+            <p className="text-sm sm:text-base text-graphite/80 font-sans leading-relaxed mt-6 pt-6 border-t border-mist-blue">
+              Pharmaceutical information is inherently dense, subject to strict regulatory oversight. The challenge was displaying complex pharmacology and compliance dossiers without causing cognitive fatigue or feeling sterile.
+            </p>
+          </div>
+
+          {/* 04 THE VYOMA ARCHITECTURE */}
+          <div className="fade-up rounded-3xl bg-white border-2 border-sky-slate/40 shadow-xs p-8 sm:p-10 flex flex-col justify-between">
+            <div>
+              <span className="text-xs font-mono font-bold tracking-widest text-sky-slate uppercase block mb-6">
+                04 / THE VYOMA ARCHITECTURE
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-display font-bold tracking-tight mb-4 text-deep-atmosphere">
+                Make complexity feel effortless.
+              </h3>
+            </div>
+            <p className="text-sm sm:text-base text-graphite/80 font-sans leading-relaxed mt-6 pt-6 border-t border-mist-blue">
+              We designed an authoritative, typographic hierarchy system. By pairing clean editorial surfaces with crisp typography and subtle clinical accents, clinical dossiers were transformed into intuitive conversion pathways.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      {/* 05 THE SYSTEM (Interactive Trust Layer) */}
+      <section className="bg-white py-24 md:py-36 border-y border-mist-blue relative z-10">
+        <div className="container mx-auto px-5 sm:px-6 md:px-12 max-w-[1360px]">
+          <div className="max-w-3xl mx-auto text-center mb-16 fade-up">
+            <span className="text-xs font-mono font-bold tracking-widest text-sky-slate uppercase mb-3 block">
+              05 / THE TRUST ENGINE
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-display font-bold tracking-tight text-deep-atmosphere">
+              The Three-Tier Clinical Trust Stack.
+            </h2>
+            <p className="text-sm sm:text-base text-graphite/80 mt-4 font-sans">
+              Transforming raw pharmacological data into institutional commercial partnership confidence.
+            </p>
+          </div>
+
+          <div className="trust-layer flex flex-col items-center justify-center max-w-2xl mx-auto py-4 relative">
             
             {/* Base Layer */}
-            <div className="layer-base w-full max-w-xl bg-white border border-slate-200 p-8 rounded-xl shadow-sm relative z-10 flex flex-col items-center">
-              <span className="text-xs font-mono font-medium text-slate-400 mb-2 uppercase tracking-widest">Base Layer</span>
-              <span className="text-xl font-primary text-slate-800">Technical Science & Information</span>
+            <div className="layer-base w-full bg-cloud-white border border-mist-blue p-6 sm:p-8 rounded-2xl shadow-xs relative z-10 flex flex-col items-center text-center hover:border-sky-slate/40 transition-all">
+              <span className="text-[10px] font-mono font-medium text-graphite/60 mb-2 uppercase tracking-widest">LAYER 01 // FOUNDATION</span>
+              <span className="text-lg sm:text-xl font-display font-bold text-deep-atmosphere">Technical Science & Clinical Data</span>
+              <span className="text-xs text-graphite/70 mt-1 font-sans">Lab trials, bioavailability metrics & regulatory filings</span>
             </div>
             
-            <div className="layer-connector w-px h-12 bg-slate-200"></div>
+            <div className="w-px h-8 bg-mist-blue"></div>
 
             {/* Mid Layer */}
-            <div className="layer-mid w-full max-w-lg bg-slate-100 border border-slate-300 p-8 rounded-xl shadow-md relative z-20 flex flex-col items-center">
-              <span className="text-xs font-mono font-medium text-slate-400 mb-2 uppercase tracking-widest">Structure Layer</span>
-              <span className="text-xl font-primary text-slate-800">Clear Hierarchy & Accessibility</span>
+            <div className="layer-mid w-[92%] bg-white border border-sky-slate/30 p-6 sm:p-8 rounded-2xl shadow-xs relative z-20 flex flex-col items-center text-center hover:border-sky-slate/60 transition-all">
+              <span className="text-[10px] font-mono font-medium text-sky-slate mb-2 uppercase tracking-widest">LAYER 02 // STRUCTURE</span>
+              <span className="text-lg sm:text-xl font-display font-bold text-deep-atmosphere">Accessible Typographic Hierarchy</span>
+              <span className="text-xs text-graphite/70 mt-1 font-sans">Readable dossiers, clear disclaimers & responsive data tables</span>
             </div>
 
-            <div className="layer-connector w-px h-12 bg-blue-200"></div>
+            <div className="w-px h-8 bg-sky-slate/40"></div>
 
             {/* Top Layer */}
-            <div className="layer-top w-full max-w-md bg-blue-600 p-10 rounded-xl shadow-xl shadow-blue-600/20 relative z-30 flex flex-col items-center text-center">
-              <span className="text-xs font-mono font-medium text-blue-300 mb-2 uppercase tracking-widest">Experience Layer</span>
-              <span className="text-2xl font-primary text-white font-medium">Brand Trust & Action</span>
+            <div className="layer-top w-[84%] bg-deep-atmosphere text-white p-6 sm:p-8 rounded-2xl shadow-md relative z-30 flex flex-col items-center text-center">
+              <span className="text-[10px] font-mono font-bold text-sky-slate mb-2 uppercase tracking-widest">LAYER 03 // ACTION</span>
+              <span className="text-xl sm:text-2xl font-display font-bold text-white">Enterprise Trust & Commercial Inquiries</span>
+              <span className="text-xs text-white/80 mt-1 font-sans font-medium">Hospital networks, pharmaceutical distributors & global licensing</span>
             </div>
 
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* 06 EXPLORE THE BUILD & 07 CUSTOMER JOURNEY */}
-      <div className="container mx-auto px-6 md:px-[5vw] py-32 md:py-48">
-        <div className="grid md:grid-cols-2 gap-16 md:gap-24 mb-32 fade-up">
+      {/* 06 EXPLORE THE BUILD & 07 PIPELINE */}
+      <div className="container mx-auto px-5 sm:px-6 md:px-12 py-24 md:py-36 max-w-[1360px] relative z-10">
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 mb-20 fade-up items-center">
           <div>
-            <h2 className="text-xs font-mono font-medium tracking-widest text-blue-600 uppercase mb-8">06 / EXPLORE THE BUILD</h2>
-            <h3 className="text-3xl md:text-5xl font-primary font-medium tracking-tight leading-tight text-slate-900">
-              Clinical, not sterile.
-            </h3>
+            <span className="text-xs font-mono font-bold tracking-widest text-sky-slate uppercase mb-4 block">
+              06 / EXPLORE THE BUILD
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-display font-bold tracking-tight text-deep-atmosphere">
+              Clinical Credibility, Not Sterile Design.
+            </h2>
           </div>
           <div>
-            <p className="text-xl text-slate-600 font-primary font-light leading-relaxed">
-              The UI balances professional credibility with modern aesthetics. By using a sophisticated off-white and deep blue palette, the interface feels clean and hygienic without feeling cold.
+            <p className="text-base sm:text-lg text-graphite/80 font-sans leading-relaxed">
+              We engineered a digital interface that balances strict scientific rigor with modern editorial standards. Next.js server components render clinical documentation in milliseconds, giving healthcare partners immediate confidence.
             </p>
           </div>
         </div>
 
-        <div className="bg-slate-900 text-white p-12 md:p-24 rounded-3xl fade-up">
-          <h2 className="text-xs font-mono font-medium tracking-widest text-slate-500 uppercase mb-16 text-center">07 / CUSTOMER JOURNEY</h2>
-          <div className="flex flex-col md:flex-row gap-8 items-center justify-between font-mono text-sm tracking-widest uppercase">
-            <span className="text-slate-400">PRODUCT</span>
-            <div className="w-px h-8 md:w-8 md:h-px bg-slate-700"></div>
-            <span className="text-blue-400">SCIENCE</span>
-            <div className="w-px h-8 md:w-8 md:h-px bg-slate-700"></div>
-            <span className="text-white">EXPERIENCE</span>
-            <div className="w-px h-8 md:w-8 md:h-px bg-slate-700"></div>
-            <span className="text-blue-400">TRUST</span>
-            <div className="w-px h-8 md:w-8 md:h-px bg-slate-700"></div>
-            <span className="bg-blue-600 px-6 py-3 rounded-full text-white text-xs">CONTACT</span>
+        {/* 07 CUSTOMER JOURNEY PIPELINE */}
+        <div className="rounded-3xl bg-white border border-mist-blue shadow-xs p-6 sm:p-10 lg:p-12 fade-up">
+          <span className="text-xs font-mono font-bold tracking-widest text-sky-slate uppercase mb-8 block text-center">
+            07 / CLINICAL EVALUATION PIPELINE
+          </span>
+          <div className="grid grid-cols-1 sm:grid-cols-5 gap-4 items-center">
+            <div className="p-4 rounded-xl bg-cloud-white border border-mist-blue text-center">
+              <span className="text-[10px] font-mono text-sky-slate block mb-1 font-bold">01 PRODUCT</span>
+              <span className="text-xs font-mono font-semibold text-deep-atmosphere uppercase">Formulation</span>
+            </div>
+            <div className="hidden sm:flex justify-center text-graphite/40">
+              <ArrowRight size={16} />
+            </div>
+            <div className="p-4 rounded-xl bg-cloud-white border border-mist-blue text-center">
+              <span className="text-[10px] font-mono text-sky-slate block mb-1 font-bold">02 SCIENCE</span>
+              <span className="text-xs font-mono font-semibold text-deep-atmosphere uppercase">Clinical Data</span>
+            </div>
+            <div className="hidden sm:flex justify-center text-graphite/40">
+              <ArrowRight size={16} />
+            </div>
+            <div className="p-4 rounded-xl bg-deep-atmosphere text-white text-center font-bold shadow-md">
+              <span className="text-[10px] font-mono text-sky-slate block mb-1 font-semibold">03 CONVERSION</span>
+              <span className="text-xs font-mono uppercase">Partnership</span>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* 08 THE WORK */}
-      <div className="bg-white py-32 md:py-48 relative border-y border-slate-200">
-        <div className="container mx-auto px-6 md:px-[5vw]">
-          <div className="mb-16 md:mb-24 fade-up max-w-4xl mx-auto text-center">
-            <h2 className="text-xs font-mono tracking-widest text-blue-600 uppercase">08 / THE WORK</h2>
+      {/* 08 THE WORK DEPLOYED */}
+      <section className="bg-white py-24 md:py-36 relative border-y border-mist-blue z-10">
+        <div className="container mx-auto px-5 sm:px-6 md:px-12 max-w-[1360px]">
+          <div className="mb-14 fade-up max-w-3xl mx-auto text-center">
+            <span className="text-xs font-mono font-bold tracking-widest text-sky-slate uppercase mb-3 block">
+              08 / THE WORK DEPLOYED
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-display font-bold tracking-tight text-deep-atmosphere">
+              Responsive Clinical Application.
+            </h2>
           </div>
 
-          <div className="relative max-w-6xl mx-auto fade-up pt-4 md:pt-12 pb-16 md:pb-24">
-            {/* Desktop */}
-            <div className="relative w-[90%] md:w-[85%] aspect-[16/9] shadow-[0_20px_50px_rgba(0,0,0,0.08)] mx-auto overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
+          <div className="relative max-w-5xl mx-auto fade-up pt-4 pb-12">
+            {/* Desktop Frame */}
+            <div className="relative w-full aspect-[16/10] overflow-hidden rounded-2xl md:rounded-3xl border border-mist-blue bg-deep-atmosphere shadow-xl">
               <Image 
                 src={desktopImg}
-                alt={`${project.client} Desktop`}
+                alt={`${project.client} Desktop Application`}
                 fill
-                sizes="(max-width: 768px) 90vw, 85vw"
+                sizes="(max-width: 768px) 100vw, 85vw"
                 quality={100}
                 className="object-cover object-top"
               />
             </div>
 
-            {/* Mobile overlapping */}
+            {/* Mobile Viewport Overlap */}
             {mobileImg && (
-              <div className="absolute -bottom-8 md:-bottom-16 right-[2%] md:right-[5%] w-[32%] md:w-[22%] aspect-[9/19] shadow-[0_20px_40px_rgba(0,0,0,0.15)] overflow-hidden rounded-[1.5rem] md:rounded-[2rem] border-4 md:border-8 border-white ring-1 ring-slate-200 bg-white z-20">
+              <div className="absolute -bottom-8 md:-bottom-12 right-[4%] w-[34%] md:w-[24%] aspect-[9/19] shadow-2xl overflow-hidden rounded-2xl md:rounded-3xl border-4 border-white bg-deep-atmosphere z-20">
                 <Image 
                   src={mobileImg}
-                  alt={`${project.client} Mobile`}
+                  alt={`${project.client} Mobile Responsive View`}
                   fill
-                  sizes="(max-width: 768px) 32vw, 22vw"
+                  sizes="(max-width: 768px) 34vw, 24vw"
                   quality={100}
                   className="object-cover object-top"
                 />
               </div>
             )}
           </div>
-          
-          <p className="text-center text-xs font-mono tracking-widest text-slate-400 uppercase mt-8 fade-up">Clinical Digital Presence</p>
         </div>
-      </div>
+      </section>
 
-      {/* 09 WHAT CHANGED */}
-      <div className="container mx-auto px-6 md:px-[5vw] py-32 border-t border-slate-200 fade-up">
-        <h2 className="text-xs font-mono tracking-widest text-blue-600 uppercase mb-16 text-center">09 / WHAT CHANGED</h2>
-        <div className="grid md:grid-cols-3 gap-12 text-center">
-          <div className="flex flex-col items-center gap-4">
-            <h4 className="font-mono text-sm tracking-widest text-slate-900">MORE CREDIBLE</h4>
-            <p className="text-slate-600 font-light">A visual identity that matches the high standard of their science.</p>
+      {/* 09 ARCHITECTURAL DELIVERABLES */}
+      <div className="container mx-auto px-5 sm:px-6 md:px-12 py-24 md:py-36 max-w-[1360px] relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-16 fade-up">
+          <span className="text-xs font-mono font-bold tracking-widest text-sky-slate uppercase mb-3 block">
+            09 / SYSTEM DELIVERABLES
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-display font-bold tracking-tight text-deep-atmosphere">
+            Verified Clinical Architecture & Deployed Assets.
+          </h2>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 fade-up">
+          <div className="rounded-3xl bg-white border border-mist-blue shadow-xs p-8 sm:p-10 flex flex-col justify-between hover:border-sky-slate/40 transition-all">
+            <div className="flex items-center justify-between mb-8">
+              <div className="w-12 h-12 rounded-xl bg-mist-blue/40 flex items-center justify-center text-deep-atmosphere">
+                <ShieldCheck size={24} />
+              </div>
+              <span className="text-xs font-mono text-sky-slate uppercase font-semibold">VALIDATION</span>
+            </div>
+            <div>
+              <h4 className="font-display text-xl font-bold text-deep-atmosphere mb-3">Clinical Information Clarity</h4>
+              <p className="text-sm text-graphite/80 leading-relaxed font-sans">
+                Multi-tier scientific hierarchy presenting bioavailability, active ingredients, and clinical trials without cognitive fatigue or sterile layout compromises.
+              </p>
+            </div>
           </div>
-          <div className="flex flex-col items-center gap-4">
-            <h4 className="font-mono text-sm tracking-widest text-slate-900">EASIER TO NAVIGATE</h4>
-            <p className="text-slate-600 font-light">Strict typography rules transformed dense medical text into readable data.</p>
+
+          <div className="rounded-3xl bg-white border border-mist-blue shadow-xs p-8 sm:p-10 flex flex-col justify-between hover:border-sky-slate/40 transition-all">
+            <div className="flex items-center justify-between mb-8">
+              <div className="w-12 h-12 rounded-xl bg-mist-blue/40 flex items-center justify-center text-deep-atmosphere">
+                <FileText size={24} />
+              </div>
+              <span className="text-xs font-mono text-sky-slate uppercase font-semibold">COMPLIANCE</span>
+            </div>
+            <div>
+              <h4 className="font-display text-xl font-bold text-deep-atmosphere mb-3">Regulatory Dossier Access</h4>
+              <p className="text-sm text-graphite/80 leading-relaxed font-sans">
+                Streamlined documentation pathways enabling hospital procurement officers and institutional evaluators to review technical compliance documentation.
+              </p>
+            </div>
           </div>
-          <div className="flex flex-col items-center gap-4">
-            <h4 className="font-mono text-sm tracking-widest text-slate-900">MODERNIZED</h4>
-            <p className="text-slate-600 font-light">A clean, app-like feel instead of an outdated corporate brochure.</p>
+
+          <div className="rounded-3xl bg-white border border-mist-blue shadow-xs p-8 sm:p-10 flex flex-col justify-between hover:border-sky-slate/40 transition-all">
+            <div className="flex items-center justify-between mb-8">
+              <div className="w-12 h-12 rounded-xl bg-mist-blue/40 flex items-center justify-center text-deep-atmosphere">
+                <Cpu size={24} />
+              </div>
+              <span className="text-xs font-mono text-sky-slate uppercase font-semibold">PERFORMANCE</span>
+            </div>
+            <div>
+              <h4 className="font-display text-xl font-bold text-deep-atmosphere mb-3">High-Integrity Web Platform</h4>
+              <p className="text-sm text-graphite/80 leading-relaxed font-sans">
+                Engineered with Next.js App Router for instant load speeds, complete responsive typography scaling, and verified enterprise security headers.
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
       {/* 10 LIVE PROJECT & 11 THE TAKEAWAY */}
-      <div className="bg-slate-50 border-t border-slate-200 py-32 md:py-48 flex flex-col items-center text-center px-6">
-        <div className="container mx-auto fade-up flex flex-col items-center">
-          <h2 className="text-xs font-mono tracking-widest text-slate-400 uppercase mb-8">11 / THE TAKEAWAY</h2>
-          <p className="text-3xl md:text-5xl lg:text-[4rem] font-primary font-medium leading-[1.1] tracking-tight max-w-5xl mb-16 text-slate-900">
-            &quot;We didn&apos;t make pharma look like a startup. We made it feel current without losing trust.&quot;
-          </p>
+      <section className="bg-white border-t border-mist-blue py-24 md:py-36 px-6 relative z-10">
+        <div className="container mx-auto max-w-4xl text-center fade-up flex flex-col items-center">
+          <span className="text-xs font-mono font-bold tracking-widest text-sky-slate uppercase mb-6 block">
+            10 / THE TAKEAWAY
+          </span>
+          <blockquote className="text-2xl sm:text-4xl lg:text-5xl font-display font-medium leading-[1.2] tracking-tight text-deep-atmosphere mb-12">
+            &quot;We didn&apos;t make pharma look like a consumer startup. We made it feel modern without compromising clinical trust.&quot;
+          </blockquote>
           
-          <div className="flex flex-col gap-4 mt-8">
-            <h4 className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">10 / LIVE PROJECT</h4>
+          <div className="flex flex-col sm:flex-row items-center gap-4 mt-2">
             <a 
               href={project.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-mono text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors uppercase group"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-deep-atmosphere text-white font-semibold font-mono text-xs hover:bg-sky-slate transition-all uppercase shadow-md tracking-wider group"
             >
-              EXPLORE LIVE PROJECT 
-              <ExternalLink size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              <span>Explore Live Project</span>
+              <ExternalLink size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* 12 START A PROJECT (Next Project) */}
+      {/* 12 NEXT PROJECT NAVIGATION */}
       <CaseStudyNav nextProjectSlug="velora" nextProjectName="VELORA" />
 
     </main>

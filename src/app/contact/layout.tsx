@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact | FALAH BRANDHOUSE",
-  description: "Get in touch with FALAH BRANDHOUSE to discuss your brand, digital, and growth needs.",
+  title: "Contact | Vyoma Media",
+  description: "Get in touch with Vyoma Media in Hyderabad to discuss your branding, web design, and organic growth needs.",
   alternates: {
-    canonical: "https://falahbrandhouse.com/contact",
+    canonical: "https://vyomamedia.com/contact",
   },
 };
 

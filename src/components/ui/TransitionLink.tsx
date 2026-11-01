@@ -1,33 +1,20 @@
 "use client";
 
 import Link, { LinkProps } from "next/link";
-import { useRouter, usePathname } from "next/navigation";
-import { ReactNode, MouseEvent } from "react";
+import { ReactNode } from "react";
 
 interface TransitionLinkProps extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps>, LinkProps {
   children: ReactNode;
 }
 
 export default function TransitionLink({ href, children, className, onClick, ...props }: TransitionLinkProps) {
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const handleTransition = (e: MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    if (onClick) onClick(e);
-    
-    const targetUrl = href.toString();
-    
-    // If we're already on that page, just do nothing
-    if (pathname === targetUrl) {
-      return;
-    }
-    
-    router.push(targetUrl);
-  };
-
   return (
-    <Link href={href} onClick={handleTransition} className={className} {...props}>
+    <Link 
+      href={href} 
+      onClick={onClick} 
+      className={className} 
+      {...props}
+    >
       {children}
     </Link>
   );

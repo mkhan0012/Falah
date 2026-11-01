@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const cursorTextRef = useRef<HTMLDivElement>(null);
-  const [isHoveringProject, setIsHoveringProject] = useState(false);
+  const [cursorMode, setCursorMode] = useState<"default" | "link" | "project" | "watch">("default");
   const pathname = usePathname();
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function CustomCursor() {
       gsap.to(cursor, {
         x: e.clientX,
         y: e.clientY,
-        duration: 0.15,
+        duration: 0.12,
         ease: "power2.out",
       });
     };
@@ -34,37 +34,55 @@ export default function CustomCursor() {
     const onMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       
-      const link = target.closest("a, button, input, textarea, [data-cursor='pointer']");
-      const project = target.closest("[data-cursor='project']");
+      const watchTarget = target.closest("[data-cursor='watch'], video");
+      const projectTarget = target.closest("[data-cursor='project']");
+      const linkTarget = target.closest("a, button, input, textarea, [data-cursor='pointer']");
       
-      if (project) {
-        setIsHoveringProject(true);
+      if (watchTarget) {
+        setCursorMode("watch");
         gsap.to(cursor, {
           width: 80,
           height: 80,
-          backgroundColor: "var(--color-vermilion)",
+          backgroundColor: "rgba(23, 43, 58, 0.92)",
+          borderColor: "#7899B0",
+          borderWidth: 1.5,
+          backdropFilter: "blur(12px)",
           mixBlendMode: "normal",
-          duration: 0.3,
+          duration: 0.25,
         });
-      } else if (link) {
-        setIsHoveringProject(false);
+      } else if (projectTarget) {
+        setCursorMode("project");
         gsap.to(cursor, {
-          width: 40,
-          height: 40,
-          backgroundColor: "transparent",
-          border: "1px solid var(--color-graphite)",
-          mixBlendMode: "difference",
-          duration: 0.3,
+          width: 80,
+          height: 80,
+          backgroundColor: "rgba(23, 43, 58, 0.92)",
+          borderColor: "#D3A56C",
+          borderWidth: 1.5,
+          backdropFilter: "blur(12px)",
+          mixBlendMode: "normal",
+          duration: 0.25,
+        });
+      } else if (linkTarget) {
+        setCursorMode("link");
+        gsap.to(cursor, {
+          width: 38,
+          height: 38,
+          backgroundColor: "rgba(120, 153, 176, 0.15)",
+          borderColor: "#7899B0",
+          borderWidth: 1.5,
+          mixBlendMode: "normal",
+          duration: 0.2,
         });
       } else {
-        setIsHoveringProject(false);
+        setCursorMode("default");
         gsap.to(cursor, {
-          width: 10,
-          height: 10,
-          backgroundColor: "var(--color-graphite)",
-          border: "none",
-          mixBlendMode: "difference",
-          duration: 0.3,
+          width: 12,
+          height: 12,
+          backgroundColor: "#7899B0",
+          borderColor: "#FFFFFF",
+          borderWidth: 1.5,
+          mixBlendMode: "normal",
+          duration: 0.2,
         });
       }
     };
@@ -78,7 +96,7 @@ export default function CustomCursor() {
     
     const style = document.createElement('style');
     style.innerHTML = `
-      a, button, [data-cursor="pointer"], [data-cursor="project"] {
+      a, button, input, textarea, select, [data-cursor="pointer"], [data-cursor="project"], [data-cursor="watch"] {
         cursor: none !important;
       }
     `;
@@ -88,20 +106,25 @@ export default function CustomCursor() {
       window.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mouseover", onMouseOver);
       document.body.style.cursor = "auto";
-      document.head.removeChild(style);
+      if (style.parentNode) {
+        style.parentNode.removeChild(style);
+      }
     };
   }, [pathname]);
+
+  const showText = cursorMode === "project" || cursorMode === "watch";
+  const label = cursorMode === "watch" ? "WATCH" : "VIEW";
 
   return (
     <div
       ref={cursorRef}
-      className="fixed top-0 left-0 w-2.5 h-2.5 bg-graphite rounded-full pointer-events-none z-[9999] mix-blend-difference flex items-center justify-center overflow-hidden"
+      className="fixed top-0 left-0 w-3 h-3 bg-sky-slate rounded-full pointer-events-none z-[9999] flex items-center justify-center overflow-hidden border border-white shadow-[0_2px_10px_rgba(23,43,58,0.3)]"
     >
       <div 
         ref={cursorTextRef}
-        className={`text-ivory font-mono font-bold text-[10px] tracking-widest transition-opacity duration-300 ${isHoveringProject ? 'opacity-100' : 'opacity-0'}`}
+        className={`text-white font-mono font-bold text-[11px] tracking-widest transition-opacity duration-200 select-none ${showText ? 'opacity-100' : 'opacity-0'}`}
       >
-        VIEW
+        {label}
       </div>
     </div>
   );

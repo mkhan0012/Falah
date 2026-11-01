@@ -75,7 +75,7 @@ export default function SolutionsSection() {
         }
       );
 
-      gsap.utils.toArray(".solution-row").forEach((row: any, i) => {
+      gsap.utils.toArray<HTMLElement>(".solution-row").forEach((row) => {
         gsap.fromTo(row,
           { y: 50, opacity: 0 },
           {

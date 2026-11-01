@@ -4,7 +4,7 @@ import nodemailer from "nodemailer";
 import { rateLimit } from "@/lib/rateLimit";
 import { saveFailedSubmission } from "@/lib/storage";
 
-interface ContactFormData {
+export interface ContactFormData {
   name: string;
   email: string;
   phone?: string;
@@ -31,26 +31,45 @@ const escapeHtml = (unsafe: string) => {
     .replace(/'/g, "&#039;");
 };
 
-export async function submitContact(formData: ContactFormData) {
+export async function submitContact(rawInput: ContactFormData | FormData) {
   try {
+    let data: ContactFormData;
+
+    if (rawInput instanceof FormData) {
+      const needsRaw = rawInput.get("services")?.toString() || "";
+      data = {
+        name: rawInput.get("name")?.toString() || "",
+        email: rawInput.get("email")?.toString() || "",
+        phone: rawInput.get("phone")?.toString() || undefined,
+        company: rawInput.get("company")?.toString() || undefined,
+        website: rawInput.get("website")?.toString() || undefined,
+        needs: needsRaw ? needsRaw.split(",").map((s) => s.trim()) : [],
+        budget: rawInput.get("budget")?.toString() || undefined,
+        timeline: rawInput.get("timeline")?.toString() || undefined,
+        message: rawInput.get("message")?.toString() || "",
+        honeypot: rawInput.get("honeypot")?.toString() || undefined,
+      };
+    } else {
+      data = rawInput;
+    }
+
     // 1. Honeypot check (Spam Protection)
-    if (formData.honeypot) {
-      // If the hidden field is filled, it's a bot.
+    if (data.honeypot) {
       return { success: false, error: "Spam detected." };
     }
 
     // 2. Basic validation
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!data.name || !data.email || !data.message) {
       return { success: false, error: "Missing required fields." };
     }
 
     // 3. Email validation
-    if (!isValidEmail(formData.email)) {
+    if (!isValidEmail(data.email)) {
       return { success: false, error: "Please enter a valid email address." };
     }
 
     // 4. Rate Limiting
-    const rl = rateLimit(formData.email, 3, 60000);
+    const rl = rateLimit(data.email, 3, 60000);
     if (!rl.success) {
       return { success: false, error: "Too many requests. Please try again later.", rateLimited: true };
     }
@@ -62,7 +81,7 @@ export async function submitContact(formData: ContactFormData) {
 
     if (!SMTP_USER || !SMTP_PASS) {
       console.log('--- NEW CONTACT SUBMISSION ---');
-      console.log(formData);
+      console.log(data);
       console.log('------------------------------');
       console.log('Note: To actually send emails, add SMTP_USER and SMTP_PASS to your .env.local file.');
     } else {
@@ -77,24 +96,24 @@ export async function submitContact(formData: ContactFormData) {
       });
 
       const mailOptions = {
-        from: `"Falah Website" <${SMTP_USER}>`,
-        to: 'hello@falahbrandhouse.com',
-        replyTo: formData.email,
-        subject: `New Lead from ${escapeHtml(formData.name)}`,
-        text: `Name: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`,
+        from: `"Vyoma Media Website" <${SMTP_USER}>`,
+        to: process.env.CONTACT_EMAIL || 'hello@vyomamedia.com',
+        replyTo: data.email,
+        subject: `New Lead from ${escapeHtml(data.name)} | Vyoma Media`,
+        text: `Name: ${data.name}\nEmail: ${data.email}\nMessage: ${data.message}`,
         html: `
-          <h3>New Project Inquiry</h3>
-          <p><strong>Name:</strong> ${escapeHtml(formData.name)}</p>
-          <p><strong>Email:</strong> ${escapeHtml(formData.email)}</p>
-          <p><strong>Phone:</strong> ${escapeHtml(formData.phone || 'N/A')}</p>
-          <p><strong>Company:</strong> ${escapeHtml(formData.company || 'N/A')}</p>
-          <p><strong>Website:</strong> ${escapeHtml(formData.website || 'N/A')}</p>
-          <p><strong>Needs:</strong> ${escapeHtml(formData.needs.join(', ') || 'N/A')}</p>
-          <p><strong>Budget:</strong> ${escapeHtml(formData.budget || 'N/A')}</p>
-          <p><strong>Timeline:</strong> ${escapeHtml(formData.timeline || 'N/A')}</p>
+          <h3>New Project Inquiry — Vyoma Media</h3>
+          <p><strong>Name:</strong> ${escapeHtml(data.name)}</p>
+          <p><strong>Email:</strong> ${escapeHtml(data.email)}</p>
+          <p><strong>Phone:</strong> ${escapeHtml(data.phone || 'N/A')}</p>
+          <p><strong>Company:</strong> ${escapeHtml(data.company || 'N/A')}</p>
+          <p><strong>Website:</strong> ${escapeHtml(data.website || 'N/A')}</p>
+          <p><strong>Needs:</strong> ${escapeHtml(data.needs.join(', ') || 'N/A')}</p>
+          <p><strong>Budget:</strong> ${escapeHtml(data.budget || 'N/A')}</p>
+          <p><strong>Timeline:</strong> ${escapeHtml(data.timeline || 'N/A')}</p>
           <br/>
           <p><strong>Message:</strong></p>
-          <p>${escapeHtml(formData.message).replace(/\n/g, '<br/>')}</p>
+          <p>${escapeHtml(data.message).replace(/\n/g, '<br/>')}</p>
         `,
       };
 
@@ -104,7 +123,7 @@ export async function submitContact(formData: ContactFormData) {
         console.error("SMTP Error:", emailError);
         
         // 5. Fallback Storage
-        await saveFailedSubmission('contact', formData);
+        await saveFailedSubmission('contact', data);
         
         // Still return success to user so they aren't blocked
         return { success: true, fallback: true };

@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { Search, Loader2, TrendingUp, BarChart3, AlertCircle } from "lucide-react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
+import { Search, Loader2, TrendingUp, BarChart3, AlertCircle, CheckCircle2, Sparkles, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import EmptyState from "@/components/ui/EmptyState";
 
 interface KeywordData {
   keyword: string;
@@ -12,7 +14,12 @@ interface KeywordData {
   intent: "Informational" | "Navigational" | "Commercial" | "Transactional";
 }
 
-const mockGenerateData = (query: string): { main: KeywordData, related: KeywordData[] } => {
+const mockGenerateData = (query: string): { main: KeywordData; related: KeywordData[] } | null => {
+  const clean = query.trim().toLowerCase();
+  if (clean === "noresults" || clean === "empty") {
+    return null;
+  }
+
   const intents = ["Informational", "Navigational", "Commercial", "Transactional"] as const;
   
   const generateRandomStat = () => {
@@ -33,227 +40,313 @@ const mockGenerateData = (query: string): { main: KeywordData, related: KeywordD
 
   return {
     main: {
-      keyword: query.toLowerCase(),
+      keyword: clean,
       ...mainStats
     },
     related: [
-      { keyword: `best ${query.toLowerCase()}`, ...generateRandomStat() },
-      { keyword: `${query.toLowerCase()} software`, ...generateRandomStat() },
-      { keyword: `how to use ${query.toLowerCase()}`, ...generateRandomStat() },
-      { keyword: `${query.toLowerCase()} agency near me`, ...generateRandomStat() },
-      { keyword: `affordable ${query.toLowerCase()}`, ...generateRandomStat() },
+      { keyword: `best ${clean}`, ...generateRandomStat() },
+      { keyword: `${clean} architecture`, ...generateRandomStat() },
+      { keyword: `how to optimize ${clean}`, ...generateRandomStat() },
+      { keyword: `${clean} agency hyderabad`, ...generateRandomStat() },
+      { keyword: `enterprise ${clean}`, ...generateRandomStat() },
     ]
   };
 };
 
-export default function KeywordTool() {
-  const [query, setQuery] = useState("");
+function KeywordToolInner() {
+  const searchParams = useSearchParams();
+  const initialQuery = searchParams.get("q") || "";
+
+  const [query, setQuery] = useState(initialQuery);
   const [isSearching, setIsSearching] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
-  const [results, setResults] = useState<{ main: KeywordData, related: KeywordData[] } | null>(null);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [successMsg, setSuccessMsg] = useState<string | null>(null);
+  const [results, setResults] = useState<{ main: KeywordData; related: KeywordData[] } | null>(null);
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!query.trim()) return;
+  const executeSearch = (targetQuery: string) => {
+    const trimmed = targetQuery.trim();
+    if (!trimmed) {
+      setErrorMsg("Please enter a valid keyword or industry term to analyze.");
+      setSuccessMsg(null);
+      return;
+    }
 
+    if (trimmed.length < 2) {
+      setErrorMsg("Keyword query must be at least 2 characters long.");
+      setSuccessMsg(null);
+      return;
+    }
+
+    setErrorMsg(null);
     setIsSearching(true);
     setHasSearched(true);
     
-    // Simulate API delay
     setTimeout(() => {
-      setResults(mockGenerateData(query));
+      const data = mockGenerateData(trimmed);
+      setResults(data);
       setIsSearching(false);
-    }, 1500);
+      if (data) {
+        setSuccessMsg(`Intelligence discovered: 6 verified keyword gaps analyzed for "${trimmed}".`);
+      } else {
+        setSuccessMsg(null);
+      }
+    }, 1200);
   };
 
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    executeSearch(query);
+  };
+
+  useEffect(() => {
+    if (initialQuery) {
+      const timer = setTimeout(() => {
+        setQuery(initialQuery);
+        executeSearch(initialQuery);
+      }, 0);
+      return () => clearTimeout(timer);
+    }
+  }, [initialQuery]);
+
   const getDifficultyColor = (diff: number) => {
-    if (diff < 30) return "text-green-500 bg-green-500/10 border-green-500/20";
-    if (diff < 70) return "text-yellow-500 bg-yellow-500/10 border-yellow-500/20";
-    return "text-red-500 bg-red-500/10 border-red-500/20";
+    if (diff < 35) return "text-emerald-700 bg-emerald-50 border-emerald-200";
+    if (diff < 70) return "text-amber-700 bg-amber-50 border-amber-200";
+    return "text-rose-700 bg-rose-50 border-rose-200";
   };
 
   return (
-    <section className="relative py-24 md:py-32 bg-[#F4F1EA] text-[#171717] min-h-screen overflow-hidden">
-      
-      {/* Editorial Grid Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
-        <div className="absolute left-[5vw] right-[5vw] top-0 bottom-0 border-x border-warm-grey/50 grid grid-cols-4 md:grid-cols-12 divide-x divide-warm-grey/30">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <div key={i} className="hidden md:block h-full" />
-          ))}
-        </div>
-        <div className="absolute top-[30vh] left-[5vw] right-[5vw] h-[1px] bg-warm-grey/50" />
-      </div>
+    <section className="relative py-24 md:py-32 bg-cloud-white text-deep-atmosphere min-h-screen overflow-hidden font-sans">
+      {/* Ambient background glows */}
+      <div className="pointer-events-none absolute left-1/4 top-1/4 w-[600px] h-[350px] bg-sky-slate/10 blur-[150px] rounded-full" />
+      <div className="pointer-events-none absolute right-10 bottom-1/4 w-[400px] h-[400px] bg-mist-blue/40 blur-[140px] rounded-full" />
 
-      <div className="container mx-auto px-6 md:px-[5vw] relative z-10">
-        <div className="max-w-6xl mx-auto mb-16 md:mb-24 relative z-10">
-          <p className="text-[10px] md:text-xs font-mono tracking-[0.2em] font-medium text-slate mb-8 uppercase">
-            PROPRIETARY SEO TOOL
-          </p>
+      <div className="container mx-auto px-5 sm:px-6 md:px-12 max-w-[1360px] relative z-10">
+        
+        {/* Header Section */}
+        <div className="max-w-4xl mx-auto mb-16 md:mb-20 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-sky-slate/30 text-xs font-mono text-sky-slate mb-6 uppercase tracking-widest font-semibold shadow-xs">
+            <Sparkles size={12} /> PROPRIETARY SEO INTELLIGENCE TOOL
+          </div>
           
-          <h1 className="text-[10vw] md:text-[7vw] leading-[0.9] font-primary font-bold tracking-[-0.03em] text-[#171717] mb-12">
-            DISCOVER<br />
-            KEYWORDS THAT<br />
-            DRIVE <span className="text-vermilion">REVENUE.</span>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-bold tracking-tight text-deep-atmosphere mb-6 leading-[1.05] uppercase">
+            Discover Keywords That <span className="text-sky-slate">Drive Revenue.</span>
           </h1>
           
-          <div className="flex flex-col md:flex-row md:items-start justify-between gap-12 mt-16 md:mt-24 border-t border-warm-grey pt-8 mb-16">
-            <p className="text-lg md:text-2xl text-slate max-w-2xl leading-relaxed font-primary">
-              Stop guessing what your customers are searching for. Use our free keyword intelligence tool to uncover high-intent search terms, analyze ranking difficulty, and build a profitable SEO strategy.
-            </p>
-            
-            <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#171717] bg-warm-grey/30 px-4 py-2 rounded-full shrink-0">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-              LIVE DATA
-            </div>
-          </div>
+          <p className="text-base sm:text-lg text-graphite/80 max-w-2xl mx-auto leading-relaxed">
+            Stop guessing what your customers are searching for. Use our keyword intelligence tool to uncover high-intent search terms, analyze ranking difficulty, and prepare for AI Answer Engine citations.
+          </p>
         </div>
 
-        {/* Enhanced Search Input */}
-        <div className="max-w-4xl mx-auto mb-24 relative z-10">
-          <form onSubmit={handleSearch} className="relative flex flex-col md:flex-row items-center gap-4">
+        {/* Search Input Bar */}
+        <div className="max-w-3xl mx-auto mb-16">
+          <form onSubmit={handleSearch} className="relative flex flex-col sm:flex-row items-center gap-3">
             <div className="relative w-full">
-              <div className="absolute left-6 md:left-8 top-1/2 -translate-y-1/2 text-slate/50">
-                <Search size={28} strokeWidth={1.5} />
-              </div>
+              <Search size={20} className="absolute left-5 top-1/2 -translate-y-1/2 text-graphite/50" />
               <input 
                 type="text" 
                 value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Enter a seed keyword (e.g., enterprise software)"
-                className="w-full bg-white border-2 border-[#171717]/10 hover:border-[#171717]/30 focus:border-vermilion focus:ring-4 focus:ring-vermilion/10 rounded-full py-6 md:py-8 pl-16 md:pl-20 pr-6 text-xl md:text-3xl font-primary text-[#171717] outline-none transition-all shadow-xl shadow-graphite/5"
-                required
+                onChange={(e) => {
+                  setQuery(e.target.value);
+                  if (errorMsg) setErrorMsg(null);
+                }}
+                placeholder="Enter a seed keyword (e.g., industrial hydraulics, b2b saas)"
+                className="w-full bg-white border border-mist-blue hover:border-sky-slate/50 focus:border-sky-slate focus:ring-2 focus:ring-sky-slate/20 rounded-full py-4 sm:py-5 pl-14 pr-6 text-base sm:text-lg text-deep-atmosphere placeholder-graphite/40 outline-none transition-all shadow-xs"
               />
             </div>
             <button 
               type="submit"
               disabled={isSearching}
-              className="w-full md:w-auto shrink-0 bg-[#171717] hover:bg-vermilion text-[#F4F1EA] rounded-full px-12 py-6 md:py-8 font-mono text-sm md:text-base font-bold uppercase tracking-widest transition-colors flex items-center justify-center min-w-[200px]"
+              className="w-full sm:w-auto shrink-0 bg-deep-atmosphere hover:bg-sky-slate text-white font-mono font-bold text-xs uppercase tracking-widest px-8 py-4 sm:py-5 rounded-full transition-all flex items-center justify-center gap-2 shadow-md disabled:opacity-50"
             >
-              {isSearching ? <Loader2 size={24} className="animate-spin" /> : "ANALYZE KEYWORD"}
+              {isSearching ? <Loader2 size={18} className="animate-spin" /> : "ANALYZE GAPS ↗"}
             </button>
           </form>
-          
-          <div className="flex items-center justify-center gap-6 mt-8 opacity-60">
-            <p className="text-xs font-mono text-slate uppercase tracking-widest text-center">
-              Trusted by leading brands to uncover 1M+ keyword opportunities
-            </p>
+
+          {/* Inline Error Message */}
+          {errorMsg && (
+            <div className="mt-4 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-mono flex items-center gap-2 animate-in fade-in duration-200">
+              <AlertCircle size={16} className="shrink-0" />
+              <span>{errorMsg}</span>
+            </div>
+          )}
+
+          {/* Inline Success Message */}
+          {successMsg && !isSearching && (
+            <div className="mt-4 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-mono flex items-center gap-2 animate-in fade-in duration-200">
+              <CheckCircle2 size={16} className="shrink-0" />
+              <span>{successMsg}</span>
+            </div>
+          )}
+
+          {/* Quick Suggestion Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-6">
+            <span className="text-xs font-mono text-graphite/60">Try:</span>
+            {["industrial hydraulics", "b2b pharma marketing", "next.js web design", "hyderabad seo"].map((chip) => (
+              <button
+                key={chip}
+                type="button"
+                onClick={() => {
+                  setQuery(chip);
+                  executeSearch(chip);
+                }}
+                className="text-xs font-mono px-3.5 py-1.5 rounded-full bg-white hover:bg-deep-atmosphere text-graphite hover:text-white border border-mist-blue shadow-xs transition-colors"
+              >
+                {chip}
+              </button>
+            ))}
           </div>
         </div>
 
         {/* Results Area */}
         {hasSearched && (
-          <div className="max-w-5xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-700">
+          <div className="max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-6 duration-500">
             {isSearching ? (
-              <div className="flex flex-col items-center justify-center py-24 text-slate">
-                <Loader2 size={48} className="animate-spin text-vermilion mb-6" />
-                <p className="font-mono text-sm tracking-widest uppercase animate-pulse">Scanning search engines...</p>
+              <div className="flex flex-col items-center justify-center py-24 text-graphite/60 space-y-4">
+                <Loader2 size={44} className="animate-spin text-sky-slate" />
+                <p className="font-mono text-xs tracking-widest uppercase animate-pulse">
+                  Scanning SERP Citations & AI Answer Intent...
+                </p>
               </div>
             ) : results ? (
-              <div className="flex flex-col gap-12">
+              <div className="space-y-8">
                 
-                {/* Main Keyword Overview */}
-                <div className="bg-white rounded-3xl p-8 md:p-12 border border-[#171717]/10 shadow-lg shadow-graphite/5">
-                  <h2 className="text-sm font-mono tracking-widest text-slate mb-8 uppercase border-b border-[#171717]/10 pb-4">
-                    Keyword Overview: <span className="text-[#171717] font-bold">{results.main.keyword}</span>
-                  </h2>
-                  
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                    <div className="flex flex-col gap-2">
-                      <div className="flex items-center gap-2 text-slate font-mono text-xs uppercase tracking-wider">
-                        <BarChart3 size={14} /> Volume
+                {/* Main Seed Overview Bento Card */}
+                <div className="rounded-3xl bg-white border border-mist-blue p-6 sm:p-10 shadow-xs">
+                  <div className="flex items-center justify-between pb-4 mb-6 border-b border-mist-blue">
+                    <span className="text-xs font-mono uppercase tracking-widest text-graphite/60">
+                      CORE SEED OVERVIEW
+                    </span>
+                    <span className="text-sm font-mono font-bold text-sky-slate">
+                      &ldquo;{results.main.keyword}&rdquo;
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div className="p-4 rounded-2xl bg-cloud-white border border-mist-blue">
+                      <div className="flex items-center gap-1.5 text-xs font-mono text-graphite/60 mb-1">
+                        <BarChart3 size={13} /> Vol /mo
                       </div>
-                      <span className="text-4xl md:text-5xl font-primary font-bold text-[#171717]">
+                      <div className="text-2xl sm:text-3xl font-display font-bold text-deep-atmosphere">
                         {results.main.volume}
-                      </span>
-                    </div>
-                    
-                    <div className="flex flex-col gap-2">
-                      <div className="flex items-center gap-2 text-slate font-mono text-xs uppercase tracking-wider">
-                        <AlertCircle size={14} /> Difficulty
                       </div>
-                      <span className={`text-4xl md:text-5xl font-primary font-bold ${getDifficultyColor(results.main.difficulty).split(' ')[0]}`}>
-                        {results.main.difficulty}<span className="text-2xl text-slate/50">/100</span>
-                      </span>
                     </div>
-                    
-                    <div className="flex flex-col gap-2">
-                      <div className="flex items-center gap-2 text-slate font-mono text-xs uppercase tracking-wider">
-                        <TrendingUp size={14} /> CPC
+
+                    <div className="p-4 rounded-2xl bg-cloud-white border border-mist-blue">
+                      <div className="flex items-center gap-1.5 text-xs font-mono text-graphite/60 mb-1">
+                        <AlertCircle size={13} /> Difficulty
                       </div>
-                      <span className="text-4xl md:text-5xl font-primary font-bold text-[#171717]">
+                      <div className={`text-2xl sm:text-3xl font-display font-bold ${getDifficultyColor(results.main.difficulty).split(" ")[0]}`}>
+                        {results.main.difficulty}<span className="text-sm text-graphite/50">/100</span>
+                      </div>
+                    </div>
+
+                    <div className="p-4 rounded-2xl bg-cloud-white border border-mist-blue">
+                      <div className="flex items-center gap-1.5 text-xs font-mono text-graphite/60 mb-1">
+                        <TrendingUp size={13} /> Est. CPC
+                      </div>
+                      <div className="text-2xl sm:text-3xl font-display font-bold text-sky-slate">
                         {results.main.cpc}
-                      </span>
-                    </div>
-                    
-                    <div className="flex flex-col gap-2">
-                      <div className="flex items-center gap-2 text-slate font-mono text-xs uppercase tracking-wider">
-                        Intent
                       </div>
-                      <span className="inline-block mt-2 px-4 py-2 bg-slate/10 text-[#171717] text-sm font-mono font-bold rounded-full w-fit">
+                    </div>
+
+                    <div className="p-4 rounded-2xl bg-cloud-white border border-mist-blue">
+                      <div className="text-xs font-mono text-graphite/60 mb-1">
+                        Search Intent
+                      </div>
+                      <span className="inline-block px-2.5 py-1 text-xs font-mono font-semibold rounded-full bg-white border border-mist-blue text-deep-atmosphere">
                         {results.main.intent}
                       </span>
                     </div>
                   </div>
                 </div>
 
-                {/* Related Keywords Table */}
-                <div className="bg-white rounded-3xl border border-[#171717]/10 shadow-lg shadow-graphite/5 overflow-hidden">
-                  <div className="p-8 border-b border-[#171717]/10">
-                    <h3 className="text-xl font-primary font-bold text-[#171717]">Keyword Variations & Opportunities</h3>
+                {/* Related Keywords Card */}
+                <div className="rounded-3xl bg-white border border-mist-blue overflow-hidden shadow-xs">
+                  <div className="p-6 border-b border-mist-blue flex items-center justify-between">
+                    <h3 className="font-display font-bold text-lg text-deep-atmosphere">
+                      High-Intent Ranking Opportunities
+                    </h3>
+                    <span className="text-xs font-mono font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                      + GEO OPTIMIZED
+                    </span>
                   </div>
-                  
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-left border-collapse">
-                      <thead>
-                        <tr className="bg-slate/5 border-b border-[#171717]/10">
-                          <th className="p-6 font-mono text-xs tracking-widest text-slate uppercase">Keyword</th>
-                          <th className="p-6 font-mono text-xs tracking-widest text-slate uppercase">Volume</th>
-                          <th className="p-6 font-mono text-xs tracking-widest text-slate uppercase">KD</th>
-                          <th className="p-6 font-mono text-xs tracking-widest text-slate uppercase">CPC</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {results.related.map((item, i) => (
-                          <tr key={i} className="border-b border-[#171717]/5 hover:bg-slate/5 transition-colors">
-                            <td className="p-6 font-primary font-bold text-[#171717] text-lg">{item.keyword}</td>
-                            <td className="p-6 font-primary text-slate">{item.volume}</td>
-                            <td className="p-6">
-                              <span className={`px-3 py-1 text-xs font-mono font-bold rounded-full border ${getDifficultyColor(item.difficulty)}`}>
-                                {item.difficulty}
-                              </span>
-                            </td>
-                            <td className="p-6 font-primary text-slate">{item.cpc}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
+
+                  <div className="divide-y divide-mist-blue">
+                    {results.related.map((item, i) => (
+                      <div
+                        key={i}
+                        className="p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:bg-cloud-white/60 transition-colors"
+                      >
+                        <div className="space-y-1">
+                          <div className="text-base font-sans font-semibold text-deep-atmosphere">
+                            {item.keyword}
+                          </div>
+                          <div className="text-xs font-mono text-graphite/60">
+                            Intent: {item.intent} · Est. CPC: {item.cpc}
+                          </div>
+                        </div>
+
+                        <div className="flex items-center gap-4 self-end sm:self-auto">
+                          <span className="text-xs font-mono text-graphite/60">
+                            {item.volume} vol
+                          </span>
+                          <span className={`px-2.5 py-1 text-xs font-mono font-bold rounded-full border ${getDifficultyColor(item.difficulty)}`}>
+                            KD {item.difficulty}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
-                {/* Upsell / Lead Gen CTA */}
-                <div className="bg-charcoal text-[#F4F1EA] rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
-                  <div>
-                    <h3 className="text-2xl md:text-3xl font-primary font-bold mb-4">
-                      Want to rank for these keywords?
-                    </h3>
-                    <p className="text-[#F4F1EA]/70 font-primary text-lg max-w-xl">
-                      Get a free, comprehensive SEO audit and action plan. We'll show you exactly how to steal traffic from your competitors.
+                {/* Free Action Plan Upsell */}
+                <div className="rounded-3xl bg-white border border-mist-blue p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs">
+                  <div className="space-y-2 text-center md:text-left">
+                    <h4 className="text-xl sm:text-2xl font-display font-bold text-deep-atmosphere">
+                      Ready to dominate these keyword territories?
+                    </h4>
+                    <p className="text-sm text-graphite/80 max-w-xl">
+                      Get a comprehensive architectural audit of your organic search footprint and AI engine citations.
                     </p>
                   </div>
-                  <Link 
-                    href="/request-proposal"
-                    className="shrink-0 bg-vermilion hover:bg-[#F4F1EA] hover:text-charcoal text-[#F4F1EA] px-8 py-5 font-mono text-sm font-bold uppercase tracking-wider transition-colors rounded-full"
+                  <Link
+                    href="/contact"
+                    className="shrink-0 bg-deep-atmosphere hover:bg-sky-slate text-white font-mono font-bold text-xs uppercase px-7 py-4 rounded-full transition-all flex items-center gap-2 shadow-md tracking-wider"
                   >
-                    GET FREE AUDIT
+                    REQUEST AUDIT <ArrowRight size={14} />
                   </Link>
                 </div>
 
               </div>
-            ) : null}
+            ) : (
+              /* Empty State Component Integration */
+              <EmptyState
+                title={`No keyword data for "${query}"`}
+                description="We couldn't locate search volume data for this term. Try checking for typos or test one of our recommended high-intent category seeds."
+                onReset={() => {
+                  setQuery("");
+                  setHasSearched(false);
+                  setResults(null);
+                }}
+                onSelectSuggestion={(sug) => {
+                  setQuery(sug);
+                  executeSearch(sug);
+                }}
+              />
+            )}
           </div>
         )}
+
       </div>
     </section>
+  );
+}
+
+export default function KeywordTool() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-cloud-white flex items-center justify-center text-xs font-mono text-graphite/60">Loading Search Intelligence Engine...</div>}>
+      <KeywordToolInner />
+    </Suspense>
   );
 }

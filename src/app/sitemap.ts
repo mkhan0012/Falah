@@ -4,7 +4,7 @@ import fs from "fs";
 import path from "path";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://falahbrandhouse.com";
+  const baseUrl = "https://vyomamedia.com";
   
   // Base static routes
   const staticRoutes = [
@@ -40,7 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
           return stat.isDirectory() && !file.startsWith("[") && fs.existsSync(path.join(dirPath, file, "page.tsx"));
         })
         .map(folder => `${prefix}/${folder}`);
-    } catch (e) {
+    } catch {
       return [];
     }
   };

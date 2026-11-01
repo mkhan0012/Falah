@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { PhoneCall } from "lucide-react";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 import TransitionLink from "./TransitionLink";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
@@ -37,11 +37,12 @@ export default function MobileStickyCTA() {
       )}
     >
       <TransitionLink 
-        href="/request-proposal"
-        className="flex items-center justify-center gap-3 w-full bg-accent text-background py-4 px-6 rounded-full font-mono text-sm font-bold uppercase tracking-widest shadow-2xl shadow-accent/20 border border-accent/50"
+        href="/contact"
+        className="flex items-center justify-center gap-2.5 w-full bg-deep-atmosphere hover:bg-sky-slate text-white py-3.5 px-6 rounded-full font-mono text-xs font-bold uppercase tracking-wider shadow-[0_4px_25px_rgba(23,43,58,0.35)] border border-sky-slate/40 active:scale-[0.98] transition-all"
       >
-        <PhoneCall size={18} className="animate-pulse" />
-        Get a Proposal
+        <Sparkles size={14} className="text-sky-slate" />
+        <span>START A PROJECT</span>
+        <ArrowUpRight size={15} />
       </TransitionLink>
     </div>
   );

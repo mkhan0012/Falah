@@ -26,13 +26,13 @@ export default function Breadcrumbs() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://falahbrandhouse.com"
+        "item": "https://vyomamedia.com"
       },
       ...breadcrumbList.map((crumb, index) => ({
         "@type": "ListItem",
         "position": index + 2,
         "name": crumb.name,
-        "item": `https://falahbrandhouse.com${crumb.href}`
+        "item": `https://vyomamedia.com${crumb.href}`
       }))
     ]
   };

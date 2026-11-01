@@ -2,36 +2,35 @@
 
 import { useState, useEffect } from "react";
 import { X, ArrowRight } from "lucide-react";
-import clsx from "clsx";
 import TransitionLink from "./TransitionLink";
 
 export default function ExitIntentPopup() {
   const [isVisible, setIsVisible] = useState(false);
-  const [hasTriggered, setHasTriggered] = useState(false);
 
   useEffect(() => {
-    // Check if they already closed it in a previous session
-    const hasClosed = localStorage.getItem("falah_exit_intent_closed");
-    if (hasClosed) {
-      setHasTriggered(true);
-      return;
-    }
+    let triggered = false;
 
     const handleMouseLeave = (e: MouseEvent) => {
-      // Trigger if mouse leaves through the top of the window (going for the close/back button)
-      if (e.clientY <= 0 && !hasTriggered) {
+      if (triggered) return;
+      const hasClosed = typeof window !== "undefined" && localStorage.getItem("vyoma_exit_intent_closed");
+      if (hasClosed) return;
+
+      // Trigger if mouse leaves through the top of the window
+      if (e.clientY <= 0) {
+        triggered = true;
         setIsVisible(true);
-        setHasTriggered(true);
       }
     };
 
     document.addEventListener("mouseleave", handleMouseLeave);
     return () => document.removeEventListener("mouseleave", handleMouseLeave);
-  }, [hasTriggered]);
+  }, []);
 
   const closePopup = () => {
     setIsVisible(false);
-    localStorage.setItem("falah_exit_intent_closed", "true");
+    if (typeof window !== "undefined") {
+      localStorage.setItem("vyoma_exit_intent_closed", "true");
+    }
   };
 
   if (!isVisible) return null;
@@ -43,38 +42,36 @@ export default function ExitIntentPopup() {
         onClick={closePopup}
       />
       
-      <div className="relative bg-foreground text-background w-full max-w-lg p-8 md:p-12 shadow-2xl animate-in zoom-in-95 duration-500 overflow-hidden">
-        {/* Abstract Background Element */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-
+      <div className="relative w-full max-w-lg bg-foreground text-background p-8 md:p-12 rounded-3xl shadow-2xl border border-warm-grey/20 z-10 animate-in zoom-in-95 duration-300">
         <button 
           onClick={closePopup}
-          className="absolute top-4 right-4 p-2 text-background/50 hover:text-background transition-colors z-10"
+          className="absolute top-6 right-6 text-background/50 hover:text-background transition-colors"
           aria-label="Close"
         >
           <X size={20} />
         </button>
 
-        <div className="relative z-10 space-y-6">
-          <div className="inline-block px-3 py-1 bg-accent/20 text-accent font-mono text-[10px] font-bold tracking-widest uppercase mb-2">
-            Wait Before You Go
+        <div className="flex flex-col gap-6">
+          <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-accent uppercase">
+            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+            BEFORE YOU GO
           </div>
-          
-          <h2 className="text-3xl md:text-4xl font-primary font-bold leading-tight">
-            Want a Free 24-Hour Brand & SEO Audit?
-          </h2>
-          
-          <p className="text-background/80 font-primary text-lg">
-            We will manually review your website, identify critical growth bottlenecks, and send you a custom action plan. No strings attached.
+
+          <h3 className="text-3xl md:text-4xl font-primary font-bold tracking-tight leading-tight">
+            Want to see how your competitors are ranking?
+          </h3>
+
+          <p className="text-background/70 font-primary text-base leading-relaxed">
+            Use our free SEO intelligence tool to uncover high-intent search gaps in your industry within 30 seconds.
           </p>
 
-          <div className="pt-4">
-            <TransitionLink 
-              href="/contact"
+          <div className="pt-2">
+            <TransitionLink
+              href="/keyword-tool"
               onClick={closePopup}
-              className="inline-flex items-center gap-2 bg-accent text-background px-8 py-4 text-sm font-mono font-bold uppercase tracking-wider hover:bg-background hover:text-foreground transition-colors group w-full justify-center"
+              className="w-full flex items-center justify-center gap-2 bg-accent text-foreground font-mono font-bold text-xs uppercase tracking-wider py-4 px-6 rounded-full hover:bg-background hover:text-foreground transition-all group"
             >
-              Get My Free Audit
+              RUN FREE KEYWORD SCAN
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </TransitionLink>
           </div>
@@ -84,7 +81,7 @@ export default function ExitIntentPopup() {
               onClick={closePopup}
               className="text-xs font-mono tracking-widest text-background/40 hover:text-background/80 uppercase transition-colors"
             >
-              No thanks, I don't want more traffic
+              No thanks, I don&apos;t want more traffic
             </button>
           </div>
         </div>

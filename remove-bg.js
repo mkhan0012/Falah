@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const sharp = require('sharp');
 
 sharp('public/falah-cat-logo.jpg')

@@ -1,63 +1,74 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Sparkles } from "lucide-react";
 import SelectedWork from "@/components/sections/SelectedWork";
-import FaqSection from "@/components/sections/FaqSection";
+import VyomaFaq from "@/components/sections/VyomaFaq";
 
 export const metadata: Metadata = {
-  title: "SEO Agency in Hyderabad | FALAH BRANDHOUSE",
-  description: "FALAH BRANDHOUSE is a top-rated SEO agency in Hyderabad. We specialize in local SEO, technical SEO, and AI Optimization (GEO) to generate organic leads.",
+  title: "SEO Agency in Hyderabad | Vyoma Media",
+  description: "Vyoma Media is a premier SEO and GEO agency in Hyderabad. We engineer local SEO, technical architecture, and Generative Engine Optimization.",
   alternates: {
-    canonical: "https://falahbrandhouse.com/seo-agency-hyderabad",
+    canonical: "https://vyomamedia.com/seo-agency-hyderabad",
   },
 };
 
 export default function SeoAgencyHyderabad() {
   return (
     <>
-      <main className="min-h-screen bg-ivory pt-32 pb-24 text-graphite overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 md:px-[5vw]">
+      <main className="min-h-screen bg-cloud-white pt-36 md:pt-44 pb-24 text-deep-atmosphere selection:bg-sky-slate selection:text-white overflow-hidden relative font-sans">
+        {/* Ambient atmospheric horizon glows */}
+        <div className="pointer-events-none absolute left-1/4 top-20 w-[600px] h-[350px] bg-sky-slate/10 blur-[150px] rounded-full" />
+        <div className="pointer-events-none absolute right-10 bottom-1/3 w-[450px] h-[450px] bg-mist-blue/40 blur-[140px] rounded-full" />
+
+        <div className="container mx-auto px-5 sm:px-6 md:px-12 max-w-[1360px] relative z-10">
           
-          <div className="mb-20 md:mb-32 max-w-5xl">
-            <div className="text-[10px] md:text-xs font-mono font-bold tracking-widest text-vermilion mb-4 uppercase">
-              HYDERABAD, INDIA
+          <div className="mb-20 md:mb-28 max-w-5xl">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-sky-slate/30 text-[11px] font-mono text-sky-slate mb-6 uppercase tracking-widest font-semibold shadow-xs">
+              <Sparkles size={12} />
+              <span>HYDERABAD · INDIA // LOCAL & GLOBAL DOMINANCE</span>
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-[6vw] leading-[1] font-primary font-bold tracking-tight text-graphite mb-6 md:mb-8 uppercase">
-              SEO Agency in Hyderabad
+
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-bold tracking-tight text-deep-atmosphere mb-8 uppercase leading-[0.95]">
+              SEO Agency in Hyderabad<span className="text-sky-slate">.</span>
             </h1>
-            <p className="text-xl md:text-2xl lg:text-3xl text-slate font-primary leading-relaxed font-medium mb-10 md:mb-12 max-w-3xl">
-              Dominate search results in Hyderabad. We build advanced SEO and AI-optimized strategies to put your business directly in front of high-intent customers.
+
+            <p className="text-lg sm:text-2xl text-graphite/80 font-sans leading-relaxed mb-10 max-w-3xl">
+              Dominate category search across Google and AI Answer Engines. We engineer high-velocity SEO and GEO pipelines that put your brand directly in front of enterprise B2B buyers.
             </p>
+
             <Link 
               href="/contact"
-              className="inline-flex items-center gap-2 bg-vermilion text-ivory px-6 md:px-8 py-3 md:py-4 font-mono text-xs md:text-sm font-bold hover:bg-graphite transition-colors uppercase group"
+              className="inline-flex items-center gap-2 bg-deep-atmosphere text-white px-8 py-4 rounded-full font-mono text-xs md:text-sm font-bold hover:bg-sky-slate transition-all uppercase shadow-md group tracking-wider"
             >
-              START A PROJECT <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <span>REQUEST SEARCH AUDIT</span>
+              <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 border-y border-warm-grey py-16">
-            <div>
-              <h2 className="text-2xl font-bold mb-6">Drive Organic Leads in Hyderabad</h2>
-              <p className="text-lg text-slate mb-4">
-                Traditional SEO isn't enough anymore. As a premier SEO agency in Hyderabad, we combine Local SEO, Technical SEO, and Generative Engine Optimization (GEO) so your brand is recommended by both Google and AI platforms like ChatGPT.
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-y border-mist-blue py-16">
+            <div className="space-y-4">
+              <h2 className="text-2xl sm:text-3xl font-display font-bold text-deep-atmosphere">Drive Verified Organic Inbound in Hyderabad</h2>
+              <p className="text-base sm:text-lg text-graphite/80 leading-relaxed font-sans">
+                Traditional keyword stuffing no longer delivers pipeline. As Hyderabad&apos;s premier growth studio, we combine Local Schema, Technical Next.js Speed, and Generative Engine Optimization (GEO) so your brand is cited and recommended by both Google and AI platforms like ChatGPT, Perplexity, and Gemini.
               </p>
             </div>
-            <div className="bg-charcoal text-ivory p-8">
-              <h3 className="text-xs font-mono font-bold tracking-widest text-ivory/60 mb-6 uppercase">OUR SEO APPROACH</h3>
-              <ul className="flex flex-col gap-4">
-                <li className="flex items-start gap-3"><CheckCircle2 size={16} className="text-vermilion shrink-0 mt-1" /> Hyper-Local Hyderabad SEO Setup</li>
-                <li className="flex items-start gap-3"><CheckCircle2 size={16} className="text-vermilion shrink-0 mt-1" /> Generative AI Engine Optimization</li>
-                <li className="flex items-start gap-3"><CheckCircle2 size={16} className="text-vermilion shrink-0 mt-1" /> High-Performance Technical SEO</li>
-                <li className="flex items-start gap-3"><CheckCircle2 size={16} className="text-vermilion shrink-0 mt-1" /> Content & Authority Building</li>
+            
+            <div className="rounded-3xl bg-white border border-mist-blue p-8 shadow-xs">
+              <h3 className="text-xs font-mono font-bold tracking-widest text-sky-slate mb-6 uppercase">OUR TECHNICAL SEO ENGINE</h3>
+              <ul className="flex flex-col gap-4 text-sm font-sans text-deep-atmosphere">
+                <li className="flex items-start gap-3"><CheckCircle2 size={16} className="text-sky-slate shrink-0 mt-0.5" /> Hyper-Local Hyderabad & Multi-City GEO Targeting</li>
+                <li className="flex items-start gap-3"><CheckCircle2 size={16} className="text-sky-slate shrink-0 mt-0.5" /> Generative AI Answer Engine Optimization (ChatGPT, Perplexity)</li>
+                <li className="flex items-start gap-3"><CheckCircle2 size={16} className="text-sky-slate shrink-0 mt-0.5" /> Sub-Second TTFB & 99+ Core Web Vitals Audits</li>
+                <li className="flex items-start gap-3"><CheckCircle2 size={16} className="text-sky-slate shrink-0 mt-0.5" /> Programmatic Keyword Architecture for B2B Industries</li>
               </ul>
             </div>
           </div>
+
         </div>
       </main>
-      
-      <SelectedWork limit={2} />
-      <FaqSection />
+
+      <SelectedWork />
+      <VyomaFaq />
     </>
   );
 }

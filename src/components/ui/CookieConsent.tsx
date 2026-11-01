@@ -15,7 +15,7 @@ export default function CookieConsent() {
 
   useEffect(() => {
     // Check if consent has already been given
-    const consent = localStorage.getItem("falah_cookie_consent");
+    const consent = localStorage.getItem("vyoma_cookie_consent");
     if (!consent) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsVisible(true);
@@ -24,18 +24,18 @@ export default function CookieConsent() {
 
   const handleAcceptAll = () => {
     const prefs = { necessary: true, analytics: true, marketing: true };
-    localStorage.setItem("falah_cookie_consent", JSON.stringify(prefs));
+    localStorage.setItem("vyoma_cookie_consent", JSON.stringify(prefs));
     setIsVisible(false);
   };
 
   const handleRejectAll = () => {
     const prefs = { necessary: true, analytics: false, marketing: false };
-    localStorage.setItem("falah_cookie_consent", JSON.stringify(prefs));
+    localStorage.setItem("vyoma_cookie_consent", JSON.stringify(prefs));
     setIsVisible(false);
   };
 
   const handleSavePreferences = () => {
-    localStorage.setItem("falah_cookie_consent", JSON.stringify(preferences));
+    localStorage.setItem("vyoma_cookie_consent", JSON.stringify(preferences));
     setIsVisible(false);
   };
 

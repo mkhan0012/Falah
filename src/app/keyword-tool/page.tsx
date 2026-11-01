@@ -2,10 +2,10 @@ import KeywordTool from "@/components/tools/KeywordTool";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Free SEO Keyword Research Tool | FALAH BRANDHOUSE",
-  description: "Discover high-intent keywords, analyze search volume, and uncover ranking opportunities with our free SEO keyword research tool.",
+  title: "Free SEO Keyword Research Tool | Vyoma Media",
+  description: "Discover high-intent keywords, analyze search volume, and uncover ranking opportunities with our free SEO keyword research tool in Hyderabad.",
   alternates: {
-    canonical: "https://falahbrandhouse.com/keyword-tool",
+    canonical: "https://vyomamedia.com/keyword-tool",
   },
 };
 

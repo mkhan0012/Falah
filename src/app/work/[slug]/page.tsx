@@ -1,4 +1,4 @@
-﻿import { Metadata } from "next";
+import { Metadata } from "next";
 import { projects } from "@/data/projects";
 import ProjectPageClient from "./ProjectPageClient";
 
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!project) return { title: "Not Found" };
   
   return {
-    title: `${project.client} | FALAH BRANDHOUSE`,
+    title: `${project.client} | Vyoma Media`,
     description: project.description,
   };
 }

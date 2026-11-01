@@ -58,10 +58,10 @@ export async function POST(request: Request) {
     const SMTP_PASS = process.env.SMTP_PASS;
 
     const mailOptions: SendMailOptions = {
-      from: SMTP_USER ? `"Falah Careers" <${SMTP_USER}>` : '"Falah Careers" <careers@falahbrandhouse.com>',
-      to: 'careers@falahbrandhouse.com',
+      from: SMTP_USER ? `"Vyoma Media Careers" <${SMTP_USER}>` : '"Vyoma Media Careers" <careers@vyomamedia.com>',
+      to: process.env.CAREERS_EMAIL || 'careers@vyomamedia.com',
       replyTo: email,
-      subject: `New Application: ${escapeHtml(role)} - ${escapeHtml(name)}`,
+      subject: `New Application: ${escapeHtml(role)} - ${escapeHtml(name)} | Vyoma Media`,
       text: `
         New Job Application
         

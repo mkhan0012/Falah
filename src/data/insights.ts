@@ -5,6 +5,7 @@ export interface Insight {
   date: string;
   readingTime: string;
   heroImage: string;
+  excerpt?: string;
   content: string; // Storing markdown or HTML content
 }
 
@@ -23,7 +24,7 @@ export const insights: Insight[] = [
       <h3>The Problem with "Just a Website"</h3>
       <p>If your website looks exactly like your competitors', says the same things, and offers the same generic promises, you are competing purely on price. A premium brand cannot afford to look like a commodity.</p>
       <h3>Building a System</h3>
-      <p>We approach digital presence differently at FALAH BRANDHOUSE. We don&apos;t just build pages; we build conversion pathways. Every decision, from the typography to the technical SEO architecture, is made to elevate your authority.</p>
+      <p>We approach digital presence differently at Vyoma Media. We don&apos;t just build pages; we build conversion pathways. Every decision, from the typography to the technical SEO architecture, is made to elevate your authority.</p>
     `
   },
   {
@@ -42,7 +43,7 @@ export const insights: Insight[] = [
         <li><strong>Typography:</strong> The right typeface does the heavy lifting. Custom or high-end typography instantly separates you from template-based competitors.</li>
         <li><strong>Restraint:</strong> You don&apos;t need twelve animations on a page. Subtle, purposeful motion is elegant. Excessive motion is distracting.</li>
       </ul>
-      <p>At FALAH BRANDHOUSE, we design with restraint. We build brands that look expensive because they are built on solid strategic foundations.</p>
+      <p>At Vyoma Media, we design with restraint. We build brands that look expensive because they are built on solid strategic foundations.</p>
     `
   },
   {
@@ -70,7 +71,7 @@ export const insights: Insight[] = [
     content: `
       <p>People buy from people. In B2B and high-value services, the reputation of the founder is often the strongest asset the company has.</p>
       <p>A strong personal brand reduces friction in the sales process, attracts top talent, and creates opportunities that a corporate brand alone cannot generate.</p>
-      <h3>The FALAH BRANDHOUSE Approach to Personal Branding</h3>
+      <h3>The Vyoma Media Approach to Personal Branding</h3>
       <p>We don&apos;t believe in generic thought-leadership posts. We believe in turning your actual expertise into a structured digital presence. This means defining your positioning, establishing your digital home, and creating a content system that builds genuine authority in your specific niche.</p>
     `
   }

@@ -46,7 +46,7 @@ export async function saveFailedSubmission(
       const attachmentPath = path.join(FAILED_SUBMISSIONS_DIR, attachmentFileName);
       
       await fs.writeFile(attachmentPath, fileBuffer);
-      (data as any)._localAttachmentPath = attachmentPath;
+      (data as Record<string, unknown>)._localAttachmentPath = attachmentPath;
     }
 
     await fs.writeFile(jsonPath, JSON.stringify(data, null, 2), 'utf-8');

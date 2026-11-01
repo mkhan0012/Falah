@@ -2,84 +2,102 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { insights } from "@/data/insights";
 
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
 export async function generateStaticParams() {
-  return insights.map((insight) => ({
-    slug: insight.slug,
-  }));
+  return insights.map((i) => ({ slug: i.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const resolvedParams = await params;
-  const insight = insights.find((i) => i.slug === resolvedParams.slug);
-  
-  if (!insight) {
-    return { title: "Article Not Found | FALAH BRANDHOUSE" };
-  }
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const insight = insights.find((i) => i.slug === slug);
+  if (!insight) return {};
 
   return {
-    title: `${insight.title} | Insights | FALAH BRANDHOUSE`,
-    description: "Read our latest thinking on brand, design, and growth.",
+    title: `${insight.title} | Vyoma Media`,
+    description: insight.excerpt || `${insight.title} — strategic intelligence, positioning insights, and growth architecture from Vyoma Media Hyderabad.`,
+    alternates: {
+      canonical: `https://vyomamedia.com/insights/${slug}`,
+    },
   };
 }
 
-export default async function InsightArticlePage({ params }: { params: Promise<{ slug: string }> }) {
-  const resolvedParams = await params;
-  const insight = insights.find((i) => i.slug === resolvedParams.slug);
+export default async function InsightDetailPage({ params }: Props) {
+  const { slug } = await params;
+  const insight = insights.find((i) => i.slug === slug);
 
   if (!insight) {
     notFound();
   }
 
   return (
-    <main className="bg-ivory text-graphite min-h-screen">
-      <article className="pt-40 pb-24 container mx-auto px-6 md:px-[5vw] max-w-5xl">
+    <main className="bg-cloud-white text-deep-atmosphere min-h-screen pt-36 md:pt-44 pb-32 selection:bg-sky-slate selection:text-white relative overflow-hidden font-sans">
+      {/* Subtle atmospheric horizon glows */}
+      <div className="pointer-events-none absolute left-1/4 top-24 w-[600px] h-[350px] bg-sky-slate/10 blur-[150px] rounded-full" />
+      <div className="pointer-events-none absolute right-10 bottom-1/3 w-[450px] h-[450px] bg-mist-blue/40 blur-[140px] rounded-full" />
+
+      <article className="container mx-auto px-5 sm:px-6 md:px-12 max-w-4xl relative z-10">
         <Link 
           href="/insights" 
-          className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-slate hover:text-vermilion transition-colors mb-16 uppercase"
+          className="inline-flex items-center gap-2 text-xs font-mono font-medium tracking-widest text-graphite/60 hover:text-deep-atmosphere transition-colors mb-12 uppercase"
         >
           <ArrowLeft size={16} /> Back to Insights
         </Link>
         
-        <div className="flex flex-wrap gap-4 items-center text-xs font-mono font-bold tracking-wider text-slate mb-8 uppercase">
-          <span className="text-graphite">{insight.category}</span>
-          <span className="w-1 h-1 bg-warm-grey rounded-full" />
+        <div className="flex flex-wrap gap-4 items-center text-xs font-mono font-semibold tracking-wider text-graphite/60 mb-6 uppercase">
+          <span className="text-sky-slate">{insight.category}</span>
+          <span className="w-1 h-1 bg-mist-blue rounded-full" />
           <span>{insight.readingTime}</span>
-          <span className="w-1 h-1 bg-warm-grey rounded-full" />
+          <span className="w-1 h-1 bg-mist-blue rounded-full" />
           <span>{insight.date}</span>
         </div>
 
-        <h1 className="text-4xl md:text-6xl lg:text-[5rem] leading-[0.9] font-primary font-bold tracking-tight mb-12 uppercase text-graphite">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-display font-bold tracking-tight mb-10 uppercase text-deep-atmosphere leading-[1.05]">
           {insight.title}
         </h1>
 
-        <div className="relative aspect-[21/9] w-full overflow-hidden bg-warm-grey mb-16">
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl border border-mist-blue bg-white mb-14 shadow-md">
           <Image 
-            src={insight.heroImage || '/images/mockups/placeholder.jpg'}
+            src={insight.heroImage || '/images/mockups/bharat.jpg'}
             alt={insight.title}
             fill
             className="object-cover"
             priority
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-deep-atmosphere/20 via-transparent to-transparent opacity-40" />
         </div>
 
-        {/* Prose content */}
+        {/* Prose Content */}
         <div 
-          className="prose prose-lg max-w-3xl mx-auto prose-headings:font-primary prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-graphite prose-p:font-primary prose-p:text-slate prose-a:text-vermilion hover:prose-a:text-graphite prose-strong:text-graphite prose-li:text-slate"
+          className="prose max-w-none prose-headings:font-display prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-deep-atmosphere prose-p:font-sans prose-p:text-base sm:prose-p:text-lg prose-p:leading-relaxed prose-p:text-graphite/80 prose-a:text-sky-slate prose-a:font-semibold hover:prose-a:underline prose-strong:text-deep-atmosphere prose-li:text-graphite/80 prose-li:font-sans"
           dangerouslySetInnerHTML={{ __html: insight.content }}
         />
         
-        {/* Share Section placeholder */}
-        <div className="mt-24 pt-8 border-t border-warm-grey flex items-center gap-4 max-w-3xl mx-auto">
-          <span className="text-xs font-mono font-bold tracking-widest uppercase text-slate">Share:</span>
-          <button className="text-graphite hover:text-vermilion transition-colors text-xs font-mono uppercase tracking-widest border border-warm-grey px-4 py-2 hover:border-vermilion">LinkedIn</button>
-          <button className="text-graphite hover:text-vermilion transition-colors text-xs font-mono uppercase tracking-widest border border-warm-grey px-4 py-2 hover:border-vermilion">Twitter/X</button>
+        {/* Author / CTA Box */}
+        <div className="mt-20 pt-10 border-t border-mist-blue flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div>
+            <div className="text-xs font-mono font-bold text-sky-slate uppercase tracking-wider mb-1">
+              VYOMA MEDIA PERSPECTIVE
+            </div>
+            <p className="text-sm font-sans text-graphite/80">
+              Written by our brand strategy and organic growth engineering team in Hyderabad.
+            </p>
+          </div>
+
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-deep-atmosphere text-white font-mono text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-full hover:bg-sky-slate transition-all shadow-md group"
+          >
+            <span>ENGINEER YOUR SYSTEM</span>
+            <ArrowUpRight size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </Link>
         </div>
       </article>
-      
-          </main>
+    </main>
   );
 }
-
