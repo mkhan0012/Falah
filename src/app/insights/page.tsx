@@ -14,10 +14,6 @@ export const metadata: Metadata = {
 export default function InsightsPage() {
   return (
     <main className="pt-36 md:pt-44 pb-32 min-h-screen bg-cloud-white text-deep-atmosphere selection:bg-sky-slate selection:text-white relative overflow-hidden font-sans">
-      {/* Subtle atmospheric horizon glows */}
-      <div className="pointer-events-none absolute left-1/4 top-24 w-[600px] h-[350px] bg-sky-slate/10 blur-[150px] rounded-full" />
-      <div className="pointer-events-none absolute right-10 bottom-1/3 w-[450px] h-[450px] bg-mist-blue/40 blur-[140px] rounded-full" />
-
       <div className="container mx-auto px-5 sm:px-6 md:px-12 max-w-[1360px] mb-16 relative z-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-sky-slate/30 text-[11px] font-mono text-sky-slate mb-6 uppercase tracking-widest font-semibold shadow-xs">
           <Sparkles size={12} />

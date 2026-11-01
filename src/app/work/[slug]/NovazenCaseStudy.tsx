@@ -72,11 +72,6 @@ export default function NovazenCaseStudy({ project }: { project: Project }) {
 
   return (
     <main ref={containerRef} className="min-h-screen bg-cloud-white text-deep-atmosphere selection:bg-sky-slate selection:text-white relative overflow-hidden font-sans">
-      
-      {/* Subtle atmospheric horizon glows */}
-      <div className="pointer-events-none absolute left-1/4 top-24 w-[600px] h-[350px] bg-sky-slate/10 blur-[150px] rounded-full" />
-      <div className="pointer-events-none absolute right-10 bottom-1/3 w-[450px] h-[450px] bg-mist-blue/40 blur-[140px] rounded-full" />
-
       {/* 01 HERO SECTION */}
       <div className="pt-36 md:pt-44 pb-16 container mx-auto px-5 sm:px-6 md:px-12 max-w-[1360px] relative z-10">
         <Link 

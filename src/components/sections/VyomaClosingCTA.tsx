@@ -7,12 +7,6 @@ import { siteConfig } from "@/config/site";
 export default function VyomaClosingCTA() {
   return (
     <section className="relative py-28 sm:py-36 bg-[#172B3A] text-[#F1F3F1] overflow-hidden font-sans border-t border-[#7899B0]/25">
-      {/* Deep atmosphere horizon glow */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full bg-[#7899B0]/15 blur-[170px] pointer-events-none"
-        aria-hidden="true"
-      />
-
       {/* Horizontal datum line */}
       <div
         className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#7899B0]/50 to-transparent"

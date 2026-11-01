@@ -117,10 +117,6 @@ function KeywordToolInner() {
 
   return (
     <section className="relative py-24 md:py-32 bg-cloud-white text-deep-atmosphere min-h-screen overflow-hidden font-sans">
-      {/* Ambient background glows */}
-      <div className="pointer-events-none absolute left-1/4 top-1/4 w-[600px] h-[350px] bg-sky-slate/10 blur-[150px] rounded-full" />
-      <div className="pointer-events-none absolute right-10 bottom-1/4 w-[400px] h-[400px] bg-mist-blue/40 blur-[140px] rounded-full" />
-
       <div className="container mx-auto px-5 sm:px-6 md:px-12 max-w-[1360px] relative z-10">
         
         {/* Header Section */}

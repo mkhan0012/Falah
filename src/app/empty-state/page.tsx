@@ -11,9 +11,6 @@ export const metadata: Metadata = {
 export default function EmptyStatePage() {
   return (
     <main className="min-h-screen pt-36 pb-24 px-6 md:px-12 bg-cloud-white text-deep-atmosphere selection:bg-sky-slate selection:text-white flex flex-col items-center justify-center relative overflow-hidden font-sans">
-      {/* Ambient background glows */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-sky-slate/10 blur-[150px] rounded-full" />
-
       <div className="w-full max-w-3xl relative z-10 space-y-8">
         <Link
           href="/keyword-tool"

@@ -12,12 +12,6 @@ export default function VyomaGrowthSystem() {
 
   return (
     <section className="relative py-24 sm:py-32 bg-[#F1F3F1] text-[#30383D] border-b border-[#7899B0]/25 overflow-hidden font-sans">
-      {/* Subtle background ambient glow */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] rounded-full bg-[#DCE6EB]/60 blur-[140px] pointer-events-none"
-        aria-hidden="true"
-      />
-
       <div className="container mx-auto px-5 sm:px-6 md:px-12 max-w-[1360px] relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mb-16 sm:mb-20 space-y-4">

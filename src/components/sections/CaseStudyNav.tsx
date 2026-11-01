@@ -9,10 +9,6 @@ interface CaseStudyNavProps {
 export default function CaseStudyNav({ nextProjectSlug, nextProjectName }: CaseStudyNavProps) {
   return (
     <section className="bg-cloud-white border-t border-mist-blue relative overflow-hidden py-24 md:py-36">
-      {/* Ambient background glows */}
-      <div className="pointer-events-none absolute left-1/2 -top-24 -translate-x-1/2 w-[600px] h-[300px] bg-sky-slate/10 blur-[150px] rounded-full" />
-      <div className="pointer-events-none absolute right-10 bottom-0 w-[400px] h-[300px] bg-mist-blue/40 blur-[130px] rounded-full" />
-
       <div className="container mx-auto px-5 sm:px-6 md:px-12 max-w-[1360px] relative z-10">
         <div className="rounded-3xl bg-white border border-mist-blue shadow-xs p-8 sm:p-14 lg:p-20 text-center flex flex-col items-center relative overflow-hidden group hover:border-sky-slate/40 transition-all duration-500">
           

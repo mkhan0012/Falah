@@ -4,10 +4,6 @@ import { ArrowRight, Sparkles } from "lucide-react";
 export default function NotFound() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center text-center px-6 md:px-12 bg-cloud-white text-deep-atmosphere selection:bg-sky-slate selection:text-white pt-32 pb-24 relative overflow-hidden font-sans">
-      {/* Ambient background glows */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-sky-slate/10 blur-[150px] rounded-full" />
-      <div className="pointer-events-none absolute right-10 top-1/4 w-[350px] h-[350px] bg-mist-blue/40 blur-[140px] rounded-full" />
-
       <div className="max-w-3xl w-full relative z-10 space-y-8">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-sky-slate/30 text-xs font-mono text-sky-slate uppercase tracking-widest font-semibold shadow-xs">
           <Sparkles size={12} /> ERROR 404 // ROUTE NOT FOUND

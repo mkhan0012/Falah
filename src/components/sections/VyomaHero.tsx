@@ -39,23 +39,9 @@ export default function VyomaHero() {
       ref={heroRef}
       className="relative pt-36 sm:pt-44 md:pt-48 pb-24 md:pb-32 bg-[#172B3A] text-[#F1F3F1] overflow-hidden font-sans border-b border-[#7899B0]/25"
     >
-      {/* Horizon-inspired lines & controlled subtle gradients */}
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[500px] pointer-events-none bg-gradient-to-b from-[#7899B0]/20 via-[#172B3A]/60 to-transparent blur-3xl opacity-80"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full pointer-events-none bg-[#7899B0]/10 blur-[140px]"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-0 left-0 w-[450px] h-[450px] rounded-full pointer-events-none bg-[#D3A56C]/5 blur-[150px]"
-        aria-hidden="true"
-      />
-
       {/* Architectural Coordinate Grid Lines */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-20 horizon-grid-dark"
+        className="absolute inset-0 pointer-events-none opacity-25 horizon-grid-dark"
         aria-hidden="true"
       />
 
