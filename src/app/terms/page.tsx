@@ -1,4 +1,4 @@
-﻿import { Metadata } from "next";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms of Service | Vyoma Media",
@@ -55,7 +55,7 @@ export default function TermsPage() {
             </p>
             <div className="font-mono text-xs bg-cloud-white rounded-2xl p-6 border border-mist-blue mt-4 space-y-2">
               <p className="text-deep-atmosphere font-bold text-sm">Vyoma Media</p>
-              <p>Email: <a href="mailto:hello@vyomamedia.co.in" className="text-sky-slate hover:underline">hello@vyomamedia.co.in</a></p>
+              <p>Email: <a href="mailto:info@vyomamedia.co.in" className="text-sky-slate hover:underline">info@vyomamedia.co.in</a></p>
               <p>Location: Banjara Hills, Hyderabad, Telangana 500034, India</p>
             </div>
           </section>

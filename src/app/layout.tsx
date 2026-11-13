@@ -1,4 +1,4 @@
-﻿import type { Metadata, Viewport } from "next";
+import type { Metadata, Viewport } from "next";
 import { Manrope, Inter, Instrument_Serif, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/ui/SmoothScroll";
@@ -130,7 +130,7 @@ export default function RootLayout({
       "addressCountry": "IN",
     },
     "telephone": "+919100023456",
-    "email": "hello@vyomamedia.co.in",
+    "email": "info@vyomamedia.co.in",
     "url": "https://vyomamedia.co.in",
     "sameAs": [
       "https://vyomamedia.co.in",

@@ -1,4 +1,4 @@
-﻿export const siteConfig = {
+export const siteConfig = {
   name: "VYOMA Media",
   shortName: "VYOMA",
   descriptor: "MEDIA",
@@ -11,7 +11,7 @@
   url: "https://vyomamedia.co.in",
   ogImage: "https://vyomamedia.co.in/og-image.jpg",
   contact: {
-    email: "hello@vyomamedia.co.in",
+    email: "info@vyomamedia.co.in",
     phone: "+91 91000 23456",
     phoneDisplay: "+91 91000 23456",
     whatsapp: "919100023456",

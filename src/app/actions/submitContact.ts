@@ -1,4 +1,4 @@
-﻿"use server";
+"use server";
 
 import nodemailer from "nodemailer";
 import { headers } from "next/headers";
@@ -144,7 +144,7 @@ export async function submitContact(rawInput: ContactFormData | FormData) {
 
       const mailOptions = {
         from: `"Vyoma Media Intake" <${SMTP_USER}>`,
-        to: process.env.CONTACT_EMAIL || 'hello@vyomamedia.co.in',
+        to: process.env.CONTACT_EMAIL || 'info@vyomamedia.co.in',
         replyTo: data.email,
         subject: `New Project Inquiry: ${escapeHtml(data.name)} [${escapeHtml(data.company || 'Independent')}]`,
         text: `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || 'N/A'}\nCompany: ${data.company || 'N/A'}\nWebsite: ${data.website || 'N/A'}\nNeeds: ${data.needs.join(', ') || 'N/A'}\nBudget: ${data.budget || 'N/A'}\nTimeline: ${data.timeline || 'N/A'}\n\nMessage:\n${data.message}`,
