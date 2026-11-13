@@ -1,10 +1,10 @@
-import { MetadataRoute } from "next";
+﻿import { MetadataRoute } from "next";
 import { projects } from "@/data/projects";
 import fs from "fs";
 import path from "path";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://vyomamedia.com";
+  const baseUrl = "https://vyomamedia.co.in";
   
   // Base static routes
   const staticRoutes = [

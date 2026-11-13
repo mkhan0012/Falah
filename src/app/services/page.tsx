@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { services } from "@/data/services";
 import Link from "next/link";
 import { ArrowUpRight, Sparkles, CheckCircle2 } from "lucide-react";
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Strategy, Design, Technology, and Growth — four integrated capabilities engineered into an owned commercial growth system in Hyderabad.",
   alternates: {
-    canonical: "https://vyomamedia.com/services",
+    canonical: "https://vyomamedia.co.in/services",
   },
 };
 

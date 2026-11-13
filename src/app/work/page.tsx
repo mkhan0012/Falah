@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import WorkGallery from "@/components/sections/WorkGallery";
 import { Sparkles } from "lucide-react";
 
@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Work & Case Studies | Vyoma Media",
   description: "Explore our selected deployments across branding, conversion web systems, technical SEO, and digital growth.",
   alternates: {
-    canonical: "https://vyomamedia.com/work",
+    canonical: "https://vyomamedia.co.in/work",
   },
 };
 

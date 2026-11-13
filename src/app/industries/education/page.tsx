@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, Sparkles, CheckCircle2 } from "lucide-react";
 
@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Driving qualified enrollments and institutional prestige through structured authority architecture and clear digital positioning in Hyderabad.",
   alternates: {
-    canonical: "https://vyomamedia.com/industries/education",
+    canonical: "https://vyomamedia.co.in/industries/education",
   },
 };
 

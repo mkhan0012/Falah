@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight, CheckCircle2, Sparkles } from "lucide-react";
 import SelectedWork from "@/components/sections/SelectedWork";
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Branding Studio & Agency in Hyderabad | Vyoma Media",
   description: "Vyoma Media is a luxury branding and digital growth studio in Hyderabad. We build category positioning and visual identities that command authority.",
   alternates: {
-    canonical: "https://vyomamedia.com/branding-studio-hyderabad",
+    canonical: "https://vyomamedia.co.in/branding-studio-hyderabad",
   },
 };
 

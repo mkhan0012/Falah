@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
@@ -380,7 +380,7 @@ export default function Navbar() {
 
             <div className="flex items-center justify-between text-[11px] font-mono text-[#7899B0] pt-2">
               <span>HYDERABAD · INDIA</span>
-              <span>hello@vyomamedia.com</span>
+              <span>hello@vyomamedia.co.in</span>
             </div>
           </div>
         </div>

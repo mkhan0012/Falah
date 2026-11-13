@@ -1,4 +1,4 @@
-export const siteConfig = {
+﻿export const siteConfig = {
   name: "VYOMA Media",
   shortName: "VYOMA",
   descriptor: "MEDIA",
@@ -8,10 +8,10 @@ export const siteConfig = {
   positioning: "Branding · Web Design · Technology · Organic Growth",
   location: "Hyderabad, India",
   established: "2025",
-  url: "https://vyomamedia.com",
-  ogImage: "https://vyomamedia.com/og-image.jpg",
+  url: "https://vyomamedia.co.in",
+  ogImage: "https://vyomamedia.co.in/og-image.jpg",
   contact: {
-    email: "hello@vyomamedia.com",
+    email: "hello@vyomamedia.co.in",
     phone: "+91 91000 23456",
     phoneDisplay: "+91 91000 23456",
     whatsapp: "919100023456",

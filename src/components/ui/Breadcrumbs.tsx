@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -26,13 +26,13 @@ export default function Breadcrumbs() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://vyomamedia.com"
+        "item": "https://vyomamedia.co.in"
       },
       ...breadcrumbList.map((crumb, index) => ({
         "@type": "ListItem",
         "position": index + 2,
         "name": crumb.name,
-        "item": `https://vyomamedia.com${crumb.href}`
+        "item": `https://vyomamedia.co.in${crumb.href}`
       }))
     ]
   };

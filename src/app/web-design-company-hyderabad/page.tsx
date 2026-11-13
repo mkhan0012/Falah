@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight, CheckCircle2, Sparkles } from "lucide-react";
 import SelectedWork from "@/components/sections/SelectedWork";
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Web Design Company in Hyderabad | Vyoma Media",
   description: "Vyoma Media is a luxury web design and Next.js engineering company in Hyderabad. We build conversion-engineered web systems that rank.",
   alternates: {
-    canonical: "https://vyomamedia.com/web-design-company-hyderabad",
+    canonical: "https://vyomamedia.co.in/web-design-company-hyderabad",
   },
 };
 

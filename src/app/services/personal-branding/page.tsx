@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
 import ServiceSelector from "@/components/sections/ServiceSelector";
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Founders, doctors, and specialists positioned as recognized category authorities, because people trust people before logos. Based in Hyderabad, India.",
   alternates: {
-    canonical: "https://vyomamedia.com/services/personal-branding",
+    canonical: "https://vyomamedia.co.in/services/personal-branding",
   },
 };
 

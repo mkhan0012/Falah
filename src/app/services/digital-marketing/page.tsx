@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
 import ServiceSelector from "@/components/sections/ServiceSelector";
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Growth you own, not growth you rent. Strategic positioning and full-funnel organic search presence for compounding business value in Hyderabad.",
   alternates: {
-    canonical: "https://vyomamedia.com/services/digital-marketing",
+    canonical: "https://vyomamedia.co.in/services/digital-marketing",
   },
 };
 

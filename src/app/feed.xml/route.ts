@@ -1,7 +1,7 @@
-import { insights } from "@/data/insights";
+﻿import { insights } from "@/data/insights";
 
 export async function GET() {
-  const baseUrl = "https://vyomamedia.com";
+  const baseUrl = "https://vyomamedia.co.in";
 
   const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
   <rss version="2.0">

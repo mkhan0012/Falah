@@ -1,4 +1,4 @@
-import { ImageResponse } from 'next/og';
+﻿import { ImageResponse } from 'next/og';
 
 export const runtime = 'nodejs';
 export const alt = 'VYOMA Media — Branding, Digital, Organic Growth';
@@ -109,7 +109,7 @@ export default async function Image() {
             We build brands, digital experiences and organic visibility that create lasting commercial value.
           </span>
           <span style={{ fontSize: 14, letterSpacing: '0.15em', color: '#7899B0' }}>
-            vyomamedia.com
+            vyomamedia.co.in
           </span>
         </div>
       </div>

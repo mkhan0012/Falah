@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import VyomaHero from "@/components/sections/VyomaHero";
 import VyomaTicker from "@/components/sections/VyomaTicker";
 import VyomaGrowthSystem from "@/components/sections/VyomaGrowthSystem";
@@ -18,13 +18,13 @@ export const metadata: Metadata = {
   description:
     "We build brands, digital experiences and organic visibility that create lasting commercial value. Growth you own, not growth you rent. Based in Hyderabad, India.",
   alternates: {
-    canonical: "https://vyomamedia.com",
+    canonical: "https://vyomamedia.co.in",
   },
   openGraph: {
     title: "VYOMA Media | Branding, Web Design & Organic Growth Studio Hyderabad",
     description:
       "We build brands, digital experiences and organic visibility that create lasting commercial value. Growth you own, not growth you rent.",
-    url: "https://vyomamedia.com",
+    url: "https://vyomamedia.co.in",
     siteName: "VYOMA Media",
     locale: "en_IN",
     type: "website",

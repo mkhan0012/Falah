@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { insights } from "@/data/insights";
 import InsightsList from "./InsightsList";
 import { Sparkles } from "lucide-react";
@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Insights & Strategy | Vyoma Media",
   description: "Editorial perspectives on brand positioning, conversion web architecture, Generative Engine Optimization, and digital distribution from Vyoma Media.",
   alternates: {
-    canonical: "https://vyomamedia.com/insights",
+    canonical: "https://vyomamedia.co.in/insights",
   },
 };
 

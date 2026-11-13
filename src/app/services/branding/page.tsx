@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
 import ServiceSelector from "@/components/sections/ServiceSelector";
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "We build distinct identities that help businesses stand out, communicate clearly, and command premium positioning in their market. Based in Hyderabad, India.",
   alternates: {
-    canonical: "https://vyomamedia.com/services/branding",
+    canonical: "https://vyomamedia.co.in/services/branding",
   },
 };
 

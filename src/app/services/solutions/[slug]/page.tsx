@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, ArrowRight, CheckCircle2, ChevronRight, Sparkles } from "lucide-react";
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${solution.title} | VYOMA Media`,
     description: solution.description,
     alternates: {
-      canonical: `https://vyomamedia.com/services/solutions/${slug}`,
+      canonical: `https://vyomamedia.co.in/services/solutions/${slug}`,
     },
   };
 }

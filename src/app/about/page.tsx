@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Sparkles, CheckCircle2, MapPin, Compass, Palette, Network } from "lucide-react";
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "We build brands, digital experiences and organic visibility that create lasting commercial value. Growth you own, not growth you rent. Based in Hyderabad, India.",
   alternates: {
-    canonical: "https://vyomamedia.com/about",
+    canonical: "https://vyomamedia.co.in/about",
   },
 };
 

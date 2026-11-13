@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, Sparkles, CheckCircle2 } from "lucide-react";
 
@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Selling the future, not just a floor plan. High-converting digital presence and organic search for property developers in Hyderabad. RERA-compliant and aspirational.",
   alternates: {
-    canonical: "https://vyomamedia.com/industries/real-estate",
+    canonical: "https://vyomamedia.co.in/industries/real-estate",
   },
 };
 

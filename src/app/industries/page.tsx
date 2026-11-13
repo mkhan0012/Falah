@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight, Sparkles, Building2, Stethoscope, Factory, Film, Landmark, ShoppingBag } from "lucide-react";
 
@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Organic growth, brand positioning, and high-trust digital presence for healthcare, real estate, industrial B2B, consumer brands, politics, and film in Hyderabad.",
   alternates: {
-    canonical: "https://vyomamedia.com/industries",
+    canonical: "https://vyomamedia.co.in/industries",
   },
 };
 

@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${insight.title} | Vyoma Media`,
     description: insight.excerpt || `${insight.title} — strategic intelligence, positioning insights, and growth architecture from Vyoma Media Hyderabad.`,
     alternates: {
-      canonical: `https://vyomamedia.com/insights/${slug}`,
+      canonical: `https://vyomamedia.co.in/insights/${slug}`,
     },
   };
 }

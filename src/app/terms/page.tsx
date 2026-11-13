@@ -1,10 +1,10 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms of Service | Vyoma Media",
   description: "Terms and conditions governing the use of Vyoma Media services and digital properties.",
   alternates: {
-    canonical: "https://vyomamedia.com/terms",
+    canonical: "https://vyomamedia.co.in/terms",
   },
 };
 
@@ -20,7 +20,7 @@ export default function TermsPage() {
           <section className="space-y-4 rounded-3xl bg-white border border-mist-blue p-8 sm:p-10 shadow-xs">
             <h2 className="text-xl font-display font-bold uppercase text-deep-atmosphere">1. Agreement to Terms</h2>
             <p>
-              By accessing or using <strong>vyomamedia.com</strong>, you agree to be bound by these Terms of Service. If you do not agree with these terms, you are prohibited from using this website or engaging our proprietary tools.
+              By accessing or using <strong>vyomamedia.co.in</strong>, you agree to be bound by these Terms of Service. If you do not agree with these terms, you are prohibited from using this website or engaging our proprietary tools.
             </p>
           </section>
 
@@ -55,7 +55,7 @@ export default function TermsPage() {
             </p>
             <div className="font-mono text-xs bg-cloud-white rounded-2xl p-6 border border-mist-blue mt-4 space-y-2">
               <p className="text-deep-atmosphere font-bold text-sm">Vyoma Media</p>
-              <p>Email: <a href="mailto:hello@vyomamedia.com" className="text-sky-slate hover:underline">hello@vyomamedia.com</a></p>
+              <p>Email: <a href="mailto:hello@vyomamedia.co.in" className="text-sky-slate hover:underline">hello@vyomamedia.co.in</a></p>
               <p>Location: Banjara Hills, Hyderabad, Telangana 500034, India</p>
             </div>
           </section>

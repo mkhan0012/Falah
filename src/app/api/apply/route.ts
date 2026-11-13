@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 import nodemailer, { SendMailOptions } from 'nodemailer';
 import { rateLimit } from '@/lib/rateLimit';
 import { saveFailedSubmission } from '@/lib/storage';
@@ -93,8 +93,8 @@ export async function POST(request: Request) {
     const SMTP_PASS = process.env.SMTP_PASS;
 
     const mailOptions: SendMailOptions = {
-      from: SMTP_USER ? `"VYOMA Careers" <${SMTP_USER}>` : '"VYOMA Careers" <careers@vyomamedia.com>',
-      to: process.env.CAREERS_EMAIL || 'careers@vyomamedia.com',
+      from: SMTP_USER ? `"VYOMA Careers" <${SMTP_USER}>` : '"VYOMA Careers" <careers@vyomamedia.co.in>',
+      to: process.env.CAREERS_EMAIL || 'careers@vyomamedia.co.in',
       replyTo: email,
       subject: `Application: ${escapeHtml(role)} — ${escapeHtml(name)} | VYOMA Media`,
       text: `

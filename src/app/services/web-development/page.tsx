@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
 import ServiceSelector from "@/components/sections/ServiceSelector";
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Web design and front-end Next.js engineering in Hyderabad. Sub-second performance, headless CMS, and technical SEO built to convert visitors into revenue.",
   alternates: {
-    canonical: "https://vyomamedia.com/services/web-development",
+    canonical: "https://vyomamedia.co.in/services/web-development",
   },
 };
 

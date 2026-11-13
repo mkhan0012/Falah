@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, Sparkles, CheckCircle2 } from "lucide-react";
 
@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Balancing clinical compliance and medical trust with high-converting modern digital experiences in Hyderabad. Compliant, reassuring, and discoverable.",
   alternates: {
-    canonical: "https://vyomamedia.com/industries/healthcare",
+    canonical: "https://vyomamedia.co.in/industries/healthcare",
   },
 };
 

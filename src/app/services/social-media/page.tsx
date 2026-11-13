@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
 import ServiceSelector from "@/components/sections/ServiceSelector";
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Content that answers the questions your audience is already typing into Google. Strategic storytelling and distribution that compound in Hyderabad.",
   alternates: {
-    canonical: "https://vyomamedia.com/services/social-media",
+    canonical: "https://vyomamedia.co.in/services/social-media",
   },
 };
 

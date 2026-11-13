@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, Sparkles, CheckCircle2 } from "lucide-react";
 
@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Enterprise procurement teams research for weeks and decide as a committee. We build the credibility, product catalog architecture, and search presence that make you the supplier they shortlist.",
   alternates: {
-    canonical: "https://vyomamedia.com/industries/manufacturing",
+    canonical: "https://vyomamedia.co.in/industries/manufacturing",
   },
 };
 

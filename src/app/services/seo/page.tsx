@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
 import ServiceSelector from "@/components/sections/ServiceSelector";
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Earning top positions on Google and generative AI engine citations without paying per click. Technical SEO and content clusters that compound in Hyderabad.",
   alternates: {
-    canonical: "https://vyomamedia.com/services/seo",
+    canonical: "https://vyomamedia.co.in/services/seo",
   },
 };
 

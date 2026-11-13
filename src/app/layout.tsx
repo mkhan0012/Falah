@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import { Manrope, Inter, Instrument_Serif, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/ui/SmoothScroll";
@@ -47,7 +47,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vyomamedia.com"),
+  metadataBase: new URL("https://vyomamedia.co.in"),
   title: {
     default: "VYOMA Media | Branding, Web Design & Organic Growth Studio Hyderabad",
     template: "%s | VYOMA Media",
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://vyomamedia.com",
+    url: "https://vyomamedia.co.in",
     siteName: "VYOMA Media",
     title: "VYOMA Media | Branding, Web Design & Organic Growth Studio Hyderabad",
     description:
@@ -122,7 +122,7 @@ export default function RootLayout({
     "slogan": "GROWTH YOU OWN. NOT GROWTH YOU RENT.",
     "description":
       "We build brands, digital experiences and organic visibility that create lasting commercial value.",
-    "image": "https://vyomamedia.com/og-image.jpg",
+    "image": "https://vyomamedia.co.in/og-image.jpg",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Hyderabad",
@@ -130,10 +130,10 @@ export default function RootLayout({
       "addressCountry": "IN",
     },
     "telephone": "+919100023456",
-    "email": "hello@vyomamedia.com",
-    "url": "https://vyomamedia.com",
+    "email": "hello@vyomamedia.co.in",
+    "url": "https://vyomamedia.co.in",
     "sameAs": [
-      "https://vyomamedia.com",
+      "https://vyomamedia.co.in",
     ],
     "areaServed": [
       { "@type": "City", "name": "Hyderabad" },

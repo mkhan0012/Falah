@@ -1,10 +1,10 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Vyoma Media",
   description: "Privacy Policy and data handling practices for Vyoma Media in Hyderabad, India.",
   alternates: {
-    canonical: "https://vyomamedia.com/privacy-policy",
+    canonical: "https://vyomamedia.co.in/privacy-policy",
   },
 };
 
@@ -20,7 +20,7 @@ export default function PrivacyPolicyPage() {
           <section className="space-y-4 rounded-3xl bg-white border border-mist-blue p-8 sm:p-10 shadow-xs">
             <h2 className="text-xl font-display font-bold uppercase text-deep-atmosphere">1. Introduction</h2>
             <p>
-              At Vyoma Media (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;), we are committed to safeguarding your privacy. This Privacy Policy details our practices concerning the collection, storage, and protection of information when you interact with our website <strong>vyomamedia.com</strong> and engage our branding, web engineering, and organic growth services.
+              At Vyoma Media (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;), we are committed to safeguarding your privacy. This Privacy Policy details our practices concerning the collection, storage, and protection of information when you interact with our website <strong>vyomamedia.co.in</strong> and engage our branding, web engineering, and organic growth services.
             </p>
           </section>
 
@@ -64,7 +64,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <div className="font-mono text-xs bg-cloud-white rounded-2xl p-6 border border-mist-blue mt-4 space-y-2">
               <p className="text-deep-atmosphere font-bold text-sm">Vyoma Media — Data Governance</p>
-              <p>Email: <a href="mailto:privacy@vyomamedia.com" className="text-sky-slate hover:underline">privacy@vyomamedia.com</a></p>
+              <p>Email: <a href="mailto:privacy@vyomamedia.co.in" className="text-sky-slate hover:underline">privacy@vyomamedia.co.in</a></p>
               <p>Location: Banjara Hills, Hyderabad, Telangana 500034, India</p>
             </div>
           </section>
