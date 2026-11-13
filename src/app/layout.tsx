@@ -96,6 +96,9 @@ export const metadata: Metadata = {
       "We build brands, digital experiences and organic visibility that create lasting commercial value. Growth you own, not growth you rent.",
     images: ["/og-image.jpg"],
   },
+  verification: {
+    google: "google9d5290b895c6adf0",
+  },
   robots: {
     index: true,
     follow: true,
