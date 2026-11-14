@@ -7,15 +7,17 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const targetEmail = searchParams.get("to") || process.env.CONTACT_EMAIL || "info@vyomamedia.co.in";
 
-  const host = process.env.SMTP_HOST || "smtp.titan.email";
-  const port = Number(process.env.SMTP_PORT || 465);
+  // Allow dynamic host/port override via query param for real-time testing
+  const host = searchParams.get("host") || process.env.SMTP_HOST || "smtp.titan.email";
+  const port = Number(searchParams.get("port") || process.env.SMTP_PORT || 465);
+  const isSecure = searchParams.get("secure") ? searchParams.get("secure") === "true" : (process.env.SMTP_SECURE === "true" || port === 465);
+
   const user = process.env.SMTP_USER;
   const pass = process.env.SMTP_PASS;
-  const isSecure = process.env.SMTP_SECURE === "true" || port === 465;
 
   const diagnostics = {
-    configuredHost: host,
-    configuredPort: port,
+    testedHost: host,
+    testedPort: port,
     isSecure,
     hasUser: !!user,
     userPreview: user ? `${user.substring(0, 3)}***@${user.split("@")[1] || "unknown"}` : "NOT SET (Missing in Vercel)",
@@ -45,7 +47,6 @@ export async function GET(request: Request) {
       user,
       pass,
     },
-    // Help avoid TLS cipher mismatches in cloud serverless instances
     tls: {
       rejectUnauthorized: true,
       minVersion: "TLSv1.2",
@@ -62,7 +63,7 @@ export async function GET(request: Request) {
       from: `"Vyoma Media System" <${user}>`,
       to: targetEmail,
       subject: "⚡ Live Test Email: Titan Mail is Working!",
-      text: `Hello! If you received this email in your inbox, your Titan Mail configuration for Vyoma Media is 100% active and working.\n\nSent at: ${new Date().toISOString()}`,
+      text: `Hello! If you received this email in your inbox, your Titan Mail configuration for Vyoma Media is 100% active and working.\n\nServer: ${host}\nPort: ${port}\nSent at: ${new Date().toISOString()}`,
       html: `
         <div style="font-family: sans-serif; color: #172B3A; max-width: 500px; padding: 24px; border: 1px solid #7899B0; border-radius: 12px;">
           <h2 style="color: #172B3A; margin-top: 0;">⚡ Titan Mail Verified!</h2>
@@ -82,9 +83,9 @@ export async function GET(request: Request) {
     
     let advice = "Unknown error occurred.";
     if (error.code === "EAUTH" || (error.response && error.response.includes("535"))) {
-      advice = "Authentication Failed: Your Titan email address or password is incorrect. If you have 2FA enabled on Titan, generate an App Password in Titan settings instead of your regular password.";
+      advice = "Authentication Failed (535): Titan rejected this password. If your webmail is at secureserver.titan.email (GoDaddy Titan), make sure you use your exact Titan password, or generate an App Password in Titan Settings > Preferences > Security (2FA) if Two-Factor Authentication is active.";
     } else if (error.code === "ETIMEDOUT" || error.code === "ECONNREFUSED") {
-      advice = "Connection Timed Out: Port 465 might be blocked. Try changing SMTP_PORT to 587 and SMTP_SECURE to false in Vercel.";
+      advice = "Connection Timed Out: Try testing with ?port=587&secure=false";
     }
 
     return NextResponse.json(
@@ -96,6 +97,10 @@ export async function GET(request: Request) {
         command: error.command,
         diagnostics,
         solution: advice,
+        tryAlso: [
+          `https://vyomamedia.co.in/api/test-email?host=smtpout.secureserver.net`,
+          `https://vyomamedia.co.in/api/test-email?host=smtp.titan.email&port=587&secure=false`,
+        ],
       },
       { status: 500 }
     );
