@@ -161,10 +161,13 @@ ${coverLetter}
       return NextResponse.json({ success: true, message: 'Application logged successfully.' });
     }
 
+    const portNum = Number(SMTP_PORT);
+    const isSecure = process.env.SMTP_SECURE === "true" || portNum === 465;
+
     const transporter = nodemailer.createTransport({
       host: SMTP_HOST,
-      port: Number(SMTP_PORT),
-      secure: false, 
+      port: portNum,
+      secure: isSecure, 
       auth: {
         user: SMTP_USER,
         pass: SMTP_PASS,
