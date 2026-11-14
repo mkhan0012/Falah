@@ -103,11 +103,11 @@ export default function Navbar() {
                   <span className="font-display font-extrabold text-sm sm:text-base tracking-[0.04em] text-[#172B3A]">
                     VYOMA
                   </span>
-                  <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.25em] font-bold text-[#7899B0] uppercase">
+                  <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.25em] font-bold text-[#3B5B72] uppercase">
                     MEDIA
                   </span>
                 </div>
-                <span className="text-[7.5px] sm:text-[8px] font-mono tracking-widest text-[#7899B0] uppercase mt-0.5 hidden min-[400px]:inline-block">
+                <span className="text-[7.5px] sm:text-[8px] font-mono tracking-widest text-[#3B5B72] uppercase mt-0.5 hidden min-[400px]:inline-block">
                   HYDERABAD · EST. 2025
                 </span>
               </div>
@@ -141,7 +141,7 @@ export default function Navbar() {
                     <span>{cat.name}</span>
                     <ChevronDown
                       size={11}
-                      className={`transition-transform duration-200 text-[#7899B0] ${
+                      className={`transition-transform duration-200 text-[#3B5B72] ${
                         isOpen ? "rotate-180 text-[#172B3A]" : ""
                       }`}
                     />
@@ -202,14 +202,14 @@ export default function Navbar() {
               <span>START A PROJECT</span>
               <ArrowUpRight
                 size={13}
-                className="text-[#7899B0] group-hover:text-[#F1F3F1] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                className="text-[#93B2C8] group-hover:text-[#F1F3F1] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
               />
             </TransitionLink>
 
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-1.5 text-[#172B3A] hover:text-[#7899B0] transition-colors cursor-pointer"
+              className="lg:hidden p-1.5 text-[#172B3A] hover:text-[#3B5B72] transition-colors cursor-pointer"
               aria-label="Toggle navigation"
             >
               {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -231,7 +231,7 @@ export default function Navbar() {
                   <div key={cat.name} className="space-y-4">
                     <div className="flex items-center justify-between pb-3 border-b border-[#7899B0]/20">
                       <div>
-                        <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#7899B0] font-bold">
+                        <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#3B5B72] font-bold">
                           VYOMA DISCIPLINE
                         </span>
                         <h4 className="text-xl font-display font-bold text-[#172B3A]">
@@ -244,7 +244,7 @@ export default function Navbar() {
                       <TransitionLink
                         href={cat.path}
                         onClick={() => setActiveDropdown(null)}
-                        className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#172B3A] hover:text-[#7899B0] px-3.5 py-1.5 rounded-full bg-white border border-[#7899B0]/25 hover:border-[#172B3A] transition-all"
+                        className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#172B3A] hover:text-[#3B5B72] px-3.5 py-1.5 rounded-full bg-white border border-[#7899B0]/25 hover:border-[#172B3A] transition-all"
                       >
                         <span>VIEW ALL {cat.name}</span>
                         <ArrowUpRight size={13} />
@@ -268,12 +268,12 @@ export default function Navbar() {
                           >
                             <div>
                               <div className="flex items-center justify-between mb-1.5">
-                                <span className="font-display font-bold text-sm text-[#172B3A] group-hover:text-[#7899B0] transition-colors">
+                                <span className="font-display font-bold text-sm text-[#172B3A] group-hover:text-[#3B5B72] transition-colors">
                                   {item.name}
                                 </span>
                                 <ArrowUpRight
                                   size={14}
-                                  className={`text-[#7899B0] transition-all ${
+                                  className={`text-[#3B5B72] transition-all ${
                                     isCurrent
                                       ? "opacity-100 text-[#172B3A]"
                                       : "opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -285,7 +285,7 @@ export default function Navbar() {
                               </p>
                             </div>
                             {isCurrent && (
-                              <span className="text-[9px] font-mono uppercase tracking-wider text-[#7899B0] font-bold mt-2 pt-1 border-t border-[#7899B0]/15">
+                              <span className="text-[9px] font-mono uppercase tracking-wider text-[#3B5B72] font-bold mt-2 pt-1 border-t border-[#7899B0]/15">
                                 Currently Viewing
                               </span>
                             )}
@@ -305,7 +305,7 @@ export default function Navbar() {
         <div className="fixed inset-0 z-40 bg-[#172B3A] text-[#F1F3F1] pt-24 pb-8 px-6 overflow-y-auto lg:hidden animate-in fade-in duration-200 flex flex-col justify-between font-sans">
           <div className="space-y-6">
             <div className="pb-4 border-b border-[#7899B0]/20">
-              <span className="text-[10px] font-mono tracking-widest text-[#7899B0] uppercase block mb-1">
+              <span className="text-[10px] font-mono tracking-widest text-[#93B2C8] uppercase block mb-1">
                 NAVIGATION
               </span>
               <p className="font-display font-semibold text-sm text-[#F1F3F1]">
@@ -317,7 +317,7 @@ export default function Navbar() {
               {navCategories.map((cat) => (
                 <div key={cat.name} className="py-2 border-b border-[#7899B0]/15">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-mono font-bold tracking-widest text-[#7899B0] uppercase">
+                    <span className="text-xs font-mono font-bold tracking-widest text-[#93B2C8] uppercase">
                       {cat.name}
                     </span>
                     <TransitionLink
@@ -380,7 +380,7 @@ export default function Navbar() {
                     className="px-3.5 py-2 rounded-xl bg-white/5 border border-[#7899B0]/20 text-xs font-mono text-[#DCE6EB] hover:text-white flex items-center justify-between"
                   >
                     <span>Web Design Hyderabad</span>
-                    <ArrowUpRight size={13} className="text-[#7899B0]" />
+                    <ArrowUpRight size={13} className="text-[#93B2C8]" />
                   </TransitionLink>
                   <TransitionLink
                     href="/seo-agency-hyderabad"
@@ -388,7 +388,7 @@ export default function Navbar() {
                     className="px-3.5 py-2 rounded-xl bg-white/5 border border-[#7899B0]/20 text-xs font-mono text-[#DCE6EB] hover:text-white flex items-center justify-between"
                   >
                     <span>SEO Agency Hyderabad</span>
-                    <ArrowUpRight size={13} className="text-[#7899B0]" />
+                    <ArrowUpRight size={13} className="text-[#93B2C8]" />
                   </TransitionLink>
                   <TransitionLink
                     href="/branding-studio-hyderabad"
@@ -396,7 +396,7 @@ export default function Navbar() {
                     className="px-3.5 py-2 rounded-xl bg-white/5 border border-[#7899B0]/20 text-xs font-mono text-[#DCE6EB] hover:text-white flex items-center justify-between"
                   >
                     <span>Branding Studio Hyderabad</span>
-                    <ArrowUpRight size={13} className="text-[#7899B0]" />
+                    <ArrowUpRight size={13} className="text-[#93B2C8]" />
                   </TransitionLink>
                 </div>
               </div>
@@ -413,7 +413,7 @@ export default function Navbar() {
               <ArrowUpRight size={16} />
             </TransitionLink>
 
-            <div className="flex items-center justify-between text-[11px] font-mono text-[#7899B0] pt-2">
+            <div className="flex items-center justify-between text-[11px] font-mono text-[#93B2C8] pt-2">
               <span>HYDERABAD · INDIA</span>
               <span>{siteConfig.contact.email}</span>
             </div>

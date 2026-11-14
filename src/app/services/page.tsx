@@ -2,7 +2,6 @@
 import { services } from "@/data/services";
 import Link from "next/link";
 import { ArrowUpRight, Sparkles, CheckCircle2 } from "lucide-react";
-import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Disciplines & Services | VYOMA Media",
@@ -23,7 +22,7 @@ export default function ServicesPage() {
         </div>
 
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight mb-8 uppercase text-[#172B3A]">
-          GROWTH ENGINES<span className="text-[#7899B0]">.</span>
+          GROWTH ENGINES<span className="text-[#3B5B72]">.</span>
         </h1>
         <p className="text-lg sm:text-2xl text-[#30383D] max-w-3xl font-sans leading-relaxed">
           Most businesses operate with disconnected freelancers, slow websites, and vanity marketing metrics that stop when the budget does. VYOMA delivers an integrated growth layer where brand positioning, design, and organic discoverability compound into lasting commercial value.
@@ -38,7 +37,7 @@ export default function ServicesPage() {
           >
             <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-6">
               <div>
-                <div className="text-xs font-mono font-bold tracking-widest text-[#7899B0] mb-3 uppercase">
+                <div className="text-xs font-mono font-bold tracking-widest text-[#3B5B72] mb-3 uppercase">
                   DISCIPLINE {service.id} · {service.category}
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-display font-bold tracking-tight mb-4 text-[#172B3A]">
@@ -52,7 +51,7 @@ export default function ServicesPage() {
               <div>
                 <Link
                   href={service.link}
-                  className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-[#172B3A] hover:text-[#7899B0] transition-colors group"
+                  className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-[#172B3A] hover:text-[#3B5B72] transition-colors group"
                 >
                   <span>EXPLORE {service.category} ARCHITECTURE</span>
                   <ArrowUpRight
@@ -73,7 +72,7 @@ export default function ServicesPage() {
                     key={item}
                     className="flex items-center gap-3 text-sm sm:text-base font-sans font-medium text-[#172B3A]"
                   >
-                    <CheckCircle2 size={16} className="text-[#7899B0] shrink-0" />
+                    <CheckCircle2 size={16} className="text-[#3B5B72] shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}

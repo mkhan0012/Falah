@@ -65,8 +65,8 @@ export default function VyomaHero() {
               <span className="font-bold text-[#D3A56C]">Q4 / Q1 INTAKE:</span>
               <span className="text-[#DCE6EB]">2 OF 3 ENGAGEMENTS ALLOCATED</span>
             </div>
-            <div className="hidden xl:flex items-center gap-2 text-xs font-mono text-[#7899B0]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#7899B0]" />
+            <div className="hidden xl:flex items-center gap-2 text-xs font-mono text-[#93B2C8]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#93B2C8]" />
               <span>Branding · Web Design · Tech · Organic Growth</span>
             </div>
           </div>
@@ -85,7 +85,7 @@ export default function VyomaHero() {
               {/* Main Heading: Exact wording from Prompt */}
               <h1 className="text-4xl sm:text-6xl md:text-7xl xl:text-[5rem] font-display font-extrabold tracking-tight text-[#F1F3F1] leading-[1.02] hero-stagger">
                 GROWTH YOU OWN. <br />
-                <span className="text-[#7899B0]">NOT GROWTH YOU RENT.</span>
+                <span className="text-[#93B2C8]">NOT GROWTH YOU RENT.</span>
               </h1>
 
               {/* Supporting Copy: Exact wording from Prompt */}
@@ -95,7 +95,7 @@ export default function VyomaHero() {
             </div>
 
             {/* Narrative Explanation */}
-            <p className="text-sm sm:text-base text-[#7899B0] max-w-xl leading-relaxed hero-stagger">
+            <p className="text-sm sm:text-base text-[#93B2C8] max-w-xl leading-relaxed hero-stagger">
               Anyone can run paid ads for a month. We architect the brand positioning, ultra-fast web systems, and organic search discoverability that continue compounding and generating revenue long after the budget is spent.
             </p>
 
@@ -119,7 +119,7 @@ export default function VyomaHero() {
                 <span>EXPLORE OUR WORK</span>
                 <ArrowRight
                   size={15}
-                  className="text-[#7899B0] group-hover:text-[#F1F3F1] group-hover:translate-x-1 transition-transform"
+                  className="text-[#93B2C8] group-hover:text-[#F1F3F1] group-hover:translate-x-1 transition-transform"
                 />
               </TransitionLink>
             </div>
@@ -129,25 +129,25 @@ export default function VyomaHero() {
               <span className="text-[#D3A56C] font-bold flex items-center gap-1">
                 <span>⚡</span> 100/100 Core Web Vitals
               </span>
-              <span className="text-[#7899B0]">·</span>
+              <span className="text-[#93B2C8]">·</span>
               <span>Sub-Second Next.js Load</span>
-              <span className="text-[#7899B0] hidden sm:inline">·</span>
-              <span className="text-[#7899B0] hidden sm:inline">vs 4.8s Industry Average</span>
+              <span className="text-[#93B2C8] hidden sm:inline">·</span>
+              <span className="text-[#93B2C8] hidden sm:inline">vs 4.8s Industry Average</span>
             </div>
 
             {/* Quick Metrics Bar */}
             <div className="pt-6 border-t border-[#7899B0]/20 grid grid-cols-3 gap-4 max-w-lg hero-stagger">
               <div>
                 <div className="text-lg sm:text-2xl font-mono font-bold text-[#F1F3F1]">100%</div>
-                <div className="text-[10px] font-mono uppercase text-[#7899B0]">Owned Equity</div>
+                <div className="text-[10px] font-mono uppercase text-[#93B2C8]">Owned Equity</div>
               </div>
               <div>
                 <div className="text-lg sm:text-2xl font-mono font-bold text-[#D3A56C]">0 ₹</div>
-                <div className="text-[10px] font-mono uppercase text-[#7899B0]">Rented Dependency</div>
+                <div className="text-[10px] font-mono uppercase text-[#93B2C8]">Rented Dependency</div>
               </div>
               <div>
-                <div className="text-lg sm:text-2xl font-mono font-bold text-[#7899B0]">24/7</div>
-                <div className="text-[10px] font-mono uppercase text-[#7899B0]">Compounding Asset</div>
+                <div className="text-lg sm:text-2xl font-mono font-bold text-[#93B2C8]">24/7</div>
+                <div className="text-[10px] font-mono uppercase text-[#93B2C8]">Compounding Asset</div>
               </div>
             </div>
           </div>
@@ -171,12 +171,12 @@ export default function VyomaHero() {
                       <span className="text-[10px] font-mono text-[#D3A56C] uppercase font-bold tracking-widest block">
                         GEOMETRIC IDENTITY
                       </span>
-                      <h3 className="font-display font-bold text-lg text-[#F1F3F1]">
+                      <h2 className="font-display font-bold text-lg text-[#F1F3F1]">
                         THE HORIZON MARK
-                      </h3>
+                      </h2>
                     </div>
                   </div>
-                  <span className="text-xs font-mono text-[#7899B0]">01 // ELEVATION</span>
+                  <span className="text-xs font-mono text-[#93B2C8]">01 // ELEVATION</span>
                 </div>
 
                 {/* Vector Horizon Composition */}
@@ -211,7 +211,7 @@ export default function VyomaHero() {
                   </p>
                 </div>
 
-                <div className="pt-2 flex items-center justify-between text-[11px] font-mono text-[#7899B0]">
+                <div className="pt-2 flex items-center justify-between text-[11px] font-mono text-[#93B2C8]">
                   <span>STRATEGY · DESIGN · TECH · GROWTH</span>
                   <span className="text-[#F1F3F1]">VERIFIED ENGINE</span>
                 </div>

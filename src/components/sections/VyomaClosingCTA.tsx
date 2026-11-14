@@ -1,8 +1,7 @@
 "use client";
 
 import TransitionLink from "@/components/ui/TransitionLink";
-import { ArrowUpRight, Sparkles, Search, MessageSquare, ArrowRight } from "lucide-react";
-import { siteConfig } from "@/config/site";
+import { ArrowUpRight, Sparkles, ArrowRight } from "lucide-react";
 
 export default function VyomaClosingCTA() {
   return (
@@ -24,7 +23,7 @@ export default function VyomaClosingCTA() {
           {/* Giant Closing Headline */}
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold tracking-tight text-[#F1F3F1] leading-[1.05] uppercase">
             LET’S BUILD SOMETHING <br />
-            <span className="text-[#7899B0]">THAT LASTS.</span>
+            <span className="text-[#93B2C8]">THAT LASTS.</span>
           </h2>
 
           {/* Body Narrative */}
@@ -50,12 +49,12 @@ export default function VyomaClosingCTA() {
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-white/5 hover:bg-white/10 border border-[#7899B0]/30 hover:border-[#F1F3F1] text-[#F1F3F1] font-mono text-xs sm:text-sm tracking-wider transition-all"
             >
               <span>EXPLORE ALL CASE STUDIES</span>
-              <ArrowRight size={15} className="text-[#7899B0]" />
+              <ArrowRight size={15} className="text-[#93B2C8]" />
             </TransitionLink>
           </div>
 
           {/* Hyderabad Footnote */}
-          <div className="pt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-mono text-[#7899B0]">
+          <div className="pt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-mono text-[#93B2C8]">
             <span>HYDERABAD HQ</span>
             <span>·</span>
             <span>IN-PERSON OR VIRTUAL DISCOVERY</span>

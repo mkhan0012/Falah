@@ -40,12 +40,12 @@ export default function ServiceSelector() {
               href={opt.route}
               className="group flex flex-col sm:flex-row sm:items-center justify-between p-6 sm:p-7 rounded-2xl bg-white border border-[#7899B0]/25 hover:border-[#172B3A] hover:shadow-md transition-all duration-300"
             >
-              <h3 className="text-lg sm:text-xl font-display font-bold text-[#172B3A] mb-3 sm:mb-0 group-hover:text-[#7899B0] transition-colors">
+              <h3 className="text-lg sm:text-xl font-display font-bold text-[#172B3A] mb-3 sm:mb-0 group-hover:text-[#3B5B72] transition-colors">
                 {opt.problem}
               </h3>
 
               <div className="flex items-center gap-3 shrink-0">
-                <span className="text-[11px] font-mono font-bold tracking-widest text-[#7899B0] group-hover:text-[#172B3A] uppercase transition-colors">
+                <span className="text-[11px] font-mono font-bold tracking-widest text-[#3B5B72] group-hover:text-[#172B3A] uppercase transition-colors">
                   {opt.service}
                 </span>
                 <div className="w-8 h-8 rounded-full bg-[#DCE6EB]/60 border border-[#7899B0]/25 group-hover:bg-[#172B3A] group-hover:border-[#172B3A] flex items-center justify-center transition-all">

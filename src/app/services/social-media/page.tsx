@@ -105,7 +105,7 @@ export default function SocialMediaServicePage() {
         <div className="container mx-auto px-5 sm:px-6 md:px-12 max-w-[1360px]">
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 text-xs font-mono font-medium tracking-widest text-[#7899B0] hover:text-[#172B3A] transition-colors mb-12 uppercase"
+            className="inline-flex items-center gap-2 text-xs font-mono font-medium tracking-widest text-[#3B5B72] hover:text-[#172B3A] transition-colors mb-12 uppercase"
           >
             <ArrowLeft size={16} /> Back to Services
           </Link>
@@ -116,7 +116,7 @@ export default function SocialMediaServicePage() {
               <span>DISCIPLINE 04 · CONTENT & DISTRIBUTION</span>
             </div>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight text-[#172B3A] mb-6 uppercase leading-[1.02]">
-              Content Strategy & Distribution<span className="text-[#7899B0]">.</span>
+              Content Strategy & Distribution<span className="text-[#3B5B72]">.</span>
             </h1>
             <p className="text-lg sm:text-2xl text-[#30383D] font-sans leading-relaxed max-w-3xl mb-10">
               Content that answers the questions your audience is already typing into Google. Strategic storytelling, art direction, and multi-channel distribution that compound over time.
@@ -128,7 +128,7 @@ export default function SocialMediaServicePage() {
               START A CONTENT STRATEGY{" "}
               <ArrowUpRight
                 size={16}
-                className="text-[#7899B0] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                className="text-[#93B2C8] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
               />
             </Link>
           </div>
@@ -145,7 +145,7 @@ export default function SocialMediaServicePage() {
                     {node}
                   </div>
                   {i !== flowNodes.length - 1 && (
-                    <ArrowRight size={16} className="text-[#7899B0]" />
+                    <ArrowRight size={16} className="text-[#3B5B72]" />
                   )}
                 </div>
               ))}
@@ -157,7 +157,7 @@ export default function SocialMediaServicePage() {
             <div className="lg:col-span-8 flex flex-col gap-16 md:gap-20">
               {/* Is this for you? */}
               <section className="bg-white rounded-3xl border border-[#7899B0]/25 p-8 sm:p-10 shadow-sm">
-                <h2 className="text-xs font-mono font-bold tracking-widest text-[#7899B0] mb-4 uppercase">
+                <h2 className="text-xs font-mono font-bold tracking-widest text-[#3B5B72] mb-4 uppercase">
                   IS THIS FOR YOU?
                 </h2>
                 <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#172B3A] mb-6 leading-tight">
@@ -169,7 +169,7 @@ export default function SocialMediaServicePage() {
                       key={i}
                       className="flex items-start gap-3 text-base sm:text-lg font-sans text-[#30383D] leading-relaxed"
                     >
-                      <ChevronRight size={20} className="text-[#7899B0] shrink-0 mt-1" />
+                      <ChevronRight size={20} className="text-[#3B5B72] shrink-0 mt-1" />
                       {item}
                     </li>
                   ))}
@@ -178,7 +178,7 @@ export default function SocialMediaServicePage() {
 
               {/* What we do */}
               <section>
-                <h2 className="text-xs font-mono font-bold tracking-widest text-[#7899B0] mb-4 uppercase">
+                <h2 className="text-xs font-mono font-bold tracking-widest text-[#3B5B72] mb-4 uppercase">
                   CAPABILITIES DELIVERED
                 </h2>
                 <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#172B3A] mb-8">
@@ -203,7 +203,7 @@ export default function SocialMediaServicePage() {
 
               {/* How it works */}
               <section className="bg-white rounded-3xl border border-[#7899B0]/25 p-8 sm:p-10 shadow-sm">
-                <h2 className="text-xs font-mono font-bold tracking-widest text-[#7899B0] mb-6 uppercase">
+                <h2 className="text-xs font-mono font-bold tracking-widest text-[#3B5B72] mb-6 uppercase">
                   PROCESS ARCHITECTURE
                 </h2>
                 <div className="flex flex-col border-l-2 border-[#7899B0]/25 ml-2">
@@ -223,7 +223,7 @@ export default function SocialMediaServicePage() {
 
               {/* FAQ */}
               <section className="bg-white rounded-3xl border border-[#7899B0]/25 p-8 sm:p-10 shadow-sm">
-                <h2 className="text-xs font-mono font-bold tracking-widest text-[#7899B0] mb-6 uppercase">
+                <h2 className="text-xs font-mono font-bold tracking-widest text-[#3B5B72] mb-6 uppercase">
                   FREQUENTLY ASKED QUESTIONS
                 </h2>
                 <div className="flex flex-col gap-6">
@@ -257,7 +257,7 @@ export default function SocialMediaServicePage() {
                         key={i}
                         className="flex items-start gap-3 text-sm font-sans text-[#172B3A] leading-relaxed"
                       >
-                        <CheckCircle2 size={16} className="text-[#7899B0] shrink-0 mt-0.5" />
+                        <CheckCircle2 size={16} className="text-[#3B5B72] shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -274,7 +274,7 @@ export default function SocialMediaServicePage() {
                         key={i}
                         className="flex items-start gap-3 text-sm font-sans text-[#30383D] leading-relaxed"
                       >
-                        <ChevronRight size={16} className="text-[#7899B0] shrink-0 mt-0.5" />
+                        <ChevronRight size={16} className="text-[#3B5B72] shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -290,7 +290,7 @@ export default function SocialMediaServicePage() {
                   </p>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#7899B0] hover:text-white transition-colors uppercase"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#93B2C8] hover:text-white transition-colors uppercase"
                   >
                     <span>START CONVERSATION ↗</span>
                   </Link>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import TransitionLink from "@/components/ui/TransitionLink";
-import { ArrowRight, ArrowUpRight, Sparkles, CheckCircle2, ChevronRight, Layers } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Sparkles, CheckCircle2, ChevronRight } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 export default function VyomaGrowthSystem() {
@@ -22,7 +22,7 @@ export default function VyomaGrowthSystem() {
 
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold tracking-tight text-[#172B3A] leading-tight">
             THE VYOMA <br className="hidden sm:inline" />
-            <span className="text-[#7899B0]">GROWTH SYSTEM.</span>
+            <span className="text-[#3B5B72]">GROWTH SYSTEM.</span>
           </h2>
 
           <p className="text-base sm:text-xl text-[#30383D] leading-relaxed font-sans">
@@ -54,7 +54,7 @@ export default function VyomaGrowthSystem() {
                   <div className="flex items-center justify-between mb-3">
                     <span
                       className={`text-xs font-mono font-bold tracking-widest ${
-                        isSelected ? "text-[#D3A56C]" : "text-[#7899B0]"
+                        isSelected ? "text-[#D3A56C]" : "text-[#3B5B72]"
                       }`}
                     >
                       {stage.step}
@@ -62,7 +62,7 @@ export default function VyomaGrowthSystem() {
                     {idx < stages.length - 1 && (
                       <ChevronRight
                         size={14}
-                        className={isSelected ? "text-[#7899B0]" : "text-[#7899B0]/60"}
+                        className={isSelected ? "text-[#93B2C8]" : "text-[#3B5B72]"}
                       />
                     )}
                   </div>
@@ -114,7 +114,7 @@ export default function VyomaGrowthSystem() {
                   {current.step}
                 </span>
                 <div>
-                  <span className="text-[10px] font-mono tracking-widest text-[#7899B0] uppercase font-bold">
+                  <span className="text-[10px] font-mono tracking-widest text-[#3B5B72] uppercase font-bold">
                     CONNECTED STAGE {current.step} OF 05
                   </span>
                   <h3 className="text-2xl sm:text-4xl font-display font-extrabold text-[#172B3A] tracking-tight">
@@ -139,13 +139,13 @@ export default function VyomaGrowthSystem() {
                   <span>COMMISSION THIS SYSTEM</span>
                   <ArrowUpRight
                     size={14}
-                    className="text-[#7899B0] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                    className="text-[#93B2C8] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
                   />
                 </TransitionLink>
 
                 <button
                   onClick={() => setSelectedStage((selectedStage + 1) % stages.length)}
-                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-[#DCE6EB]/60 hover:bg-[#DCE6EB] text-[#172B3A] font-mono text-xs font-semibold uppercase tracking-wider transition-colors border border-[#7899B0]/25"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-[#DCE6EB]/60 hover:bg-[#DCE6EB] text-[#172B3A] font-mono text-xs font-semibold uppercase tracking-wider transition-colors border border-[#7899B0]/25 cursor-pointer"
                 >
                   <span>NEXT STAGE: {stages[(selectedStage + 1) % stages.length].name}</span>
                   <ArrowRight size={14} />
@@ -159,7 +159,7 @@ export default function VyomaGrowthSystem() {
                 <span className="text-xs font-mono font-bold tracking-widest text-[#172B3A] uppercase">
                   VERIFIED DELIVERABLES
                 </span>
-                <span className="text-[10px] font-mono text-[#7899B0] uppercase font-bold">
+                <span className="text-[10px] font-mono text-[#3B5B72] uppercase font-bold">
                   STAGE {current.step} OUTPUT
                 </span>
               </div>
@@ -169,7 +169,7 @@ export default function VyomaGrowthSystem() {
                   <li key={item} className="flex items-start gap-3">
                     <CheckCircle2
                       size={18}
-                      className="text-[#7899B0] shrink-0 mt-0.5"
+                      className="text-[#3B5B72] shrink-0 mt-0.5"
                     />
                     <span className="text-sm font-sans font-medium text-[#172B3A]">
                       {item}
@@ -179,7 +179,7 @@ export default function VyomaGrowthSystem() {
               </ul>
 
               <div className="pt-4 border-t border-[#7899B0]/20 space-y-2">
-                <div className="text-[10px] font-mono uppercase text-[#7899B0] font-bold">
+                <div className="text-[10px] font-mono uppercase text-[#3B5B72] font-bold">
                   INTERCONNECTION WITH NEXT STAGE:
                 </div>
                 <p className="text-xs text-[#30383D] font-mono">
@@ -207,7 +207,7 @@ export default function VyomaGrowthSystem() {
             {stages.map((st, i) => (
               <span key={st.id} className="flex items-center gap-2 shrink-0">
                 <span
-                  className={selectedStage === i ? "text-[#D3A56C] underline underline-offset-4" : "text-[#7899B0]"}
+                  className={selectedStage === i ? "text-[#D3A56C] underline underline-offset-4" : "text-[#93B2C8]"}
                 >
                   {st.name}
                 </span>
@@ -216,7 +216,7 @@ export default function VyomaGrowthSystem() {
             ))}
           </div>
 
-          <span className="text-[10px] font-mono tracking-widest text-[#7899B0] uppercase">
+          <span className="text-[10px] font-mono tracking-widest text-[#93B2C8] uppercase">
             HYDERABAD · EST. 2025
           </span>
         </div>

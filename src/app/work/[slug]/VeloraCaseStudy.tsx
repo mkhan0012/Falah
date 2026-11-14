@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { Project } from "@/data/projects";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ExternalLink, ArrowRight, Eye, Sparkles, Building2, Compass, Key } from "lucide-react";
+import { ArrowLeft, ExternalLink, ArrowRight, Sparkles, Building2, Compass, Key } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CaseStudyNav from "@/components/sections/CaseStudyNav";

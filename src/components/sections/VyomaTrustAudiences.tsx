@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, ShieldCheck, HeartPulse, Building2, Factory, Vote } from "lucide-react";
+import { HeartPulse, Building2, Factory, Vote } from "lucide-react";
 
 const audiences = [
   {
@@ -49,7 +49,7 @@ export default function VyomaTrustAudiences() {
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold tracking-tight text-[#172B3A] leading-tight">
             Whoever you’re trying to reach, they’re asking the same question:{" "}
-            <span className="text-[#7899B0]">can I trust you?</span>
+            <span className="text-[#3B5B72]">can I trust you?</span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#30383D] leading-relaxed font-sans">
@@ -80,7 +80,7 @@ export default function VyomaTrustAudiences() {
                     <h3 className="text-xl font-display font-bold text-[#172B3A]">
                       {aud.role}
                     </h3>
-                    <span className="text-xs font-mono text-[#7899B0] block mt-0.5">
+                    <span className="text-xs font-mono text-[#3B5B72] font-semibold block mt-0.5">
                       {aud.action}
                     </span>
                   </div>
@@ -112,7 +112,7 @@ export default function VyomaTrustAudiences() {
           <p className="text-sm text-[#30383D] font-sans">
             <strong className="text-[#172B3A]">Different audiences make decisions differently.</strong> We adapt the creative tone, information hierarchy, and technical rigor to match how your specific market decides.
           </p>
-          <span className="text-xs font-mono font-bold text-[#7899B0] uppercase shrink-0">
+          <span className="text-xs font-mono font-bold text-[#3B5B72] uppercase shrink-0">
             HYDERABAD STUDIO
           </span>
         </div>

@@ -56,7 +56,7 @@ export default function VyomaHowWeWork() {
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold tracking-tight text-[#172B3A] leading-tight">
             Strategy first. Design that earns trust.{" "}
-            <span className="text-[#7899B0]">Systems that compound.</span>
+            <span className="text-[#3B5B72]">Systems that compound.</span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#30383D] leading-relaxed font-sans">
@@ -87,7 +87,7 @@ export default function VyomaHowWeWork() {
                     <h3 className="text-2xl font-display font-bold text-[#172B3A] mb-2">
                       {step.title}
                     </h3>
-                    <p className="text-sm font-semibold text-[#7899B0] mb-4">
+                    <p className="text-sm font-semibold text-[#3B5B72] mb-4">
                       {step.subtitle}
                     </p>
                     <p className="text-sm text-[#30383D] leading-relaxed font-sans">
@@ -97,12 +97,12 @@ export default function VyomaHowWeWork() {
                 </div>
 
                 <div className="pt-6 mt-6 border-t border-[#7899B0]/20 space-y-2.5">
-                  <span className="text-[10px] font-mono tracking-widest text-[#7899B0] uppercase font-bold block mb-1">
+                  <span className="text-[10px] font-mono tracking-widest text-[#3B5B72] uppercase font-bold block mb-1">
                     VERIFIED OUTCOMES
                   </span>
                   {step.outcomes.map((outcome) => (
                     <div key={outcome} className="flex items-center gap-2 text-xs text-[#30383D]">
-                      <CheckCircle2 size={14} className="text-[#7899B0] shrink-0" />
+                      <CheckCircle2 size={14} className="text-[#3B5B72] shrink-0" />
                       <span>{outcome}</span>
                     </div>
                   ))}

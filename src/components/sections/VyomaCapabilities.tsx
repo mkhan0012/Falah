@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Compass, Palette, Cpu, TrendingUp, Sparkles, Check, ArrowUpRight } from "lucide-react";
+import { Compass, Palette, Cpu, TrendingUp, Sparkles, ArrowUpRight } from "lucide-react";
 import TransitionLink from "@/components/ui/TransitionLink";
 
 const capabilityCategories = [
@@ -126,7 +126,7 @@ export default function VyomaCapabilities() {
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold tracking-tight text-[#172B3A] leading-tight">
             Comprehensive Capabilities. <br />
-            <span className="text-[#7899B0]">Unified Architecture.</span>
+            <span className="text-[#3B5B72]">Unified Architecture.</span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#30383D] leading-relaxed font-sans">
@@ -143,13 +143,13 @@ export default function VyomaCapabilities() {
               <button
                 key={cat.id}
                 onClick={() => setActiveTab(cat.id)}
-                className={`flex items-center gap-2.5 px-6 py-3 rounded-full font-mono text-xs font-bold uppercase tracking-wider transition-all ${
+                className={`flex items-center gap-2.5 px-6 py-3 rounded-full font-mono text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                   isActive
                     ? "bg-[#172B3A] text-white shadow-md"
                     : "bg-white text-[#30383D] border border-[#7899B0]/25 hover:border-[#172B3A]"
                 }`}
               >
-                <Icon size={15} className={isActive ? "text-[#7899B0]" : "text-[#7899B0]"} />
+                <Icon size={15} className={isActive ? "text-[#D3A56C]" : "text-[#3B5B72]"} />
                 <span>{cat.name}</span>
                 <span className="text-[10px] opacity-70">({cat.items.length})</span>
               </button>
@@ -173,7 +173,7 @@ export default function VyomaCapabilities() {
                       <Icon size={24} />
                     </div>
                     <div>
-                      <span className="text-[10px] font-mono tracking-widest text-[#7899B0] uppercase font-bold">
+                      <span className="text-[10px] font-mono tracking-widest text-[#3B5B72] uppercase font-bold">
                         {cat.badge}
                       </span>
                       <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#172B3A]">
@@ -184,7 +184,7 @@ export default function VyomaCapabilities() {
 
                   <TransitionLink
                     href={cat.link}
-                    className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-widest text-[#172B3A] hover:text-[#7899B0] transition-colors"
+                    className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-widest text-[#172B3A] hover:text-[#3B5B72] transition-colors"
                   >
                     <span>Explore {cat.name} Services</span>
                     <ArrowUpRight size={14} />

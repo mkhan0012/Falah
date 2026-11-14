@@ -18,7 +18,7 @@ export default function VyomaFaq({
   headline = (
     <>
       Clear Answers. <br />
-      <span className="text-[#7899B0]">No Agency Rhetoric.</span>
+      <span className="text-[#3B5B72]">No Agency Rhetoric.</span>
     </>
   ),
   description = "Everything you need to know about our growth philosophy, delivery timelines, and how we collaborate with ambitious businesses.",
@@ -72,7 +72,7 @@ export default function VyomaFaq({
             {/* Direct Consultation Box */}
             <div className="rounded-3xl bg-white border border-[#7899B0]/25 p-7 space-y-4 shadow-sm">
               <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase text-[#172B3A]">
-                <MessageSquare size={15} className="text-[#7899B0]" />
+                <MessageSquare size={15} className="text-[#3B5B72]" />
                 <span>HAVE A SPECIFIC QUESTION?</span>
               </div>
               <p className="text-sm text-[#30383D] leading-relaxed font-sans">
@@ -81,7 +81,7 @@ export default function VyomaFaq({
               <div className="pt-2">
                 <TransitionLink
                   href="/contact"
-                  className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#172B3A] hover:text-[#7899B0] transition-colors"
+                  className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#172B3A] hover:text-[#3B5B72] transition-colors"
                 >
                   <span>REQUEST A PROJECT REVIEW</span>
                   <ArrowUpRight size={14} />

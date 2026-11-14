@@ -15,7 +15,7 @@ export default function VyomaBelief() {
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold tracking-tight text-[#172B3A] leading-tight">
             A beautiful website is useless if nobody finds it.{" "}
-            <span className="text-[#7899B0]">
+            <span className="text-[#3B5B72]">
               A loud campaign is wasted money if it lands on a weak experience.
             </span>
           </h2>
@@ -62,7 +62,7 @@ export default function VyomaBelief() {
               </div>
             </div>
 
-            <div className="pt-6 mt-6 border-t border-[#7899B0]/20 text-xs font-mono text-[#7899B0] flex items-center gap-2">
+            <div className="pt-6 mt-6 border-t border-[#7899B0]/20 text-xs font-mono text-[#3B5B72] flex items-center gap-2">
               <RefreshCw size={13} className="text-[#172B3A]" />
               <span>Perpetual spend required to stay visible</span>
             </div>
@@ -72,7 +72,7 @@ export default function VyomaBelief() {
           <div className="rounded-3xl bg-[#172B3A] text-[#F1F3F1] border border-[#7899B0]/40 p-8 sm:p-10 relative overflow-hidden flex flex-col justify-between group shadow-xl">
             <div className="space-y-6 relative z-10">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-mono uppercase tracking-widest text-[#7899B0] font-bold flex items-center gap-2">
+                <span className="text-xs font-mono uppercase tracking-widest text-[#93B2C8] font-bold flex items-center gap-2">
                   <Sparkles size={15} className="text-[#D3A56C]" />
                   OWNED ATTENTION (VYOMA SYSTEM)
                 </span>
@@ -104,7 +104,7 @@ export default function VyomaBelief() {
             </div>
 
             <div className="pt-6 mt-6 border-t border-[#7899B0]/25 text-xs font-mono text-[#DCE6EB] flex items-center gap-2">
-              <Layers size={13} className="text-[#7899B0]" />
+              <Layers size={13} className="text-[#93B2C8]" />
               <span>Digital assets that continue creating value over time</span>
             </div>
           </div>
@@ -113,7 +113,7 @@ export default function VyomaBelief() {
         {/* The VYOMA Rule Callout Banner */}
         <div className="rounded-2xl bg-white border border-[#7899B0]/30 p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
           <div className="space-y-1 max-w-2xl">
-            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#7899B0] font-bold">
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#3B5B72] font-bold">
               THE VYOMA RULE
             </span>
             <p className="font-display font-bold text-lg sm:text-xl text-[#172B3A]">

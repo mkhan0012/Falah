@@ -41,7 +41,7 @@ export default async function SolutionPage({ params }: Props) {
         <div className="container mx-auto px-5 sm:px-6 md:px-12 max-w-[1360px] relative z-10">
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 text-xs font-mono font-medium tracking-widest text-[#7899B0] hover:text-[#172B3A] transition-colors mb-12 uppercase"
+            className="inline-flex items-center gap-2 text-xs font-mono font-medium tracking-widest text-[#3B5B72] hover:text-[#172B3A] transition-colors mb-12 uppercase"
           >
             <ArrowLeft size={15} /> Back to Disciplines Overview
           </Link>
@@ -69,7 +69,7 @@ export default async function SolutionPage({ params }: Props) {
                 <span>DEPLOY THIS SYSTEM</span>
                 <ArrowUpRight
                   size={16}
-                  className="text-[#7899B0] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                  className="text-[#93B2C8] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
                 />
               </Link>
 
@@ -94,7 +94,7 @@ export default async function SolutionPage({ params }: Props) {
                     {node}
                   </div>
                   {i !== solution.flowNodes.length - 1 && (
-                    <ArrowRight size={15} className="text-[#7899B0]" />
+                    <ArrowRight size={15} className="text-[#3B5B72]" />
                   )}
                 </div>
               ))}
@@ -106,7 +106,7 @@ export default async function SolutionPage({ params }: Props) {
             <div className="lg:col-span-8 flex flex-col gap-16 md:gap-20">
               {/* Audience Calibration */}
               <section className="rounded-3xl bg-white border border-[#7899B0]/25 p-8 sm:p-10 shadow-sm">
-                <h2 className="text-xs font-mono font-bold tracking-widest text-[#7899B0] mb-4 uppercase">
+                <h2 className="text-xs font-mono font-bold tracking-widest text-[#3B5B72] mb-4 uppercase">
                   AUDIENCE CALIBRATION
                 </h2>
                 <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#172B3A] mb-8 leading-tight">
@@ -118,7 +118,7 @@ export default async function SolutionPage({ params }: Props) {
                       key={i}
                       className="flex items-start gap-3.5 text-base sm:text-lg font-sans text-[#30383D] leading-relaxed"
                     >
-                      <ChevronRight size={18} className="text-[#7899B0] shrink-0 mt-1" />
+                      <ChevronRight size={18} className="text-[#3B5B72] shrink-0 mt-1" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -127,7 +127,7 @@ export default async function SolutionPage({ params }: Props) {
 
               {/* What we do */}
               <section>
-                <h2 className="text-xs font-mono font-bold tracking-widest text-[#7899B0] mb-4 uppercase">
+                <h2 className="text-xs font-mono font-bold tracking-widest text-[#3B5B72] mb-4 uppercase">
                   CORE DELIVERABLES
                 </h2>
                 <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#172B3A] mb-8">
@@ -157,7 +157,7 @@ export default async function SolutionPage({ params }: Props) {
 
               {/* Execution Methodology */}
               <section className="rounded-3xl bg-white border border-[#7899B0]/25 p-8 sm:p-10 shadow-sm">
-                <h2 className="text-xs font-mono font-bold tracking-widest text-[#7899B0] mb-4 uppercase">
+                <h2 className="text-xs font-mono font-bold tracking-widest text-[#3B5B72] mb-4 uppercase">
                   DEPLOYMENT PIPELINE
                 </h2>
                 <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#172B3A] mb-8">
@@ -180,7 +180,7 @@ export default async function SolutionPage({ params }: Props) {
 
               {/* FAQ */}
               <section className="rounded-3xl bg-white border border-[#7899B0]/25 p-8 sm:p-10 shadow-sm">
-                <h2 className="text-xs font-mono font-bold tracking-widest text-[#7899B0] mb-4 uppercase">
+                <h2 className="text-xs font-mono font-bold tracking-widest text-[#3B5B72] mb-4 uppercase">
                   FREQUENTLY ASKED QUESTIONS
                 </h2>
                 <div className="flex flex-col divide-y divide-[#7899B0]/20">
@@ -211,7 +211,7 @@ export default async function SolutionPage({ params }: Props) {
                         key={i}
                         className="flex items-start gap-3 text-xs sm:text-sm font-sans text-[#172B3A] leading-relaxed"
                       >
-                        <CheckCircle2 size={16} className="text-[#7899B0] shrink-0 mt-0.5" />
+                        <CheckCircle2 size={16} className="text-[#3B5B72] shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </li>
                     ))}

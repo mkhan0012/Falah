@@ -17,7 +17,7 @@ export default function RealEstateIndustryPage() {
       <div className="container mx-auto px-5 sm:px-6 md:px-12 max-w-[1360px] relative z-10">
         <Link
           href="/industries"
-          className="inline-flex items-center gap-2 text-xs font-mono font-medium tracking-widest text-[#7899B0] hover:text-[#172B3A] transition-colors mb-12 uppercase"
+          className="inline-flex items-center gap-2 text-xs font-mono font-medium tracking-widest text-[#3B5B72] hover:text-[#172B3A] transition-colors mb-12 uppercase"
         >
           <ArrowLeft size={16} /> All Industries
         </Link>
@@ -29,7 +29,7 @@ export default function RealEstateIndustryPage() {
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight text-[#172B3A] mb-8 uppercase leading-[1.02]">
-            Real Estate & Luxury<span className="text-[#7899B0]">.</span>
+            Real Estate & Luxury<span className="text-[#3B5B72]">.</span>
           </h1>
 
           <p className="text-lg sm:text-2xl text-[#30383D] max-w-3xl font-sans leading-relaxed">
@@ -53,7 +53,7 @@ export default function RealEstateIndustryPage() {
                 <span>DISCUSS PROPERTY SCOPE</span>
                 <ArrowUpRight
                   size={15}
-                  className="text-[#7899B0] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                  className="text-[#93B2C8] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
                 />
               </Link>
               <Link
@@ -71,19 +71,19 @@ export default function RealEstateIndustryPage() {
             </h2>
             <ul className="flex flex-col gap-4 text-sm sm:text-base font-sans text-[#172B3A] font-medium">
               <li className="flex items-center gap-4 border-b border-[#7899B0]/20 pb-4">
-                <CheckCircle2 size={18} className="text-[#7899B0] shrink-0" />
+                <CheckCircle2 size={18} className="text-[#3B5B72] shrink-0" />
                 <span>Architectural UI & Interactive Floor Plan Showcases</span>
               </li>
               <li className="flex items-center gap-4 border-b border-[#7899B0]/20 pb-4">
-                <CheckCircle2 size={18} className="text-[#7899B0] shrink-0" />
+                <CheckCircle2 size={18} className="text-[#3B5B72] shrink-0" />
                 <span>High-Intent Local Search & Micro-Market Inbound</span>
               </li>
               <li className="flex items-center gap-4 border-b border-[#7899B0]/20 pb-4">
-                <CheckCircle2 size={18} className="text-[#7899B0] shrink-0" />
+                <CheckCircle2 size={18} className="text-[#3B5B72] shrink-0" />
                 <span>Strict RERA Disclaimer Integration & Trust Compliance</span>
               </li>
               <li className="flex items-center gap-4 border-b border-[#7899B0]/20 pb-4">
-                <CheckCircle2 size={18} className="text-[#7899B0] shrink-0" />
+                <CheckCircle2 size={18} className="text-[#3B5B72] shrink-0" />
                 <span>Sub-Second Mobile Landing Pages for High-Converting Ad Traffic</span>
               </li>
             </ul>

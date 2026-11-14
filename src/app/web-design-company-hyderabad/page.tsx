@@ -138,7 +138,7 @@ export default function WebDesignHyderabad() {
           
           {/* Breadcrumb Navigation Bar */}
           <nav aria-label="Breadcrumb" className="mb-8">
-            <ol className="flex items-center gap-2 text-xs font-mono text-[#7899B0]">
+            <ol className="flex items-center gap-2 text-xs font-mono text-[#3B5B72]">
               <li>
                 <Link href="/" className="hover:text-[#172B3A] transition-colors">
                   HOME
@@ -157,7 +157,7 @@ export default function WebDesignHyderabad() {
             </div>
 
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight text-[#172B3A] mb-8 uppercase leading-[0.98]">
-              Web Design Company in Hyderabad<span className="text-[#7899B0]">.</span>
+              Web Design Company in Hyderabad<span className="text-[#3B5B72]">.</span>
             </h1>
 
             <p className="text-lg sm:text-2xl text-[#30383D] font-sans leading-relaxed mb-10 max-w-3xl">
@@ -178,7 +178,7 @@ export default function WebDesignHyderabad() {
                 className="inline-flex items-center gap-2 bg-white border border-[#7899B0]/30 text-[#172B3A] px-7 py-4 rounded-full font-mono text-xs md:text-sm font-bold hover:border-[#172B3A] transition-all uppercase shadow-xs group tracking-wider"
               >
                 <span>EXPLORE WORK</span>
-                <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform text-[#7899B0]" />
+                <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform text-[#3B5B72]" />
               </Link>
             </div>
           </div>
@@ -187,26 +187,26 @@ export default function WebDesignHyderabad() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 rounded-3xl bg-white border border-[#7899B0]/25 shadow-xs mb-20">
             <div className="p-4 border-r border-[#7899B0]/15 last:border-none">
               <div className="text-2xl sm:text-3xl font-display font-black text-[#172B3A]">100/100</div>
-              <div className="text-xs font-mono uppercase text-[#7899B0] tracking-wider mt-1">Core Web Vitals</div>
+              <div className="text-xs font-mono uppercase text-[#3B5B72] font-semibold tracking-wider mt-1">Core Web Vitals</div>
             </div>
             <div className="p-4 md:border-r border-[#7899B0]/15">
               <div className="text-2xl sm:text-3xl font-display font-black text-[#D3A56C]">&lt; 0.8s</div>
-              <div className="text-xs font-mono uppercase text-[#7899B0] tracking-wider mt-1">First Contentful Paint</div>
+              <div className="text-xs font-mono uppercase text-[#3B5B72] font-semibold tracking-wider mt-1">First Contentful Paint</div>
             </div>
             <div className="p-4 border-r border-[#7899B0]/15 last:border-none">
               <div className="text-2xl sm:text-3xl font-display font-black text-[#172B3A]">0%</div>
-              <div className="text-xs font-mono uppercase text-[#7899B0] tracking-wider mt-1">Plugin / Theme Bloat</div>
+              <div className="text-xs font-mono uppercase text-[#3B5B72] font-semibold tracking-wider mt-1">Plugin / Theme Bloat</div>
             </div>
             <div className="p-4">
-              <div className="text-2xl sm:text-3xl font-display font-black text-[#7899B0]">SSR + ISR</div>
-              <div className="text-xs font-mono uppercase text-[#7899B0] tracking-wider mt-1">Next.js Edge Delivery</div>
+              <div className="text-2xl sm:text-3xl font-display font-black text-[#3B5B72]">SSR + ISR</div>
+              <div className="text-xs font-mono uppercase text-[#3B5B72] font-semibold tracking-wider mt-1">Next.js Edge Delivery</div>
             </div>
           </div>
 
           {/* Comparison Matrix: Why Custom Next.js Architecture Wins */}
           <div className="border-t border-[#7899B0]/25 pt-16 pb-20">
             <div className="max-w-3xl mb-12">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#7899B0]/30 text-xs font-mono text-[#7899B0] uppercase tracking-wider mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#7899B0]/30 text-xs font-mono text-[#3B5B72] font-semibold uppercase tracking-wider mb-4">
                 COMMERCIAL ARCHITECTURE COMPARISON
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-[#172B3A] tracking-tight mb-4">
@@ -246,7 +246,7 @@ export default function WebDesignHyderabad() {
               </div>
 
               <div className="rounded-3xl bg-white/70 border border-[#7899B0]/25 p-8 shadow-xs">
-                <div className="text-[10px] font-mono text-[#7899B0] uppercase font-bold tracking-widest mb-2">
+                <div className="text-[10px] font-mono text-[#3B5B72] uppercase font-bold tracking-widest mb-2">
                   LEGACY APPROACH
                 </div>
                 <h3 className="text-xl font-display font-bold text-[#30383D]/80 mb-4">
@@ -277,7 +277,7 @@ export default function WebDesignHyderabad() {
           {/* Process Section */}
           <div className="border-t border-[#7899B0]/25 pt-16 pb-20">
             <div className="max-w-3xl mb-12">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#7899B0]/30 text-xs font-mono text-[#7899B0] uppercase tracking-wider mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#7899B0]/30 text-xs font-mono text-[#3B5B72] font-semibold uppercase tracking-wider mb-4">
                 THE ENGINEERING METHOD
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-[#172B3A] tracking-tight mb-4">
@@ -307,7 +307,7 @@ export default function WebDesignHyderabad() {
           {/* Hyderabad Business Hubs We Serve */}
           <div className="border-t border-[#7899B0]/25 pt-16 pb-20">
             <div className="max-w-3xl mb-12">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#7899B0]/30 text-xs font-mono text-[#7899B0] uppercase tracking-wider mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#7899B0]/30 text-xs font-mono text-[#3B5B72] font-semibold uppercase tracking-wider mb-4">
                 <MapPin size={12} className="text-[#D3A56C]" />
                 HYDERABAD COMMERCIAL CORRIDORS
               </div>
@@ -323,7 +323,7 @@ export default function WebDesignHyderabad() {
               {hyderabadHubs.map((hub) => (
                 <div key={hub.area} className="p-8 rounded-3xl bg-white border border-[#7899B0]/25 shadow-xs">
                   <h3 className="text-xl font-display font-bold text-[#172B3A] mb-2 flex items-center gap-2">
-                    <MapPin size={16} className="text-[#7899B0]" />
+                    <MapPin size={16} className="text-[#3B5B72]" />
                     <span>{hub.area}</span>
                   </h3>
                   <p className="text-sm text-[#30383D] leading-relaxed">
@@ -362,7 +362,7 @@ export default function WebDesignHyderabad() {
                       Drive compounding organic pipeline from Google & AI search.
                     </p>
                   </div>
-                  <ArrowUpRight size={18} className="text-[#7899B0] group-hover:text-white transition-colors" />
+                  <ArrowUpRight size={18} className="text-[#93B2C8] group-hover:text-white transition-colors" />
                 </Link>
 
                 <Link
@@ -377,7 +377,7 @@ export default function WebDesignHyderabad() {
                       Build visual identity systems and brand positioning that command respect.
                     </p>
                   </div>
-                  <ArrowUpRight size={18} className="text-[#7899B0] group-hover:text-white transition-colors" />
+                  <ArrowUpRight size={18} className="text-[#93B2C8] group-hover:text-white transition-colors" />
                 </Link>
               </div>
             </div>
@@ -394,7 +394,7 @@ export default function WebDesignHyderabad() {
         headline={
           <>
             Web Design in Hyderabad. <br />
-            <span className="text-[#7899B0]">Clear Answers on Pricing & Delivery.</span>
+            <span className="text-[#3B5B72]">Clear Answers on Pricing & Delivery.</span>
           </>
         }
         description="Frequently asked questions about our custom Next.js engineering, timelines, and commercial web deliverables in Hyderabad."

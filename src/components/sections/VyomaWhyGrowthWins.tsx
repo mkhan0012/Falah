@@ -69,7 +69,7 @@ export default function VyomaWhyGrowthWins() {
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold tracking-tight text-[#172B3A] leading-tight">
             Rented traffic stops. <br />
-            <span className="text-[#7899B0]">Owned visibility compounds.</span>
+            <span className="text-[#3B5B72]">Owned visibility compounds.</span>
           </h2>
 
           {/* Renting vs Buying Home Metaphor Callout */}
@@ -97,7 +97,7 @@ export default function VyomaWhyGrowthWins() {
                     <div className="w-12 h-12 rounded-2xl bg-[#DCE6EB]/60 border border-[#7899B0]/25 flex items-center justify-center text-[#172B3A] group-hover:bg-[#172B3A] group-hover:text-white transition-all duration-300">
                       <Icon size={22} />
                     </div>
-                    <span className="font-mono text-xs font-bold tracking-widest text-[#7899B0]">
+                    <span className="font-mono text-xs font-bold tracking-widest text-[#3B5B72]">
                       PILLAR {pillar.number}
                     </span>
                   </div>
@@ -115,7 +115,7 @@ export default function VyomaWhyGrowthWins() {
                   </div>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-[#7899B0]/20 flex items-center justify-between text-xs font-mono text-[#7899B0]">
+                <div className="pt-6 mt-6 border-t border-[#7899B0]/20 flex items-center justify-between text-xs font-mono text-[#3B5B72]">
                   <span>COMPOUNDING EQUITY</span>
                   <span className="group-hover:text-[#172B3A] transition-colors font-bold">
                     0{pillar.number} / 04 →
@@ -152,7 +152,7 @@ export default function VyomaWhyGrowthWins() {
               <ul className="space-y-4 text-xs sm:text-sm text-[#DCE6EB]/80 font-sans">
                 {comparisonMatrix.map((item, idx) => (
                   <li key={idx} className="pb-3 border-b border-white/5 last:border-b-0 space-y-1">
-                    <span className="text-[11px] font-mono text-[#7899B0] uppercase block">
+                    <span className="text-[11px] font-mono text-[#93B2C8] uppercase block">
                       {item.metric}:
                     </span>
                     <p className="text-white/80">{item.rented}</p>
@@ -230,7 +230,7 @@ export default function VyomaWhyGrowthWins() {
           </div>
 
           <div className="mt-8 pt-6 border-t border-[#7899B0]/20 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-xs font-mono text-[#7899B0]">
+            <p className="text-xs font-mono text-[#3B5B72] font-semibold">
               Q4 Intake: Limited to 3 enterprise engagements per cycle.
             </p>
             <TransitionLink

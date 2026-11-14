@@ -37,34 +37,34 @@ export default function Footer() {
               <p className="text-xs text-[#DCE6EB] font-mono">
                 STRATEGY → BRAND → DIGITAL → VISIBILITY → GROWTH
               </p>
-              <p className="text-[10px] text-[#7899B0] uppercase font-mono">
+              <p className="text-[10px] text-[#93B2C8] uppercase font-mono">
                 One connected system. Built for long-term growth.
               </p>
             </div>
 
             <div className="flex items-center gap-2 text-xs font-mono text-[#DCE6EB]">
-              <MapPin size={14} className="text-[#7899B0]" />
+              <MapPin size={14} className="text-[#93B2C8]" />
               <span>{siteConfig.contact.address}</span>
             </div>
 
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-[#7899B0]/30 text-[11px] font-mono text-[#DCE6EB]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#7899B0] animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#93B2C8] animate-pulse" />
               <span>Growth You Own // Direct Strategic Engagements</span>
             </div>
           </div>
 
           {/* Column 2: Direct Contact */}
           <div className="lg:col-span-3 space-y-5">
-            <h4 className="text-xs font-mono font-bold tracking-widest text-[#7899B0] uppercase">
+            <p className="text-xs font-mono font-bold tracking-widest text-[#93B2C8] uppercase">
               STUDIO CONTACT
-            </h4>
+            </p>
             <ul className="space-y-3.5 text-sm text-[#DCE6EB]">
               <li>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
                   className="hover:text-white transition-colors flex items-center gap-2.5 font-medium"
                 >
-                  <Mail size={15} className="text-[#7899B0]" />
+                  <Mail size={15} className="text-[#93B2C8]" />
                   <span>{siteConfig.contact.email}</span>
                 </a>
               </li>
@@ -73,7 +73,7 @@ export default function Footer() {
                   href={`tel:${siteConfig.contact.phone.replace(/\s+/g, "")}`}
                   className="hover:text-white transition-colors flex items-center gap-2.5 font-medium"
                 >
-                  <Phone size={15} className="text-[#7899B0]" />
+                  <Phone size={15} className="text-[#93B2C8]" />
                   <span>{siteConfig.contact.phoneDisplay}</span>
                 </a>
               </li>
@@ -86,11 +86,11 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-[#D3A56C] transition-colors flex items-center gap-2.5 font-semibold text-white group"
                 >
-                  <MessageSquare size={15} className="text-[#7899B0] group-hover:text-[#D3A56C]" />
+                  <MessageSquare size={15} className="text-[#93B2C8] group-hover:text-[#D3A56C]" />
                   <span>WhatsApp Direct Line ↗</span>
                 </a>
               </li>
-              <li className="pt-2 text-xs font-mono text-[#7899B0]">
+              <li className="pt-2 text-xs font-mono text-[#93B2C8]">
                 {siteConfig.contact.workingHours} <br />
                 In-person consultations in Hyderabad or via secure video.
               </li>
@@ -99,9 +99,9 @@ export default function Footer() {
 
           {/* Column 3: Capabilities & Sectors */}
           <div className="lg:col-span-3 space-y-5">
-            <h4 className="text-xs font-mono font-bold tracking-widest text-[#7899B0] uppercase">
+            <p className="text-xs font-mono font-bold tracking-widest text-[#93B2C8] uppercase">
               DISCIPLINES & SERVICES
-            </h4>
+            </p>
             <ul className="space-y-2 text-sm text-[#DCE6EB]">
               <li>
                 <TransitionLink
@@ -168,9 +168,9 @@ export default function Footer() {
           {/* Column 4: Studio Exploration & Legal */}
           <div className="lg:col-span-2 space-y-6">
             <div>
-              <h4 className="text-xs font-mono font-bold tracking-widest text-[#7899B0] uppercase mb-4">
+              <p className="text-xs font-mono font-bold tracking-widest text-[#93B2C8] uppercase mb-4">
                 EXPLORE
-              </h4>
+              </p>
               <ul className="space-y-2 text-sm text-[#DCE6EB]">
                 <li>
                   <TransitionLink href="/work" className="hover:text-white transition-colors">
@@ -202,10 +202,10 @@ export default function Footer() {
             </div>
 
             <div className="pt-1">
-              <h4 className="text-xs font-mono font-bold tracking-widest text-[#D3A56C] uppercase mb-3 flex items-center gap-1.5">
+              <p className="text-xs font-mono font-bold tracking-widest text-[#D3A56C] uppercase mb-3 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D3A56C]" />
                 <span>HYDERABAD HUBS</span>
-              </h4>
+              </p>
               <ul className="space-y-2 text-xs text-[#DCE6EB]">
                 <li>
                   <TransitionLink href="/web-design-company-hyderabad" className="hover:text-white transition-colors block">
@@ -226,10 +226,10 @@ export default function Footer() {
             </div>
 
             <div className="pt-2">
-              <h4 className="text-xs font-mono font-bold tracking-widest text-[#7899B0] uppercase mb-3">
+              <p className="text-xs font-mono font-bold tracking-widest text-[#93B2C8] uppercase mb-3">
                 LEGAL
-              </h4>
-              <ul className="space-y-1.5 text-xs text-[#7899B0]">
+              </p>
+              <ul className="space-y-1.5 text-xs text-[#93B2C8]">
                 <li>
                   <TransitionLink href="/privacy-policy" className="hover:text-white transition-colors">
                     Privacy Policy
@@ -259,7 +259,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar: Copyright & Location Badge */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#7899B0]">
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#93B2C8]">
           <p>© {currentYear} VYOMA MEDIA. ALL RIGHTS RESERVED.</p>
           <p className="tracking-widest uppercase text-[10px]">
             GROWTH YOU OWN, NOT GROWTH YOU RENT · HYDERABAD, INDIA

@@ -91,7 +91,7 @@ export default function VyomaIndustries() {
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold tracking-tight text-[#172B3A] leading-tight">
             Industries We Build For. <br />
-            <span className="text-[#7899B0]">Different Rules. Same Commercial Rigor.</span>
+            <span className="text-[#3B5B72]">Different Rules. Same Commercial Rigor.</span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#30383D] leading-relaxed font-sans">
@@ -114,13 +114,13 @@ export default function VyomaIndustries() {
                     <div className="w-12 h-12 rounded-2xl bg-[#DCE6EB]/60 flex items-center justify-center text-[#172B3A] group-hover:bg-[#172B3A] group-hover:text-white transition-all duration-300">
                       <Icon size={22} />
                     </div>
-                    <span className="font-mono text-[10px] font-bold text-[#7899B0] uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#DCE6EB]/40 border border-[#7899B0]/20">
+                    <span className="font-mono text-[10px] font-bold text-[#3B5B72] uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#DCE6EB]/40 border border-[#7899B0]/20">
                       {ind.badge}
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="text-2xl font-display font-bold text-[#172B3A] mb-2 group-hover:text-[#7899B0] transition-colors">
+                    <h3 className="text-2xl font-display font-bold text-[#172B3A] mb-2 group-hover:text-[#3B5B72] transition-colors">
                       {ind.name}
                     </h3>
                     <h4 className="text-sm font-semibold text-[#30383D] mb-3">
@@ -134,16 +134,16 @@ export default function VyomaIndustries() {
 
                 <div className="pt-6 mt-6 border-t border-[#7899B0]/20 space-y-2">
                   <div className="flex items-center gap-2 text-xs text-[#172B3A] font-mono">
-                    <ShieldCheck size={14} className="text-[#7899B0] shrink-0" />
+                    <ShieldCheck size={14} className="text-[#3B5B72] shrink-0" />
                     <span className="text-[11px] truncate">{ind.rules}</span>
                   </div>
                   <div className="flex items-center justify-between pt-1">
-                    <span className="text-[10px] font-mono uppercase text-[#7899B0] font-bold">
+                    <span className="text-[10px] font-mono uppercase text-[#3B5B72] font-bold">
                       SECTOR DETAIL →
                     </span>
                     <ArrowUpRight
                       size={15}
-                      className="text-[#7899B0] group-hover:text-[#172B3A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                      className="text-[#3B5B72] group-hover:text-[#172B3A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
                     />
                   </div>
                 </div>

@@ -72,7 +72,7 @@ function ContactForm() {
     return (
       <div className="rounded-3xl bg-white border border-[#7899B0]/25 p-8 sm:p-12 text-center animate-in fade-in zoom-in-95 duration-500 space-y-6 shadow-sm">
         <div className="w-16 h-16 bg-[#172B3A] text-white rounded-full flex items-center justify-center mx-auto shadow-md">
-          <CheckCircle2 size={32} className="text-[#7899B0]" />
+          <CheckCircle2 size={32} className="text-[#93B2C8]" />
         </div>
 
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#DCE6EB] border border-[#7899B0]/30 text-[#172B3A] font-mono text-xs font-bold uppercase tracking-wider">
@@ -315,7 +315,7 @@ function ContactForm() {
           {isSubmitting ? "TRANSMITTING BRIEF..." : "START A PROJECT"}
           <ArrowRight
             size={16}
-            className="text-[#7899B0] group-hover:translate-x-1 transition-transform"
+            className="text-[#93B2C8] group-hover:translate-x-1 transition-transform"
           />
         </button>
       </div>
@@ -347,7 +347,7 @@ export default function ContactPage() {
               {/* Exact Main Heading & Supporting Copy from Section 12 */}
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight leading-[0.98] mb-6 uppercase text-[#172B3A]">
                 LET’S BUILD <br />
-                <span className="text-[#7899B0]">SOMETHING THAT LASTS.</span>
+                <span className="text-[#3B5B72]">SOMETHING THAT LASTS.</span>
               </h1>
 
               <p className="text-base sm:text-lg font-sans text-[#30383D] mb-10 max-w-sm leading-relaxed">
@@ -360,7 +360,7 @@ export default function ContactPage() {
                     <MapPin size={16} />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono text-[#7899B0] uppercase block font-medium">Studio Headquarters</span>
+                    <span className="text-[10px] font-mono text-[#3B5B72] uppercase block font-medium">Studio Headquarters</span>
                     <span className="text-xs font-mono text-[#172B3A] font-semibold">{siteConfig.contact.address}</span>
                   </div>
                 </div>
@@ -370,7 +370,7 @@ export default function ContactPage() {
                     <Phone size={16} />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono text-[#7899B0] uppercase block font-medium">Direct Studio Line</span>
+                    <span className="text-[10px] font-mono text-[#3B5B72] uppercase block font-medium">Direct Studio Line</span>
                     <a href={`tel:${siteConfig.contact.phone.replace(/\s+/g, "")}`} className="text-xs font-mono text-[#172B3A] hover:underline font-bold">
                       {siteConfig.contact.phoneDisplay}
                     </a>
@@ -382,8 +382,8 @@ export default function ContactPage() {
                     <Mail size={16} />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono text-[#7899B0] uppercase block font-medium">Direct Email</span>
-                    <a href={`mailto:${siteConfig.contact.email}`} className="text-xs font-mono text-[#172B3A] hover:text-[#7899B0] font-semibold transition-colors">
+                    <span className="text-[10px] font-mono text-[#3B5B72] uppercase block font-medium">Direct Email</span>
+                    <a href={`mailto:${siteConfig.contact.email}`} className="text-xs font-mono text-[#172B3A] hover:text-[#3B5B72] font-semibold transition-colors">
                       {siteConfig.contact.email}
                     </a>
                   </div>
@@ -394,7 +394,7 @@ export default function ContactPage() {
                     <MessageSquare size={16} />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono text-[#7899B0] uppercase block font-medium">WhatsApp Direct Line</span>
+                    <span className="text-[10px] font-mono text-[#3B5B72] uppercase block font-medium">WhatsApp Direct Line</span>
                     <a
                       href={`https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(
                         siteConfig.contact.whatsappMessage
@@ -412,7 +412,7 @@ export default function ContactPage() {
 
             <div className="mt-12 hidden lg:block pt-8 border-t border-[#7899B0]/20">
               <h3 className="text-xs font-mono font-bold tracking-widest text-[#172B3A] uppercase mb-6 flex items-center gap-2">
-                WHAT HAPPENS NEXT? <ArrowDown size={14} className="text-[#7899B0]" />
+                WHAT HAPPENS NEXT? <ArrowDown size={14} className="text-[#3B5B72]" />
               </h3>
               <div className="space-y-4">
                 {steps.map((step) => (

@@ -1,8 +1,7 @@
 ﻿import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Sparkles, CheckCircle2, MapPin, Compass, Palette, Network } from "lucide-react";
-import LogoMark from "@/components/ui/LogoMark";
+import { ArrowUpRight, Sparkles, MapPin } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -27,7 +26,7 @@ export default function AboutPage() {
 
           <h1 className="text-4xl sm:text-6xl lg:text-[6.5rem] font-display font-extrabold tracking-tight leading-[0.98] mb-8 uppercase text-[#172B3A]">
             ABOUT VYOMA. <br />
-            <span className="text-[#7899B0]">
+            <span className="text-[#3B5B72]">
               GROWTH IS NOT A CAMPAIGN. IT IS A SYSTEM.
             </span>
           </h1>
@@ -65,7 +64,7 @@ export default function AboutPage() {
       {/* The VYOMA Growth System Methodology */}
       <section className="container mx-auto px-5 sm:px-6 md:px-12 max-w-[1360px] mb-28 relative z-10">
         <div className="max-w-2xl mb-12">
-          <span className="text-xs font-mono font-bold tracking-[0.2em] text-[#7899B0] uppercase block mb-2">
+          <span className="text-xs font-mono font-bold tracking-[0.2em] text-[#3B5B72] uppercase block mb-2">
             OPERATIONAL METHODOLOGY
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-extrabold text-[#172B3A]">
@@ -90,7 +89,7 @@ export default function AboutPage() {
                   <h3 className="text-xl font-display font-bold text-[#172B3A]">
                     {item.name}
                   </h3>
-                  <span className="text-[10px] font-mono text-[#7899B0] uppercase block mt-1">
+                  <span className="text-[10px] font-mono text-[#3B5B72] uppercase block mt-1">
                     {item.headline.split("&")[0]}
                   </span>
                 </div>
@@ -99,7 +98,7 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-[#7899B0]/20 text-[10px] font-mono text-[#7899B0] uppercase">
+              <div className="pt-4 border-t border-[#7899B0]/20 text-[10px] font-mono text-[#3B5B72] uppercase">
                 {item.deliverables[0]}
               </div>
             </div>
@@ -114,7 +113,7 @@ export default function AboutPage() {
             <h2 className="text-xs font-mono font-bold tracking-[0.2em] text-[#172B3A] uppercase">
               STUDIO PHILOSOPHY
             </h2>
-            <p className="text-sm font-sans text-[#7899B0] mt-3">
+            <p className="text-sm font-sans text-[#30383D] mt-3">
               The fundamental flaw of modern digital agency practice is rented attention.
             </p>
           </div>
@@ -136,7 +135,7 @@ export default function AboutPage() {
       {/* Working Principles */}
       <section className="container mx-auto px-5 sm:px-6 md:px-12 max-w-[1360px] mb-28 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-xs font-mono font-bold tracking-[0.2em] text-[#7899B0] uppercase mb-3">
+          <h2 className="text-xs font-mono font-bold tracking-[0.2em] text-[#3B5B72] uppercase mb-3">
             HOW WE WORK
           </h2>
           <p className="text-2xl sm:text-4xl font-display font-extrabold text-[#172B3A]">
@@ -157,7 +156,7 @@ export default function AboutPage() {
                 We don’t guess. We study your market, your competitors, and what people actually search for, so we know where demand already exists. Then we set your positioning, the one idea that makes you different.
               </p>
             </div>
-            <div className="mt-8 pt-4 border-t border-[#7899B0]/20 text-xs font-mono text-[#7899B0]">
+            <div className="mt-8 pt-4 border-t border-[#7899B0]/20 text-xs font-mono text-[#3B5B72]">
               Pre-agreed qualified lead definitions
             </div>
           </div>
@@ -174,7 +173,7 @@ export default function AboutPage() {
                 People judge credibility in seconds, before reading a word. We build premium visual identities and websites that signal you are careful and capable: calm for healthcare, aspirational for property, sharp for industry, bold for film.
               </p>
             </div>
-            <div className="mt-8 pt-4 border-t border-[#7899B0]/20 text-xs font-mono text-[#7899B0]">
+            <div className="mt-8 pt-4 border-t border-[#7899B0]/20 text-xs font-mono text-[#3B5B72]">
               Sector-specific cognitive trust
             </div>
           </div>
@@ -191,7 +190,7 @@ export default function AboutPage() {
                 A viral post is a tactic. A search presence, a content library, and a fast, well-tracked website are systems. We set up tracking so you always see what is working, cut what isn’t, and put more into what is.
               </p>
             </div>
-            <div className="mt-8 pt-4 border-t border-[#7899B0]/20 text-xs font-mono text-[#7899B0]">
+            <div className="mt-8 pt-4 border-t border-[#7899B0]/20 text-xs font-mono text-[#3B5B72]">
               Closed-loop performance attribution
             </div>
           </div>

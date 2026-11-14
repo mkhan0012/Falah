@@ -7,14 +7,11 @@ import {
   ArrowRight,
   ArrowLeft,
   Check,
-  Phone,
-  MessageSquare,
   Sparkles,
   RotateCcw,
   Home,
 } from "lucide-react";
 import clsx from "clsx";
-import { siteConfig } from "@/config/site";
 
 function RfpForm() {
   const [step, setStep] = useState(1);
@@ -150,7 +147,7 @@ function RfpForm() {
     return (
       <div className="py-12 md:py-20 text-center animate-in zoom-in-95 duration-500 max-w-xl mx-auto">
         <div className="w-16 h-16 md:w-20 md:h-20 bg-[#172B3A] text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
-          <Check className="w-8 h-8 md:w-10 md:h-10 text-[#7899B0]" />
+          <Check className="w-8 h-8 md:w-10 md:h-10 text-[#93B2C8]" />
         </div>
 
         <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#7899B0]/30 bg-white text-[#172B3A] font-mono text-xs uppercase tracking-widest font-semibold mb-4 shadow-sm">
@@ -169,17 +166,17 @@ function RfpForm() {
             Scope Summary
           </div>
           <div className="text-[#30383D]">
-            <span className="text-[#7899B0]">Selected Capabilities:</span>{" "}
+            <span className="text-[#3B5B72]">Selected Capabilities:</span>{" "}
             {formData.needs.join(", ")}
           </div>
           {formData.budget && (
             <div className="text-[#30383D]">
-              <span className="text-[#7899B0]">Target Allocation:</span> {formData.budget}
+              <span className="text-[#3B5B72]">Target Allocation:</span> {formData.budget}
             </div>
           )}
           {formData.timeline && (
             <div className="text-[#30383D]">
-              <span className="text-[#7899B0]">Deployment Window:</span> {formData.timeline}
+              <span className="text-[#3B5B72]">Deployment Window:</span> {formData.timeline}
             </div>
           )}
         </div>
@@ -211,7 +208,7 @@ function RfpForm() {
           <span className="text-[#172B3A] font-bold uppercase tracking-wider">
             STEP 0{step} OF 04
           </span>
-          <span className="text-[#7899B0]">
+          <span className="text-[#3B5B72]">
             {step === 1 && "CORE OBJECTIVES"}
             {step === 2 && "BUSINESS CONTEXT"}
             {step === 3 && "TIMELINE & SCOPE"}
@@ -529,7 +526,7 @@ function RfpForm() {
             : step === 4
             ? "SUBMIT PROPOSAL REQUEST"
             : "CONTINUE"}
-          {!isSubmitting && <ArrowRight size={15} className="text-[#7899B0]" />}
+          {!isSubmitting && <ArrowRight size={15} className="text-[#93B2C8]" />}
         </button>
       </div>
     </form>
@@ -548,7 +545,7 @@ export default function RequestProposalPage() {
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold leading-[0.98] tracking-tight uppercase text-[#172B3A]">
             REQUEST A <br />
-            <span className="text-[#7899B0]">PROPOSAL.</span>
+            <span className="text-[#3B5B72]">PROPOSAL.</span>
           </h1>
 
           <p className="mt-4 text-[#30383D] font-sans text-base md:text-lg max-w-xl leading-relaxed">

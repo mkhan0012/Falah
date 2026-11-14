@@ -1,67 +1,34 @@
-# VYOMA MEDIA
+# VYOMA Media
 
-> GROWTH YOU OWN. NOT GROWTH YOU RENT.
-> We build brands, digital experiences and organic visibility that create lasting commercial value.
+> Growth You Own. Not Growth You Rent. We build brands, digital experiences and organic visibility that create lasting commercial value. Based in Hyderabad, India.
 
-VYOMA Media is an internationally recognized digital growth studio based in Hyderabad, India, serving ambitious global clients. We operate at the intersection of brand positioning, high-craft web systems, modern technology, and sustainable organic visibility.
+VYOMA Media is an international-grade branding, web design, and organic growth studio based in Hyderabad, India. We operate at the intersection of brand positioning, high-craft web systems, modern technology, and compounding organic search visibility.
 
-## Brand Positioning
-- **Full Brand Name:** VYOMA Media
-- **Location:** Hyderabad, India
-- **Core Disciplines:** Branding · Web Design · Technology · Organic Growth
-- **Philosophy:** Growth is not a campaign. It is a system. A beautiful website is useless if nobody finds it. A loud campaign is wasted money if it lands on a weak experience. VYOMA combines brand positioning, design, technology, and organic growth to build digital assets that continue creating compounding commercial value over time.
+## Core Pages
+- [Home](https://vyomamedia.co.in/): Overview of VYOMA Media studio, growth philosophy, and client engagements.
+- [Web Design Company in Hyderabad](https://vyomamedia.co.in/web-design-company-hyderabad): Custom Next.js web application engineering and UI/UX design in Hyderabad.
+- [SEO Agency in Hyderabad](https://vyomamedia.co.in/seo-agency-hyderabad): Technical SEO, local map pack rankings, and Generative Engine Optimization (GEO).
+- [Branding Studio in Hyderabad](https://vyomamedia.co.in/branding-studio-hyderabad): Category positioning, brand architecture, and visual identity systems.
+- [Disciplines & Services](https://vyomamedia.co.in/services): Strategy, Design, Technology, and Growth engineering capabilities.
+- [Selected Work & Case Studies](https://vyomamedia.co.in/work): Selected deployments across industrial manufacturing, healthcare, and luxury real estate.
+- [Thinking & Insights](https://vyomamedia.co.in/insights): Perspectives and deep dives on modern brand systems, performance engineering, and organic growth.
+- [Start a Project](https://vyomamedia.co.in/contact): Briefing questionnaire and direct consultation scheduling.
+- [Request Proposal (RFP)](https://vyomamedia.co.in/request-proposal): Interactive digital RFP scoping questionnaire.
 
-## The VYOMA Growth System
-**ONE CONNECTED SYSTEM. BUILT FOR LONG-TERM GROWTH.**
-1. **STRATEGY:** Research, positioning, audience, and market understanding.
-2. **BRAND:** Identity, messaging, visual direction, and recognition.
-3. **DIGITAL:** Websites, user experience, technology, and conversion pathways.
-4. **VISIBILITY:** SEO, organic search, content, and discoverability across Google and AI Answer Engines.
-5. **GROWTH:** Measurement, optimization, qualified inquiries, and sustainable performance.
+## Service Hubs
+- [Brand Positioning & Visual Identity](https://vyomamedia.co.in/services/branding): Monograms, typography, and category positioning.
+- [Web Development & Next.js Systems](https://vyomamedia.co.in/services/web-development): Modern Next.js App Router and serverless web applications.
+- [Technical SEO & Organic Visibility](https://vyomamedia.co.in/services/seo): Search engine optimization, schema markup, and crawl architecture.
+- [Growth Attribution & Content Strategy](https://vyomamedia.co.in/services/digital-marketing): Full-funnel digital marketing and revenue attribution.
+- [Personal Branding](https://vyomamedia.co.in/services/personal-branding): Strategic authority building for founders, doctors, and executives.
 
-## Core Capabilities & Services
+## Case Studies
+- [Bharat Hydraulics](https://vyomamedia.co.in/work/bharat-hydraulics): Industrial B2B — From Workshop to Digital System.
+- [NovaZen](https://vyomamedia.co.in/work/novazen): Healthcare & Biotechnology — From Product to Trust.
+- [Velora](https://vyomamedia.co.in/work/velora): Ultra-Luxury Real Estate — From Property to Desire.
 
-### STRATEGY
-- **Brand Positioning:** Defining differentiated market territory and executive thesis.
-- **Tone of Voice:** Distinct editorial narrative guidelines and communication frameworks.
-- **Digital Strategy:** Channel roadmaps, customer journeys, and conversion architecture.
-- **Market Research:** Competitive gap analysis, audience persona mapping, and customer intent audits.
-
-### DESIGN
-- **Visual Identity:** Geometric monogram marks, typography hierarchy, and comprehensive design systems.
-- **Art Direction:** Spatial compositions, color harmony, and cinematic art direction.
-- **UI/UX Design:** User-centric workflows, responsive prototypes, and conversion pathways.
-- **Web Design:** Swiss editorial design principles, oversized typography, and structured grid systems.
-
-### TECHNOLOGY
-- **Frontend Development:** Next.js App Router, React, Tailwind CSS, and fluid GSAP animation architecture.
-- **Headless CMS:** Scalable content infrastructure allowing marketing autonomy without code bottlenecks.
-- **Web Performance:** Sub-second server latency, Core Web Vitals optimization, and 99+ Lighthouse scoring.
-- **Technical SEO:** Clean semantic schema markup, crawl budget optimization, and indexation hygiene.
-
-### GROWTH
-- **Content Strategy:** High-intent commercial content architecture and editorial thought leadership.
-- **Organic Search:** Data-driven keyword clustering and technical SEO rankings.
-- **Local SEO:** Google Business Profile dominance and hyper-local search visibility in Hyderabad and key metropolitan hubs.
-- **Personal Branding:** Executive authority building for founders, leaders, and enterprise executives.
-- **Developer Marketing:** Technical documentation clarity and engineering storytelling for developer platforms.
-
-## Flagship Case Studies
-- **Bharat Hydraulics:** Heavy Industrial Manufacturing — *From Workshop → Digital System*. Transformed an established manufacturing firm into a structured digital presence with categorized product silos and direct procurement RFPs. (Live: https://www.bharathydraulics.site/)
-- **NovaZen:** Clinical Biotechnology & Healthcare — *From Product → Trust*. Created a modern digital experience balancing pharmacological rigor with intuitive editorial navigation. (Live: https://novazen.vercel.app/)
-- **Velora:** Ultra-Luxury Real Estate & Hospitality — *From Property → Desire*. Replaced transactional listing cliches with an editorial property journey and discreet VIP viewing consultation pathways. (Live: https://velora-alpha-eight.vercel.app/)
-
-## Industries Served
-- Industrial and Heavy Manufacturing (B2B)
-- Pharmaceutical and Healthcare
-- Luxury Real Estate and Hospitality
-- High-Growth Consumer Brands
-- Public-Interest and Strategic Communication
-- Film and Entertainment Studios
-
-## Contact & Location
-- **Website:** https://vyomamedia.com
-- **Email:** hello@vyomamedia.com
-- **Telephone / WhatsApp:** +91 70084 72069
-- **Headquarters:** Banjara Hills, Hyderabad, Telangana 500034, India
-- **Global Delivery:** Remote client engagements across North America, Europe, the Middle East, and Asia-Pacific.
+## Optional
+- [SEO Keyword Tool](https://vyomamedia.co.in/keyword-tool): Free organic search keyword analysis utility.
+- [About VYOMA Media](https://vyomamedia.co.in/about): Studio background, founding principles, and operating standards.
+- [Privacy Policy](https://vyomamedia.co.in/privacy-policy): Client privacy, analytics data policy, and GDPR commitments.
+- [Terms of Service](https://vyomamedia.co.in/terms): Commercial service terms and engagement standards.

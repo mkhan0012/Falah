@@ -140,7 +140,7 @@ export default function BrandingStudioHyderabad() {
           
           {/* Breadcrumb Navigation Bar */}
           <nav aria-label="Breadcrumb" className="mb-8">
-            <ol className="flex items-center gap-2 text-xs font-mono text-[#7899B0]">
+            <ol className="flex items-center gap-2 text-xs font-mono text-[#3B5B72]">
               <li>
                 <Link href="/" className="hover:text-[#172B3A] transition-colors">
                   HOME
@@ -159,7 +159,7 @@ export default function BrandingStudioHyderabad() {
             </div>
 
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight text-[#172B3A] mb-8 uppercase leading-[0.98]">
-              Branding Studio in Hyderabad<span className="text-[#7899B0]">.</span>
+              Branding Studio in Hyderabad<span className="text-[#3B5B72]">.</span>
             </h1>
 
             <p className="text-lg sm:text-2xl text-[#30383D] font-sans leading-relaxed mb-10 max-w-3xl">
@@ -169,7 +169,7 @@ export default function BrandingStudioHyderabad() {
             <div className="flex flex-wrap items-center gap-4">
               <Link 
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-[#172B3A] text-white px-8 py-4 rounded-full font-mono text-xs md:text-sm font-bold hover:bg-[#7899B0] transition-all uppercase shadow-md group tracking-wider"
+                className="inline-flex items-center gap-2 bg-[#172B3A] text-white px-8 py-4 rounded-full font-mono text-xs md:text-sm font-bold hover:bg-[#3B5B72] transition-all uppercase shadow-md group tracking-wider"
               >
                 <span>COMMISSION A BRAND SYSTEM</span>
                 <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -180,7 +180,7 @@ export default function BrandingStudioHyderabad() {
                 className="inline-flex items-center gap-2 bg-white border border-[#7899B0]/30 text-[#172B3A] px-7 py-4 rounded-full font-mono text-xs md:text-sm font-bold hover:border-[#172B3A] transition-all uppercase shadow-xs group tracking-wider"
               >
                 <span>EXPLORE BRAND ARCHIVES</span>
-                <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform text-[#7899B0]" />
+                <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform text-[#3B5B72]" />
               </Link>
             </div>
           </div>
@@ -189,26 +189,26 @@ export default function BrandingStudioHyderabad() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 rounded-3xl bg-white border border-[#7899B0]/25 shadow-xs mb-20">
             <div className="p-4 border-r border-[#7899B0]/15 last:border-none">
               <div className="text-2xl sm:text-3xl font-display font-black text-[#172B3A]">POSITIONING</div>
-              <div className="text-xs font-mono uppercase text-[#7899B0] tracking-wider mt-1">Core Market Thesis</div>
+              <div className="text-xs font-mono uppercase text-[#3B5B72] tracking-wider mt-1">Core Market Thesis</div>
             </div>
             <div className="p-4 md:border-r border-[#7899B0]/15">
               <div className="text-2xl sm:text-3xl font-display font-black text-[#D3A56C]">SWISS-GRID</div>
-              <div className="text-xs font-mono uppercase text-[#7899B0] tracking-wider mt-1">Editorial Precision</div>
+              <div className="text-xs font-mono uppercase text-[#3B5B72] tracking-wider mt-1">Editorial Precision</div>
             </div>
             <div className="p-4 border-r border-[#7899B0]/15 last:border-none">
               <div className="text-2xl sm:text-3xl font-display font-black text-[#172B3A]">360°</div>
-              <div className="text-xs font-mono uppercase text-[#7899B0] tracking-wider mt-1">Design Systems</div>
+              <div className="text-xs font-mono uppercase text-[#3B5B72] tracking-wider mt-1">Design Systems</div>
             </div>
             <div className="p-4">
-              <div className="text-2xl sm:text-3xl font-display font-black text-[#7899B0]">CODE-READY</div>
-              <div className="text-xs font-mono uppercase text-[#7899B0] tracking-wider mt-1">Next.js Web Tokens</div>
+              <div className="text-2xl sm:text-3xl font-display font-black text-[#172B3A]">CODE-READY</div>
+              <div className="text-xs font-mono uppercase text-[#3B5B72] tracking-wider mt-1">Next.js Web Tokens</div>
             </div>
           </div>
 
           {/* The Contrast: Brand Strategy vs Graphic Decoration */}
           <div className="border-t border-[#7899B0]/25 pt-16 pb-20">
             <div className="max-w-3xl mb-12">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#7899B0]/30 text-xs font-mono text-[#7899B0] uppercase tracking-wider mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#7899B0]/30 text-xs font-mono text-[#3B5B72] uppercase tracking-wider mb-4">
                 STRATEGIC POSITIONING VS LOGO DECORATION
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-[#172B3A] tracking-tight mb-4">
@@ -261,7 +261,7 @@ export default function BrandingStudioHyderabad() {
           {/* The Method */}
           <div className="border-t border-[#7899B0]/25 pt-16 pb-20">
             <div className="max-w-3xl mb-12">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#7899B0]/30 text-xs font-mono text-[#7899B0] uppercase tracking-wider mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#7899B0]/30 text-xs font-mono text-[#3B5B72] uppercase tracking-wider mb-4">
                 THE BRAND ARCHITECTURE METHOD
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-[#172B3A] tracking-tight mb-4">
@@ -291,7 +291,7 @@ export default function BrandingStudioHyderabad() {
           {/* Sectors in Hyderabad */}
           <div className="border-t border-[#7899B0]/25 pt-16 pb-20">
             <div className="max-w-3xl mb-12">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#7899B0]/30 text-xs font-mono text-[#7899B0] uppercase tracking-wider mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#7899B0]/30 text-xs font-mono text-[#3B5B72] uppercase tracking-wider mb-4">
                 <MapPin size={12} className="text-[#D3A56C]" />
                 REGIONAL ENTERPRISE SECTORS
               </div>
@@ -345,7 +345,7 @@ export default function BrandingStudioHyderabad() {
                       Deploy your brand across custom Next.js web applications.
                     </p>
                   </div>
-                  <ArrowUpRight size={18} className="text-[#7899B0] group-hover:text-white transition-colors" />
+                  <ArrowUpRight size={18} className="text-[#93B2C8] group-hover:text-white transition-colors" />
                 </Link>
 
                 <Link
@@ -360,7 +360,7 @@ export default function BrandingStudioHyderabad() {
                       Drive top-tier organic search and AI citations across Google.
                     </p>
                   </div>
-                  <ArrowUpRight size={18} className="text-[#7899B0] group-hover:text-white transition-colors" />
+                  <ArrowUpRight size={18} className="text-[#93B2C8] group-hover:text-white transition-colors" />
                 </Link>
               </div>
             </div>
@@ -377,7 +377,7 @@ export default function BrandingStudioHyderabad() {
         headline={
           <>
             Branding in Hyderabad. <br />
-            <span className="text-[#7899B0]">Strategic Clarifications on Scope & Impact.</span>
+            <span className="text-[#3B5B72]">Strategic Clarifications on Scope & Impact.</span>
           </>
         }
         description="Frequently asked questions about our category positioning method, design systems, and brand deliverables in Hyderabad."

@@ -107,7 +107,7 @@ export function VyomaBrandLogo({
 }) {
   const isLight = variant === "light";
   const textColor = isLight ? "text-[#F1F3F1]" : "text-[#172B3A]";
-  const descriptorColor = isLight ? "text-[#7899B0]" : "text-[#7899B0]";
+  const descriptorColor = isLight ? "text-[#93B2C8]" : "text-[#3B5B72]";
 
   if (orientation === "stacked") {
     return (
@@ -153,7 +153,7 @@ export function VyomaBrandLogo({
             MEDIA
           </span>
         </div>
-        <span className="text-[8px] font-mono tracking-widest text-[#7899B0] uppercase mt-0.5">
+        <span className={`text-[8px] font-mono tracking-widest ${descriptorColor} uppercase mt-0.5`}>
           HYDERABAD · EST. 2025
         </span>
       </div>

@@ -73,7 +73,7 @@ export default function IndustriesPage() {
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight mb-8 uppercase text-[#172B3A]">
-            INDUSTRIES WE BUILD FOR<span className="text-[#7899B0]">.</span>
+            INDUSTRIES WE BUILD FOR<span className="text-[#3B5B72]">.</span>
           </h1>
           <p className="text-lg sm:text-2xl text-[#30383D] max-w-3xl font-sans leading-relaxed">
             Organic growth for healthcare, real estate, industrial manufacturing, consumer brands, politics, and film. What we bring to each sector is knowing exactly how that audience decides and which regulations apply.
@@ -94,12 +94,12 @@ export default function IndustriesPage() {
                     <div className="w-12 h-12 rounded-2xl bg-[#DCE6EB]/60 border border-[#7899B0]/20 flex items-center justify-center text-[#172B3A] group-hover:scale-105 transition-transform">
                       <Icon size={22} />
                     </div>
-                    <span className="font-mono text-[10px] font-semibold text-[#7899B0] uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#DCE6EB]/40 border border-[#7899B0]/20">
+                    <span className="font-mono text-[10px] font-semibold text-[#3B5B72] uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#DCE6EB]/40 border border-[#7899B0]/20">
                       {ind.badge}
                     </span>
                   </div>
 
-                  <h2 className="text-xl sm:text-2xl font-display font-bold tracking-tight mb-3 text-[#172B3A] group-hover:text-[#7899B0] transition-colors uppercase">
+                  <h2 className="text-xl sm:text-2xl font-display font-bold tracking-tight mb-3 text-[#172B3A] group-hover:text-[#3B5B72] transition-colors uppercase">
                     {ind.title}
                   </h2>
 
@@ -109,7 +109,7 @@ export default function IndustriesPage() {
                 </div>
 
                 <div className="pt-4 border-t border-[#7899B0]/20 flex items-center justify-between">
-                  <span className="text-[10px] font-mono uppercase text-[#7899B0]">
+                  <span className="text-[10px] font-mono uppercase text-[#3B5B72]">
                     {ind.tone}
                   </span>
                   <div className="w-8 h-8 rounded-full bg-[#DCE6EB]/60 flex items-center justify-center text-[#172B3A] group-hover:bg-[#172B3A] group-hover:text-white transition-colors">

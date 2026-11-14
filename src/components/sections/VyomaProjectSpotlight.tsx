@@ -16,7 +16,7 @@ export default function VyomaProjectSpotlight() {
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold tracking-tight text-[#172B3A] leading-tight">
             Bharat Hydraulics. <br />
-            <span className="text-[#7899B0]">FROM WORKSHOP → DIGITAL SYSTEM.</span>
+            <span className="text-[#3B5B72]">FROM WORKSHOP → DIGITAL SYSTEM.</span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#30383D] leading-relaxed font-sans">
@@ -31,7 +31,7 @@ export default function VyomaProjectSpotlight() {
               <span className="w-2 h-2 rounded-full bg-[#D3A56C]" />
               INTERACTIVE TRANSFORMATION ARCHITECTURE
             </span>
-            <span className="text-[11px] font-mono text-[#7899B0] uppercase hidden sm:inline">
+            <span className="text-[11px] font-mono text-[#3B5B72] uppercase font-bold hidden sm:inline">
               Drag Slider Left / Right To Audit
             </span>
           </div>
@@ -55,7 +55,7 @@ export default function VyomaProjectSpotlight() {
                 <span className="text-xs font-mono font-bold tracking-wider uppercase text-[#172B3A]">
                   THE CORE PROBLEM
                 </span>
-                <span className="text-xs font-mono text-[#7899B0]">INDUSTRIAL B2B</span>
+                <span className="text-xs font-mono text-[#3B5B72] font-semibold">INDUSTRIAL B2B</span>
               </div>
               <h3 className="text-xl font-display font-bold text-[#172B3A]">
                 Decades of precision manufacturing capability, but offline referral dependency and lack of structured technical discoverability.
@@ -71,7 +71,7 @@ export default function VyomaProjectSpotlight() {
                 <span className="text-xs font-mono font-bold tracking-wider uppercase text-[#172B3A]">
                   WHAT VYOMA DELIVERED
                 </span>
-                <span className="text-xs font-mono text-[#7899B0] font-bold">SYSTEM ARCHITECTURE</span>
+                <span className="text-xs font-mono text-[#3B5B72] font-bold">SYSTEM ARCHITECTURE</span>
               </div>
 
               <div className="space-y-4">
@@ -116,20 +116,20 @@ export default function VyomaProjectSpotlight() {
                 <h3 className="text-3xl font-display font-black text-white uppercase tracking-tight">
                   BHARAT HYDRAULICS
                 </h3>
-                <p className="text-sm font-mono text-[#7899B0] mt-1">
+                <p className="text-sm font-mono text-[#93B2C8] mt-1">
                   Hydraulic Cylinders · Power Packs · Precision Spares
                 </p>
               </div>
 
               <div className="space-y-3 pt-2">
                 <div className="p-4 rounded-2xl bg-white/5 border border-[#7899B0]/20 text-xs text-[#DCE6EB] space-y-1">
-                  <span className="text-[#7899B0] font-mono block text-[10px] uppercase">DISCIPLINE DELIVERED:</span>
+                  <span className="text-[#93B2C8] font-mono block text-[10px] uppercase font-bold">DISCIPLINE DELIVERED:</span>
                   <p className="font-semibold text-white">
                     Brand Strategy · Next.js Web System · Technical SEO · Digital Enquiry Routing
                   </p>
                 </div>
                 <div className="p-4 rounded-2xl bg-white/5 border border-[#7899B0]/20 text-xs text-[#DCE6EB] space-y-1">
-                  <span className="text-[#7899B0] font-mono block text-[10px] uppercase">VERIFIED WEB DEPLOYMENT:</span>
+                  <span className="text-[#93B2C8] font-mono block text-[10px] uppercase font-bold">VERIFIED WEB DEPLOYMENT:</span>
                   <a
                     href="https://www.bharathydraulics.site/"
                     target="_blank"
@@ -169,7 +169,7 @@ export default function VyomaProjectSpotlight() {
         {/* Other Projects Preview Ticker Bar */}
         <div className="p-6 rounded-2xl bg-white border border-[#7899B0]/25 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="space-y-1">
-            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#7899B0] font-bold">
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#3B5B72] font-bold">
               EXPLORE ALL THREE PRODUCTION CASE STUDIES
             </span>
             <p className="font-display font-bold text-base sm:text-lg text-[#172B3A]">

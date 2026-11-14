@@ -80,7 +80,7 @@ export default function CookieConsent() {
               <button
                 type="button"
                 onClick={handleRejectAll}
-                className="p-1 rounded-lg text-[#7899B0] hover:text-[#F1F3F1] hover:bg-white/10 transition-colors"
+                className="p-1 rounded-lg text-[#93B2C8] hover:text-[#F1F3F1] hover:bg-white/10 transition-colors"
                 aria-label="Close cookies notice"
               >
                 <X size={18} />
@@ -89,7 +89,7 @@ export default function CookieConsent() {
 
             <p className="font-sans text-xs sm:text-sm text-[#DCE6EB] mb-6 leading-relaxed">
               We use cookies and similar technologies to improve navigation, analyze site performance, and enhance your digital experience. Read our{" "}
-              <a href="/privacy-policy" className="text-[#D3A56C] hover:underline underline-offset-2">
+              <a href="/privacy-policy" className="text-[#D3A56C] underline underline-offset-2 hover:text-white transition-colors">
                 Privacy Policy
               </a>{" "}
               for details.
@@ -113,7 +113,7 @@ export default function CookieConsent() {
               <button 
                 type="button"
                 onClick={() => setIsManaging(true)}
-                className="w-full text-center mt-1 text-[#7899B0] hover:text-[#F1F3F1] font-mono text-[11px] tracking-wider uppercase transition-colors underline underline-offset-4 cursor-pointer"
+                className="w-full text-center mt-1 text-[#93B2C8] hover:text-[#F1F3F1] font-mono text-[11px] tracking-wider uppercase transition-colors underline underline-offset-4 cursor-pointer"
               >
                 Manage Preferences
               </button>
@@ -128,7 +128,7 @@ export default function CookieConsent() {
               <button 
                 type="button"
                 onClick={() => setIsManaging(false)} 
-                className="p-1 rounded-lg text-[#7899B0] hover:text-[#F1F3F1] hover:bg-white/10 transition-colors"
+                className="p-1 rounded-lg text-[#93B2C8] hover:text-[#F1F3F1] hover:bg-white/10 transition-colors"
                 aria-label="Back"
               >
                 <X size={18} />

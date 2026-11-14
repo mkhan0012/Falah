@@ -129,7 +129,7 @@ export default function BeforeAfterSlider({
 
           {/* Before Metrics (Bottom Left) */}
           <div className="absolute bottom-4 left-4 z-10 pointer-events-none hidden sm:block">
-            <div className="px-3 py-1 rounded-xl bg-black/60 border border-white/15 backdrop-blur-md text-[10px] font-mono text-[#7899B0] tracking-wide">
+            <div className="px-3 py-1 rounded-xl bg-black/60 border border-white/15 backdrop-blur-md text-[10px] font-mono text-[#93B2C8] tracking-wide">
               {beforeMetrics}
             </div>
           </div>
