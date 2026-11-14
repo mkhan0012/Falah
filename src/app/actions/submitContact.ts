@@ -165,6 +165,11 @@ export async function submitContact(rawInput: ContactFormData | FormData) {
         user: SMTP_USER,
         pass: SMTP_PASS,
       },
+      tls: {
+        rejectUnauthorized: true,
+        minVersion: "TLSv1.2",
+      },
+      connectionTimeout: 15000,
     });
 
     const mailOptions = {
@@ -238,10 +243,13 @@ export async function submitContact(rawInput: ContactFormData | FormData) {
     };
 
     try {
-      await transporter.sendMail(mailOptions);
-    } catch (emailError) {
-      console.error("SMTP Error, invoking safe fallback store:", emailError);
-      await saveFailedSubmission('contact', { ...data, destinationEmail: officialCompanyEmail, submissionType });
+      const sendResult = await transporter.sendMail(mailOptions);
+      console.log(`[SMTP SUCCESS] Dispatched email ID: ${sendResult.messageId} to ${officialCompanyEmail}`);
+    } catch (emailError: unknown) {
+      const err = emailError as { code?: string; message?: string; response?: string };
+      console.error("❌ SMTP Error while sending contact email:", err.message || emailError);
+      console.error("❌ Error Code:", err.code, "Response:", err.response);
+      await saveFailedSubmission('contact', { ...data, destinationEmail: officialCompanyEmail, submissionType, error: err.message });
       return { success: true, fallback: true };
     }
 
