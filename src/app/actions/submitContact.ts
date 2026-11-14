@@ -4,6 +4,7 @@ import nodemailer from "nodemailer";
 import { headers } from "next/headers";
 import { rateLimit } from "@/lib/rateLimit";
 import { saveFailedSubmission } from "@/lib/storage";
+import { siteConfig } from "@/config/site";
 
 export interface ContactFormData {
   name: string;
@@ -16,6 +17,7 @@ export interface ContactFormData {
   timeline?: string;
   message: string;
   honeypot?: string;
+  source?: string;
 }
 
 const isValidEmail = (email: string) => {
@@ -53,6 +55,7 @@ export async function submitContact(rawInput: ContactFormData | FormData) {
         timeline: rawInput.get("timeline")?.toString()?.trim() || undefined,
         message: rawInput.get("message")?.toString()?.trim() || "",
         honeypot: rawInput.get("honeypot")?.toString() || undefined,
+        source: rawInput.get("source")?.toString()?.trim() || undefined,
       };
     } else {
       data = {
@@ -66,6 +69,7 @@ export async function submitContact(rawInput: ContactFormData | FormData) {
         timeline: rawInput.timeline?.trim(),
         message: rawInput.message?.trim() || "",
         honeypot: rawInput.honeypot,
+        source: rawInput.source?.trim(),
       };
     }
 
@@ -133,60 +137,112 @@ export async function submitContact(rawInput: ContactFormData | FormData) {
       return { success: false, error: "Too many requests. Please wait a minute before trying again.", rateLimited: true };
     }
 
+    // 4. Official Company Destination Email
+    const officialCompanyEmail = process.env.CONTACT_EMAIL || siteConfig.contact.email || "info@vyomamedia.co.in";
+    const isRfp = (data.source || "").toLowerCase().includes("rfp") || (data.source || "").toLowerCase().includes("proposal");
+    const submissionType = isRfp ? "RFP Proposal Request" : "Start a Project Brief";
+
     const SMTP_HOST = process.env.SMTP_HOST || 'smtp.gmail.com';
     const SMTP_PORT = process.env.SMTP_PORT || 587;
     const SMTP_USER = process.env.SMTP_USER;
     const SMTP_PASS = process.env.SMTP_PASS;
 
     if (!SMTP_USER || !SMTP_PASS) {
-      console.log('--- NEW CONTACT SUBMISSION (SIMULATED SECURE INTAKE) ---');
-      console.log(`Lead: ${data.name} <${data.email}> | Company: ${data.company || 'N/A'}`);
-      console.log(`Scope: ${data.needs.join(', ') || 'N/A'} | Budget: ${data.budget || 'N/A'}`);
-      console.log('-------------------------------------------------------');
-    } else {
-      const transporter = nodemailer.createTransport({
-        host: SMTP_HOST,
-        port: Number(SMTP_PORT),
-        secure: false,
-        auth: {
-          user: SMTP_USER,
-          pass: SMTP_PASS,
-        },
-      });
+      console.warn('⚠️ SMTP credentials not configured (SMTP_USER / SMTP_PASS). Submission logged to fallback storage.');
+      console.log(`[${submissionType.toUpperCase()}] From: ${data.name} <${data.email}> | Company: ${data.company || 'N/A'} | Target: ${officialCompanyEmail}`);
+      await saveFailedSubmission('contact', { ...data, destinationEmail: officialCompanyEmail, submissionType });
+      return { success: true, simulated: true };
+    }
 
-      const mailOptions = {
-        from: `"Vyoma Media Intake" <${SMTP_USER}>`,
-        to: process.env.CONTACT_EMAIL || 'info@vyomamedia.co.in',
-        replyTo: data.email,
-        subject: `New Project Inquiry: ${sanitizeHeader(data.name)} [${sanitizeHeader(data.company || 'Independent')}]`,
-        text: `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || 'N/A'}\nCompany: ${data.company || 'N/A'}\nWebsite: ${data.website || 'N/A'}\nNeeds: ${data.needs.join(', ') || 'N/A'}\nBudget: ${data.budget || 'N/A'}\nTimeline: ${data.timeline || 'N/A'}\n\nMessage:\n${data.message}`,
-        html: `
-          <div style="font-family: sans-serif; color: #172B3A; max-width: 600px; line-height: 1.6;">
-            <h2 style="color: #172B3A; border-bottom: 2px solid #7899B0; padding-bottom: 8px;">New Project Inquiry — VYOMA Media</h2>
-            <p><strong>Name:</strong> ${escapeHtml(data.name)}</p>
-            <p><strong>Email:</strong> <a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a></p>
-            <p><strong>Phone:</strong> ${escapeHtml(data.phone || 'N/A')}</p>
-            <p><strong>Company:</strong> ${escapeHtml(data.company || 'N/A')}</p>
-            <p><strong>Website:</strong> ${escapeHtml(data.website || 'N/A')}</p>
-            <p><strong>Capabilities Needed:</strong> ${escapeHtml(data.needs.join(', ') || 'N/A')}</p>
-            <p><strong>Capital Range:</strong> ${escapeHtml(data.budget || 'N/A')}</p>
-            <p><strong>Target Timeline:</strong> ${escapeHtml(data.timeline || 'N/A')}</p>
-            <br/>
-            <div style="background: #F1F3F1; padding: 16px; border-left: 3px solid #7899B0;">
-              <strong>Strategic Brief / Message:</strong>
-              <p style="white-space: pre-wrap; margin-top: 8px;">${escapeHtml(data.message)}</p>
+    const portNum = Number(SMTP_PORT);
+    const isSecure = process.env.SMTP_SECURE === "true" || portNum === 465;
+
+    const transporter = nodemailer.createTransport({
+      host: SMTP_HOST,
+      port: portNum,
+      secure: isSecure,
+      auth: {
+        user: SMTP_USER,
+        pass: SMTP_PASS,
+      },
+    });
+
+    const mailOptions = {
+      from: `"Vyoma Media Intake" <${SMTP_USER}>`,
+      to: officialCompanyEmail,
+      replyTo: data.email,
+      subject: `[${submissionType.toUpperCase()}] ${sanitizeHeader(data.name)} [${sanitizeHeader(data.company || 'Independent')}]`,
+      text: `TYPE: ${submissionType}\n\nClient Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || 'N/A'}\nCompany: ${data.company || 'N/A'}\nWebsite: ${data.website || 'N/A'}\nScope / Services: ${data.needs.join(', ') || 'N/A'}\nBudget / Capital: ${data.budget || 'N/A'}\nTimeline: ${data.timeline || 'N/A'}\n\nStrategic Brief / Message:\n${data.message}`,
+      html: `
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #172B3A; max-width: 620px; line-height: 1.6; margin: 0 auto; border: 1px solid #7899B0; border-radius: 12px; overflow: hidden;">
+          <div style="background-color: #172B3A; color: #F1F3F1; padding: 24px 28px;">
+            <span style="font-size: 11px; font-family: monospace; letter-spacing: 0.1em; color: #D3A56C; text-transform: uppercase; font-weight: bold;">
+              ${isRfp ? "★ RFP / REQUEST FOR PROPOSAL" : "✦ NEW PROJECT INQUIRY // START A PROJECT"}
+            </span>
+            <h1 style="margin: 8px 0 0; font-size: 22px; color: #F1F3F1; font-weight: bold; letter-spacing: -0.02em;">
+              ${escapeHtml(data.name)} ${data.company ? `— ${escapeHtml(data.company)}` : ""}
+            </h1>
+          </div>
+          
+          <div style="padding: 24px 28px; background-color: #FFFFFF;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+              <tr>
+                <td style="padding: 8px 0; color: #7899B0; width: 140px; font-weight: 600;">Client Name:</td>
+                <td style="padding: 8px 0; color: #172B3A; font-weight: bold;">${escapeHtml(data.name)}</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 0; color: #7899B0; font-weight: 600;">Work Email:</td>
+                <td style="padding: 8px 0;"><a href="mailto:${escapeHtml(data.email)}" style="color: #172B3A; font-weight: bold; text-decoration: underline;">${escapeHtml(data.email)}</a></td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 0; color: #7899B0; font-weight: 600;">Phone / WhatsApp:</td>
+                <td style="padding: 8px 0; color: #172B3A;">${escapeHtml(data.phone || 'N/A')}</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 0; color: #7899B0; font-weight: 600;">Company / Brand:</td>
+                <td style="padding: 8px 0; color: #172B3A;">${escapeHtml(data.company || 'Independent / Confidential')}</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 0; color: #7899B0; font-weight: 600;">Website URL:</td>
+                <td style="padding: 8px 0; color: #172B3A;">${escapeHtml(data.website || 'N/A')}</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 0; color: #7899B0; font-weight: 600;">Target Budget:</td>
+                <td style="padding: 8px 0; color: #172B3A; font-weight: bold;">${escapeHtml(data.budget || 'Flexible / Scoping')}</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 0; color: #7899B0; font-weight: 600;">Target Timeline:</td>
+                <td style="padding: 8px 0; color: #172B3A;">${escapeHtml(data.timeline || 'Standard')}</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 0; color: #7899B0; font-weight: 600;">Needs / Capabilities:</td>
+                <td style="padding: 8px 0; color: #172B3A;">${escapeHtml(data.needs.join(', ') || 'General Growth Strategy')}</td>
+              </tr>
+            </table>
+
+            <div style="margin-top: 20px; padding: 18px; background-color: #F1F3F1; border-left: 4px solid #7899B0; border-radius: 6px;">
+              <p style="margin: 0 0 6px; font-size: 11px; font-family: monospace; color: #7899B0; text-transform: uppercase; font-weight: bold;">
+                Strategic Brief / Goals & Context:
+              </p>
+              <p style="margin: 0; white-space: pre-wrap; font-size: 14px; color: #172B3A; line-height: 1.6;">
+                ${escapeHtml(data.message)}
+              </p>
+            </div>
+
+            <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #DCE6EB; font-size: 12px; color: #7899B0; font-family: monospace;">
+              Direct transmission to ${officialCompanyEmail} via VYOMA Media Intake Engine.
             </div>
           </div>
-        `,
-      };
+        </div>
+      `,
+    };
 
-      try {
-        await transporter.sendMail(mailOptions);
-      } catch (emailError) {
-        console.error("SMTP Error, invoking safe fallback store:", emailError);
-        await saveFailedSubmission('contact', data);
-        return { success: true, fallback: true };
-      }
+    try {
+      await transporter.sendMail(mailOptions);
+    } catch (emailError) {
+      console.error("SMTP Error, invoking safe fallback store:", emailError);
+      await saveFailedSubmission('contact', { ...data, destinationEmail: officialCompanyEmail, submissionType });
+      return { success: true, fallback: true };
     }
 
     return { success: true };

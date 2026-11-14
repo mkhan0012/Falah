@@ -53,7 +53,10 @@ function ContactForm() {
     setIsSubmitting(true);
     setError(null);
 
-    const result = await submitContact(formData);
+    const result = await submitContact({
+      ...formData,
+      source: "Start a Project",
+    });
 
     if (result.error) {
       setError(result.error);

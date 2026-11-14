@@ -131,6 +131,7 @@ function RfpForm() {
         needs: formData.needs,
         message: `Business Type: ${formData.businessType || "N/A"}\n\nProject Goals & Requirements:\n${formData.goals}\n\nSelected Needs: ${formData.needs.join(", ")}`,
         honeypot: formData.honeypot,
+        source: "RFP / Proposal Request",
       });
 
       if (res.success) {
