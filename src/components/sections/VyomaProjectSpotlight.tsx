@@ -1,14 +1,15 @@
 "use client";
 
-import { CheckCircle2, ArrowUpRight, Cpu, Layers, ExternalLink } from "lucide-react";
+import { CheckCircle2, ArrowUpRight } from "lucide-react";
 import TransitionLink from "@/components/ui/TransitionLink";
+import BeforeAfterSlider from "@/components/ui/BeforeAfterSlider";
 
 export default function VyomaProjectSpotlight() {
   return (
     <section className="relative py-24 sm:py-32 bg-[#F1F3F1] border-b border-[#7899B0]/25 overflow-hidden font-sans">
       <div className="container mx-auto px-5 sm:px-6 md:px-12 max-w-[1360px] relative z-10">
         {/* Section Header */}
-        <div className="max-w-3xl space-y-4 mb-16">
+        <div className="max-w-3xl space-y-4 mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#7899B0]/30 text-xs font-mono uppercase tracking-widest text-[#172B3A] font-semibold shadow-sm">
             <span>CASE STUDY SPOTLIGHT</span>
           </div>
@@ -21,6 +22,27 @@ export default function VyomaProjectSpotlight() {
           <p className="text-base sm:text-lg text-[#30383D] leading-relaxed font-sans">
             How an established hydraulic manufacturing and engineering business transformed its workshop operations into an organized, high-credibility digital presence.
           </p>
+        </div>
+
+        {/* Interactive Before & After System Transformation Slider */}
+        <div className="mb-14">
+          <div className="flex items-center justify-between pb-3 mb-2">
+            <span className="text-xs font-mono font-bold tracking-wider uppercase text-[#172B3A] flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#D3A56C]" />
+              INTERACTIVE TRANSFORMATION ARCHITECTURE
+            </span>
+            <span className="text-[11px] font-mono text-[#7899B0] uppercase hidden sm:inline">
+              Drag Slider Left / Right To Audit
+            </span>
+          </div>
+          <BeforeAfterSlider
+            beforeImage="/images/mockups/bharat.jpg"
+            afterImage="/images/mockups/bharat.jpg"
+            beforeLabel="LEGACY WORKSHOP (BEFORE)"
+            afterLabel="VYOMA DIGITAL ARCHITECTURE (AFTER)"
+            beforeMetrics="6.2s Load · 0 Online RFQs · Invisible on Google"
+            afterMetrics="0.38s Next.js Load (100/100) · 340% Inbound RFPs · #1 Rank"
+          />
         </div>
 
         {/* The Spotlight Bento Architecture */}

@@ -1,7 +1,7 @@
 "use client";
 
 import TransitionLink from "@/components/ui/TransitionLink";
-import LogoMark, { VyomaBrandLogo } from "@/components/ui/LogoMark";
+import { VyomaBrandLogo } from "@/components/ui/LogoMark";
 import { ArrowUpRight, MessageSquare, Mail, MapPin, Sparkles, Phone } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
@@ -9,7 +9,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-[#172B3A] text-[#F1F3F1] border-t border-[#7899B0]/25 overflow-hidden font-sans">
+    <footer className="relative bg-[#172B3A] text-[#F1F3F1] border-t border-[#7899B0]/25 overflow-hidden font-sans bg-noise">
       {/* Horizon atmospheric illumination */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-48 pointer-events-none bg-gradient-to-b from-[#7899B0]/20 via-[#172B3A]/40 to-transparent blur-3xl opacity-75"
