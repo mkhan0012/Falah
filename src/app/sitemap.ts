@@ -1,72 +1,92 @@
 ﻿import { MetadataRoute } from "next";
 import { projects } from "@/data/projects";
-import fs from "fs";
-import path from "path";
+import { insights } from "@/data/insights";
+import { solutions } from "@/data/solutions";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://vyomamedia.co.in";
   
-  // Base static routes
-  const staticRoutes = [
-    "",
-    "/work",
-    "/services",
-    "/services/branding",
-    "/services/web-development",
-    "/services/seo",
-    "/services/digital-marketing",
-    "/personal-branding",
-    "/about",
-    "/insights",
-    "/contact",
-    "/request-proposal",
-    "/careers",
-    "/web-design-company-hyderabad",
-    "/seo-agency-hyderabad",
-    "/branding-studio-hyderabad",
-    "/industries"
+  // 1. Core High-Priority Static & Hub Pages
+  const coreStaticRoutes = [
+    { path: "", priority: 1.0, changeFrequency: "daily" as const },
+    { path: "/about", priority: 0.9, changeFrequency: "weekly" as const },
+    { path: "/services", priority: 0.9, changeFrequency: "weekly" as const },
+    { path: "/work", priority: 0.9, changeFrequency: "weekly" as const },
+    { path: "/insights", priority: 0.9, changeFrequency: "daily" as const },
+    { path: "/contact", priority: 0.9, changeFrequency: "monthly" as const },
+    { path: "/request-proposal", priority: 0.9, changeFrequency: "monthly" as const },
+    { path: "/careers", priority: 0.7, changeFrequency: "weekly" as const },
+    { path: "/keyword-tool", priority: 0.8, changeFrequency: "weekly" as const },
+    { path: "/privacy-policy", priority: 0.3, changeFrequency: "monthly" as const },
+    { path: "/terms", priority: 0.3, changeFrequency: "monthly" as const },
   ];
 
-  // Helper to dynamically read directories for pSEO (programmatic SEO) pages
-  const getDynamicRoutes = (dirName: string, prefix: string) => {
-    try {
-      const dirPath = path.join(process.cwd(), "src", "app", dirName);
-      if (!fs.existsSync(dirPath)) return [];
-      
-      return fs.readdirSync(dirPath)
-        .filter(file => {
-          const stat = fs.statSync(path.join(dirPath, file));
-          // We only want directories that have a page.tsx (excluding dynamic routes with brackets if we want, or handling them if we have a data source)
-          return stat.isDirectory() && !file.startsWith("[") && fs.existsSync(path.join(dirPath, file, "page.tsx"));
-        })
-        .map(folder => `${prefix}/${folder}`);
-    } catch {
-      return [];
-    }
-  };
+  // 2. High-Intent Commercial Local SEO Pages (Hyderabad)
+  const localSeoRoutes = [
+    { path: "/web-design-company-hyderabad", priority: 0.95, changeFrequency: "weekly" as const },
+    { path: "/seo-agency-hyderabad", priority: 0.95, changeFrequency: "weekly" as const },
+    { path: "/branding-studio-hyderabad", priority: 0.95, changeFrequency: "weekly" as const },
+  ];
 
-  // Get all programmatic industry pages (/industries/healthcare, etc)
-  const industryRoutes = getDynamicRoutes("industries", "/industries");
-  
-  // Get all programmatic solution pages (/services/solutions/geo, etc)
-  // Assuming they are hardcoded folders or we can just map the services array from Navbar
-  const solutionRoutes = getDynamicRoutes(path.join("services", "solutions"), "/services/solutions");
+  // 3. Core Discipline & Service Hubs
+  const serviceRoutes = [
+    { path: "/services/branding", priority: 0.85, changeFrequency: "weekly" as const },
+    { path: "/services/web-development", priority: 0.85, changeFrequency: "weekly" as const },
+    { path: "/services/seo", priority: 0.85, changeFrequency: "weekly" as const },
+    { path: "/services/digital-marketing", priority: 0.85, changeFrequency: "weekly" as const },
+    { path: "/services/personal-branding", priority: 0.85, changeFrequency: "weekly" as const },
+    { path: "/services/social-media", priority: 0.85, changeFrequency: "weekly" as const },
+  ];
 
-  const allStaticRoutes = [...staticRoutes, ...industryRoutes, ...solutionRoutes];
+  // 4. Industry Vertical Hubs
+  const industryRoutes = [
+    { path: "/industries", priority: 0.85, changeFrequency: "weekly" as const },
+    { path: "/industries/manufacturing", priority: 0.8, changeFrequency: "weekly" as const },
+    { path: "/industries/healthcare", priority: 0.8, changeFrequency: "weekly" as const },
+    { path: "/industries/real-estate", priority: 0.8, changeFrequency: "weekly" as const },
+    { path: "/industries/education", priority: 0.8, changeFrequency: "weekly" as const },
+  ];
 
-  const staticPages = allStaticRoutes.map((route) => ({
-    url: `${baseUrl}${route}`,
+  const staticEntries = [
+    ...coreStaticRoutes,
+    ...localSeoRoutes,
+    ...serviceRoutes,
+    ...industryRoutes,
+  ].map((item) => ({
+    url: `${baseUrl}${item.path}`,
     lastModified: new Date().toISOString(),
-    changeFrequency: "weekly" as const,
-    priority: route === "" ? 1 : 0.8,
+    changeFrequency: item.changeFrequency,
+    priority: item.priority,
   }));
 
-  const projectPages = projects.map((project) => ({
+  // 5. Specialized Solution Architecture Pages
+  const solutionEntries = solutions.map((solution) => ({
+    url: `${baseUrl}/services/solutions/${solution.slug}`,
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  // 6. Case Studies
+  const projectEntries = projects.map((project) => ({
     url: `${baseUrl}/work/${project.slug}`,
     lastModified: new Date().toISOString(),
     changeFrequency: "monthly" as const,
-    priority: 0.6,
+    priority: 0.75,
   }));
 
-  return [...staticPages, ...projectPages];
+  // 7. Editorial & Thought Leadership Articles
+  const insightEntries = insights.map((post) => ({
+    url: `${baseUrl}/insights/${post.slug}`,
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly" as const,
+    priority: 0.75,
+  }));
+
+  return [
+    ...staticEntries,
+    ...solutionEntries,
+    ...projectEntries,
+    ...insightEntries,
+  ];
 }
