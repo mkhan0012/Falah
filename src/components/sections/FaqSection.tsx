@@ -1,18 +1,18 @@
-import { faqs } from "@/data/faqs";
+import { faqs, FaqItem } from "@/data/faqs";
 import { Plus } from "lucide-react";
 
 export default function FaqSection() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
+    mainEntity: faqs.map((faq: FaqItem) => ({
       "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
+      name: faq.question,
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": faq.answer
-      }
-    }))
+        text: faq.answer,
+      },
+    })),
   };
 
   return (
@@ -25,7 +25,7 @@ export default function FaqSection() {
         <h2 className="text-4xl md:text-5xl font-serif mb-16 text-center">FREQUENTLY ASKED</h2>
 
         <div className="flex flex-col">
-          {faqs.map((faq, index) => (
+          {faqs.map((faq: FaqItem, index: number) => (
             <details 
               key={index} 
               className="group border-b border-foreground/10 py-6 md:py-8 cursor-pointer"

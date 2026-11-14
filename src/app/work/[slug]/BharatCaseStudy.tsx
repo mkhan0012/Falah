@@ -7,10 +7,11 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowLeft, ArrowRight, ExternalLink, Sparkles, Layers, Search, Cpu } from "lucide-react";
 import CaseStudyNav from "@/components/sections/CaseStudyNav";
+import { Project } from "@/data/projects";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function BharatCaseStudy({ project }: { project: any }) {
+export default function BharatCaseStudy({ project }: { project: Project }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

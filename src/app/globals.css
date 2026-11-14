@@ -88,6 +88,13 @@
     letter-spacing: -0.02em;
   }
 
+  /* Prevent iOS Safari automatic viewport zoom-in when tapping form inputs */
+  @media (max-width: 768px) {
+    input, select, textarea {
+      font-size: 16px !important;
+    }
+  }
+
   ::selection {
     background-color: #7899B0;
     color: #F1F3F1;

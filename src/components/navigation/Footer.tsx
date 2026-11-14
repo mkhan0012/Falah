@@ -201,6 +201,30 @@ export default function Footer() {
               </ul>
             </div>
 
+            <div className="pt-1">
+              <h4 className="text-xs font-mono font-bold tracking-widest text-[#D3A56C] uppercase mb-3 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D3A56C]" />
+                <span>HYDERABAD HUBS</span>
+              </h4>
+              <ul className="space-y-2 text-xs text-[#DCE6EB]">
+                <li>
+                  <TransitionLink href="/web-design-company-hyderabad" className="hover:text-white transition-colors block">
+                    Web Design Hyderabad
+                  </TransitionLink>
+                </li>
+                <li>
+                  <TransitionLink href="/seo-agency-hyderabad" className="hover:text-white transition-colors block">
+                    SEO Agency Hyderabad
+                  </TransitionLink>
+                </li>
+                <li>
+                  <TransitionLink href="/branding-studio-hyderabad" className="hover:text-white transition-colors block">
+                    Branding Studio Hyderabad
+                  </TransitionLink>
+                </li>
+              </ul>
+            </div>
+
             <div className="pt-2">
               <h4 className="text-xs font-mono font-bold tracking-widest text-[#7899B0] uppercase mb-3">
                 LEGAL

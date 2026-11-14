@@ -1,30 +1,123 @@
-export const faqs = [
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export const generalFaqs: FaqItem[] = [
   {
-    question: "Everyone says they do branding, web, and SEO. What makes Vyoma different?",
-    answer: "Many agencies offer everything, but they often build growth around paid ads that stop when the budget does. We build around owned visibility: your brand, website, and search presence, so results keep compounding without paying for every click."
+    question: "Everyone says they do branding, web, and SEO. What makes VYOMA Media different?",
+    answer:
+      "Many agencies offer everything, but they often build growth around paid ads that stop when the budget does. We build around owned visibility: your brand positioning, high-performing Next.js website, and organic search presence, so results keep compounding without paying for every click.",
   },
   {
-    question: "Do you run paid ads too?",
-    answer: "Where they make sense, yes, for example to support a launch or a time-sensitive release. But we never make them the foundation of your growth."
+    question: "Do you run paid advertising campaigns too?",
+    answer:
+      "Where paid media makes strategic sense—such as supporting a major launch, property pre-registration, or time-sensitive film release—yes. But we never make rented ad platforms the primary foundation of your growth.",
   },
   {
-    question: "What is the difference between branding and digital marketing?",
-    answer: "Branding decides who you are and how you look and sound. Digital marketing, including SEO, content, and ads, gets that brand in front of the right people. Each works far better with the other."
+    question: "What is the difference between brand positioning and digital marketing?",
+    answer:
+      "Branding decides who you are, how you look, and why customers should choose you over alternatives. Digital marketing, including SEO and content architecture, gets that brand in front of the right buyers. Each is far more effective when built as one connected system.",
   },
   {
-    question: "How long does SEO take to show results?",
-    answer: "SEO compounds over time. Early technical and content improvements can show movement within a few months, but ranking in competitive categories usually takes longer, and we’ll set honest expectations at the start."
+    question: "How long does organic SEO take to show measurable traction?",
+    answer:
+      "Organic search compounds over time. Early technical fixes and structured content enhancements can show movement within a few months, but category dominance and high-difficulty keyword rankings take longer. We establish transparent, honest expectations at the start of every project.",
   },
   {
-    question: "Will my business show up in AI search results too?",
-    answer: "No one can guarantee placement in AI tools. What we can do is make your site clear, structured, and credible, which is what both Google and AI answer tools rely on to find and cite sources."
+    question: "Will our business show up in AI search tools like ChatGPT and Perplexity?",
+    answer:
+      "No agency can guarantee third-party algorithmic placement. What we do is engineer clear semantic architecture, entity schema markup, and verifiable technical facts—which is exactly what Google AI Overviews, Perplexity, and LLM answer engines rely on to discover and cite sources.",
   },
   {
-    question: "Can you create content in Telugu, Hindi, and Urdu?",
-    answer: "Yes, we create content in English, Telugu, Hindi, and Urdu where your audience needs it."
+    question: "Can you create multi-lingual content in Telugu, Hindi, and Urdu?",
+    answer:
+      "Yes. Headquartered in Hyderabad, we create localized, native search content in English, Telugu, Hindi, and Urdu to match how regional decision-makers and local communities actually search.",
   },
   {
-    question: "What do I need to get started?",
-    answer: "Just your goals and an idea of who you want to reach. We’ll handle the research and tell you where to begin."
-  }
+    question: "What do we need to prepare before starting a project?",
+    answer:
+      "Just your commercial objectives, current challenges, and an idea of who you want to reach. Our senior strategists handle the competitive research, intent modeling, and technical blueprint to tell you exactly where to begin.",
+  },
+];
+
+export const faqs: FaqItem[] = generalFaqs;
+
+export const webDesignFaqs: FaqItem[] = [
+  {
+    question: "What makes VYOMA Media's web design in Hyderabad different from traditional agencies?",
+    answer:
+      "Unlike agencies that use sluggish WordPress templates or drag-and-drop page builders that score poorly on Google, we engineer custom Next.js web applications with clean TypeScript code, sub-second load times (100/100 Core Web Vitals), and native schema markup tailored for Hyderabad businesses seeking global-grade digital authority.",
+  },
+  {
+    question: "How much does a custom website cost in Hyderabad?",
+    answer:
+      "Our bespoke web development engagements typically start at ₹1.5L for targeted growth systems and scale based on complexity, custom web applications, multi-stakeholder portals, and headless CMS integrations. We provide transparent, fixed-scope proposals with zero hidden costs.",
+  },
+  {
+    question: "How long does it take to design and launch a custom Next.js website?",
+    answer:
+      "A standard bespoke website deployment takes between 4 to 8 weeks. This covers thorough discovery, strategic positioning, UI/UX architecture in Figma, Next.js engineering, performance auditing, technical SEO, and pre-launch testing.",
+  },
+  {
+    question: "Will our new website be optimized for mobile phones and Google Core Web Vitals?",
+    answer:
+      "Yes. Every website we build is mobile-first, tested across iOS Safari and Android Chrome, and guaranteed to hit 95+ performance scores on Google PageSpeed Insights with sub-second Time to First Byte (TTFB).",
+  },
+  {
+    question: "Can you migrate our existing WordPress or PHP website to Next.js without losing SEO rankings?",
+    answer:
+      "Absolutely. We execute rigorous URL mapping, 301 redirect pipelines, and semantic schema preservation to ensure your existing search equity is maintained and boosted during the transition.",
+  },
+];
+
+export const seoFaqs: FaqItem[] = [
+  {
+    question: "How does VYOMA Media help Hyderabad businesses rank on Page 1 of Google?",
+    answer:
+      "We don't rely on generic keyword stuffing or low-quality link schemes. We combine technical SEO architecture (sub-second Next.js speed, structured data, canonical hygiene) with deep topical authority content and hyper-local Hyderabad GEO targeting to dominate high-intent commercial search queries.",
+  },
+  {
+    question: "What is Generative Engine Optimization (GEO) and why does it matter?",
+    answer:
+      "Modern buyers search on ChatGPT, Perplexity, and Google AI Overviews in addition to traditional search. GEO is the practice of optimizing your brand's digital entity footprint, citations, and semantic data so AI engines reference and recommend your company as the category authority.",
+  },
+  {
+    question: "How long does it take to see organic SEO results in Hyderabad?",
+    answer:
+      "Technical optimizations and local map pack enhancements frequently show noticeable ranking movement within 60 to 90 days. Competitive category head terms typically achieve dominant page-one authority within 4 to 6 months of compounding topical publishing.",
+  },
+  {
+    question: "Do you target specific tech and business districts in Hyderabad like HITEC City and Gachibowli?",
+    answer:
+      "Yes. We engineer hyper-localized search clusters targeting high-density commercial hubs across Hyderabad including HITEC City, Gachibowli, Financial District, Jubilee Hills, Banjara Hills, Madhapur, and Secunderabad.",
+  },
+  {
+    question: "What kind of reporting do we receive?",
+    answer:
+      "We track business pipeline, qualified inquiries, and organic revenue attribution—not just meaningless vanity metrics. You receive monthly executive reporting detailing search impressions, keyword rankings, and inbound lead conversion.",
+  },
+];
+
+export const brandingFaqs: FaqItem[] = [
+  {
+    question: "What is the difference between a graphic designer and a strategic branding studio?",
+    answer:
+      "A graphic designer creates a logo or visual asset based on personal taste. As a strategic branding studio, VYOMA Media conducts category research, competitive moat analysis, and customer psychology to define your singular commercial positioning, creating a cohesive visual and verbal system that commands pricing power.",
+  },
+  {
+    question: "What is included in a VYOMA Media branding engagement?",
+    answer:
+      "Our branding engagements include category positioning, core thesis mapping, monogram and logo mark creation, typography systems, bespoke color palettes, brand guidelines, tone of voice documentation, and digital asset templates.",
+  },
+  {
+    question: "Do you handle multilingual branding for regional markets in Telangana and Andhra Pradesh?",
+    answer:
+      "Yes. Headquartered in Hyderabad, we create localized branding and tone-of-voice frameworks in English, Telugu, Hindi, and Urdu to resonate with regional decision-makers and broader Indian demographics.",
+  },
+  {
+    question: "How do you align our brand identity with our digital website?",
+    answer:
+      "Because we unite brand strategy, editorial design, and Next.js technology under one roof, your visual identity translates seamlessly into interactive web experiences with zero handover friction or diluted design intent.",
+  },
 ];

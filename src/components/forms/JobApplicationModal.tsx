@@ -125,7 +125,7 @@ export default function JobApplicationModal({ isOpen, onClose, roleTitle }: JobA
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Rohan Sharma"
-                    className="bg-cloud-white border border-mist-blue rounded-xl p-3.5 font-sans text-sm text-deep-atmosphere placeholder-graphite/40 focus:outline-none focus:border-sky-slate transition-colors"
+                    className="bg-cloud-white border border-mist-blue rounded-xl p-3.5 font-sans text-base sm:text-sm text-deep-atmosphere placeholder-graphite/40 focus:outline-none focus:border-sky-slate transition-colors"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
@@ -137,7 +137,7 @@ export default function JobApplicationModal({ isOpen, onClose, roleTitle }: JobA
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="rohan@example.com"
-                    className="bg-cloud-white border border-mist-blue rounded-xl p-3.5 font-sans text-sm text-deep-atmosphere placeholder-graphite/40 focus:outline-none focus:border-sky-slate transition-colors"
+                    className="bg-cloud-white border border-mist-blue rounded-xl p-3.5 font-sans text-base sm:text-sm text-deep-atmosphere placeholder-graphite/40 focus:outline-none focus:border-sky-slate transition-colors"
                   />
                 </div>
               </div>
@@ -168,7 +168,7 @@ export default function JobApplicationModal({ isOpen, onClose, roleTitle }: JobA
                     name="portfolioUrl"
                     value={formData.portfolioUrl}
                     onChange={handleChange}
-                    className="bg-cloud-white border border-mist-blue rounded-xl p-3.5 font-sans text-sm text-deep-atmosphere placeholder-graphite/40 focus:outline-none focus:border-sky-slate transition-colors"
+                    className="bg-cloud-white border border-mist-blue rounded-xl p-3.5 font-sans text-base sm:text-sm text-deep-atmosphere placeholder-graphite/40 focus:outline-none focus:border-sky-slate transition-colors"
                     placeholder="https://..."
                   />
                 </div>
@@ -179,7 +179,7 @@ export default function JobApplicationModal({ isOpen, onClose, roleTitle }: JobA
                     name="linkedinUrl"
                     value={formData.linkedinUrl}
                     onChange={handleChange}
-                    className="bg-cloud-white border border-mist-blue rounded-xl p-3.5 font-sans text-sm text-deep-atmosphere placeholder-graphite/40 focus:outline-none focus:border-sky-slate transition-colors"
+                    className="bg-cloud-white border border-mist-blue rounded-xl p-3.5 font-sans text-base sm:text-sm text-deep-atmosphere placeholder-graphite/40 focus:outline-none focus:border-sky-slate transition-colors"
                     placeholder="https://linkedin.com/in/..."
                   />
                 </div>
@@ -193,7 +193,7 @@ export default function JobApplicationModal({ isOpen, onClose, roleTitle }: JobA
                   value={formData.coverLetter}
                   onChange={handleChange}
                   rows={4}
-                  className="bg-cloud-white border border-mist-blue rounded-xl p-3.5 font-sans text-sm text-deep-atmosphere placeholder-graphite/40 focus:outline-none focus:border-sky-slate transition-colors resize-none"
+                  className="bg-cloud-white border border-mist-blue rounded-xl p-3.5 font-sans text-base sm:text-sm text-deep-atmosphere placeholder-graphite/40 focus:outline-none focus:border-sky-slate transition-colors resize-none"
                   placeholder="Tell us about yourself and why you want to build systems at Vyoma Media..."
                 />
               </div>

@@ -10,6 +10,7 @@ import CookieConsent from "@/components/ui/CookieConsent";
 import ExitIntentPopup from "@/components/ui/ExitIntentPopup";
 import MobileStickyCTA from "@/components/ui/MobileStickyCTA";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { generateLocalBusinessSchema } from "@/lib/seo";
 
 export const viewport: Viewport = {
   themeColor: "#172B3A",
@@ -59,12 +60,17 @@ export const metadata: Metadata = {
     "VYOMA Media",
     "branding agency Hyderabad",
     "web design Hyderabad",
+    "web design company Hyderabad",
+    "SEO agency Hyderabad",
     "organic growth studio",
     "technical SEO Hyderabad",
     "Next.js web development",
     "brand strategy",
     "Generative Engine Optimization",
   ],
+  alternates: {
+    canonical: "./",
+  },
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },
@@ -118,41 +124,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "VYOMA Media",
-    "legalName": "VYOMA Media",
-    "slogan": "GROWTH YOU OWN. NOT GROWTH YOU RENT.",
-    "description":
-      "We build brands, digital experiences and organic visibility that create lasting commercial value.",
-    "image": "https://vyomamedia.co.in/og-image.jpg",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Hyderabad",
-      "addressRegion": "Telangana",
-      "addressCountry": "IN",
-    },
-    "telephone": "+917008472069",
-    "email": "info@vyomamedia.co.in",
-    "url": "https://vyomamedia.co.in",
-    "sameAs": [
-      "https://vyomamedia.co.in",
-    ],
-    "areaServed": [
-      { "@type": "City", "name": "Hyderabad" },
-      { "@type": "Country", "name": "India" },
-      { "@type": "AdministrativeArea", "name": "Global" },
-    ],
-    "knowsAbout": [
-      "Brand Strategy",
-      "Visual Identity",
-      "Web Design",
-      "Next.js Frontend Engineering",
-      "Technical SEO",
-      "Organic Growth Systems",
-    ],
-  };
+  const jsonLd = generateLocalBusinessSchema();
 
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth light">

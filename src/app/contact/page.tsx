@@ -149,7 +149,7 @@ function ContactForm() {
             id="name"
             required
             placeholder="e.g. Vikram Rao"
-            className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
+            className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-base sm:text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           />
@@ -167,7 +167,7 @@ function ContactForm() {
             id="email"
             required
             placeholder="vikram@company.com"
-            className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
+            className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-base sm:text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           />
@@ -184,7 +184,7 @@ function ContactForm() {
             type="tel"
             id="phone"
             placeholder="+91 98765 43210"
-            className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
+            className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-base sm:text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
           />
@@ -201,7 +201,7 @@ function ContactForm() {
             type="text"
             id="company"
             placeholder="e.g. Bharat Hydraulics Ltd."
-            className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
+            className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-base sm:text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
             value={formData.company}
             onChange={(e) => setFormData({ ...formData, company: e.target.value })}
           />
@@ -218,7 +218,7 @@ function ContactForm() {
             type="url"
             id="website"
             placeholder="https://company.com"
-            className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
+            className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-base sm:text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
             value={formData.website}
             onChange={(e) => setFormData({ ...formData, website: e.target.value })}
           />
@@ -282,7 +282,7 @@ function ContactForm() {
           type="text"
           id="timeline"
           placeholder="e.g. Within 4 weeks, Q4 launch, Flexible"
-          className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
+          className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-base sm:text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
           value={formData.timeline}
           onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
         />
@@ -300,7 +300,7 @@ function ContactForm() {
           required
           rows={5}
           placeholder="Tell us what you're building, where you want to go and what you need to achieve..."
-          className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl p-4 font-sans text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors resize-none"
+          className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl p-4 font-sans text-base sm:text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors resize-none"
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
         />

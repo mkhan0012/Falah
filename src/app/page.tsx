@@ -11,7 +11,6 @@ import VyomaIndustries from "@/components/sections/VyomaIndustries";
 import VyomaProjectSpotlight from "@/components/sections/VyomaProjectSpotlight";
 import VyomaFaq from "@/components/sections/VyomaFaq";
 import VyomaClosingCTA from "@/components/sections/VyomaClosingCTA";
-import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "VYOMA Media | Branding, Web Design & Organic Growth Studio Hyderabad",
@@ -32,8 +31,24 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "VYOMA Media",
+    url: "https://vyomamedia.co.in",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://vyomamedia.co.in/keyword-tool?q={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
       {/* 1. HERO SECTION (Atmospheric Dark Hero in Deep Atmosphere #172B3A, Horizon Geometric Visual) */}
       <VyomaHero />
 

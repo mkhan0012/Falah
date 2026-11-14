@@ -328,7 +328,7 @@ function RfpForm() {
             <textarea
               rows={3}
               placeholder="e.g. Outgrowing offline referral channels, seeking category-dominant brand positioning..."
-              className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-2xl p-4 font-sans text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors resize-none"
+              className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-2xl p-4 font-sans text-base sm:text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors resize-none"
               value={formData.goals}
               onChange={(e) => setFormData({ ...formData, goals: e.target.value })}
             />
@@ -427,7 +427,7 @@ function RfpForm() {
                 id="rfp-name"
                 required
                 placeholder="e.g. Priya Sharma"
-                className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
+                className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-base sm:text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               />
@@ -445,7 +445,7 @@ function RfpForm() {
                 id="rfp-email"
                 required
                 placeholder="priya@company.com"
-                className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
+                className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-base sm:text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
@@ -462,7 +462,7 @@ function RfpForm() {
                 type="tel"
                 id="rfp-phone"
                 placeholder="+91 98765 43210"
-                className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
+                className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-base sm:text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               />
@@ -479,7 +479,7 @@ function RfpForm() {
                 type="text"
                 id="rfp-company"
                 placeholder="Acme Industrial Ltd."
-                className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
+                className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-base sm:text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
                 value={formData.company}
                 onChange={(e) => setFormData({ ...formData, company: e.target.value })}
               />
@@ -496,7 +496,7 @@ function RfpForm() {
                 type="url"
                 id="rfp-website"
                 placeholder="https://company.com"
-                className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
+                className="w-full bg-[#F1F3F1]/60 border border-[#7899B0]/25 rounded-xl px-4 py-3 font-sans text-base sm:text-sm text-[#172B3A] focus:outline-none focus:border-[#172B3A] transition-colors"
                 value={formData.website}
                 onChange={(e) => setFormData({ ...formData, website: e.target.value })}
               />
