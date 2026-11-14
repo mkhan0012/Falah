@@ -12,9 +12,9 @@ export const siteConfig = {
   ogImage: "https://vyomamedia.co.in/og-image.jpg",
   contact: {
     email: "info@vyomamedia.co.in",
-    phone: "+91 91000 23456",
-    phoneDisplay: "+91 91000 23456",
-    whatsapp: "919100023456",
+    phone: "+91 70084 72069",
+    phoneDisplay: "+91 70084 72069",
+    whatsapp: "917008472069",
     whatsappMessage:
       "Hi Vyoma Media, I'd like to discuss a project for our brand.",
     address: "Hyderabad, Telangana, India",

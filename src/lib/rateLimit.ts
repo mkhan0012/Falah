@@ -1,6 +1,6 @@
 /**
- * A simple in-memory rate limiter.
- * Note: In serverless environments (like Vercel), this cache is wiped on every cold start.
+ * A simple in-memory rate limiter with automated memory bound protections.
+ * Note: In serverless environments (like Vercel), this cache is wiped on cold starts.
  * However, it is effective at preventing rapid double-clicks and basic bot spam during active instances.
  */
 
@@ -9,7 +9,21 @@ interface RateLimitRecord {
   resetTime: number;
 }
 
+const MAX_CACHE_SIZE = 5000;
 const rateLimitCache = new Map<string, RateLimitRecord>();
+let callCounter = 0;
+
+/**
+ * Periodically cleans up expired records to prevent memory leaks in long-running processes.
+ */
+export function cleanupRateLimits() {
+  const now = Date.now();
+  for (const [key, record] of rateLimitCache.entries()) {
+    if (now > record.resetTime) {
+      rateLimitCache.delete(key);
+    }
+  }
+}
 
 /**
  * Rate limits an action based on an identifier (like an IP address or email).
@@ -18,13 +32,30 @@ const rateLimitCache = new Map<string, RateLimitRecord>();
  * @param windowMs Time window in milliseconds
  * @returns { success: boolean, retryAfter?: number }
  */
-export function rateLimit(identifier: string, maxRequests: number = 3, windowMs: number = 60000): { success: boolean, retryAfter?: number } {
+export function rateLimit(
+  identifier: string,
+  maxRequests: number = 3,
+  windowMs: number = 60000
+): { success: boolean; retryAfter?: number } {
+  // Clamp identifier length to prevent memory abuse
+  const cleanId = String(identifier).slice(0, 120);
   const now = Date.now();
-  const record = rateLimitCache.get(identifier);
+
+  // Automated opportunistic cleanup to prevent memory exhaustion
+  callCounter++;
+  if (callCounter % 100 === 0 || rateLimitCache.size > 1000) {
+    cleanupRateLimits();
+    // Enforce hard ceiling if cache exceeds max size under high concurrency
+    if (rateLimitCache.size > MAX_CACHE_SIZE) {
+      rateLimitCache.clear();
+    }
+  }
+
+  const record = rateLimitCache.get(cleanId);
 
   if (!record) {
     // First request
-    rateLimitCache.set(identifier, {
+    rateLimitCache.set(cleanId, {
       count: 1,
       resetTime: now + windowMs,
     });
@@ -33,7 +64,7 @@ export function rateLimit(identifier: string, maxRequests: number = 3, windowMs:
 
   if (now > record.resetTime) {
     // Window expired, reset
-    rateLimitCache.set(identifier, {
+    rateLimitCache.set(cleanId, {
       count: 1,
       resetTime: now + windowMs,
     });
@@ -51,17 +82,4 @@ export function rateLimit(identifier: string, maxRequests: number = 3, windowMs:
   // Increment count
   record.count += 1;
   return { success: true };
-}
-
-/**
- * Periodically cleans up expired records to prevent memory leaks in long-running processes.
- * Can be called occasionally, though Map iteration is relatively safe.
- */
-export function cleanupRateLimits() {
-  const now = Date.now();
-  for (const [key, record] of rateLimitCache.entries()) {
-    if (now > record.resetTime) {
-      rateLimitCache.delete(key);
-    }
-  }
 }

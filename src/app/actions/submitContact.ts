@@ -22,6 +22,10 @@ const isValidEmail = (email: string) => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.length <= 254;
 };
 
+const sanitizeHeader = (val: string) => {
+  return val.replace(/[\r\n]+/g, " ").trim();
+};
+
 const escapeHtml = (unsafe: string) => {
   if (!unsafe) return "";
   return unsafe
@@ -99,6 +103,14 @@ export async function submitContact(rawInput: ContactFormData | FormData) {
       return { success: false, error: "Website URL is too long." };
     }
 
+    if (data.budget && data.budget.length > 100) {
+      return { success: false, error: "Budget field is too long." };
+    }
+
+    if (data.timeline && data.timeline.length > 100) {
+      return { success: false, error: "Timeline field is too long." };
+    }
+
     // 3. Multi-tier Rate Limiting (IP + Email)
     let clientIp = "unknown-ip";
     try {
@@ -146,7 +158,7 @@ export async function submitContact(rawInput: ContactFormData | FormData) {
         from: `"Vyoma Media Intake" <${SMTP_USER}>`,
         to: process.env.CONTACT_EMAIL || 'info@vyomamedia.co.in',
         replyTo: data.email,
-        subject: `New Project Inquiry: ${escapeHtml(data.name)} [${escapeHtml(data.company || 'Independent')}]`,
+        subject: `New Project Inquiry: ${sanitizeHeader(data.name)} [${sanitizeHeader(data.company || 'Independent')}]`,
         text: `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || 'N/A'}\nCompany: ${data.company || 'N/A'}\nWebsite: ${data.website || 'N/A'}\nNeeds: ${data.needs.join(', ') || 'N/A'}\nBudget: ${data.budget || 'N/A'}\nTimeline: ${data.timeline || 'N/A'}\n\nMessage:\n${data.message}`,
         html: `
           <div style="font-family: sans-serif; color: #172B3A; max-width: 600px; line-height: 1.6;">

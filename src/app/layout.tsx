@@ -133,7 +133,7 @@ export default function RootLayout({
       "addressRegion": "Telangana",
       "addressCountry": "IN",
     },
-    "telephone": "+919100023456",
+    "telephone": "+917008472069",
     "email": "info@vyomamedia.co.in",
     "url": "https://vyomamedia.co.in",
     "sameAs": [

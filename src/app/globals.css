@@ -25,6 +25,13 @@
   --color-surface-soft: #DCE6EB;
   --color-surface-dark: #172B3A;
 
+  /* Backward-compatible Theme Aliases */
+  --color-charcoal: #172B3A;
+  --color-vermilion: #D3A56C;
+  --color-warm-grey: #DCE6EB;
+  --color-ivory: #F1F3F1;
+  --color-slate: #7899B0;
+
   /* Typography Fonts */
   --font-display: var(--font-display), "Manrope", sans-serif;
   --font-sans: var(--font-sans), "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;

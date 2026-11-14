@@ -216,6 +216,19 @@ export default function Footer() {
                     Terms of Service
                   </TransitionLink>
                 </li>
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (typeof window !== "undefined") {
+                        window.dispatchEvent(new CustomEvent("vyoma_open_cookie_preferences"));
+                      }
+                    }}
+                    className="hover:text-white transition-colors cursor-pointer text-left block"
+                  >
+                    Cookie Preferences
+                  </button>
+                </li>
               </ul>
             </div>
           </div>

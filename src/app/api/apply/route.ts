@@ -11,6 +11,19 @@ const ALLOWED_MIME_TYPES = new Set([
 ]);
 const ALLOWED_EXTENSIONS = new Set(['pdf', 'doc', 'docx']);
 
+const sanitizeHeader = (val: string) => {
+  return val.replace(/[\r\n]+/g, " ").trim();
+};
+
+const isSafeUrl = (url: string) => {
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === "http:" || parsed.protocol === "https:";
+  } catch {
+    return false;
+  }
+};
+
 const escapeHtml = (unsafe: string) => {
   if (!unsafe) return "";
   return unsafe
@@ -44,6 +57,14 @@ export async function POST(request: Request) {
 
     if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return NextResponse.json({ error: 'Invalid email address.' }, { status: 400 });
+    }
+
+    if (portfolioUrl && portfolioUrl.length > 300) {
+      return NextResponse.json({ error: 'Portfolio URL exceeds length limit.' }, { status: 400 });
+    }
+
+    if (linkedinUrl.length > 300) {
+      return NextResponse.json({ error: 'LinkedIn URL exceeds length limit.' }, { status: 400 });
     }
 
     if (coverLetter.length > 10000) {
@@ -96,7 +117,7 @@ export async function POST(request: Request) {
       from: SMTP_USER ? `"VYOMA Careers" <${SMTP_USER}>` : '"VYOMA Careers" <info@vyomamedia.co.in>',
       to: process.env.CAREERS_EMAIL || 'info@vyomamedia.co.in',
       replyTo: email,
-      subject: `Application: ${escapeHtml(role)} — ${escapeHtml(name)} | VYOMA Media`,
+      subject: `Application: ${sanitizeHeader(role)} — ${sanitizeHeader(name)} | VYOMA Media`,
       text: `
 Role: ${role}
 Name: ${name}
@@ -112,8 +133,8 @@ ${coverLetter}
           <h2 style="color: #172B3A; border-bottom: 2px solid #7899B0; padding-bottom: 8px;">Role Application: ${escapeHtml(role)}</h2>
           <p><strong>Candidate:</strong> ${escapeHtml(name)}</p>
           <p><strong>Email:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>
-          <p><strong>Portfolio:</strong> ${portfolioUrl ? `<a href="${escapeHtml(portfolioUrl)}">${escapeHtml(portfolioUrl)}</a>` : 'N/A'}</p>
-          <p><strong>LinkedIn:</strong> ${linkedinUrl ? `<a href="${escapeHtml(linkedinUrl)}">${escapeHtml(linkedinUrl)}</a>` : 'N/A'}</p>
+          <p><strong>Portfolio:</strong> ${portfolioUrl ? (isSafeUrl(portfolioUrl) ? `<a href="${escapeHtml(portfolioUrl)}">${escapeHtml(portfolioUrl)}</a>` : escapeHtml(portfolioUrl)) : 'N/A'}</p>
+          <p><strong>LinkedIn:</strong> ${linkedinUrl ? (isSafeUrl(linkedinUrl) ? `<a href="${escapeHtml(linkedinUrl)}">${escapeHtml(linkedinUrl)}</a>` : escapeHtml(linkedinUrl)) : 'N/A'}</p>
           <br/>
           <div style="background: #F1F3F1; padding: 16px; border-left: 3px solid #7899B0;">
             <strong>Statement & Experience:</strong>
