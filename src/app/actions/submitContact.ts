@@ -142,8 +142,8 @@ export async function submitContact(rawInput: ContactFormData | FormData) {
     const isRfp = (data.source || "").toLowerCase().includes("rfp") || (data.source || "").toLowerCase().includes("proposal");
     const submissionType = isRfp ? "RFP Proposal Request" : "Start a Project Brief";
 
-    const SMTP_HOST = process.env.SMTP_HOST || 'smtp.gmail.com';
-    const SMTP_PORT = process.env.SMTP_PORT || 587;
+    const SMTP_HOST = process.env.SMTP_HOST || 'smtpout.secureserver.net';
+    const SMTP_PORT = process.env.SMTP_PORT || 465;
     const SMTP_USER = process.env.SMTP_USER;
     const SMTP_PASS = process.env.SMTP_PASS;
 
