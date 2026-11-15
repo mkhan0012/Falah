@@ -3,6 +3,7 @@
 import { CheckCircle2, ArrowUpRight } from "lucide-react";
 import TransitionLink from "@/components/ui/TransitionLink";
 import BeforeAfterSlider from "@/components/ui/BeforeAfterSlider";
+import InteractiveDeviceShowcase from "@/components/ui/InteractiveDeviceShowcase";
 
 export default function VyomaProjectSpotlight() {
   return (
@@ -164,6 +165,23 @@ export default function VyomaProjectSpotlight() {
               </a>
             </div>
           </div>
+        </div>
+
+        {/* Interactive 3D Device Showcase (MacBook M3 & iPhone 16 Pro) */}
+        <div className="mb-14 pt-14 border-t border-[#7899B0]/25">
+          <div className="max-w-3xl mb-8 space-y-2">
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#3B5B72] font-bold block">
+              MULTI-SURFACE ARCHITECTURE // LIVE VIEWPORT INSPECTOR
+            </span>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-extrabold text-[#172B3A] uppercase tracking-tight">
+              Interactive 3D Hardware Inspection.
+            </h3>
+            <p className="text-sm sm:text-base text-[#30383D] leading-relaxed font-sans">
+              Every digital deployment is engineered responsively from studio displays down to mobile viewports. Switch devices and move your cursor over the screen to inspect our live client deployments in 3D spatial parallax.
+            </p>
+          </div>
+
+          <InteractiveDeviceShowcase />
         </div>
 
         {/* Other Projects Preview Ticker Bar */}

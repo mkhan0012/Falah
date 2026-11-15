@@ -9,6 +9,7 @@ import VyomaHowWeWork from "@/components/sections/VyomaHowWeWork";
 import VyomaCapabilities from "@/components/sections/VyomaCapabilities";
 import VyomaIndustries from "@/components/sections/VyomaIndustries";
 import VyomaProjectSpotlight from "@/components/sections/VyomaProjectSpotlight";
+import VyomaSpeedTelemetry from "@/components/sections/VyomaSpeedTelemetry";
 import VyomaFaq from "@/components/sections/VyomaFaq";
 import VyomaClosingCTA from "@/components/sections/VyomaClosingCTA";
 
@@ -76,13 +77,16 @@ export default function Home() {
       {/* 8. INDUSTRIES WE BUILD FOR (Healthcare, Real Estate, B2B, Consumer, Politics, Film) */}
       <VyomaIndustries />
 
-      {/* 9. CASE STUDY SPOTLIGHT (Bharat Hydraulics: Workshop → Digital System) */}
+      {/* 9. CASE STUDY SPOTLIGHT & 3D PARALLAX HARDWARE SHOWCASE */}
       <VyomaProjectSpotlight />
 
-      {/* 10. FREQUENTLY ASKED QUESTIONS (Clear Answers, Zero Jargon) */}
+      {/* 10. SPEED & CORE WEB VITALS TELEMETRY GAUGE (Sub-second Performance & Conversion Audit) */}
+      <VyomaSpeedTelemetry />
+
+      {/* 11. FREQUENTLY ASKED QUESTIONS (Clear Answers, Zero Jargon) */}
       <VyomaFaq />
 
-      {/* 11. CLOSING STRATEGIC CTA (Cinematic Deep Atmosphere: Let's Build Something That Lasts) */}
+      {/* 12. CLOSING STRATEGIC CTA (Cinematic Deep Atmosphere: Let's Build Something That Lasts) */}
       <VyomaClosingCTA />
     </>
   );
