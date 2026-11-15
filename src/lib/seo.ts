@@ -101,6 +101,15 @@ export function generateLocalBusinessSchema(options?: {
             url: `${siteConfig.url}/branding-studio-hyderabad`,
           },
         },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Digital Marketing & Owned Acquisition Systems",
+            description: "Full-funnel digital marketing, organic search architecture, Generative Engine Optimization (GEO), and multi-touch revenue attribution.",
+            url: `${siteConfig.url}/digital-marketing-agency-hyderabad`,
+          },
+        },
       ],
     },
   };

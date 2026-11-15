@@ -208,6 +208,11 @@ export default function Footer() {
               </p>
               <ul className="space-y-2 text-xs text-[#DCE6EB]">
                 <li>
+                  <TransitionLink href="/digital-marketing-agency-hyderabad" className="hover:text-white transition-colors block font-medium">
+                    Digital Marketing Agency Hyderabad
+                  </TransitionLink>
+                </li>
+                <li>
                   <TransitionLink href="/web-design-company-hyderabad" className="hover:text-white transition-colors block">
                     Web Design Hyderabad
                   </TransitionLink>

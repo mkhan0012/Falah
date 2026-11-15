@@ -332,35 +332,56 @@ export default function BrandingStudioHyderabad() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <Link
-                  href="/web-design-company-hyderabad"
-                  className="p-6 rounded-2xl bg-white/5 border border-[#7899B0]/30 hover:bg-white/10 transition-all group flex items-center justify-between"
+                  href="/digital-marketing-agency-hyderabad"
+                  className="p-6 rounded-2xl bg-white/5 border border-[#7899B0]/30 hover:bg-white/10 transition-all group flex flex-col justify-between"
                 >
                   <div>
-                    <h4 className="font-display font-bold text-base text-white group-hover:text-[#D3A56C] transition-colors">
-                      Web Design Company in Hyderabad →
+                    <h4 className="font-display font-bold text-base text-white group-hover:text-[#D3A56C] transition-colors mb-1">
+                      Digital Marketing Hyderabad →
                     </h4>
-                    <p className="text-xs text-[#DCE6EB] mt-1 font-sans">
+                    <p className="text-xs text-[#DCE6EB] font-sans">
+                      Owned organic acquisition, GEO, and sustainable pipeline growth.
+                    </p>
+                  </div>
+                  <div className="mt-4 flex justify-end">
+                    <ArrowUpRight size={18} className="text-[#93B2C8] group-hover:text-white transition-colors" />
+                  </div>
+                </Link>
+
+                <Link
+                  href="/web-design-company-hyderabad"
+                  className="p-6 rounded-2xl bg-white/5 border border-[#7899B0]/30 hover:bg-white/10 transition-all group flex flex-col justify-between"
+                >
+                  <div>
+                    <h4 className="font-display font-bold text-base text-white group-hover:text-[#D3A56C] transition-colors mb-1">
+                      Web Design Hyderabad →
+                    </h4>
+                    <p className="text-xs text-[#DCE6EB] font-sans">
                       Deploy your brand across custom Next.js web applications.
                     </p>
                   </div>
-                  <ArrowUpRight size={18} className="text-[#93B2C8] group-hover:text-white transition-colors" />
+                  <div className="mt-4 flex justify-end">
+                    <ArrowUpRight size={18} className="text-[#93B2C8] group-hover:text-white transition-colors" />
+                  </div>
                 </Link>
 
                 <Link
                   href="/seo-agency-hyderabad"
-                  className="p-6 rounded-2xl bg-white/5 border border-[#7899B0]/30 hover:bg-white/10 transition-all group flex items-center justify-between"
+                  className="p-6 rounded-2xl bg-white/5 border border-[#7899B0]/30 hover:bg-white/10 transition-all group flex flex-col justify-between"
                 >
                   <div>
-                    <h4 className="font-display font-bold text-base text-white group-hover:text-[#D3A56C] transition-colors">
-                      SEO Agency in Hyderabad →
+                    <h4 className="font-display font-bold text-base text-white group-hover:text-[#D3A56C] transition-colors mb-1">
+                      SEO Agency Hyderabad →
                     </h4>
-                    <p className="text-xs text-[#DCE6EB] mt-1 font-sans">
+                    <p className="text-xs text-[#DCE6EB] font-sans">
                       Drive top-tier organic search and AI citations across Google.
                     </p>
                   </div>
-                  <ArrowUpRight size={18} className="text-[#93B2C8] group-hover:text-white transition-colors" />
+                  <div className="mt-4 flex justify-end">
+                    <ArrowUpRight size={18} className="text-[#93B2C8] group-hover:text-white transition-colors" />
+                  </div>
                 </Link>
               </div>
             </div>

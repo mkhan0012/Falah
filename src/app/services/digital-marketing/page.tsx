@@ -4,9 +4,9 @@ import { ArrowLeft, ArrowUpRight, ArrowRight, CheckCircle2, ChevronRight } from 
 import ServiceSelector from "@/components/sections/ServiceSelector";
 
 export const metadata: Metadata = {
-  title: "Organic Growth & Attribution Strategy | VYOMA Media",
+  title: "Digital Marketing Strategy & Organic Growth Studio | VYOMA Media",
   description:
-    "Growth you own, not growth you rent. Strategic positioning and full-funnel organic search presence for compounding business value in Hyderabad.",
+    "Growth you own, not growth you rent. Strategic brand positioning, Next.js web systems, and full-funnel organic search presence for compounding business value in Hyderabad.",
   alternates: {
     canonical: "https://vyomamedia.co.in/services/digital-marketing",
   },
@@ -121,16 +121,24 @@ export default function DigitalMarketingServicePage() {
             <p className="text-lg sm:text-2xl text-[#30383D] font-sans leading-relaxed max-w-3xl mb-10">
               Growth you own, not growth you rent. Strategic positioning and full-funnel organic search presence engineered for compounding commercial value.
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-[#172B3A] text-white px-8 py-4 font-mono text-xs font-bold hover:bg-[#20394c] transition-colors uppercase rounded-full group shadow-md"
-            >
-              COMMISSION A GROWTH ENGINE{" "}
-              <ArrowUpRight
-                size={16}
-                className="text-[#93B2C8] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-              />
-            </Link>
+            <div className="flex flex-wrap items-center gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-[#172B3A] text-white px-8 py-4 font-mono text-xs font-bold hover:bg-[#20394c] transition-colors uppercase rounded-full group shadow-md"
+              >
+                COMMISSION A GROWTH ENGINE{" "}
+                <ArrowUpRight
+                  size={16}
+                  className="text-[#93B2C8] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                />
+              </Link>
+              <Link
+                href="/digital-marketing-agency-hyderabad"
+                className="inline-flex items-center gap-2 bg-white border border-[#7899B0]/30 text-[#172B3A] px-7 py-4 font-mono text-xs font-bold hover:border-[#172B3A] transition-colors uppercase rounded-full group shadow-xs"
+              >
+                <span>HYDERABAD LOCAL HUB →</span>
+              </Link>
+            </div>
           </div>
 
           {/* Strategic Visualization */}

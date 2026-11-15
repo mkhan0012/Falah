@@ -375,6 +375,14 @@ export default function Navbar() {
                 </div>
                 <div className="grid grid-cols-1 gap-1.5">
                   <TransitionLink
+                    href="/digital-marketing-agency-hyderabad"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="px-3.5 py-2 rounded-xl bg-white/5 border border-[#7899B0]/20 text-xs font-mono text-[#DCE6EB] hover:text-white flex items-center justify-between"
+                  >
+                    <span>Digital Marketing Hyderabad</span>
+                    <ArrowUpRight size={13} className="text-[#93B2C8]" />
+                  </TransitionLink>
+                  <TransitionLink
                     href="/web-design-company-hyderabad"
                     onClick={() => setMobileMenuOpen(false)}
                     className="px-3.5 py-2 rounded-xl bg-white/5 border border-[#7899B0]/20 text-xs font-mono text-[#DCE6EB] hover:text-white flex items-center justify-between"

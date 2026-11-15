@@ -121,3 +121,37 @@ export const brandingFaqs: FaqItem[] = [
       "Because we unite brand strategy, editorial design, and Next.js technology under one roof, your visual identity translates seamlessly into interactive web experiences with zero handover friction or diluted design intent.",
   },
 ];
+
+export const digitalMarketingFaqs: FaqItem[] = [
+  {
+    question: "Why choose VYOMA Media as your digital marketing agency in Hyderabad?",
+    answer:
+      "Most agencies in Hyderabad trap clients in a 'rented traffic treadmill'—burning monthly ad budgets on Meta and Google Ads that produce zero pipeline the moment spending stops. VYOMA Media builds owned digital acquisition assets: sub-second Next.js web engines, compounding organic SEO, Generative Engine Optimization (GEO) for AI search, and category-defining brand equity that lowers customer acquisition cost quarter after quarter.",
+  },
+  {
+    question: "What digital marketing services do you deliver for Hyderabad enterprises?",
+    answer:
+      "Our full-spectrum growth architecture covers: 1) Technical & Organic SEO, 2) Generative Engine Optimization (GEO) for citations in ChatGPT and Perplexity, 3) High-Conversion Next.js Web Engineering, 4) Strategic Brand Positioning & Narrative, 5) Multi-lingual Regional Content (Telugu, Hindi, English), and 6) Multi-Touch Attribution & Pipeline Tracking.",
+  },
+  {
+    question: "Do you focus on key Hyderabad commercial corridors like HITEC City and Gachibowli?",
+    answer:
+      "Yes. We strategically engineer campaigns for high-density commercial hubs across Hyderabad including HITEC City, Gachibowli, Financial District, Madhapur, Jubilee Hills, Banjara Hills, Kokapet, and Begumpet. Whether targeting B2B SaaS buyers in the IT corridor or luxury consumers in Jubilee Hills, our architecture captures high-intent local search demand.",
+  },
+  {
+    question: "How do you measure and report digital marketing ROI?",
+    answer:
+      "We eliminate vanity metrics like clicks and impressions. We measure what actually moves enterprise valuation: qualified organic inquiries, pipeline velocity, cost per acquisition (CAC) efficiency, and multi-touch search revenue attribution. You receive transparent monthly executive briefings with verifiable business data.",
+  },
+  {
+    question: "How does Generative Engine Optimization (GEO) work alongside traditional digital marketing?",
+    answer:
+      "Search behavior has evolved beyond traditional blue links. When decision-makers ask AI tools like ChatGPT, Perplexity, or Google Gemini for 'best B2B solutions in Hyderabad' or 'top commercial partners', GEO ensures your brand is indexed with rich semantic entities, authoritative citations, and verifiable facts that AI models quote directly.",
+  },
+  {
+    question: "How long does it take to see measurable growth from an organic digital marketing campaign?",
+    answer:
+      "Technical fixes, conversion rate optimization, and local map pack enhancements frequently drive inbound inquiry lifts within 45 to 60 days. Comprehensive topical authority and competitive commercial keyword dominance across Hyderabad typically compound into exponential, self-sustaining returns within 3 to 6 months.",
+  },
+];
+

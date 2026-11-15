@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // 2. High-Intent Commercial Local SEO Pages (Hyderabad)
   const localSeoRoutes = [
+    { path: "/digital-marketing-agency-hyderabad", priority: 0.95, changeFrequency: "weekly" as const },
     { path: "/web-design-company-hyderabad", priority: 0.95, changeFrequency: "weekly" as const },
     { path: "/seo-agency-hyderabad", priority: 0.95, changeFrequency: "weekly" as const },
     { path: "/branding-studio-hyderabad", priority: 0.95, changeFrequency: "weekly" as const },
