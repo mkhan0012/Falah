@@ -1,0 +1,26 @@
+{
+  "name": "VYOMA Media",
+  "short_name": "VYOMA",
+  "description": "Branding, Web Design & Organic Growth Studio Hyderabad",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#172B3A",
+  "theme_color": "#172B3A",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
