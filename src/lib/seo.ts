@@ -61,6 +61,10 @@ export function generateLocalBusinessSchema(options?: {
     ],
     sameAs: [
       siteConfig.url,
+      siteConfig.socials.linkedin,
+      siteConfig.socials.twitter,
+      siteConfig.socials.github,
+      siteConfig.socials.instagram,
     ],
     knowsAbout: [
       "Brand Strategy & Category Positioning",

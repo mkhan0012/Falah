@@ -21,6 +21,12 @@ export const siteConfig = {
     workingHours: "Mon – Fri: 9:30 AM – 6:30 PM IST",
     availability: "Q4 Intake Open // Strategy Consultations by Appointment",
   },
+  socials: {
+    linkedin: "https://www.linkedin.com/company/vyoma-media",
+    twitter: "https://x.com/vyomamedia",
+    github: "https://github.com/mkhan0012/Falah",
+    instagram: "https://www.instagram.com/vyomamedia.co.in",
+  },
   colors: {
     deepAtmosphere: "#172B3A",
     skySlate: "#7899B0",

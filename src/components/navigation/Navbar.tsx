@@ -234,9 +234,9 @@ export default function Navbar() {
                         <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#3B5B72] font-bold">
                           VYOMA DISCIPLINE
                         </span>
-                        <h4 className="text-xl font-display font-bold text-[#172B3A]">
+                        <div className="text-xl font-display font-bold text-[#172B3A]">
                           {cat.name}
-                        </h4>
+                        </div>
                         <p className="text-xs text-[#30383D] mt-0.5 font-sans">
                           {cat.description}
                         </p>

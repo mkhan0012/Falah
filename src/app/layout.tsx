@@ -51,11 +51,11 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://vyomamedia.co.in"),
   title: {
-    default: "VYOMA Media | Branding, Web Design & Organic Growth Studio Hyderabad",
+    default: "VYOMA Media | Branding, Web Design & SEO Studio Hyderabad",
     template: "%s | VYOMA Media",
   },
   description:
-    "We build brands, digital experiences and organic visibility that create lasting commercial value. Growth you own, not growth you rent. Based in Hyderabad, India.",
+    "We build brands, digital experiences, and organic visibility that create lasting value. Growth you own, not growth you rent. Based in Hyderabad, India.",
   keywords: [
     "VYOMA Media",
     "branding agency Hyderabad",
@@ -70,6 +70,14 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: "./",
+    languages: {
+      "en-IN": "https://vyomamedia.co.in",
+      "en": "https://vyomamedia.co.in",
+      "x-default": "https://vyomamedia.co.in",
+    },
+    types: {
+      "application/rss+xml": "https://vyomamedia.co.in/feed.xml",
+    },
   },
   icons: {
     icon: [
@@ -89,9 +97,9 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://vyomamedia.co.in",
     siteName: "VYOMA Media",
-    title: "VYOMA Media | Branding, Web Design & Organic Growth Studio Hyderabad",
+    title: "VYOMA Media | Branding, Web Design & SEO Studio Hyderabad",
     description:
-      "We build brands, digital experiences and organic visibility that create lasting commercial value. Growth you own, not growth you rent.",
+      "We build brands, digital experiences, and organic visibility that create lasting value. Growth you own, not growth you rent. Based in Hyderabad, India.",
     images: [
       {
         url: "/og-image.jpg",
@@ -103,9 +111,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "VYOMA Media | Branding, Web Design & Organic Growth Studio Hyderabad",
+    title: "VYOMA Media | Branding, Web Design & SEO Studio Hyderabad",
     description:
-      "We build brands, digital experiences and organic visibility that create lasting commercial value. Growth you own, not growth you rent.",
+      "We build brands, digital experiences, and organic visibility that create lasting value. Growth you own, not growth you rent. Based in Hyderabad, India.",
     images: ["/og-image.jpg"],
   },
   verification: {

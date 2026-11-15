@@ -79,7 +79,7 @@ export default function VyomaHero() {
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-[#7899B0]/30 text-[#DCE6EB] text-xs font-mono font-bold tracking-widest uppercase shadow-inner hero-stagger">
                 <Sparkles size={12} className="text-[#D3A56C]" />
-                <span>STUDIO MANIFESTO</span>
+                <span>BRANDING · WEB DESIGN · SEO STUDIO // HYDERABAD</span>
               </div>
 
               {/* Main Heading: Exact wording from Prompt */}
@@ -171,9 +171,9 @@ export default function VyomaHero() {
                       <span className="text-[10px] font-mono text-[#D3A56C] uppercase font-bold tracking-widest block">
                         GEOMETRIC IDENTITY
                       </span>
-                      <h2 className="font-display font-bold text-lg text-[#F1F3F1]">
+                      <div className="font-display font-bold text-lg text-[#F1F3F1]">
                         THE HORIZON MARK
-                      </h2>
+                      </div>
                     </div>
                   </div>
                   <span className="text-xs font-mono text-[#93B2C8]">01 // ELEVATION</span>

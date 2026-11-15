@@ -345,9 +345,9 @@ export default function VyomaSpeedTelemetry() {
             {/* Direct CTA Link */}
             <div className="p-6 rounded-2xl bg-gradient-to-r from-white/10 to-white/5 border border-[#7899B0]/30 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div>
-                <h4 className="font-display font-bold text-base text-white">
+                <h3 className="font-display font-bold text-base text-white">
                   Ready to upgrade your enterprise to sub-second architecture?
-                </h4>
+                </h3>
                 <p className="text-xs font-sans text-[#DCE6EB] mt-0.5">
                   We audit your current website speed and Core Web Vitals before writing a single line of code.
                 </p>

@@ -73,9 +73,9 @@ export default function CookieConsent() {
                 <div className="w-8 h-8 rounded-lg bg-[#7899B0]/20 flex items-center justify-center border border-[#7899B0]/30 text-[#D3A56C]">
                   <Cookie size={17} />
                 </div>
-                <h3 className="text-lg md:text-xl font-display font-bold uppercase tracking-tight text-[#F1F3F1]">
+                <p className="text-lg md:text-xl font-display font-bold uppercase tracking-tight text-[#F1F3F1]">
                   Cookie Preferences
-                </h3>
+                </p>
               </div>
               <button
                 type="button"
@@ -122,9 +122,9 @@ export default function CookieConsent() {
         ) : (
           <div className="animate-in fade-in duration-300">
             <div className="flex justify-between items-center mb-5 pb-3 border-b border-[#7899B0]/20">
-              <h3 className="text-base sm:text-lg font-display font-bold uppercase tracking-tight text-[#F1F3F1]">
+              <p className="text-base sm:text-lg font-display font-bold uppercase tracking-tight text-[#F1F3F1]">
                 Manage Preferences
-              </h3>
+              </p>
               <button 
                 type="button"
                 onClick={() => setIsManaging(false)} 
@@ -138,7 +138,7 @@ export default function CookieConsent() {
             <div className="space-y-4 mb-6">
               <div className="flex justify-between items-center pb-3 border-b border-[#7899B0]/15">
                 <div>
-                  <h4 className="font-sans font-bold text-sm text-[#F1F3F1] mb-0.5">Necessary</h4>
+                  <p className="font-sans font-bold text-sm text-[#F1F3F1] mb-0.5">Necessary</p>
                   <p className="text-xs text-[#DCE6EB]/70 font-sans">Required for core website security and operation.</p>
                 </div>
                 <div className="text-[10px] font-mono text-[#D3A56C] uppercase tracking-wider font-semibold px-2 py-0.5 rounded bg-[#D3A56C]/10 border border-[#D3A56C]/30 shrink-0">
@@ -148,7 +148,7 @@ export default function CookieConsent() {
               
               <div className="flex justify-between items-center pb-3 border-b border-[#7899B0]/15">
                 <div className="pr-4">
-                  <h4 className="font-sans font-bold text-sm text-[#F1F3F1] mb-0.5">Analytics</h4>
+                  <p className="font-sans font-bold text-sm text-[#F1F3F1] mb-0.5">Analytics</p>
                   <p className="text-xs text-[#DCE6EB]/70 font-sans">Helps us understand how visitors interact with the site.</p>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer shrink-0">
@@ -164,7 +164,7 @@ export default function CookieConsent() {
 
               <div className="flex justify-between items-center pb-1">
                 <div className="pr-4">
-                  <h4 className="font-sans font-bold text-sm text-[#F1F3F1] mb-0.5">Marketing</h4>
+                  <p className="font-sans font-bold text-sm text-[#F1F3F1] mb-0.5">Marketing</p>
                   <p className="text-xs text-[#DCE6EB]/70 font-sans">Used to deliver relevant messaging and track campaigns.</p>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer shrink-0">

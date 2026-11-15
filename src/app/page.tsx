@@ -14,16 +14,24 @@ import VyomaFaq from "@/components/sections/VyomaFaq";
 import VyomaClosingCTA from "@/components/sections/VyomaClosingCTA";
 
 export const metadata: Metadata = {
-  title: "VYOMA Media | Branding, Web Design & Organic Growth Studio Hyderabad",
+  title: "VYOMA Media | Branding, Web Design & SEO Studio Hyderabad",
   description:
-    "We build brands, digital experiences and organic visibility that create lasting commercial value. Growth you own, not growth you rent. Based in Hyderabad, India.",
+    "We build brands, digital experiences, and organic visibility that create lasting value. Growth you own, not growth you rent. Based in Hyderabad, India.",
   alternates: {
     canonical: "https://vyomamedia.co.in",
+    languages: {
+      "en-IN": "https://vyomamedia.co.in",
+      "en": "https://vyomamedia.co.in",
+      "x-default": "https://vyomamedia.co.in",
+    },
+    types: {
+      "application/rss+xml": "https://vyomamedia.co.in/feed.xml",
+    },
   },
   openGraph: {
-    title: "VYOMA Media | Branding, Web Design & Organic Growth Studio Hyderabad",
+    title: "VYOMA Media | Branding, Web Design & SEO Studio Hyderabad",
     description:
-      "We build brands, digital experiences and organic visibility that create lasting commercial value. Growth you own, not growth you rent.",
+      "We build brands, digital experiences, and organic visibility that create lasting value. Growth you own, not growth you rent. Based in Hyderabad, India.",
     url: "https://vyomamedia.co.in",
     siteName: "VYOMA Media",
     locale: "en_IN",

@@ -57,9 +57,9 @@ export default function ExitIntentPopup() {
             BEFORE YOU GO
           </div>
 
-          <h3 className="text-3xl md:text-4xl font-primary font-bold tracking-tight leading-tight">
+          <p className="text-3xl md:text-4xl font-primary font-bold tracking-tight leading-tight">
             Want to see how your competitors are ranking?
-          </h3>
+          </p>
 
           <p className="text-background/70 font-primary text-base leading-relaxed">
             Use our free SEO intelligence tool to uncover high-intent search gaps in your industry within 30 seconds.

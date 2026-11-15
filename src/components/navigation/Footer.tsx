@@ -263,9 +263,52 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright & Location Badge */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#93B2C8]">
-          <p>© {currentYear} VYOMA MEDIA. ALL RIGHTS RESERVED.</p>
+        {/* Bottom Bar: Copyright, Verified Profiles & Location Badge */}
+        <div className="mt-8 pt-6 border-t border-[#7899B0]/20 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-[#93B2C8]">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+            <p>© {currentYear} VYOMA MEDIA. ALL RIGHTS RESERVED.</p>
+            <span className="hidden sm:inline text-[#7899B0]/40">|</span>
+            <div className="flex items-center gap-3">
+              <a
+                href={siteConfig.socials.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+                aria-label="VYOMA Media on LinkedIn"
+              >
+                LinkedIn ↗
+              </a>
+              <span className="text-[#7899B0]/40">·</span>
+              <a
+                href={siteConfig.socials.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+                aria-label="VYOMA Media on X"
+              >
+                X (Twitter) ↗
+              </a>
+              <span className="text-[#7899B0]/40">·</span>
+              <a
+                href={siteConfig.socials.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+                aria-label="VYOMA Media on GitHub"
+              >
+                GitHub ↗
+              </a>
+              <span className="text-[#7899B0]/40">·</span>
+              <a
+                href="/feed.xml"
+                target="_blank"
+                className="hover:text-[#D3A56C] transition-colors"
+                aria-label="VYOMA Media RSS Feed"
+              >
+                RSS Feed
+              </a>
+            </div>
+          </div>
           <p className="tracking-widest uppercase text-[10px]">
             GROWTH YOU OWN, NOT GROWTH YOU RENT · HYDERABAD, INDIA
           </p>
