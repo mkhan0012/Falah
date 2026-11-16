@@ -23,7 +23,9 @@ export async function GET() {
 
   return new Response(rssFeed, {
     headers: {
-      "Content-Type": "text/xml",
+      "Content-Type": "application/rss+xml; charset=utf-8",
+      "X-Robots-Tag": "noindex, follow",
+      "Cache-Control": "public, max-age=3600, s-maxage=86400",
     },
   });
 }

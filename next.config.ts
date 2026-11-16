@@ -52,8 +52,40 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.vyomamedia.co.in',
+          },
+        ],
+        destination: 'https://vyomamedia.co.in/:path*',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
+      {
+        source: '/feed.xml',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/rss+xml; charset=utf-8',
+          },
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, follow',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400',
+          },
+        ],
+      },
       {
         source: '/llms.txt',
         headers: [
