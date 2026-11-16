@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     description:
       "Stop renting attention on paid ad treadmills. We engineer compounding organic digital marketing, Next.js web applications, and AI search discoverability for Hyderabad enterprises.",
     url: "https://vyomamedia.co.in/digital-marketing-agency-hyderabad",
-    siteName: "VYOMA Media",
+    siteName: "Vyoma Media",
     locale: "en_IN",
     type: "website",
   },

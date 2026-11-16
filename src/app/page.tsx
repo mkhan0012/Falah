@@ -1,4 +1,5 @@
 ﻿import { Metadata } from "next";
+import { generateWebsiteSchema } from "@/lib/seo";
 import VyomaHero from "@/components/sections/VyomaHero";
 import VyomaTicker from "@/components/sections/VyomaTicker";
 import VyomaGrowthSystem from "@/components/sections/VyomaGrowthSystem";
@@ -33,24 +34,14 @@ export const metadata: Metadata = {
     description:
       "We build brands, digital experiences, and organic visibility that create lasting value. Growth you own, not growth you rent. Based in Hyderabad, India.",
     url: "https://vyomamedia.co.in",
-    siteName: "VYOMA Media",
+    siteName: "Vyoma Media",
     locale: "en_IN",
     type: "website",
   },
 };
 
 export default function Home() {
-  const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "VYOMA Media",
-    url: "https://vyomamedia.co.in",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://vyomamedia.co.in/keyword-tool?q={search_term_string}",
-      "query-input": "required name=search_term_string",
-    },
-  };
+  const websiteSchema = generateWebsiteSchema();
 
   return (
     <>

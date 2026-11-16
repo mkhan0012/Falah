@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     description:
       "Dominate category search across Google and AI Answer Engines. We engineer high-velocity SEO and GEO pipelines that put your brand directly in front of enterprise B2B buyers.",
     url: "https://vyomamedia.co.in/seo-agency-hyderabad",
-    siteName: "VYOMA Media",
+    siteName: "Vyoma Media",
     locale: "en_IN",
     type: "website",
   },

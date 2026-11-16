@@ -1,6 +1,28 @@
 import { siteConfig } from "@/config/site";
 import { FaqItem } from "@/data/faqs";
 
+export function generateWebsiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${siteConfig.url}/#website`,
+    name: "Vyoma Media",
+    alternateName: ["VYOMA Media", "Vyoma", "VYOMA"],
+    url: `${siteConfig.url}/`,
+    publisher: {
+      "@id": `${siteConfig.url}/#localbusiness`,
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${siteConfig.url}/keyword-tool?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+}
+
 export function generateLocalBusinessSchema(options?: {
   title?: string;
   description?: string;

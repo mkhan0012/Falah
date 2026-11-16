@@ -81,10 +81,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/icon-192x192.png", sizes: "192x192", type: "image/png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
     ],
     shortcut: "/favicon.ico",
     apple: [
@@ -96,7 +99,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: "https://vyomamedia.co.in",
-    siteName: "VYOMA Media",
+    siteName: "Vyoma Media",
     title: "VYOMA Media | Branding, Web Design & SEO Studio Hyderabad",
     description:
       "We build brands, digital experiences, and organic visibility that create lasting value. Growth you own, not growth you rent. Based in Hyderabad, India.",
@@ -158,6 +161,12 @@ export default function RootLayout({
           title="VYOMA Media Insights"
           href="/feed.xml"
         />
+        {/* Google Search & Cross-Platform Favicons (multiple-of-48px standard for Googlebot-Image) */}
+        <link rel="icon" type="image/png" sizes="48x48" href="/icon-48x48.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/icon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/icon-192x192.png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

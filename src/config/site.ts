@@ -1,6 +1,6 @@
 export const siteConfig = {
-  name: "VYOMA Media",
-  shortName: "VYOMA",
+  name: "Vyoma Media",
+  shortName: "Vyoma",
   descriptor: "MEDIA",
   tagline: "GROWTH YOU OWN. NOT GROWTH YOU RENT.",
   supportingCopy:

@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description:
       "We engineer brand identities that command authority. Comprehensive brand strategy, editorial visual systems, and category positioning for ambitious businesses.",
     url: "https://vyomamedia.co.in/branding-studio-hyderabad",
-    siteName: "VYOMA Media",
+    siteName: "Vyoma Media",
     locale: "en_IN",
     type: "website",
   },

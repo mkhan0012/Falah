@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description:
       "We design and engineer high-speed Next.js web applications focused on buyer psychology, sub-second latency, and qualified lead conversion.",
     url: "https://vyomamedia.co.in/web-design-company-hyderabad",
-    siteName: "VYOMA Media",
+    siteName: "Vyoma Media",
     locale: "en_IN",
     type: "website",
   },
