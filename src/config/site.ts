@@ -3,6 +3,8 @@ export const siteConfig = {
   shortName: "Vyoma",
   descriptor: "MEDIA",
   tagline: "GROWTH YOU OWN. NOT GROWTH YOU RENT.",
+  campaignTagline: "Be found. Be trusted. Be chosen.",
+  discoveryHook: "Your customer just Googled you. What did they find?",
   supportingCopy:
     "We build brands, digital experiences and organic visibility that create lasting commercial value.",
   positioning: "Branding · Web Design · Technology · Organic Growth",
@@ -28,11 +30,14 @@ export const siteConfig = {
     instagram: "https://www.instagram.com/vyomamedia.co.in",
   },
   colors: {
-    deepAtmosphere: "#172B3A",
+    brandNavy: "#02103D",
+    brandGold: "#FEB005",
+    brandBlue: "#1A73E8",
+    deepAtmosphere: "#0B1736",
     skySlate: "#7899B0",
     cloudWhite: "#F1F3F1",
     mistBlue: "#DCE6EB",
-    warmSand: "#D3A56C",
+    warmSand: "#FEB005",
     graphite: "#30383D",
   },
   growthSystem: [

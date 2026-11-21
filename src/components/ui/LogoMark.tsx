@@ -1,45 +1,32 @@
 import React from "react";
+import Image from "next/image";
 
 interface LogoMarkProps {
   className?: string;
-  variant?: "light" | "dark" | "accent" | "monochrome";
+  variant?: "light" | "dark" | "accent" | "monochrome" | "gradient";
   size?: number;
 }
 
 /**
- * VYOMA Geometric V Monogram
- * Inspired by horizon, elevation, and atmospheric openness.
- * Precision architectural facets forming an elevated V with a clean horizon aperture.
+ * VYOMA Official Monogram
+ * Iconic rounded V crowned by the radiant golden sun circle.
+ * Exact geometry and proportions matching the official brand mark.
  */
 export default function LogoMark({
   className = "w-6 h-6",
   variant = "dark",
   size,
 }: LogoMarkProps) {
-  // Color logic based on variant
-  // "dark": for light backgrounds (Deep Atmosphere icon)
-  // "light": for dark backgrounds (Cloud White / Sky Slate icon)
-  // "accent": Sky Slate primary
-  // "monochrome": currentColor
   const isLight = variant === "light";
-  const isAccent = variant === "accent";
   const isMono = variant === "monochrome";
+  const isGradient = variant === "gradient";
 
-  const primaryColor = isMono
+  // Brand Colors
+  const vColor = isMono
     ? "currentColor"
     : isLight
-    ? "#F1F3F1"
-    : isAccent
-    ? "#7899B0"
-    : "#172B3A";
-
-  const secondaryColor = isMono
-    ? "currentColor"
-    : isLight
-    ? "#7899B0"
-    : "#7899B0";
-
-  const accentColor = isMono ? "currentColor" : "#D3A56C"; // Warm Sand
+    ? "#FFFFFF"
+    : "#0B1736";
 
   return (
     <svg
@@ -48,82 +35,115 @@ export default function LogoMark({
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       style={size ? { width: size, height: size } : undefined}
-      aria-label="VYOMA Media Monogram"
+      aria-label="VYOMA Media Official Monogram"
     >
-      {/* Horizon Datum Line: Precision horizontal segment crossing the aperture */}
-      <line
-        x1="18"
-        y1="46"
-        x2="82"
-        y2="46"
-        stroke={secondaryColor}
-        strokeWidth="2.5"
-        strokeDasharray="4 4"
-        strokeOpacity={isLight ? "0.6" : "0.5"}
-        strokeLinecap="round"
-      />
+      <defs>
+        {/* Subtle 3D gradient for high-fidelity brand presentation */}
+        <linearGradient id="vyomaSunGrad" x1="50" y1="11" x2="50" y2="33" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#FFC805" />
+          <stop offset="100%" stopColor="#FE9B00" />
+        </linearGradient>
 
-      {/* Left Wing of V Monogram: Solid anchor ascending from apex */}
-      <path
-        d="M 50 86 L 22 24 L 35 24 L 50 63 L 50 86 Z"
-        fill={primaryColor}
-      />
+        <linearGradient id="vyomaVGradDark" x1="26" y1="40" x2="74" y2="84" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#0B1D47" />
+          <stop offset="50%" stopColor="#061233" />
+          <stop offset="100%" stopColor="#02091F" />
+        </linearGradient>
 
-      {/* Right Wing of V Monogram: Elevated ascending beacon reaching higher */}
-      <path
-        d="M 50 86 L 50 63 L 65 24 L 78 14 L 62 86 Z"
-        fill={secondaryColor}
-      />
+        <linearGradient id="vyomaVGradLight" x1="26" y1="40" x2="74" y2="84" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#FFFFFF" />
+          <stop offset="100%" stopColor="#EEF2F6" />
+        </linearGradient>
+      </defs>
 
-      {/* Horizon Aperture Keystone: Geometric chevron emphasizing elevation */}
-      <polygon
-        points="50,46 59,24 50,30 41,24"
-        fill={primaryColor}
-        opacity={isLight ? "0.9" : "0.85"}
-      />
-
-      {/* Subtle Warm Sand Elevation Marker: At the apex of the horizon aperture */}
+      {/* Radiant Golden Sun / Sphere (Surya beacon) */}
       <circle
         cx="50"
-        cy="46"
-        r="3"
-        fill={accentColor}
+        cy="22"
+        r="11"
+        fill={isMono ? "currentColor" : "url(#vyomaSunGrad)"}
+      />
+
+      {/* Smooth Rounded V Mark */}
+      <path
+        d="M 26.5 40.5 L 50 83 L 73.5 40.5"
+        fill="none"
+        stroke={
+          isMono
+            ? "currentColor"
+            : isGradient
+            ? isLight
+              ? "url(#vyomaVGradLight)"
+              : "url(#vyomaVGradDark)"
+            : vColor
+        }
+        strokeWidth="13.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
 }
 
 /**
- * Reusable full brand mark: V monogram + VYOMA wordmark + MEDIA descriptor
+ * Reusable full brand mark:
+ * Official V + Sun Monogram + "vyoma" Wordmark + "— MEDIA —" Subtitle
  */
 export function VyomaBrandLogo({
   variant = "dark",
   className = "",
   orientation = "horizontal",
+  useImage = false,
 }: {
   variant?: "light" | "dark";
   className?: string;
   orientation?: "horizontal" | "stacked";
+  useImage?: boolean;
 }) {
   const isLight = variant === "light";
-  const textColor = isLight ? "text-[#F1F3F1]" : "text-[#172B3A]";
-  const descriptorColor = isLight ? "text-[#93B2C8]" : "text-[#3B5B72]";
+  const textColor = isLight ? "text-white" : "text-[#0B1736]";
+
+  if (useImage) {
+    const src = isLight ? "/vyoma-logo-white.png" : "/vyoma-logo.png";
+    return (
+      <div className={`relative inline-block ${className}`}>
+        <Image
+          src={src}
+          alt="Vyoma Media"
+          width={280}
+          height={84}
+          priority
+          className="h-8 sm:h-9 w-auto object-contain"
+        />
+      </div>
+    );
+  }
 
   if (orientation === "stacked") {
     return (
-      <div className={`flex flex-col items-center text-center gap-2 ${className}`}>
-        <LogoMark variant={variant} className="w-10 h-10" />
+      <div className={`flex flex-col items-center text-center gap-2.5 ${className}`}>
+        <div
+          className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all ${
+            isLight
+              ? "bg-[#061233] border border-white/10 shadow-lg shadow-black/20"
+              : "bg-white border border-[#0B1736]/10 shadow-sm"
+          }`}
+        >
+          <LogoMark variant={variant} className="w-8 h-8" />
+        </div>
         <div className="flex flex-col items-center">
           <span
-            className={`font-display font-extrabold text-2xl tracking-[0.08em] leading-none ${textColor}`}
+            className={`font-display font-extrabold text-2xl tracking-[0.02em] leading-none ${textColor}`}
           >
-            VYOMA
+            vyoma
           </span>
-          <span
-            className={`font-mono text-[9px] tracking-[0.35em] uppercase mt-1 font-semibold ${descriptorColor}`}
-          >
-            MEDIA
-          </span>
+          <div className="flex items-center gap-1.5 mt-1">
+            <span className="w-3 h-[1px] bg-[#FEB005]" />
+            <span className="font-sans text-[10px] tracking-[0.35em] uppercase font-bold text-[#FEB005]">
+              MEDIA
+            </span>
+            <span className="w-3 h-[1px] bg-[#FEB005]" />
+          </div>
         </div>
       </div>
     );
@@ -132,30 +152,27 @@ export function VyomaBrandLogo({
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       <div
-        className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${
+        className={`w-9 h-9 sm:w-10 sm:h-10 rounded-2xl flex items-center justify-center transition-all ${
           isLight
-            ? "bg-[#172B3A] border border-[#7899B0]/40 shadow-inner"
-            : "bg-white border border-[#7899B0]/25 shadow-sm"
+            ? "bg-[#02103D] border border-white/15 shadow-md shadow-black/30"
+            : "bg-white border border-[#0B1736]/10 shadow-sm"
         }`}
       >
-        <LogoMark variant={variant} className="w-5 h-5" />
+        <LogoMark variant={variant} className="w-6 h-6 sm:w-6.5 sm:h-6.5" />
       </div>
-      <div className="flex flex-col">
-        <div className="flex items-baseline gap-1.5 leading-none">
-          <span
-            className={`font-display font-extrabold text-lg tracking-[0.04em] ${textColor}`}
-          >
-            VYOMA
-          </span>
-          <span
-            className={`font-mono text-[10px] tracking-[0.25em] font-semibold uppercase ${descriptorColor}`}
-          >
+      <div className="flex flex-col justify-center">
+        <span
+          className={`font-display font-extrabold text-lg sm:text-xl tracking-[0.02em] leading-tight ${textColor}`}
+        >
+          vyoma
+        </span>
+        <div className="flex items-center gap-1.5 mt-0.5">
+          <span className="w-3 h-[1.5px] bg-[#FEB005]" />
+          <span className="font-sans text-[9px] sm:text-[10px] tracking-[0.3em] font-extrabold text-[#FEB005] uppercase leading-none">
             MEDIA
           </span>
+          <span className="w-3 h-[1.5px] bg-[#FEB005]" />
         </div>
-        <span className={`text-[8px] font-mono tracking-widest ${descriptorColor} uppercase mt-0.5`}>
-          HYDERABAD · EST. 2025
-        </span>
       </div>
     </div>
   );

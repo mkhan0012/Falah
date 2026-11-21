@@ -13,7 +13,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { generateLocalBusinessSchema } from "@/lib/seo";
 
 export const viewport: Viewport = {
-  themeColor: "#172B3A",
+  themeColor: "#02103D",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,

@@ -51,7 +51,7 @@ export default function VyomaHero() {
           <div className="flex items-center gap-2.5 hero-stagger">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7899B0] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D3A56C]"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FEB005]"></span>
             </span>
             <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#DCE6EB] font-semibold">
               HYDERABAD · INDIA · EST. 2025
@@ -61,8 +61,8 @@ export default function VyomaHero() {
           {/* Luxury Executive Client Intake Allocation Badge */}
           <div className="flex items-center gap-3 hero-stagger">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-[#7899B0]/30 text-[11px] font-mono text-[#DCE6EB] backdrop-blur-md shadow-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#D3A56C] animate-pulse" />
-              <span className="font-bold text-[#D3A56C]">Q4 / Q1 INTAKE:</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FEB005] animate-pulse" />
+              <span className="font-bold text-[#FEB005]">Q4 / Q1 INTAKE:</span>
               <span className="text-[#DCE6EB]">2 OF 3 ENGAGEMENTS ALLOCATED</span>
             </div>
             <div className="hidden xl:flex items-center gap-2 text-xs font-mono text-[#93B2C8]">
@@ -78,7 +78,7 @@ export default function VyomaHero() {
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-[#7899B0]/30 text-[#DCE6EB] text-xs font-mono font-bold tracking-widest uppercase shadow-inner hero-stagger">
-                <Sparkles size={12} className="text-[#D3A56C]" />
+                <Sparkles size={12} className="text-[#FEB005]" />
                 <span>BRANDING · WEB DESIGN · SEO STUDIO // HYDERABAD</span>
               </div>
 
@@ -126,7 +126,7 @@ export default function VyomaHero() {
 
             {/* Core Web Vitals Benchmark Verified Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/[0.04] border border-[#7899B0]/25 text-[11px] font-mono text-[#DCE6EB] hero-stagger">
-              <span className="text-[#D3A56C] font-bold flex items-center gap-1">
+              <span className="text-[#FEB005] font-bold flex items-center gap-1">
                 <span>⚡</span> 100/100 Core Web Vitals
               </span>
               <span className="text-[#93B2C8]">·</span>
@@ -142,7 +142,7 @@ export default function VyomaHero() {
                 <div className="text-[10px] font-mono uppercase text-[#93B2C8]">Owned Equity</div>
               </div>
               <div>
-                <div className="text-lg sm:text-2xl font-mono font-bold text-[#D3A56C]">0 ₹</div>
+                <div className="text-lg sm:text-2xl font-mono font-bold text-[#FEB005]">0 ₹</div>
                 <div className="text-[10px] font-mono uppercase text-[#93B2C8]">Rented Dependency</div>
               </div>
               <div>
@@ -164,15 +164,15 @@ export default function VyomaHero() {
               <div className="relative z-10 space-y-6">
                 <div className="flex items-center justify-between pb-4 border-b border-[#7899B0]/20">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-2xl bg-[#172B3A] border border-[#7899B0]/40 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-2xl bg-[#02103D] border border-[#FEB005]/40 flex items-center justify-center shadow-lg shadow-black/40">
                       <LogoMark variant="light" className="w-6 h-6" />
                     </div>
                     <div>
-                      <span className="text-[10px] font-mono text-[#D3A56C] uppercase font-bold tracking-widest block">
-                        GEOMETRIC IDENTITY
+                      <span className="text-[10px] font-mono text-[#FEB005] uppercase font-bold tracking-widest block">
+                        OFFICIAL IDENTITY
                       </span>
                       <div className="font-display font-bold text-lg text-[#F1F3F1]">
-                        THE HORIZON MARK
+                        THE VYOMA ASCENT MARK
                       </div>
                     </div>
                   </div>
@@ -182,38 +182,38 @@ export default function VyomaHero() {
                 {/* Vector Horizon Composition */}
                 <div className="py-6 flex flex-col items-center justify-center relative">
                   <div className="w-32 h-32 sm:w-40 sm:h-40 relative flex items-center justify-center">
-                    {/* Concentric Horizon Elevation Rings */}
-                    <div className="absolute inset-0 rounded-full border border-[#7899B0]/25 animate-[spin_40s_linear_infinite]" />
+                    {/* Concentric Elevation Orbit Rings */}
+                    <div className="absolute inset-0 rounded-full border border-[#FEB005]/20 animate-[spin_40s_linear_infinite]" />
                     <div className="absolute inset-3 rounded-full border border-dashed border-[#7899B0]/40" />
-                    <div className="absolute inset-8 rounded-full bg-[#172B3A] border border-[#7899B0]/50 shadow-inner flex items-center justify-center">
+                    <div className="absolute inset-8 rounded-full bg-[#02103D] border border-[#FEB005]/50 shadow-[0_0_30px_rgba(254,176,5,0.2)] flex items-center justify-center">
                       <LogoMark variant="light" className="w-16 h-16 group-hover:scale-110 transition-transform duration-500" />
                     </div>
                   </div>
 
-                  {/* Horizontal Datum Line indicator */}
+                  {/* Campaign Core Mantra indicator */}
                   <div className="w-full flex items-center gap-2 mt-6">
-                    <span className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#7899B0] to-transparent" />
-                    <span className="text-[9px] font-mono tracking-widest text-[#D3A56C] uppercase font-bold px-2 py-0.5 rounded bg-white/5 border border-[#7899B0]/20">
-                      HORIZON DATUM // OPENNESS
+                    <span className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#FEB005] to-transparent" />
+                    <span className="text-[9px] font-mono tracking-widest text-[#FEB005] uppercase font-bold px-2 py-0.5 rounded bg-white/5 border border-[#FEB005]/30">
+                      BE FOUND · BE TRUSTED · BE CHOSEN
                     </span>
-                    <span className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#7899B0] to-transparent" />
+                    <span className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#FEB005] to-transparent" />
                   </div>
                 </div>
 
                 {/* Strategic Principle Statement */}
-                <div className="p-4 rounded-2xl bg-[#172B3A]/80 border border-[#7899B0]/25 space-y-2">
+                <div className="p-4 rounded-2xl bg-[#02103D]/90 border border-[#FEB005]/20 space-y-2">
                   <div className="flex items-center justify-between text-xs font-mono text-[#DCE6EB]">
-                    <span className="font-bold">STUDIO ARCHITECTURE</span>
-                    <span className="text-[#D3A56C]">HYDERABAD</span>
+                    <span className="font-bold text-[#F1F3F1]">THE DISCOVERY QUESTION</span>
+                    <span className="text-[#FEB005]">HYDERABAD</span>
                   </div>
                   <p className="text-xs text-[#DCE6EB] leading-relaxed">
-                    Designed around the openness and expansiveness of the sky, combined with the precision of modern technology, strategic positioning, and Swiss editorial design.
+                    &quot;Your customer just Googled you. What did they find?&quot; We architect the visual identity, sub-second web platform, and compounding search authority that turn search intent into high-margin contracts.
                   </p>
                 </div>
 
                 <div className="pt-2 flex items-center justify-between text-[11px] font-mono text-[#93B2C8]">
-                  <span>STRATEGY · DESIGN · TECH · GROWTH</span>
-                  <span className="text-[#F1F3F1]">VERIFIED ENGINE</span>
+                  <span>STRATEGY · BRAND · WEB · SEO</span>
+                  <span className="text-[#FEB005] font-bold">100% OWNED EQUITY</span>
                 </div>
               </div>
             </div>

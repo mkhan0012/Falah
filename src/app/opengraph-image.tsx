@@ -41,19 +41,29 @@ export default async function Image() {
         {/* Top Header Row */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-            {/* V Monogram */}
-            <svg width="48" height="48" viewBox="0 0 40 40" fill="none">
-              <polygon points="4,8 20,34 36,8 30,8 20,24 10,8" fill="#F1F3F1" />
-              <line x1="2" y1="20" x2="38" y2="20" stroke="#7899B0" strokeWidth="2" strokeDasharray="3 3" />
-              <polygon points="17,8 20,4 23,8" fill="#D3A56C" />
+            {/* Official Vyoma Monogram */}
+            <svg width="48" height="48" viewBox="0 0 100 100" fill="none">
+              <circle cx="50" cy="22" r="11" fill="#FEB005" />
+              <path
+                d="M 26.5 40.5 L 50 83 L 73.5 40.5"
+                fill="none"
+                stroke="#FFFFFF"
+                strokeWidth="13.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <span style={{ fontSize: 32, fontWeight: 900, letterSpacing: '0.2em', color: '#F1F3F1' }}>
-                VYOMA
+              <span style={{ fontSize: 32, fontWeight: 900, letterSpacing: '0.04em', color: '#F1F3F1' }}>
+                vyoma
               </span>
-              <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.45em', color: '#7899B0' }}>
-                MEDIA
-              </span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '2px' }}>
+                <span style={{ width: '12px', height: '1.5px', backgroundColor: '#FEB005' }} />
+                <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.35em', color: '#FEB005' }}>
+                  MEDIA
+                </span>
+                <span style={{ width: '12px', height: '1.5px', backgroundColor: '#FEB005' }} />
+              </div>
             </div>
           </div>
 
@@ -75,7 +85,7 @@ export default async function Image() {
 
         {/* Center / Hero Typography */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <div style={{ display: 'flex', fontSize: 16, letterSpacing: '0.3em', color: '#D3A56C', fontWeight: 700 }}>
+          <div style={{ display: 'flex', fontSize: 16, letterSpacing: '0.3em', color: '#FEB005', fontWeight: 700 }}>
             BRANDING · DIGITAL · ORGANIC GROWTH
           </div>
           <div

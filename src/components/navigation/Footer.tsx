@@ -30,7 +30,7 @@ export default function Footer() {
             </p>
 
             <div className="p-4 rounded-2xl bg-white/5 border border-[#7899B0]/25 space-y-1.5">
-              <div className="text-[11px] font-mono font-bold text-[#D3A56C] flex items-center gap-1.5 uppercase tracking-wider">
+              <div className="text-[11px] font-mono font-bold text-[#FEB005] flex items-center gap-1.5 uppercase tracking-wider">
                 <Sparkles size={12} />
                 <span>THE VYOMA GROWTH SYSTEM</span>
               </div>
@@ -47,9 +47,9 @@ export default function Footer() {
               <span>{siteConfig.contact.address}</span>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-[#7899B0]/30 text-[11px] font-mono text-[#DCE6EB]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#93B2C8] animate-pulse" />
-              <span>Growth You Own // Direct Strategic Engagements</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FEB005]/10 border border-[#FEB005]/30 text-[11px] font-mono text-[#FEB005]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FEB005] animate-pulse" />
+              <span>Be found · Be trusted · Be chosen</span>
             </div>
           </div>
 
@@ -84,9 +84,9 @@ export default function Footer() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#D3A56C] transition-colors flex items-center gap-2.5 font-semibold text-white group"
+                  className="hover:text-[#FEB005] transition-colors flex items-center gap-2.5 font-semibold text-white group"
                 >
-                  <MessageSquare size={15} className="text-[#93B2C8] group-hover:text-[#D3A56C]" />
+                  <MessageSquare size={15} className="text-[#93B2C8] group-hover:text-[#FEB005]" />
                   <span>WhatsApp Direct Line ↗</span>
                 </a>
               </li>
@@ -154,10 +154,10 @@ export default function Footer() {
               <li>
                 <TransitionLink
                   href="/keyword-tool"
-                  className="text-[#D3A56C] hover:text-white transition-colors inline-flex items-center gap-1.5 font-mono text-xs"
+                  className="text-[#FEB005] hover:text-white transition-colors inline-flex items-center gap-1.5 font-mono text-xs"
                 >
                   <span>Free SEO Keyword Intelligence</span>
-                  <span className="text-[9px] font-bold bg-[#7899B0]/20 text-[#D3A56C] px-1.5 py-0.5 rounded border border-[#7899B0]/30">
+                  <span className="text-[9px] font-bold bg-[#7899B0]/20 text-[#FEB005] px-1.5 py-0.5 rounded border border-[#7899B0]/30">
                     FREE
                   </span>
                 </TransitionLink>
@@ -193,7 +193,7 @@ export default function Footer() {
                   </TransitionLink>
                 </li>
                 <li>
-                  <TransitionLink href="/contact" className="text-white hover:text-[#D3A56C] font-semibold transition-colors flex items-center gap-1">
+                  <TransitionLink href="/contact" className="text-white hover:text-[#FEB005] font-semibold transition-colors flex items-center gap-1">
                     <span>Start a Project</span>
                     <ArrowUpRight size={14} />
                   </TransitionLink>
@@ -202,8 +202,8 @@ export default function Footer() {
             </div>
 
             <div className="pt-1">
-              <p className="text-xs font-mono font-bold tracking-widest text-[#D3A56C] uppercase mb-3 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D3A56C]" />
+              <p className="text-xs font-mono font-bold tracking-widest text-[#FEB005] uppercase mb-3 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FEB005]" />
                 <span>HYDERABAD HUBS</span>
               </p>
               <ul className="space-y-2 text-xs text-[#DCE6EB]">
@@ -302,7 +302,7 @@ export default function Footer() {
               <a
                 href="/feed.xml"
                 target="_blank"
-                className="hover:text-[#D3A56C] transition-colors"
+                className="hover:text-[#FEB005] transition-colors"
                 aria-label="VYOMA Media RSS Feed"
               >
                 RSS Feed

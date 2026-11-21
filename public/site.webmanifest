@@ -4,8 +4,8 @@
   "description": "Branding, Web Design & Organic Growth Studio Hyderabad",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#172B3A",
-  "theme_color": "#172B3A",
+  "background_color": "#02103D",
+  "theme_color": "#02103D",
   "icons": [
     {
       "src": "/icon-48x48.png",

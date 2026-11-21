@@ -95,19 +95,23 @@ export default function Navbar() {
           {/* Left: Brand Monogram + Wordmark */}
           <div className="flex items-center gap-2.5 shrink-0">
             <TransitionLink href="/" className="flex items-center gap-2 group">
-              <div className="relative w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-full bg-[#172B3A] border border-[#7899B0]/40 flex items-center justify-center overflow-hidden group-hover:border-[#7899B0] group-hover:shadow-[0_0_15px_rgba(120,153,176,0.35)] transition-all">
-                <LogoMark variant="light" className="w-4.5 h-4.5 group-hover:scale-105 transition-transform" />
+              <div className="relative w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-2xl bg-[#02103D] border border-[#FEB005]/30 flex items-center justify-center overflow-hidden group-hover:border-[#FEB005] group-hover:shadow-[0_0_15px_rgba(254,176,5,0.35)] transition-all">
+                <LogoMark variant="light" className="w-5 h-5 group-hover:scale-105 transition-transform" />
               </div>
               <div className="flex flex-col">
                 <div className="flex items-baseline gap-1.5 leading-none">
-                  <span className="font-display font-extrabold text-sm sm:text-base tracking-[0.04em] text-[#172B3A]">
-                    VYOMA
+                  <span className="font-display font-extrabold text-sm sm:text-base tracking-[0.02em] text-[#0B1736]">
+                    vyoma
                   </span>
-                  <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.25em] font-bold text-[#3B5B72] uppercase">
-                    MEDIA
-                  </span>
+                  <div className="flex items-center gap-1">
+                    <span className="w-2 h-[1px] bg-[#FEB005]" />
+                    <span className="font-sans text-[8.5px] sm:text-[9.5px] tracking-[0.25em] font-extrabold text-[#FEB005] uppercase">
+                      MEDIA
+                    </span>
+                    <span className="w-2 h-[1px] bg-[#FEB005]" />
+                  </div>
                 </div>
-                <span className="text-[7.5px] sm:text-[8px] font-mono tracking-widest text-[#3B5B72] uppercase mt-0.5 hidden min-[400px]:inline-block">
+                <span className="text-[7.5px] sm:text-[8px] font-mono tracking-widest text-[#7899B0] uppercase mt-0.5 hidden min-[400px]:inline-block">
                   HYDERABAD · EST. 2025
                 </span>
               </div>

@@ -2,32 +2,35 @@
 
 @theme {
   /* VYOMA Official Color Palette */
-  --color-deep-atmosphere: #172B3A;
+  --color-brand-navy: #0B1736;
+  --color-brand-gold: #FEB005;
+  --color-brand-blue: #1A73E8;
+  --color-deep-atmosphere: #0B1736;
   --color-sky-slate: #7899B0;
   --color-cloud-white: #F1F3F1;
   --color-mist-blue: #DCE6EB;
-  --color-warm-sand: #D3A56C;
+  --color-warm-sand: #FEB005;
   --color-graphite: #30383D;
 
   /* Semantic Theme Mappings */
   --color-canvas: #F1F3F1;
   --color-background: #F1F3F1;
-  --color-foreground: #172B3A;
-  --color-primary: #172B3A;
+  --color-foreground: #0B1736;
+  --color-primary: #0B1736;
   --color-accent: #7899B0;
   --color-accent-subtle: #DCE6EB;
-  --color-accent-warm: #D3A56C;
+  --color-accent-warm: #FEB005;
   --color-body: #30383D;
   --color-muted: #7899B0;
 
   /* Card and Surface Shades */
   --color-surface-white: #FFFFFF;
   --color-surface-soft: #DCE6EB;
-  --color-surface-dark: #172B3A;
+  --color-surface-dark: #0B1736;
 
   /* Backward-compatible Theme Aliases */
-  --color-charcoal: #172B3A;
-  --color-vermilion: #D3A56C;
+  --color-charcoal: #0B1736;
+  --color-vermilion: #FEB005;
   --color-warm-grey: #DCE6EB;
   --color-ivory: #F1F3F1;
   --color-slate: #7899B0;
@@ -42,25 +45,28 @@
 
 @layer base {
   :root {
-    --deep-atmosphere: #172B3A;
+    --brand-navy: #0B1736;
+    --brand-gold: #FEB005;
+    --brand-blue: #1A73E8;
+    --deep-atmosphere: #0B1736;
     --sky-slate: #7899B0;
     --cloud-white: #F1F3F1;
     --mist-blue: #DCE6EB;
-    --warm-sand: #D3A56C;
+    --warm-sand: #FEB005;
     --graphite: #30383D;
 
     --bg-main: #F1F3F1;
-    --bg-dark: #172B3A;
+    --bg-dark: #0B1736;
     --bg-soft: #DCE6EB;
     --bg-card: #FFFFFF;
-    --text-heading: #172B3A;
+    --text-heading: #0B1736;
     --text-body: #30383D;
     --text-muted: #7899B0;
     --border-color: rgba(120, 153, 176, 0.22);
-    --border-strong: rgba(23, 43, 58, 0.15);
+    --border-strong: rgba(11, 23, 54, 0.15);
 
     --background: #F1F3F1;
-    --foreground: #172B3A;
+    --foreground: #0B1736;
   }
 
   html {

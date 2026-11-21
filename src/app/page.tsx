@@ -2,6 +2,7 @@
 import { generateWebsiteSchema } from "@/lib/seo";
 import VyomaHero from "@/components/sections/VyomaHero";
 import VyomaTicker from "@/components/sections/VyomaTicker";
+import VyomaGoogleDiscovery from "@/components/sections/VyomaGoogleDiscovery";
 import VyomaGrowthSystem from "@/components/sections/VyomaGrowthSystem";
 import VyomaBelief from "@/components/sections/VyomaBelief";
 import VyomaWhyGrowthWins from "@/components/sections/VyomaWhyGrowthWins";
@@ -54,6 +55,9 @@ export default function Home() {
 
       {/* Kinetic Infinite Tenet Ticker */}
       <VyomaTicker />
+
+      {/* THE DISCOVERY REALITY CHECK (Your customer just Googled you. What did they find? / Be found. Be trusted. Be chosen.) */}
+      <VyomaGoogleDiscovery />
 
       {/* 2. THE VYOMA GROWTH SYSTEM (Interactive Visualization: Strategy → Brand → Digital → Visibility → Growth) */}
       <VyomaGrowthSystem />
