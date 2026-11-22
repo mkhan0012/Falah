@@ -83,11 +83,11 @@ export function generateLocalBusinessSchema(options?: {
     ],
     sameAs: [
       siteConfig.url,
-      siteConfig.socials.linkedin,
       siteConfig.socials.twitter,
       siteConfig.socials.github,
       siteConfig.socials.instagram,
-    ],
+      siteConfig.socials.linkedin,
+    ].filter(Boolean),
     knowsAbout: [
       "Brand Strategy & Category Positioning",
       "Next.js Web Development",

@@ -322,7 +322,7 @@ export default function InteractiveDeviceShowcase() {
         {/* Tactile Interaction Hint */}
         <div className="mt-8 z-10 text-center">
           <span className="text-[11px] font-mono text-[#93B2C8] uppercase tracking-wider flex items-center justify-center gap-1.5">
-            <span>✨</span>
+            <Sparkles size={12} className="text-[#FEB005]" />
             <span>Move cursor over device for 3D parallax spatial inspection</span>
           </span>
         </div>

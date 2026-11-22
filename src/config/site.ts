@@ -6,7 +6,7 @@ export const siteConfig = {
   campaignTagline: "Be found. Be trusted. Be chosen.",
   discoveryHook: "Your customer just Googled you. What did they find?",
   supportingCopy:
-    "We build brands, digital experiences and organic visibility that create lasting commercial value.",
+    "Growth you own, not growth you rent. VYOMA Media builds brands, high-performing websites and organic SEO visibility that create lasting commercial value.",
   positioning: "Branding · Web Design · Technology · Organic Growth",
   location: "Hyderabad, India",
   established: "2025",
@@ -24,7 +24,7 @@ export const siteConfig = {
     availability: "Q4 Intake Open // Strategy Consultations by Appointment",
   },
   socials: {
-    linkedin: "https://www.linkedin.com/company/vyoma-media",
+    linkedin: "",
     twitter: "https://x.com/vyomamedia",
     github: "https://github.com/mkhan0012/Falah",
     instagram: "https://www.instagram.com/vyomamedia.co.in",

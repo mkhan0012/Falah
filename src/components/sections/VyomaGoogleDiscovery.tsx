@@ -200,24 +200,26 @@ export default function VyomaGoogleDiscovery() {
               <button
                 type="button"
                 onClick={() => setActiveTab("before")}
-                className={`px-4 sm:px-5 py-2 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
+                className={`inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
                   activeTab === "before"
                     ? "bg-[#DC2626] text-white shadow-xs"
                     : "text-[#30383D] hover:text-[#0B1736]"
                 }`}
               >
-                ⚠️ WITHOUT VYOMA (LOST LEADS)
+                <AlertTriangle size={13} />
+                <span>WITHOUT VYOMA (LOST LEADS)</span>
               </button>
               <button
                 type="button"
                 onClick={() => setActiveTab("after")}
-                className={`px-4 sm:px-5 py-2 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
+                className={`inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
                   activeTab === "after"
                     ? "bg-[#0B1736] text-[#FEB005] shadow-xs"
                     : "text-[#30383D] hover:text-[#0B1736]"
                 }`}
               >
-                ✨ WITH VYOMA (CHOSEN)
+                <Check size={13} className="text-[#FEB005]" />
+                <span>WITH VYOMA (CHOSEN)</span>
               </button>
             </div>
 
@@ -329,7 +331,7 @@ export default function VyomaGoogleDiscovery() {
                                 : "text-amber-800"
                             }`}
                           >
-                            {activeTab === "before" ? "0" : "4.9 ★★★★★"}
+                            {activeTab === "before" ? "0" : "4.9 Rating"}
                           </span>
                         </div>
                       </div>

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import TransitionLink from "@/components/ui/TransitionLink";
-import { ArrowUpRight, ArrowRight, Sparkles } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Sparkles, Zap } from "lucide-react";
 import LogoMark from "@/components/ui/LogoMark";
 import gsap from "gsap";
 
@@ -126,8 +126,8 @@ export default function VyomaHero() {
 
             {/* Core Web Vitals Benchmark Verified Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/[0.04] border border-[#7899B0]/25 text-[11px] font-mono text-[#DCE6EB] hero-stagger">
-              <span className="text-[#FEB005] font-bold flex items-center gap-1">
-                <span>⚡</span> 100/100 Core Web Vitals
+              <span className="text-[#FEB005] font-bold flex items-center gap-1.5">
+                <Zap size={13} className="text-[#FEB005] fill-[#FEB005]/20" /> 100/100 Core Web Vitals
               </span>
               <span className="text-[#93B2C8]">·</span>
               <span>Sub-Second Next.js Load</span>

@@ -16,9 +16,9 @@ import VyomaFaq from "@/components/sections/VyomaFaq";
 import VyomaClosingCTA from "@/components/sections/VyomaClosingCTA";
 
 export const metadata: Metadata = {
-  title: "VYOMA Media | Branding, Web Design & SEO Studio Hyderabad",
+  title: "VYOMA Media | Branding, Web Design & SEO Studio in India",
   description:
-    "We build brands, digital experiences, and organic visibility that create lasting value. Growth you own, not growth you rent. Based in Hyderabad, India.",
+    "Growth you own, not growth you rent. VYOMA Media builds brands, high-performing websites and organic SEO visibility that create lasting commercial value.",
   alternates: {
     canonical: "https://vyomamedia.co.in",
     languages: {
@@ -26,14 +26,11 @@ export const metadata: Metadata = {
       "en": "https://vyomamedia.co.in",
       "x-default": "https://vyomamedia.co.in",
     },
-    types: {
-      "application/rss+xml": "https://vyomamedia.co.in/feed.xml",
-    },
   },
   openGraph: {
-    title: "VYOMA Media | Branding, Web Design & SEO Studio Hyderabad",
+    title: "VYOMA Media | Branding, Web Design & SEO Studio in India",
     description:
-      "We build brands, digital experiences, and organic visibility that create lasting value. Growth you own, not growth you rent. Based in Hyderabad, India.",
+      "Growth you own, not growth you rent. VYOMA Media builds brands, high-performing websites and organic SEO visibility that create lasting commercial value.",
     url: "https://vyomamedia.co.in",
     siteName: "Vyoma Media",
     locale: "en_IN",

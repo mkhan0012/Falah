@@ -2,6 +2,7 @@
 
 import TransitionLink from "@/components/ui/TransitionLink";
 import { ArrowUpRight, Sparkles, ArrowRight } from "lucide-react";
+import QuickLeadQuery from "@/components/forms/QuickLeadQuery";
 
 export default function VyomaClosingCTA() {
   return (
@@ -31,8 +32,13 @@ export default function VyomaClosingCTA() {
             Tell us what you’re building, where you want to go and what you need to achieve. We’ll review your digital footprint and provide an honest architectural assessment of where to start.
           </p>
 
-          {/* Action CTAs */}
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
+          {/* Direct Lead Query Form */}
+          <div className="pt-4 pb-2">
+            <QuickLeadQuery />
+          </div>
+
+          {/* Secondary Action Links */}
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
             <TransitionLink
               href="/contact"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#7899B0] hover:bg-[#F1F3F1] text-[#172B3A] font-mono font-bold text-sm tracking-wider uppercase transition-all shadow-[0_4px_30px_rgba(120,153,176,0.35)] group"

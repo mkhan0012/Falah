@@ -51,11 +51,11 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://vyomamedia.co.in"),
   title: {
-    default: "VYOMA Media | Branding, Web Design & SEO Studio Hyderabad",
+    default: "VYOMA Media | Branding, Web Design & SEO Studio in India",
     template: "%s | VYOMA Media",
   },
   description:
-    "We build brands, digital experiences, and organic visibility that create lasting value. Growth you own, not growth you rent. Based in Hyderabad, India.",
+    "Growth you own, not growth you rent. VYOMA Media builds brands, high-performing websites and organic SEO visibility that create lasting commercial value.",
   keywords: [
     "VYOMA Media",
     "branding agency Hyderabad",
@@ -75,34 +75,31 @@ export const metadata: Metadata = {
       "en": "https://vyomamedia.co.in",
       "x-default": "https://vyomamedia.co.in",
     },
-    types: {
-      "application/rss+xml": "https://vyomamedia.co.in/feed.xml",
-    },
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon-48x48.png", sizes: "48x48", type: "image/png" },
-      { url: "/icon-96x96.png", sizes: "96x96", type: "image/png" },
-      { url: "/icon-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon.svg?v=2", type: "image/svg+xml" },
+      { url: "/favicon.ico?v=2", sizes: "any" },
+      { url: "/icon-48x48.png?v=2", sizes: "48x48", type: "image/png" },
+      { url: "/icon-96x96.png?v=2", sizes: "96x96", type: "image/png" },
+      { url: "/icon-192x192.png?v=2", sizes: "192x192", type: "image/png" },
+      { url: "/favicon-32x32.png?v=2", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png?v=2", sizes: "16x16", type: "image/png" },
     ],
-    shortcut: "/favicon.ico",
+    shortcut: "/favicon.ico?v=2",
     apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.png?v=2", sizes: "180x180", type: "image/png" },
     ],
   },
-  manifest: "/site.webmanifest",
+  manifest: "/site.webmanifest?v=2",
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://vyomamedia.co.in",
     siteName: "Vyoma Media",
-    title: "VYOMA Media | Branding, Web Design & SEO Studio Hyderabad",
+    title: "VYOMA Media | Branding, Web Design & SEO Studio in India",
     description:
-      "We build brands, digital experiences, and organic visibility that create lasting value. Growth you own, not growth you rent. Based in Hyderabad, India.",
+      "Growth you own, not growth you rent. VYOMA Media builds brands, high-performing websites and organic SEO visibility that create lasting commercial value.",
     images: [
       {
         url: "/og-image.jpg",
@@ -114,9 +111,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "VYOMA Media | Branding, Web Design & SEO Studio Hyderabad",
+    title: "VYOMA Media | Branding, Web Design & SEO Studio in India",
     description:
-      "We build brands, digital experiences, and organic visibility that create lasting value. Growth you own, not growth you rent. Based in Hyderabad, India.",
+      "Growth you own, not growth you rent. VYOMA Media builds brands, high-performing websites and organic SEO visibility that create lasting commercial value.",
     images: ["/og-image.jpg"],
   },
   verification: {
@@ -146,27 +143,15 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className="scroll-smooth light">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700;800&display=swap"
-        />
-        <link
-          rel="alternate"
-          type="application/rss+xml"
-          title="VYOMA Media Insights"
-          href="/feed.xml"
-        />
-        {/* Google Search & Cross-Platform Favicons (multiple-of-48px standard for Googlebot-Image) */}
-        <link rel="icon" type="image/png" sizes="48x48" href="/icon-48x48.png" />
-        <link rel="icon" type="image/png" sizes="96x96" href="/icon-96x96.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/icon-192x192.png" />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        {/* Google Search & Cross-Platform Favicons (multiple-of-48px standard for Googlebot-Image & browser tabs) */}
+        <link rel="icon" type="image/svg+xml" href="/icon.svg?v=2" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/icon-48x48.png?v=2" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/icon-96x96.png?v=2" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/icon-192x192.png?v=2" />
+        <link rel="shortcut icon" href="/favicon.ico?v=2" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

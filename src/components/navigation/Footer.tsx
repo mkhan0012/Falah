@@ -270,16 +270,6 @@ export default function Footer() {
             <span className="hidden sm:inline text-[#7899B0]/40">|</span>
             <div className="flex items-center gap-3">
               <a
-                href={siteConfig.socials.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors"
-                aria-label="VYOMA Media on LinkedIn"
-              >
-                LinkedIn ↗
-              </a>
-              <span className="text-[#7899B0]/40">·</span>
-              <a
                 href={siteConfig.socials.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -297,15 +287,6 @@ export default function Footer() {
                 aria-label="VYOMA Media on GitHub"
               >
                 GitHub ↗
-              </a>
-              <span className="text-[#7899B0]/40">·</span>
-              <a
-                href="/feed.xml"
-                target="_blank"
-                className="hover:text-[#FEB005] transition-colors"
-                aria-label="VYOMA Media RSS Feed"
-              >
-                RSS Feed
               </a>
             </div>
           </div>
