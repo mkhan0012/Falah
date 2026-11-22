@@ -36,24 +36,42 @@ const navCategories = [
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const pathname = usePathname();
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Fluid sliding pill hover state
+  const navContainerRef = useRef<HTMLDivElement>(null);
+  const [hoveredPill, setHoveredPill] = useState<{
+    left: number;
+    width: number;
+    opacity: number;
+  }>({ left: 0, width: 0, opacity: 0 });
+
+  // Handle scroll compression & progress indicator
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const scrollY = window.scrollY;
+      setIsScrolled(scrollY > 20);
+
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        setScrollProgress(Math.min(100, Math.max(0, (scrollY / totalHeight) * 100)));
+      }
     };
-    window.addEventListener("scroll", handleScroll);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Gracefully close on route change
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setActiveDropdown(null);
     setMobileMenuOpen(false);
+    setHoveredPill((prev) => ({ ...prev, opacity: 0 }));
   }, [pathname]);
 
   // Clean timeout cleanup
@@ -79,11 +97,28 @@ export default function Navbar() {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
   };
 
+  const handleLinkHover = (e: React.MouseEvent<HTMLElement>) => {
+    if (!navContainerRef.current) return;
+    const parentRect = navContainerRef.current.getBoundingClientRect();
+    const itemRect = e.currentTarget.getBoundingClientRect();
+
+    setHoveredPill({
+      left: itemRect.left - parentRect.left,
+      width: itemRect.width,
+      opacity: 1,
+    });
+  };
+
+  const handleNavLeave = () => {
+    setHoveredPill((prev) => ({ ...prev, opacity: 0 }));
+    closeDropdown();
+  };
+
   return (
     <>
-      {/* Floating Pill Dock Navbar */}
+      {/* Floating Pill Dock Navbar (100% Matching Website Color Palette) */}
       <header
-        className={`fixed top-3 sm:top-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.5rem)] max-w-6xl transition-all duration-300 ${
+        className={`fixed top-3 sm:top-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.5rem)] max-w-6xl transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           isScrolled
             ? "shadow-[0_12px_40px_rgba(23,43,58,0.12)]"
             : "shadow-[0_4px_24px_rgba(23,43,58,0.06)]"
@@ -91,13 +126,27 @@ export default function Navbar() {
         onMouseEnter={cancelClose}
         onMouseLeave={closeDropdown}
       >
-        <div className="relative rounded-full backdrop-blur-2xl bg-[#F1F3F1]/95 border border-[#7899B0]/30 px-3.5 sm:px-5 py-2 sm:py-2.5 flex items-center justify-between gap-2 sm:gap-4 shadow-sm">
+        <div
+          className={`relative rounded-full backdrop-blur-2xl bg-[#F1F3F1]/95 border border-[#7899B0]/30 flex items-center justify-between gap-2 sm:gap-4 overflow-hidden transition-all duration-300 ${
+            isScrolled
+              ? "px-3.5 sm:px-4.5 py-1.5 sm:py-2 shadow-md"
+              : "px-4 sm:px-5 py-2 sm:py-2.5 shadow-sm"
+          }`}
+        >
+          {/* Subtle Bottom Scroll Progress Accent */}
+          <div
+            className="absolute bottom-0 left-0 h-[1.5px] bg-gradient-to-r from-[#7899B0]/40 via-[#FEB005] to-[#7899B0]/40 transition-all duration-150 ease-out pointer-events-none"
+            style={{ width: `${scrollProgress}%` }}
+            aria-hidden="true"
+          />
+
           {/* Left: Brand Monogram + Wordmark */}
           <div className="flex items-center gap-2.5 shrink-0">
-            <TransitionLink href="/" className="flex items-center gap-2 group">
-              <div className="relative w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-2xl bg-[#02103D] border border-[#FEB005]/30 flex items-center justify-center overflow-hidden group-hover:border-[#FEB005] group-hover:shadow-[0_0_15px_rgba(254,176,5,0.35)] transition-all">
-                <LogoMark variant="light" className="w-5 h-5 group-hover:scale-105 transition-transform" />
+            <TransitionLink href="/" className="flex items-center gap-2.5 group">
+              <div className="relative w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-2xl bg-[#02103D] border border-[#FEB005]/30 flex items-center justify-center overflow-hidden group-hover:border-[#FEB005] group-hover:shadow-[0_0_15px_rgba(254,176,5,0.35)] transition-all duration-300 group-hover:scale-105">
+                <LogoMark variant="light" className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
               </div>
+
               <div className="flex flex-col">
                 <div className="flex items-baseline gap-1.5 leading-none">
                   <span className="font-display font-extrabold text-sm sm:text-base tracking-[0.02em] text-[#0B1736]">
@@ -111,15 +160,33 @@ export default function Navbar() {
                     <span className="w-2 h-[1px] bg-[#FEB005]" />
                   </div>
                 </div>
-                <span className="text-[7.5px] sm:text-[8px] font-mono tracking-widest text-[#7899B0] uppercase mt-0.5 hidden min-[400px]:inline-block">
-                  HYDERABAD · EST. 2025
-                </span>
+                {!isScrolled && (
+                  <span className="text-[7.5px] sm:text-[8px] font-mono tracking-widest text-[#7899B0] uppercase mt-0.5 hidden min-[400px]:inline-block transition-opacity duration-300">
+                    INDIA · EST. 2025
+                  </span>
+                )}
               </div>
             </TransitionLink>
           </div>
 
-          {/* Center Navigation Links: STRATEGY · DESIGN · TECHNOLOGY · GROWTH · WORK · ABOUT · INSIGHTS */}
-          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1">
+          {/* Center Navigation Links with Fluid Sliding Pill Indicator */}
+          <nav
+            ref={navContainerRef}
+            onMouseLeave={handleNavLeave}
+            className="hidden lg:flex items-center gap-0.5 xl:gap-1 relative py-0.5"
+          >
+            {/* The Animated Sliding Background Pill */}
+            <div
+              className="absolute top-0.5 bottom-0.5 rounded-full bg-white shadow-xs border border-[#7899B0]/20 pointer-events-none transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
+              style={{
+                left: `${hoveredPill.left}px`,
+                width: `${hoveredPill.width}px`,
+                opacity: hoveredPill.opacity,
+                transform: hoveredPill.opacity ? "scale(1)" : "scale(0.95)",
+              }}
+              aria-hidden="true"
+            />
+
             {navCategories.map((cat) => {
               const isOpen = activeDropdown === cat.name;
               const isCategoryActive = pathname.startsWith(cat.path);
@@ -128,18 +195,18 @@ export default function Navbar() {
                 <div
                   key={cat.name}
                   className="relative"
-                  onMouseEnter={() => openDropdown(cat.name)}
-                  onMouseLeave={closeDropdown}
+                  onMouseEnter={(e) => {
+                    handleLinkHover(e);
+                    openDropdown(cat.name);
+                  }}
                 >
                   <button
                     type="button"
-                    onClick={() =>
-                      setActiveDropdown(isOpen ? null : cat.name)
-                    }
-                    className={`flex items-center gap-1 text-[11px] xl:text-xs font-mono font-semibold px-2.5 xl:px-3 py-1.5 rounded-full transition-all cursor-pointer ${
-                      isOpen || isCategoryActive
-                        ? "text-[#172B3A] bg-white shadow-xs font-bold"
-                        : "text-[#30383D] hover:text-[#172B3A] hover:bg-white/60"
+                    onClick={() => setActiveDropdown(isOpen ? null : cat.name)}
+                    className={`relative z-10 flex items-center gap-1 text-[11px] xl:text-xs font-mono font-semibold px-2.5 xl:px-3 py-1.5 rounded-full transition-all cursor-pointer ${
+                      isCategoryActive || isOpen
+                        ? "text-[#172B3A] font-bold"
+                        : "text-[#30383D] hover:text-[#172B3A]"
                     }`}
                   >
                     <span>{cat.name}</span>
@@ -154,38 +221,44 @@ export default function Navbar() {
               );
             })}
 
-            <TransitionLink
-              href="/work"
-              className={`text-[11px] xl:text-xs font-mono font-semibold px-2.5 xl:px-3 py-1.5 rounded-full transition-colors ${
-                pathname.startsWith("/work")
-                  ? "text-[#172B3A] bg-white shadow-xs font-bold"
-                  : "text-[#30383D] hover:text-[#172B3A] hover:bg-white/60"
-              }`}
-            >
-              WORK
-            </TransitionLink>
+            <div onMouseEnter={handleLinkHover}>
+              <TransitionLink
+                href="/work"
+                className={`relative z-10 inline-block text-[11px] xl:text-xs font-mono font-semibold px-2.5 xl:px-3 py-1.5 rounded-full transition-colors ${
+                  pathname.startsWith("/work")
+                    ? "text-[#172B3A] font-bold"
+                    : "text-[#30383D] hover:text-[#172B3A]"
+                }`}
+              >
+                WORK
+              </TransitionLink>
+            </div>
 
-            <TransitionLink
-              href="/about"
-              className={`text-[11px] xl:text-xs font-mono font-semibold px-2.5 xl:px-3 py-1.5 rounded-full transition-colors ${
-                pathname === "/about"
-                  ? "text-[#172B3A] bg-white shadow-xs font-bold"
-                  : "text-[#30383D] hover:text-[#172B3A] hover:bg-white/60"
-              }`}
-            >
-              ABOUT
-            </TransitionLink>
+            <div onMouseEnter={handleLinkHover}>
+              <TransitionLink
+                href="/about"
+                className={`relative z-10 inline-block text-[11px] xl:text-xs font-mono font-semibold px-2.5 xl:px-3 py-1.5 rounded-full transition-colors ${
+                  pathname === "/about"
+                    ? "text-[#172B3A] font-bold"
+                    : "text-[#30383D] hover:text-[#172B3A]"
+                }`}
+              >
+                ABOUT
+              </TransitionLink>
+            </div>
 
-            <TransitionLink
-              href="/insights"
-              className={`text-[11px] xl:text-xs font-mono font-semibold px-2.5 xl:px-3 py-1.5 rounded-full transition-colors ${
-                pathname.startsWith("/insights")
-                  ? "text-[#172B3A] bg-white shadow-xs font-bold"
-                  : "text-[#30383D] hover:text-[#172B3A] hover:bg-white/60"
-              }`}
-            >
-              INSIGHTS
-            </TransitionLink>
+            <div onMouseEnter={handleLinkHover}>
+              <TransitionLink
+                href="/insights"
+                className={`relative z-10 inline-block text-[11px] xl:text-xs font-mono font-semibold px-2.5 xl:px-3 py-1.5 rounded-full transition-colors ${
+                  pathname.startsWith("/insights")
+                    ? "text-[#172B3A] font-bold"
+                    : "text-[#30383D] hover:text-[#172B3A]"
+                }`}
+              >
+                INSIGHTS
+              </TransitionLink>
+            </div>
           </nav>
 
           {/* Right Action Buttons */}
@@ -193,27 +266,29 @@ export default function Navbar() {
             {/* Ghost RFP Button */}
             <TransitionLink
               href="/request-proposal"
-              className="hidden xl:inline-flex items-center text-[11px] font-mono font-semibold text-[#30383D] hover:text-[#172B3A] px-3 py-1.5 rounded-full border border-[#7899B0]/30 hover:border-[#172B3A] transition-all hover:bg-white/80"
+              className="hidden xl:inline-flex items-center text-[11px] font-mono font-semibold text-[#30383D] hover:text-[#172B3A] px-3 py-1.5 rounded-full border border-[#7899B0]/30 hover:border-[#172B3A] transition-all hover:bg-white/80 active:scale-95"
             >
               RFP
             </TransitionLink>
 
-            {/* Primary CTA: START A PROJECT ↗ */}
+            {/* Primary CTA: Matching Website Navy & White */}
             <TransitionLink
               href="/contact"
-              className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-mono font-bold bg-[#172B3A] text-[#F1F3F1] hover:bg-[#20394c] hover:shadow-[0_4px_20px_rgba(23,43,58,0.25)] px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full transition-all group shadow-[0_2px_10px_rgba(23,43,58,0.15)] border border-[#7899B0]/30 shrink-0"
+              className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-mono font-bold bg-[#172B3A] text-[#F1F3F1] hover:bg-[#0B1736] hover:shadow-[0_4px_20px_rgba(23,43,58,0.25)] px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full transition-all group shadow-[0_2px_10px_rgba(23,43,58,0.15)] border border-[#7899B0]/30 shrink-0 active:scale-95 hover:scale-[1.02]"
             >
+              {/* Subtle Warm Gold Accent Dot */}
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FEB005]" />
               <span>START A PROJECT</span>
               <ArrowUpRight
                 size={13}
-                className="text-[#93B2C8] group-hover:text-[#F1F3F1] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                className="text-[#93B2C8] group-hover:text-[#F1F3F1] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200"
               />
             </TransitionLink>
 
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-1.5 text-[#172B3A] hover:text-[#3B5B72] transition-colors cursor-pointer"
+              className="lg:hidden p-1.5 text-[#172B3A] hover:text-[#3B5B72] rounded-lg hover:bg-white/60 transition-colors cursor-pointer"
               aria-label="Toggle navigation"
             >
               {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -221,14 +296,14 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Desktop Dropdown Mega-Menu Panel with Seamless Hover Bridge */}
+        {/* Desktop Dropdown Mega-Menu (Clean Cloud White & Mist Palette) */}
         {activeDropdown && (
           <div
-            className="hidden lg:block absolute top-full left-0 right-0 pt-2 z-40 transition-all duration-200 before:absolute before:-top-3 before:inset-x-0 before:h-4 before:content-['']"
+            className="hidden lg:block absolute top-full left-0 right-0 pt-2 z-40 transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] before:absolute before:-top-3 before:inset-x-0 before:h-4 before:content-['']"
             onMouseEnter={cancelClose}
             onMouseLeave={closeDropdown}
           >
-            <div className="rounded-3xl bg-[#F1F3F1]/96 backdrop-blur-2xl border border-[#7899B0]/30 p-6 shadow-[0_20px_50px_rgba(23,43,58,0.16)]">
+            <div className="rounded-3xl bg-[#F1F3F1]/96 backdrop-blur-2xl border border-[#7899B0]/30 p-6 shadow-[0_20px_50px_rgba(23,43,58,0.16)] animate-in fade-in zoom-in-95 duration-200">
               {navCategories
                 .filter((c) => c.name === activeDropdown)
                 .map((cat) => (
@@ -238,7 +313,7 @@ export default function Navbar() {
                         <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#3B5B72] font-bold">
                           VYOMA DISCIPLINE
                         </span>
-                        <div className="text-xl font-display font-bold text-[#172B3A]">
+                        <div className="text-xl font-display font-extrabold text-[#172B3A]">
                           {cat.name}
                         </div>
                         <p className="text-xs text-[#30383D] mt-0.5 font-sans">
@@ -264,10 +339,10 @@ export default function Navbar() {
                             key={item.name}
                             href={item.href}
                             onClick={() => setActiveDropdown(null)}
-                            className={`group p-3.5 rounded-2xl bg-white border transition-all flex flex-col justify-between cursor-pointer ${
+                            className={`group p-3.5 rounded-2xl bg-white border transition-all duration-200 flex flex-col justify-between cursor-pointer hover:shadow-md hover:scale-[1.01] ${
                               isCurrent
                                 ? "border-[#172B3A] shadow-md ring-1 ring-[#172B3A]/15"
-                                : "border-[#7899B0]/20 hover:border-[#172B3A] hover:shadow-md"
+                                : "border-[#7899B0]/20 hover:border-[#172B3A]"
                             }`}
                           >
                             <div>
@@ -371,11 +446,11 @@ export default function Navbar() {
                 </TransitionLink>
               </div>
 
-              {/* Local Hyderabad Hubs for Instant Mobile Navigation & Crawl Discovery */}
+              {/* Local Regional Corridors */}
               <div className="pt-2">
                 <div className="text-[10px] font-mono font-bold tracking-widest text-[#D3A56C] uppercase mb-2 flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D3A56C]" />
-                  <span>HYDERABAD HUBS</span>
+                  <span>SPECIALIZED CORRIDORS</span>
                 </div>
                 <div className="grid grid-cols-1 gap-1.5">
                   <TransitionLink
@@ -383,7 +458,7 @@ export default function Navbar() {
                     onClick={() => setMobileMenuOpen(false)}
                     className="px-3.5 py-2 rounded-xl bg-white/5 border border-[#7899B0]/20 text-xs font-mono text-[#DCE6EB] hover:text-white flex items-center justify-between"
                   >
-                    <span>Digital Marketing Hyderabad</span>
+                    <span>Digital Marketing</span>
                     <ArrowUpRight size={13} className="text-[#93B2C8]" />
                   </TransitionLink>
                   <TransitionLink
@@ -391,7 +466,7 @@ export default function Navbar() {
                     onClick={() => setMobileMenuOpen(false)}
                     className="px-3.5 py-2 rounded-xl bg-white/5 border border-[#7899B0]/20 text-xs font-mono text-[#DCE6EB] hover:text-white flex items-center justify-between"
                   >
-                    <span>Web Design Hyderabad</span>
+                    <span>Web Design &amp; Systems</span>
                     <ArrowUpRight size={13} className="text-[#93B2C8]" />
                   </TransitionLink>
                   <TransitionLink
@@ -399,7 +474,7 @@ export default function Navbar() {
                     onClick={() => setMobileMenuOpen(false)}
                     className="px-3.5 py-2 rounded-xl bg-white/5 border border-[#7899B0]/20 text-xs font-mono text-[#DCE6EB] hover:text-white flex items-center justify-between"
                   >
-                    <span>SEO Agency Hyderabad</span>
+                    <span>SEO &amp; GEO Architecture</span>
                     <ArrowUpRight size={13} className="text-[#93B2C8]" />
                   </TransitionLink>
                   <TransitionLink
@@ -407,7 +482,7 @@ export default function Navbar() {
                     onClick={() => setMobileMenuOpen(false)}
                     className="px-3.5 py-2 rounded-xl bg-white/5 border border-[#7899B0]/20 text-xs font-mono text-[#DCE6EB] hover:text-white flex items-center justify-between"
                   >
-                    <span>Branding Studio Hyderabad</span>
+                    <span>Branding &amp; Positioning</span>
                     <ArrowUpRight size={13} className="text-[#93B2C8]" />
                   </TransitionLink>
                 </div>
@@ -426,7 +501,7 @@ export default function Navbar() {
             </TransitionLink>
 
             <div className="flex items-center justify-between text-[11px] font-mono text-[#93B2C8] pt-2">
-              <span>HYDERABAD · INDIA</span>
+              <span>STUDIO IN INDIA</span>
               <span>{siteConfig.contact.email}</span>
             </div>
           </div>
